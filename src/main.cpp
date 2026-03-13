@@ -13,6 +13,7 @@
 #include <LayerShellQt/window.h>
 #include "systeminfo.h"
 #include "appconfig.h"
+#include "configfiles.h"
 
 static QObject *g_root = nullptr;
 
@@ -40,6 +41,23 @@ static void onSigUsr1(int)
     );
 }
 
+static QStringList watchedFileVariants(const QString &path)
+{
+    QStringList paths;
+    if (!path.isEmpty()) {
+        paths << path;
+    }
+
+    QFileInfo info(path);
+    const QString canonical = info.canonicalFilePath();
+    if (!canonical.isEmpty()) {
+        paths << canonical;
+    }
+
+    paths.removeDuplicates();
+    return paths;
+}
+
 int main(int argc, char *argv[])
 {
     qputenv("QML_XHR_ALLOW_FILE_READ", "1");
@@ -48,9 +66,11 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     SystemInfo sys;
     AppConfig cfg;
+    ConfigFiles configFiles(&engine);
 
     engine.rootContext()->setContextProperty("SystemInfo", &sys);
     engine.rootContext()->setContextProperty("AppConfig", &cfg);
+    engine.rootContext()->setContextProperty("ConfigFiles", &configFiles);
     engine.loadFromModule("TopDash", "Main");
 
     if (engine.rootObjects().isEmpty())
@@ -84,16 +104,8 @@ int main(int argc, char *argv[])
         }
     }
 
-    auto canonicalOrOriginal = [](const QString &path) {
-        QFileInfo info(path);
-        QString real = info.canonicalFilePath();
-        return real.isEmpty() ? path : real;
-    };
-
-    QStringList watchedPaths{
-        canonicalOrOriginal(themePath),
-        canonicalOrOriginal(stylePath)
-    };
+    QStringList watchedPaths = watchedFileVariants(themePath);
+    watchedPaths.append(watchedFileVariants(stylePath));
     watchedPaths.removeDuplicates();
 
     QFileSystemWatcher *watcher = new QFileSystemWatcher(watchedPaths);
@@ -105,11 +117,9 @@ int main(int argc, char *argv[])
     QObject::connect(
         watcher,
         &QFileSystemWatcher::fileChanged,
-        [watcher, themePath, stylePath, reloadTimer, canonicalOrOriginal]() {
-            QStringList latestPaths{
-                canonicalOrOriginal(themePath),
-                canonicalOrOriginal(stylePath)
-            };
+        [watcher, themePath, stylePath, reloadTimer]() {
+            QStringList latestPaths = watchedFileVariants(themePath);
+            latestPaths.append(watchedFileVariants(stylePath));
             latestPaths.removeDuplicates();
 
             for (const QString &path : latestPaths) {

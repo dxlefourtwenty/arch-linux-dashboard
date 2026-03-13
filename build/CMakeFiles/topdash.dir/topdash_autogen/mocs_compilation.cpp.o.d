@@ -353,6 +353,8 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qtmochelpers.h \
  /usr/include/qt6/QtCore/qtmocconstants.h \
  /usr/include/qt6/QtCore/q20algorithm.h \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_configfiles.cpp \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/configfiles.h \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
  /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \

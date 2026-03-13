@@ -553,6 +553,30 @@ src/appconfig.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/appconfig.cpp.s
 .PHONY : src/appconfig.cpp.s
 
+src/configfiles.o: src/configfiles.cpp.o
+.PHONY : src/configfiles.o
+
+# target to build an object file
+src/configfiles.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/configfiles.cpp.o
+.PHONY : src/configfiles.cpp.o
+
+src/configfiles.i: src/configfiles.cpp.i
+.PHONY : src/configfiles.i
+
+# target to preprocess a source file
+src/configfiles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/configfiles.cpp.i
+.PHONY : src/configfiles.cpp.i
+
+src/configfiles.s: src/configfiles.cpp.s
+.PHONY : src/configfiles.s
+
+# target to generate assembly for a file
+src/configfiles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/configfiles.cpp.s
+.PHONY : src/configfiles.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -701,6 +725,9 @@ help:
 	@echo "... src/appconfig.o"
 	@echo "... src/appconfig.i"
 	@echo "... src/appconfig.s"
+	@echo "... src/configfiles.o"
+	@echo "... src/configfiles.i"
+	@echo "... src/configfiles.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

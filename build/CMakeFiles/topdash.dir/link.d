@@ -6,6 +6,7 @@ topdash: \
   CMakeFiles/topdash.dir/src/main.cpp.o \
   CMakeFiles/topdash.dir/src/systeminfo.cpp.o \
   CMakeFiles/topdash.dir/src/appconfig.cpp.o \
+  CMakeFiles/topdash.dir/src/configfiles.cpp.o \
   CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o \
   CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o \
@@ -131,6 +132,8 @@ CMakeFiles/topdash.dir/src/main.cpp.o:
 CMakeFiles/topdash.dir/src/systeminfo.cpp.o:
 
 CMakeFiles/topdash.dir/src/appconfig.cpp.o:
+
+CMakeFiles/topdash.dir/src/configfiles.cpp.o:
 
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o:
 

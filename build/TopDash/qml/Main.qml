@@ -28,20 +28,13 @@ Window {
         if (!active && open) toggle()
     }
 
-    Loader {
-        id: themeLoader
-        source: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-              + "/.config/dashboard/theme.qml"
-    }
+    property string themeBaseSource: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+                                   + "/.config/dashboard/theme.qml"
+    property string styleBaseSource: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+                                   + "/.config/dashboard/style.qml"
 
-    Loader {
-        id: styleLoader
-        source: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-              + "/.config/dashboard/style.qml"
-    }
-
-    property var theme: themeLoader.item
-    property var style: styleLoader.item
+    property QtObject theme: ConfigFiles.theme
+    property QtObject style: ConfigFiles.style
 
     property color  cBg:          (theme && theme.bg)                        ? theme.bg          : "#111111"
     property real   cOpacity:     (theme && theme.opacity !== undefined)      ? theme.opacity     : 1.0
@@ -65,6 +58,7 @@ Window {
     property int    cFontSize:    (style && style.fontSize !== undefined)     ? style.fontSize
                                 : (theme && theme.fontSize !== undefined)     ? theme.fontSize    : 16
     property int    barHeight:    (style && style.barHeight !== undefined)    ? style.barHeight   : 30
+    property int    finalPosition: (style && style.finalPosition !== undefined) ? style.finalPosition : 0
     property int    taskCharCutoff: (style && style.taskCharCutoff !== undefined) ? style.taskCharCutoff : 240
 
     // Inner card layout tuning (edit these to control per-component padding and sizing)
@@ -132,21 +126,19 @@ Window {
                                          + Math.max(statsMinHeight, tasksMinHeight)
     property int panelW: Math.max(panelBaseWidth, panelMinWidthFromLayout)
     property int panelH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
+    property int visibleFinalPosition: Math.max(0, finalPosition)
 
     function reloadTheme() {
-        themeLoader.active = false
-        themeLoader.active = true
-        styleLoader.active = false
-        styleLoader.active = true
+        ConfigFiles.reload()
     }
 
     function reloadTasks() {
         taskView.reloadCurrent()
     }
 
-    height: panelH
-    minimumHeight: panelH
-    maximumHeight: panelH
+    height: panelH + visibleFinalPosition
+    minimumHeight: panelH + visibleFinalPosition
+    maximumHeight: panelH + visibleFinalPosition
     width: panelW
     minimumWidth: panelW
     maximumWidth: panelW
@@ -187,7 +179,7 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
             clip: true
 
-            y: win.open ? 0 : (-height - 12)
+            y: win.open ? win.visibleFinalPosition : (-height - 12)
             Behavior on y { 
                 NumberAnimation { 
                   duration: win.animMs; 
@@ -458,5 +450,7 @@ Window {
         }
     }
 
-    Component.onCompleted: taskView.load(calendar.selectedKey)
+    Component.onCompleted: {
+        taskView.load(calendar.selectedKey)
+    }
 }

@@ -15,6 +15,7 @@ qt_add_executable(topdash
     src/main.cpp
     src/systeminfo.cpp
     src/appconfig.cpp
+    src/configfiles.cpp
 )
 
 qt_add_qml_module(topdash

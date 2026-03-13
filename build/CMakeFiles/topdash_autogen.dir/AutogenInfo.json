@@ -1024,6 +1024,12 @@
 			null
 		],
 		[
+			"/home/dxle/builds/dashboard/src/configfiles.h",
+			"MU",
+			"UVLADIE3JM/moc_configfiles.cpp",
+			null
+		],
+		[
 			"/home/dxle/builds/dashboard/src/systeminfo.h",
 			"MU",
 			"UVLADIE3JM/moc_systeminfo.cpp",
@@ -1116,6 +1122,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/dxle/builds/dashboard/src/appconfig.cpp", "MU", null ],
+		[ "/home/dxle/builds/dashboard/src/configfiles.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/main.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/systeminfo.cpp", "MU", null ]
 	],

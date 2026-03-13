@@ -34,6 +34,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o.d"
   "CMakeFiles/topdash.dir/src/appconfig.cpp.o"
   "CMakeFiles/topdash.dir/src/appconfig.cpp.o.d"
+  "CMakeFiles/topdash.dir/src/configfiles.cpp.o"
+  "CMakeFiles/topdash.dir/src/configfiles.cpp.o.d"
   "CMakeFiles/topdash.dir/src/main.cpp.o"
   "CMakeFiles/topdash.dir/src/main.cpp.o.d"
   "CMakeFiles/topdash.dir/src/systeminfo.cpp.o"

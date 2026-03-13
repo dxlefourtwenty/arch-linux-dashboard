@@ -1,0 +1,75 @@
+{
+    "classes": [
+        {
+            "className": "ConfigFiles",
+            "lineNumber": 8,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 21,
+                    "name": "reload",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 12,
+                    "name": "theme",
+                    "notify": "themeChanged",
+                    "read": "theme",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QObject*",
+                    "user": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 13,
+                    "name": "style",
+                    "notify": "styleChanged",
+                    "read": "style",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QObject*",
+                    "user": false
+                }
+            ],
+            "qualifiedClassName": "ConfigFiles",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 24,
+                    "name": "themeChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 25,
+                    "name": "styleChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "configfiles.h",
+    "outputRevision": 69
+}

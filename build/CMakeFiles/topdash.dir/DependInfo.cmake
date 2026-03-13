@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o.d"
   "/home/dxle/builds/dashboard/src/appconfig.cpp" "CMakeFiles/topdash.dir/src/appconfig.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/appconfig.cpp.o.d"
+  "/home/dxle/builds/dashboard/src/configfiles.cpp" "CMakeFiles/topdash.dir/src/configfiles.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/configfiles.cpp.o.d"
   "/home/dxle/builds/dashboard/src/main.cpp" "CMakeFiles/topdash.dir/src/main.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/main.cpp.o.d"
   "/home/dxle/builds/dashboard/src/systeminfo.cpp" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o.d"
   "/home/dxle/builds/dashboard/build/topdash_autogen/mocs_compilation.cpp" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o.d"
