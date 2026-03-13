@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="/TopDash/">
+    <file alias="qml/Main.qml">/home/dxle/builds/dashboard/qml/Main.qml</file>
+    <file alias="qml/CalendarView.qml">/home/dxle/builds/dashboard/qml/CalendarView.qml</file>
+    <file alias="qml/StatsCard.qml">/home/dxle/builds/dashboard/qml/StatsCard.qml</file>
+    <file alias="qml/TasksView.qml">/home/dxle/builds/dashboard/qml/TasksView.qml</file>
+    <file alias="qml/ProfileCard.qml">/home/dxle/builds/dashboard/qml/ProfileCard.qml</file>
+  </qresource>
+</RCC>
+

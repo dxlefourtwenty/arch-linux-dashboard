@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/TopDash">/home/dxle/builds/dashboard/build/TopDash</file>
+
+  </qresource>
+</RCC>

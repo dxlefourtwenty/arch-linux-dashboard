@@ -1,0 +1,10 @@
+module TopDash
+typeinfo topdash.qmltypes
+prefer :/TopDash/
+Main 1.0 qml/Main.qml
+CalendarView 1.0 qml/CalendarView.qml
+StatsCard 1.0 qml/StatsCard.qml
+TasksView 1.0 qml/TasksView.qml
+ProfileCard 1.0 qml/ProfileCard.qml
+depends QtQuick
+

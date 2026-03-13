@@ -1,0 +1,2 @@
+/home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_appconfig.cpp.json
+/home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_systeminfo.cpp.json
