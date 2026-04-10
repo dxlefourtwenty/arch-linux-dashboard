@@ -7,6 +7,8 @@
 /home/dxle/builds/dashboard/build/CMakeFiles/all_qmllint.dir
 /home/dxle/builds/dashboard/build/CMakeFiles/all_qmllint_json.dir
 /home/dxle/builds/dashboard/build/CMakeFiles/all_qmllint_module.dir
+/home/dxle/builds/dashboard/build/CMakeFiles/dump_qml_context_properties.dir
+/home/dxle/builds/dashboard/build/CMakeFiles/clean_qml_context_properties.dir
 /home/dxle/builds/dashboard/build/CMakeFiles/topdash_copy_qml.dir
 /home/dxle/builds/dashboard/build/CMakeFiles/topdash_copy_res.dir
 /home/dxle/builds/dashboard/build/CMakeFiles/generate_qmlls_build_ini_file.dir

@@ -13,12 +13,14 @@
                     "lineNumber": 10,
                     "name": "cpuUsage",
                     "notify": "cpuUsageChanged",
+                    "override": false,
                     "read": "cpuUsage",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -28,12 +30,14 @@
                     "lineNumber": 11,
                     "name": "gpuUsage",
                     "notify": "gpuUsageChanged",
+                    "override": false,
                     "read": "gpuUsage",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -43,12 +47,14 @@
                     "lineNumber": 12,
                     "name": "ramUsage",
                     "notify": "ramUsageChanged",
+                    "override": false,
                     "read": "ramUsage",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -58,12 +64,14 @@
                     "lineNumber": 13,
                     "name": "diskUsage",
                     "notify": "diskUsageChanged",
+                    "override": false,
                     "read": "diskUsage",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "int",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "SystemInfo",

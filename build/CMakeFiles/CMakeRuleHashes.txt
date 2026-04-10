@@ -1,5 +1,6 @@
 # Hashes of file build rules.
-3fe0ed563a2cfa633371b4434b446a1c .qt/.qmlls.build.ini
+fb5330531f1e38f3b42854b30d26666f .qt/.qmlls.build.ini
+eca3fb0bf4e00ca72ba2ea08f478e1a1 .qt/contextPropertyDump.ini
 8b0ebb02d13dbf9455c7c2c6e2f25070 .qt/qml_imports/topdash_build.cmake
 27150eaed644fb8c7373e5815d033e52 .qt/rcc/qrc_qmake_TopDash.cpp
 4f014ba2c81826a922011f765f2c9fef .qt/rcc/qrc_topdash_raw_qml_0.cpp
@@ -9,11 +10,14 @@
 b921d057bab52e57ca381e148dcd95be .rcc/qmlcache/module_topdash.aotstats
 32ebfdf07c12d41344cf26901562cd17 .rcc/qmlcache/topdash_qml/CalendarView_qml.cpp
 89ca6ce1f5ad11e372a8bac7334f31bd .rcc/qmlcache/topdash_qml/Main_qml.cpp
+25bdfbb1e2c1102bd67d8beabc42f5e9 .rcc/qmlcache/topdash_qml/MediaView_qml.cpp
 90475161e72607f42ae208b16e5fcd41 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 74ff8b1114d1df35ee70394f4c9a9d20 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 e095850601d422f199da9f4c6ac34e29 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp
 bf9878484524093f5a8a566f5e930ab2 .rcc/qmlcache/topdash_qmlcache_loader.cpp
 5d39866d8cd9313bcd47f8340854e579 CMakeFiles/all_aotstats
+baa04e47b14efdbf99e15bd91a3f426b CMakeFiles/clean_qml_context_properties
+f2a4c4e5b56fd81590bc7e457ba4208a CMakeFiles/dump_qml_context_properties
 f2a4c4e5b56fd81590bc7e457ba4208a CMakeFiles/generate_qmlls_build_ini_file
 f2a4c4e5b56fd81590bc7e457ba4208a CMakeFiles/module_topdash_aotstats_target
 f2a4c4e5b56fd81590bc7e457ba4208a CMakeFiles/topdash_autogen

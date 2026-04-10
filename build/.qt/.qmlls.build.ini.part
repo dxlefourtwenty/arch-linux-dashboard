@@ -1,0 +1,3 @@
+[<SLASH>home<SLASH>dxle<SLASH>builds<SLASH>dashboard]
+importPaths="/home/dxle/builds/dashboard/build:/home/dxle/builds/dashboard/build/TopDash:/usr/lib/qt6/qml"
+resourceFiles="/home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc:/home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc"

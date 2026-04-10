@@ -12,6 +12,8 @@ Rectangle {
     property color  cBorder:      "#444444"
     property int    cBorderWidth: 2
     property int    bottomPad:    24
+    property real   hoverScale:   1.1
+    property int    hoverAnimMs:  140
 
     color: "transparent"
 
@@ -23,6 +25,19 @@ Rectangle {
             width: 96
             height: 96
             anchors.horizontalCenter: parent.horizontalCenter
+            transformOrigin: Item.Center
+            scale: avatarHover.hovered ? root.hoverScale : 1.0
+            z: avatarHover.hovered ? 1 : 0
+            Behavior on scale {
+                NumberAnimation {
+                    duration: root.hoverAnimMs
+                    easing.type: Easing.OutCubic
+                }
+            }
+
+            HoverHandler {
+                id: avatarHover
+            }
 
             Item {
                 id: avatarCircle

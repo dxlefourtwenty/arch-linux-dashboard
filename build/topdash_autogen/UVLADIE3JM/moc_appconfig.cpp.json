@@ -36,12 +36,14 @@
                     "lineNumber": 11,
                     "name": "username",
                     "notify": "configChanged",
+                    "override": false,
                     "read": "username",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QString",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -51,12 +53,14 @@
                     "lineNumber": 12,
                     "name": "profileImage",
                     "notify": "configChanged",
+                    "override": false,
                     "read": "profileImage",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QString",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -66,12 +70,14 @@
                     "lineNumber": 13,
                     "name": "outputName",
                     "notify": "configChanged",
+                    "override": false,
                     "read": "outputName",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QString",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "AppConfig",

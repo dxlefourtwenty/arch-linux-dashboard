@@ -5,6 +5,7 @@
     <file alias="qml/StatsCard.qml">/home/dxle/builds/dashboard/qml/StatsCard.qml</file>
     <file alias="qml/TasksView.qml">/home/dxle/builds/dashboard/qml/TasksView.qml</file>
     <file alias="qml/ProfileCard.qml">/home/dxle/builds/dashboard/qml/ProfileCard.qml</file>
+    <file alias="qml/MediaView.qml">/home/dxle/builds/dashboard/qml/MediaView.qml</file>
   </qresource>
 </RCC>
 

@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp" "CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o.d"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o.d"
@@ -19,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/src/appconfig.cpp" "CMakeFiles/topdash.dir/src/appconfig.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/appconfig.cpp.o.d"
   "/home/dxle/builds/dashboard/src/configfiles.cpp" "CMakeFiles/topdash.dir/src/configfiles.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/configfiles.cpp.o.d"
   "/home/dxle/builds/dashboard/src/main.cpp" "CMakeFiles/topdash.dir/src/main.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/main.cpp.o.d"
+  "/home/dxle/builds/dashboard/src/mediainfo.cpp" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o.d"
   "/home/dxle/builds/dashboard/src/systeminfo.cpp" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o.d"
   "/home/dxle/builds/dashboard/build/topdash_autogen/mocs_compilation.cpp" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o.d"
   "/home/dxle/builds/dashboard/build/topdash_qmltyperegistrations.cpp" "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o" "gcc" "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o.d"
@@ -29,6 +31,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp"

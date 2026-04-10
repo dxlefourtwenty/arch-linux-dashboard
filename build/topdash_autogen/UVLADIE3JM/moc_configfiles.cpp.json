@@ -22,12 +22,14 @@
                     "lineNumber": 12,
                     "name": "theme",
                     "notify": "themeChanged",
+                    "override": false,
                     "read": "theme",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QObject*",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 },
                 {
                     "constant": false,
@@ -37,12 +39,14 @@
                     "lineNumber": 13,
                     "name": "style",
                     "notify": "styleChanged",
+                    "override": false,
                     "read": "style",
                     "required": false,
                     "scriptable": true,
                     "stored": true,
                     "type": "QObject*",
-                    "user": false
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "ConfigFiles",

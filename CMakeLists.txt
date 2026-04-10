@@ -16,6 +16,7 @@ qt_add_executable(topdash
     src/systeminfo.cpp
     src/appconfig.cpp
     src/configfiles.cpp
+    src/mediainfo.cpp
 )
 
 qt_add_qml_module(topdash
@@ -27,6 +28,7 @@ qt_add_qml_module(topdash
         qml/StatsCard.qml
         qml/TasksView.qml
         qml/ProfileCard.qml
+        qml/MediaView.qml
 )
 
 target_link_libraries(topdash PRIVATE

@@ -227,7 +227,8 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtCore/qarraydatapointer.h \
  /usr/include/qt6/QtCore/qarraydataops.h \
  /usr/include/qt6/QtCore/qcontainertools_impl.h \
- /usr/include/qt6/QtCore/qxptype_traits.h /usr/include/c++/15.2.1/cstring \
+ /usr/include/qt6/QtCore/qxptype_traits.h \
+ /usr/include/qt6/QtCore/q23type_traits.h /usr/include/c++/15.2.1/cstring \
  /usr/include/c++/15.2.1/iterator \
  /usr/include/c++/15.2.1/bits/stream_iterator.h \
  /usr/include/c++/15.2.1/iosfwd /usr/include/c++/15.2.1/bits/stringfwd.h \
@@ -298,7 +299,6 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtCore/qanystringview.h \
  /usr/include/qt6/QtCore/qutf8stringview.h \
  /usr/include/qt6/QtCore/qstringtokenizer.h \
- /usr/include/qt6/QtCore/q23type_traits.h \
  /usr/include/qt6/QtCore/qstringbuilder.h \
  /usr/include/qt6/QtCore/qstringconverter.h \
  /usr/include/qt6/QtCore/qstringconverter_base.h \
@@ -315,7 +315,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtCore/qiterator.h /usr/include/c++/15.2.1/ranges \
  /usr/include/c++/15.2.1/span /usr/include/qt6/QtCore/qbytearraylist.h \
  /usr/include/qt6/QtCore/qstringlist.h \
- /usr/include/qt6/QtCore/qalgorithms.h \
+ /usr/include/qt6/QtCore/qalgorithms.h /usr/include/qt6/QtCore/q20bit.h \
  /usr/include/qt6/QtCore/qstringmatcher.h \
  /usr/include/qt6/QtCore/qscopedpointer.h \
  /usr/include/qt6/QtCore/qmetatype.h \
@@ -378,7 +378,6 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtCore/qcheckedint_impl.h \
  /usr/include/qt6/QtCore/qsize.h /usr/include/qt6/QtCore/qmargins.h \
  /usr/include/qt6/QtGui/qguiapplication_platform.h \
- /usr/include/qt6/QtGui/qguiapplication.h \
  /usr/include/qt6/QtQml/QQmlApplicationEngine \
  /usr/include/qt6/QtQml/qqmlapplicationengine.h \
  /usr/include/qt6/QtQml/qqmlengine.h /usr/include/qt6/QtCore/qurl.h \
@@ -397,6 +396,8 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtQml/qqmlprivate.h /usr/include/qt6/QtQml/qqmllist.h \
  /usr/include/qt6/QtQml/qqmlparserstatus.h \
  /usr/include/qt6/QtQml/qqmlpropertyvaluesource.h \
+ /usr/include/qt6/QtCore/qmetasequence.h \
+ /usr/include/qt6/QtCore/qiterable_impl.h \
  /usr/include/qt6/QtCore/qmetaobject.h /usr/include/qt6/QtCore/qpointer.h \
  /usr/include/qt6/QtCore/qversionnumber.h /usr/include/qt6/QtCore/qspan.h \
  /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
@@ -405,25 +406,21 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtQmlIntegration/qqmlintegration.h \
  /usr/include/qt6/QtQml/qqmlerror.h \
  /usr/include/qt6/QtQml/qqmlabstracturlinterceptor.h \
- /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
- /usr/include/qt6/QtGui/QScreen /usr/include/qt6/QtGui/qscreen.h \
- /usr/include/qt6/QtCore/QList /usr/include/qt6/QtCore/qlist.h \
+ /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtGui/QScreen \
+ /usr/include/qt6/QtGui/qscreen.h /usr/include/qt6/QtCore/QList \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/QRect \
  /usr/include/qt6/QtCore/qrect.h /usr/include/qt6/QtCore/QSize \
- /usr/include/qt6/QtCore/qsize.h /usr/include/qt6/QtCore/QSizeF \
- /usr/include/qt6/QtGui/QTransform /usr/include/qt6/QtGui/qtransform.h \
- /usr/include/qt6/QtGui/qpolygon.h /usr/include/qt6/QtCore/qrect.h \
+ /usr/include/qt6/QtCore/QSizeF /usr/include/qt6/QtGui/QTransform \
+ /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qpolygon.h \
  /usr/include/qt6/QtGui/qregion.h /usr/include/qt6/QtCore/qline.h \
  /usr/include/qt6/QtGui/qscreen_platform.h /usr/include/qt6/QtGui/QWindow \
  /usr/include/qt6/QtGui/qwindow.h /usr/include/qt6/QtCore/QEvent \
- /usr/include/qt6/QtCore/qcoreevent.h /usr/include/qt6/QtCore/QMargins \
- /usr/include/qt6/QtCore/qmargins.h /usr/include/qt6/QtGui/qsurface.h \
+ /usr/include/qt6/QtCore/QMargins /usr/include/qt6/QtGui/qsurface.h \
  /usr/include/qt6/QtGui/qsurfaceformat.h /usr/include/qt6/QtGui/qicon.h \
  /usr/include/qt6/QtGui/qpixmap.h /usr/include/qt6/QtGui/qpaintdevice.h \
  /usr/include/qt6/QtGui/qcolor.h /usr/include/qt6/QtGui/qrgb.h \
  /usr/include/qt6/QtGui/qrgba64.h /usr/include/qt6/QtGui/qimage.h \
- /usr/include/qt6/QtGui/qpixelformat.h \
- /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qcursor.h \
+ /usr/include/qt6/QtGui/qpixelformat.h /usr/include/qt6/QtGui/qcursor.h \
  /usr/include/qt6/QtGui/qbitmap.h \
  /usr/include/qt6/QtCore/QFileSystemWatcher \
  /usr/include/qt6/QtCore/qfilesystemwatcher.h \
@@ -431,14 +428,13 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtCore/QDir /usr/include/qt6/QtCore/qdir.h \
  /usr/include/qt6/QtCore/qdirlisting.h \
  /usr/include/qt6/QtCore/qfiledevice.h \
- /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qfile.h \
- /usr/include/c++/15.2.1/filesystem /usr/include/c++/15.2.1/bits/fs_fwd.h \
+ /usr/include/qt6/QtCore/qiodevice.h /usr/include/c++/15.2.1/filesystem \
+ /usr/include/c++/15.2.1/bits/fs_fwd.h \
  /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
- /usr/include/c++/15.2.1/bits/fs_ops.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/QFile \
- /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/QStringList \
- /usr/include/qt6/QtCore/qstringlist.h /usr/include/c++/15.2.1/csignal \
+ /usr/include/qt6/QtCore/QStringList /usr/include/c++/15.2.1/csignal \
  /usr/include/signal.h /usr/include/bits/signum-generic.h \
  /usr/include/bits/signum-arch.h /usr/include/bits/types/sig_atomic_t.h \
  /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
@@ -456,5 +452,6 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /home/dxle/builds/dashboard/src/systeminfo.h \
  /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
  /home/dxle/builds/dashboard/src/appconfig.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
- /home/dxle/builds/dashboard/src/configfiles.h
+ /usr/include/qt6/QtCore/QString \
+ /home/dxle/builds/dashboard/src/configfiles.h \
+ /home/dxle/builds/dashboard/src/mediainfo.h

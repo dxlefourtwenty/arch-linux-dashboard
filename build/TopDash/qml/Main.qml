@@ -51,6 +51,9 @@ Window {
     property bool   cBorderBottom:(style && style.borderBottom !== undefined) ? style.borderBottom
                                 : (theme && theme.borderBottom !== undefined) ? theme.borderBottom : true
     property color  cBorder:      (theme && theme.border)                    ? theme.border      : "#444444"
+    property color  cPrimary:     (theme && theme.primary)                   ? theme.primary
+                                : (theme && theme.accent)                    ? theme.accent
+                                : (theme && theme.border)                    ? theme.border      : "#444444"
     property color  cFg:          (theme && theme.fg)                        ? theme.fg          : "white"
     property color  cMuted:       (theme && theme.muted)                     ? theme.muted       : "#888888"
     property string cFont:        (style && style.font)                      ? style.font
@@ -60,6 +63,7 @@ Window {
     property int    barHeight:    (style && style.barHeight !== undefined)    ? style.barHeight   : 30
     property int    finalPosition: (style && style.finalPosition !== undefined) ? style.finalPosition : 0
     property int    taskCharCutoff: (style && style.taskCharCutoff !== undefined) ? style.taskCharCutoff : 240
+    property int    activeTabIndex: 0
 
     // Inner card layout tuning (edit these to control per-component padding and sizing)
     property int panelOuterMargin: 16
@@ -116,6 +120,11 @@ Window {
 
     property int panelBaseWidth: 640
     property int panelBaseHeight: 440
+    property int tabsHeaderHeight: 58
+    property int tabsHeaderBottomGap: 10
+    property int tabLabelToSeparatorGap: 7
+    property int tabIndicatorWidth: 62
+    property int tabIndicatorHeight: 2
     property int panelMinWidthFromLayout: panelOuterMargin * 2
                                         + panelColumnSpacing
                                         + Math.max(profileMinWidth, statsMinWidth)
@@ -125,7 +134,8 @@ Window {
                                          + Math.max(profileMinHeight, calendarMinHeight)
                                          + Math.max(statsMinHeight, tasksMinHeight)
     property int panelW: Math.max(panelBaseWidth, panelMinWidthFromLayout)
-    property int panelH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
+    property int dashboardContentH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
+    property int panelH: dashboardContentH + tabsHeaderHeight + tabsHeaderBottomGap
     property int visibleFinalPosition: Math.max(0, finalPosition)
 
     function reloadTheme() {
@@ -133,7 +143,7 @@ Window {
     }
 
     function reloadTasks() {
-        taskView.reloadCurrent()
+        if (taskView) taskView.reloadCurrent()
     }
 
     height: panelH + visibleFinalPosition
@@ -302,151 +312,261 @@ Window {
                 }
             }
 
-            GridLayout {
+            ColumnLayout {
                 anchors.fill: parent
-                anchors.margins: win.panelOuterMargin
-                columns: 2
-                columnSpacing: win.panelColumnSpacing
-                rowSpacing: win.panelRowSpacing
+                spacing: 0
 
-                Rectangle {
-                    Layout.row: 0
-                    Layout.column: 0
+                Item {
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.preferredWidth: win.profileCardWidthWeight
-                    Layout.preferredHeight: win.profileCardHeightWeight
-                    Layout.minimumWidth: win.profileMinWidth
-                    Layout.minimumHeight: win.profileMinHeight
-                    radius: 8
-                    clip: true
-                    color: "transparent"
-                    border.width: win.cBorderWidth
-                    border.color: win.cMuted
+                    Layout.preferredHeight: win.tabsHeaderHeight
+                    Layout.minimumHeight: win.tabsHeaderHeight
 
-                    ProfileCard {
+                    RowLayout {
                         anchors.fill: parent
-                        anchors.topMargin: win.profilePaddingTop
-                        anchors.leftMargin: win.profilePaddingLeft
-                        anchors.rightMargin: win.profilePaddingRight
-                        anchors.bottomMargin: win.profilePaddingBottom
-                        cFg: win.cFg
-                        cFont: win.cFont
-                        cFontSize: win.cFontSize
-                        cBorder: win.cBorder
-                        cBorderWidth: win.cBorderWidth
-                    }
-                }
+                        anchors.leftMargin: win.panelOuterMargin
+                        anchors.rightMargin: win.panelOuterMargin
+                        spacing: 22
 
-                Rectangle {
-                    id: calView
-                    Layout.row: 0
-                    Layout.column: 1
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.preferredWidth: win.calendarCardWidthWeight
-                    Layout.preferredHeight: win.calendarCardHeightWeight
-                    Layout.minimumWidth: win.calendarMinWidth
-                    Layout.minimumHeight: win.calendarMinHeight
-                    radius: 8
-                    clip: true
-                    color: "transparent"
-                    border.width: win.cBorderWidth
-                    border.color: win.cMuted
+                        Item { Layout.fillWidth: true }
 
-                    CalendarView {
-                        id: calendar
-                        anchors.fill: parent
-                        anchors.topMargin: win.calendarPaddingTop
-                        anchors.leftMargin: win.calendarPaddingLeft
-                        anchors.rightMargin: win.calendarPaddingRight
-                        anchors.bottomMargin: win.calendarPaddingBottom
+                        Repeater {
+                            model: [
+                                { icon: "󰕮", label: "Dashboard" },
+                                { icon: "󰲸", label: "Media" }
+                            ]
 
-                        cFg: win.cFg
-                        cMuted: win.cMuted
-                        cFont: win.cFont
-                        cFontSize: win.cFontSize
-                        cBg: win.cBg
-                        cBorder: win.cBorder
-                        cBorderWidth: win.cBorderWidth
-                        cRadius: win.cRadius
+                            delegate: Item {
+                                Layout.preferredWidth: 120
+                                Layout.fillHeight: true
 
-                        // property signal carries no argument -- read from the id
-                        onSelectedKeyChanged: taskView.load(calendar.selectedKey)
-                    }
-                }
+                                Column {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: win.tabIndicatorHeight + win.tabLabelToSeparatorGap
+                                    spacing: 3
 
-                Rectangle {
-                    Layout.row: 1
-                    Layout.column: 0
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.preferredWidth: win.statsCardWidthWeight
-                    Layout.preferredHeight: win.statsCardHeightWeight
-                    Layout.minimumWidth: win.statsMinWidth
-                    Layout.minimumHeight: win.statsMinHeight
-                    radius: 8
-                    clip: true
-                    color: "transparent"
-                    border.width: win.cBorderWidth
-                    border.color: win.cMuted
+                                    Text {
+                                        anchors.horizontalCenter: parent.horizontalCenter
+                                        text: modelData.icon
+                                        color: win.activeTabIndex === index ? win.cFg : win.cMuted
+                                        font.family: win.cFont
+                                        font.pixelSize: win.cFontSize * 1.3
+                                    }
 
-                    StatsCard {
-                        anchors.fill: parent
-                        anchors.topMargin: win.statsPaddingTop
-                        anchors.leftMargin: win.statsPaddingLeft
-                        anchors.rightMargin: win.statsPaddingRight
-                        anchors.bottomMargin: win.statsPaddingBottom
-                        cFg: win.cFg
-                        cFont: win.cFont
-                        cFontSize: win.cFontSize
-                    }
-                }
+                                    Text {
+                                        anchors.horizontalCenter: parent.horizontalCenter
+                                        text: modelData.label
+                                        color: win.activeTabIndex === index ? win.cFg : win.cMuted
+                                        font.family: win.cFont
+                                        font.pixelSize: Math.max(12, win.cFontSize - 2)
+                                    }
+                                }
 
-                Rectangle {
-                    Layout.row: 1
-                    Layout.column: 1
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.preferredWidth: win.tasksCardWidthWeight
-                    Layout.preferredHeight: win.tasksCardHeightWeight
-                    Layout.minimumWidth: win.tasksMinWidth
-                    Layout.minimumHeight: win.tasksMinHeight
-                    radius: 8
-                    clip: true
-                    color: "transparent"
-                    border.width: win.cBorderWidth
-                    border.color: win.cMuted
+                                Rectangle {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: 0
+                                    width: win.tabIndicatorWidth
+                                    height: win.tabIndicatorHeight
+                                    radius: 1
+                                    color: win.cFg
+                                    visible: win.activeTabIndex === index
+                                }
 
-                    ColumnLayout {
-                        anchors.fill: parent
-                        anchors.topMargin: win.tasksPaddingTop
-                        anchors.leftMargin: win.tasksPaddingLeft
-                        anchors.rightMargin: win.tasksPaddingRight
-                        anchors.bottomMargin: win.tasksPaddingBottom
-
-                        Text {
-                            Layout.fillWidth: true
-                            text: calendar.selectedDisplayDate
-                            color: win.cFg
-                            font.family: win.cFont
-                            font.pixelSize: win.cFontSize * 1.012
-                            elide: Text.ElideRight
+                                MouseArea {
+                                    anchors.fill: parent
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: win.activeTabIndex = index
+                                }
+                            }
                         }
 
-                    TasksView {
-                        id: taskView
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        cFg: win.cFg
-                        cMuted: win.cMuted
-                        cFont: win.cFont
-                        cFontSize: win.cFontSize
-                        taskCharCutoff: win.taskCharCutoff
+                        Item { Layout.fillWidth: true }
+                    }
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+                    color: win.cMuted
+                    opacity: 0.35
+                }
+
+                Item {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.topMargin: win.tabsHeaderBottomGap
+                    clip: true
+
+                    StackLayout {
+                        id: pages
+                        anchors.fill: parent
+                        anchors.leftMargin: win.panelOuterMargin
+                        anchors.rightMargin: win.panelOuterMargin
+                        anchors.bottomMargin: win.panelOuterMargin
+                        currentIndex: win.activeTabIndex
+
+                        Item {
+                            GridLayout {
+                                anchors.fill: parent
+                                columns: 2
+                                columnSpacing: win.panelColumnSpacing
+                                rowSpacing: win.panelRowSpacing
+
+                                Rectangle {
+                                    Layout.row: 0
+                                    Layout.column: 0
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Layout.preferredWidth: win.profileCardWidthWeight
+                                    Layout.preferredHeight: win.profileCardHeightWeight
+                                    Layout.minimumWidth: win.profileMinWidth
+                                    Layout.minimumHeight: win.profileMinHeight
+                                    radius: 8
+                                    clip: true
+                                    color: "transparent"
+                                    border.width: win.cBorderWidth
+                                    border.color: win.cMuted
+
+                                    ProfileCard {
+                                        anchors.fill: parent
+                                        anchors.topMargin: win.profilePaddingTop
+                                        anchors.leftMargin: win.profilePaddingLeft
+                                        anchors.rightMargin: win.profilePaddingRight
+                                        anchors.bottomMargin: win.profilePaddingBottom
+                                        cFg: win.cFg
+                                        cFont: win.cFont
+                                        cFontSize: win.cFontSize
+                                        cBorder: win.cBorder
+                                        cBorderWidth: win.cBorderWidth
+                                    }
+                                }
+
+                                Rectangle {
+                                    id: calView
+                                    Layout.row: 0
+                                    Layout.column: 1
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Layout.preferredWidth: win.calendarCardWidthWeight
+                                    Layout.preferredHeight: win.calendarCardHeightWeight
+                                    Layout.minimumWidth: win.calendarMinWidth
+                                    Layout.minimumHeight: win.calendarMinHeight
+                                    radius: 8
+                                    clip: true
+                                    color: "transparent"
+                                    border.width: win.cBorderWidth
+                                    border.color: win.cMuted
+
+                                    CalendarView {
+                                        id: calendar
+                                        anchors.fill: parent
+                                        anchors.topMargin: win.calendarPaddingTop
+                                        anchors.leftMargin: win.calendarPaddingLeft
+                                        anchors.rightMargin: win.calendarPaddingRight
+                                        anchors.bottomMargin: win.calendarPaddingBottom
+
+                                        cFg: win.cFg
+                                        cMuted: win.cMuted
+                                        cFont: win.cFont
+                                        cFontSize: win.cFontSize
+                                        cBg: win.cBg
+                                        cBorder: win.cBorder
+                                        cBorderWidth: win.cBorderWidth
+                                        cRadius: win.cRadius
+
+                                        onSelectedKeyChanged: taskView.load(calendar.selectedKey)
+                                    }
+                                }
+
+                                Rectangle {
+                                    Layout.row: 1
+                                    Layout.column: 0
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Layout.preferredWidth: win.statsCardWidthWeight
+                                    Layout.preferredHeight: win.statsCardHeightWeight
+                                    Layout.minimumWidth: win.statsMinWidth
+                                    Layout.minimumHeight: win.statsMinHeight
+                                    radius: 8
+                                    clip: true
+                                    color: "transparent"
+                                    border.width: win.cBorderWidth
+                                    border.color: win.cMuted
+
+                                    StatsCard {
+                                        anchors.fill: parent
+                                        anchors.topMargin: win.statsPaddingTop
+                                        anchors.leftMargin: win.statsPaddingLeft
+                                        anchors.rightMargin: win.statsPaddingRight
+                                        anchors.bottomMargin: win.statsPaddingBottom
+                                        cFg: win.cFg
+                                        cFont: win.cFont
+                                        cFontSize: win.cFontSize
+                                    }
+                                }
+
+                                Rectangle {
+                                    Layout.row: 1
+                                    Layout.column: 1
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Layout.preferredWidth: win.tasksCardWidthWeight
+                                    Layout.preferredHeight: win.tasksCardHeightWeight
+                                    Layout.minimumWidth: win.tasksMinWidth
+                                    Layout.minimumHeight: win.tasksMinHeight
+                                    radius: 8
+                                    clip: true
+                                    color: "transparent"
+                                    border.width: win.cBorderWidth
+                                    border.color: win.cMuted
+
+                                    ColumnLayout {
+                                        anchors.fill: parent
+                                        anchors.topMargin: win.tasksPaddingTop
+                                        anchors.leftMargin: win.tasksPaddingLeft
+                                        anchors.rightMargin: win.tasksPaddingRight
+                                        anchors.bottomMargin: win.tasksPaddingBottom
+
+                                        Text {
+                                            Layout.fillWidth: true
+                                            text: calendar.selectedDisplayDate
+                                            color: win.cFg
+                                            font.family: win.cFont
+                                            font.pixelSize: win.cFontSize * 1.012
+                                            elide: Text.ElideRight
+                                        }
+
+                                        TasksView {
+                                            id: taskView
+                                            Layout.fillWidth: true
+                                            Layout.fillHeight: true
+                                            cFg: win.cFg
+                                            cMuted: win.cMuted
+                                            cFont: win.cFont
+                                            cFontSize: win.cFontSize
+                                            taskCharCutoff: win.taskCharCutoff
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        Item {
+                            MediaView {
+                                anchors.fill: parent
+                                cFg: win.cFg
+                                cMuted: win.cMuted
+                                cBorder: win.cBorder
+                                cPrimary: win.cPrimary
+                                cBorderWidth: win.cBorderWidth
+                                cFont: win.cFont
+                                cFontSize: win.cFontSize
+                            }
+                        }
                     }
                 }
             }
-        }
         }
     }
 

@@ -14,6 +14,7 @@
 #include "systeminfo.h"
 #include "appconfig.h"
 #include "configfiles.h"
+#include "mediainfo.h"
 
 static QObject *g_root = nullptr;
 
@@ -65,10 +66,12 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
     SystemInfo sys;
+    MediaInfo media;
     AppConfig cfg;
     ConfigFiles configFiles(&engine);
 
     engine.rootContext()->setContextProperty("SystemInfo", &sys);
+    engine.rootContext()->setContextProperty("MediaInfo", &media);
     engine.rootContext()->setContextProperty("AppConfig", &cfg);
     engine.rootContext()->setContextProperty("ConfigFiles", &configFiles);
     engine.loadFromModule("TopDash", "Main");

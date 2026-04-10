@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   ".rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.aotstats"
   ".rcc/qmlcache/topdash_qml/Main_qml.cpp"
   ".rcc/qmlcache/topdash_qml/Main_qml.cpp.aotstats"
+  ".rcc/qmlcache/topdash_qml/MediaView_qml.cpp"
+  ".rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats"
   ".rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp"
   ".rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats"
   ".rcc/qmlcache/topdash_qml/StatsCard_qml.cpp"
