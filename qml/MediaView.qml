@@ -241,7 +241,7 @@ Item {
 
                 RowLayout {
                     Layout.alignment: Qt.AlignHCenter
-                    Layout.topMargin: 8
+                    Layout.topMargin: 32
                     spacing: 10
 
                     Button {

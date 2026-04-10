@@ -120,7 +120,7 @@ Window {
 
     property int panelBaseWidth: 640
     property int panelBaseHeight: 440
-    property int tabsHeaderHeight: 58
+    property int tabsHeaderHeight: 63
     property int tabsHeaderBottomGap: 10
     property int tabLabelToSeparatorGap: 7
     property int tabIndicatorWidth: 62
