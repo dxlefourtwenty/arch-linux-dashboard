@@ -77,6 +77,7 @@ CMakeFiles/topdash_qmlimportscan: .qt/qml_imports/topdash_build.cmake
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/TasksView.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/MediaView.qml
+.qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/PerformanceView.qml
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running qmlimportscanner for topdash"
 	cd /home/dxle/builds/dashboard && /usr/lib/qt6/qmlimportscanner @/home/dxle/builds/dashboard/build/.qt/qml_imports/topdash_build.rsp
 

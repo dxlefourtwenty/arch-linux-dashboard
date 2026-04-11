@@ -17,5 +17,6 @@
 /home/dxle/builds/dashboard/qml/TasksView.qml
 /home/dxle/builds/dashboard/qml/ProfileCard.qml
 /home/dxle/builds/dashboard/qml/MediaView.qml
+/home/dxle/builds/dashboard/qml/PerformanceView.qml
 --json
 /home/dxle/builds/dashboard/build/topdash_qmllint.json

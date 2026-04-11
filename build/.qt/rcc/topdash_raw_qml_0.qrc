@@ -6,6 +6,7 @@
     <file alias="qml/TasksView.qml">/home/dxle/builds/dashboard/qml/TasksView.qml</file>
     <file alias="qml/ProfileCard.qml">/home/dxle/builds/dashboard/qml/ProfileCard.qml</file>
     <file alias="qml/MediaView.qml">/home/dxle/builds/dashboard/qml/MediaView.qml</file>
+    <file alias="qml/PerformanceView.qml">/home/dxle/builds/dashboard/qml/PerformanceView.qml</file>
   </qresource>
 </RCC>
 

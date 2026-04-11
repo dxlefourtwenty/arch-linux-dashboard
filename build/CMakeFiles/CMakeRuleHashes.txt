@@ -11,6 +11,7 @@ b921d057bab52e57ca381e148dcd95be .rcc/qmlcache/module_topdash.aotstats
 32ebfdf07c12d41344cf26901562cd17 .rcc/qmlcache/topdash_qml/CalendarView_qml.cpp
 89ca6ce1f5ad11e372a8bac7334f31bd .rcc/qmlcache/topdash_qml/Main_qml.cpp
 25bdfbb1e2c1102bd67d8beabc42f5e9 .rcc/qmlcache/topdash_qml/MediaView_qml.cpp
+27a684ce3ae991095e4e470172d8a6f6 .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp
 90475161e72607f42ae208b16e5fcd41 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 74ff8b1114d1df35ee70394f4c9a9d20 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 e095850601d422f199da9f4c6ac34e29 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp

@@ -29,6 +29,7 @@ qt_add_qml_module(topdash
         qml/TasksView.qml
         qml/ProfileCard.qml
         qml/MediaView.qml
+        qml/PerformanceView.qml
 )
 
 target_link_libraries(topdash PRIVATE

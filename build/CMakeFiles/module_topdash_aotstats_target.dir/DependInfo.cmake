@@ -15,6 +15,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp"

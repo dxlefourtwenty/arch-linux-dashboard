@@ -51,6 +51,13 @@ Window {
     property bool   cBorderBottom:(style && style.borderBottom !== undefined) ? style.borderBottom
                                 : (theme && theme.borderBottom !== undefined) ? theme.borderBottom : true
     property color  cBorder:      (theme && theme.border)                    ? theme.border      : "#444444"
+    property color  cAccent:      (theme && theme.accent)                    ? theme.accent
+                                : (theme && theme.primary)                   ? theme.primary
+                                : (theme && theme.border)                    ? theme.border      : "#444444"
+    property color  cSecondary:   (theme && theme.secondary)                 ? theme.secondary
+                                : (theme && theme.primary)                   ? theme.primary
+                                : (theme && theme.accent)                    ? theme.accent
+                                : (theme && theme.border)                    ? theme.border      : "#444444"
     property color  cPrimary:     (theme && theme.primary)                   ? theme.primary
                                 : (theme && theme.accent)                    ? theme.accent
                                 : (theme && theme.border)                    ? theme.border      : "#444444"
@@ -159,11 +166,14 @@ Window {
     }
 
     function tabPageAt(index) {
-        return index === 0 ? dashboardPage : mediaPage
+        if (index === 0) return dashboardPage
+        if (index === 1) return mediaPage
+        if (index === 2) return performancePage
+        return null
     }
 
     function switchToActiveTab() {
-        var nextIndex = Math.max(0, Math.min(activeTabIndex, 1))
+        var nextIndex = Math.max(0, Math.min(activeTabIndex, 2))
         if (nextIndex === displayedTabIndex && !tabSwitchAnimating) return
 
         if (tabSwitchAnimating) {
@@ -178,8 +188,10 @@ Window {
             displayedTabIndex = nextIndex
             dashboardPage.x = 0
             mediaPage.x = 0
+            performancePage.x = 0
             dashboardPage.visible = displayedTabIndex === 0
             mediaPage.visible = displayedTabIndex === 1
+            performancePage.visible = displayedTabIndex === 2
             return
         }
 
@@ -246,7 +258,7 @@ Window {
                 e.accepted = true
             }
             else if (win.visible && e.key === Qt.Key_Right) {
-                var next = Math.min(1, win.activeTabIndex + 1)
+                var next = Math.min(2, win.activeTabIndex + 1)
                 if (next !== win.activeTabIndex) {
                     win.activeTabIndex = next
                 }
@@ -404,7 +416,8 @@ Window {
                         Repeater {
                             model: [
                                 { icon: "󰕮", label: "Dashboard" },
-                                { icon: "󰲸", label: "Media" }
+                                { icon: "󰲸", label: "Media" },
+                                { icon: "󰾆", label: "Performance" }
                             ]
 
                             delegate: Item {
@@ -687,6 +700,25 @@ Window {
                                 cFontSize: win.cFontSize
                             }
                         }
+
+                        Item {
+                            id: performancePage
+                            width: parent.width
+                            height: parent.height
+                            visible: win.displayedTabIndex === 2
+
+                            PerformanceView {
+                                anchors.fill: parent
+                                cFg: win.cFg
+                                cMuted: win.cMuted
+                                cPrimary: win.cPrimary
+                                cAccent: win.cAccent
+                                cSecondary: win.cSecondary
+                                cFont: win.cFont
+                                cFontSize: win.cFontSize
+                                cBorderWidth: win.cBorderWidth
+                            }
+                        }
                     }
                 }
             }
@@ -694,9 +726,10 @@ Window {
     }
 
     Component.onCompleted: {
-        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 1))
+        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 2))
         dashboardPage.visible = displayedTabIndex === 0
         mediaPage.visible = displayedTabIndex === 1
+        performancePage.visible = displayedTabIndex === 2
         taskView.load(calendar.selectedKey)
     }
 }

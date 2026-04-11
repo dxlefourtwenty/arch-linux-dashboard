@@ -7,18 +7,34 @@
                     "entries": [
                         {
                             "codegenResult": 0,
-                            "column": 36,
+                            "column": 35,
                             "durationMicroseconds": 0,
-                            "functionName": "usageFontSize",
-                            "line": 14,
+                            "functionName": "infoFontSize",
+                            "line": 10,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "osGlyph",
+                            "line": 15,
+                            "message": "Cannot access value for name SystemInfo"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "deGlyph",
+                            "line": 16,
+                            "message": "Cannot access value for name SystemInfo"
                         },
                         {
                             "codegenResult": 0,
                             "column": 18,
                             "durationMicroseconds": 0,
                             "functionName": "spacing",
-                            "line": 22,
+                            "line": 21,
                             "message": ""
                         },
                         {
@@ -26,7 +42,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 21,
+                            "line": 20,
                             "message": ""
                         },
                         {
@@ -34,31 +50,31 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 25,
+                            "line": 24,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 25,
+                            "message": "Cannot access value for name SystemInfo"
                         },
                         {
                             "codegenResult": 0,
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 27,
+                            "line": 26,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 29,
+                            "column": 20,
                             "durationMicroseconds": 0,
-                            "functionName": "lineHeightMode",
-                            "line": 30,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 32,
+                            "functionName": "elide",
+                            "line": 29,
                             "message": ""
                         },
                         {
@@ -66,7 +82,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 28,
+                            "line": 27,
                             "message": ""
                         },
                         {
@@ -74,7 +90,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 29,
+                            "line": 28,
                             "message": ""
                         },
                         {
@@ -82,167 +98,95 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 36,
+                            "line": 33,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 23,
+                            "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 42,
+                            "line": 34,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 24,
+                            "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 43,
+                            "line": 35,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 38,
+                            "column": 20,
                             "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 46,
+                            "functionName": "elide",
+                            "line": 38,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 30,
+                            "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "family",
+                            "line": 36,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 37,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 42,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 43,
+                            "message": "Cannot access value for name SystemInfo"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
                             "line": 44,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 33,
+                            "column": 20,
                             "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
+                            "functionName": "elide",
+                            "line": 47,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
                             "line": 45,
                             "message": ""
                         },
                         {
-                            "codegenResult": 2,
-                            "column": 23,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 50,
-                            "message": "Cannot access value for name SystemInfo"
-                        },
-                        {
                             "codegenResult": 0,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 51,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 54,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 52,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 33,
+                            "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 53,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 23,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 58,
-                            "message": "Cannot access value for name SystemInfo"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 59,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 62,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 60,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 61,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 23,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 66,
-                            "message": "Cannot access value for name SystemInfo"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 67,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 70,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 68,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 69,
+                            "line": 46,
                             "message": ""
                         }
                     ],

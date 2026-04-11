@@ -483,6 +483,30 @@ build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.s
 .PHONY : build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.s
 
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.o: build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.o
+
+# target to build an object file
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o
+
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.i: build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.i
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.i
+
+# target to preprocess a source file
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.i
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.i
+
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.s: build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.s
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.s
+
+# target to generate assembly for a file
+build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.s
+.PHONY : build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.s
+
 build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.o: build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o
 .PHONY : build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.o
 
@@ -789,6 +813,9 @@ help:
 	@echo "... build/.rcc/qmlcache/topdash_qml/MediaView_qml.o"
 	@echo "... build/.rcc/qmlcache/topdash_qml/MediaView_qml.i"
 	@echo "... build/.rcc/qmlcache/topdash_qml/MediaView_qml.s"
+	@echo "... build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.o"
+	@echo "... build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.i"
+	@echo "... build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.s"
 	@echo "... build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.o"
 	@echo "... build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.i"
 	@echo "... build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.s"

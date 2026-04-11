@@ -74,6 +74,7 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats
+.rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/module_topdash.aotstatslist
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating .rcc/qmlcache/module_topdash.aotstats"
 	/usr/lib/qt6/qmlaotstats aggregate /home/dxle/builds/dashboard/build/.rcc/qmlcache/module_topdash.aotstatslist /home/dxle/builds/dashboard/build/.rcc/qmlcache/module_topdash.aotstats
@@ -117,13 +118,26 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate .rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats
 
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: /usr/lib/qt6/qmlcachegen
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: /home/dxle/builds/dashboard/qml/PerformanceView.qml
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: .qt/rcc/qmake_TopDash.qrc
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: .qt/rcc/topdash_raw_qml_0.qrc
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: TopDash/topdash.qmltypes
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp: TopDash/qmldir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp, .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats"
+	/usr/bin/cmake -E make_directory /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml
+	/usr/lib/qt6/qmlcachegen --bare --resource-path /TopDash/qml/PerformanceView.qml -I /home/dxle/builds/dashboard/build -I /usr/lib/qt6/qml -i /home/dxle/builds/dashboard/build/TopDash/qmldir --resource /home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc --resource /home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc --dump-aot-stats "--module-id=TopDash(topdash)" -o /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp /home/dxle/builds/dashboard/qml/PerformanceView.qml
+
+.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats
+
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: /usr/lib/qt6/qmlcachegen
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: .qt/rcc/qmake_TopDash.qrc
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: .qt/rcc/topdash_raw_qml_0.qrc
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: TopDash/topdash.qmltypes
 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp: TopDash/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp, .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp, .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats"
 	/usr/bin/cmake -E make_directory /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml
 	/usr/lib/qt6/qmlcachegen --bare --resource-path /TopDash/qml/ProfileCard.qml -I /home/dxle/builds/dashboard/build -I /usr/lib/qt6/qml -i /home/dxle/builds/dashboard/build/TopDash/qmldir --resource /home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc --resource /home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc --dump-aot-stats "--module-id=TopDash(topdash)" -o /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp /home/dxle/builds/dashboard/qml/ProfileCard.qml
 
@@ -136,7 +150,7 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp: .qt/rcc/topdash_raw_qml_0.qrc
 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp: TopDash/topdash.qmltypes
 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp: TopDash/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp, .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp, .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats"
 	/usr/bin/cmake -E make_directory /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml
 	/usr/lib/qt6/qmlcachegen --bare --resource-path /TopDash/qml/StatsCard.qml -I /home/dxle/builds/dashboard/build -I /usr/lib/qt6/qml -i /home/dxle/builds/dashboard/build/TopDash/qmldir --resource /home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc --resource /home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc --dump-aot-stats "--module-id=TopDash(topdash)" -o /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp /home/dxle/builds/dashboard/qml/StatsCard.qml
 
@@ -149,7 +163,7 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp: .qt/rcc/topdash_raw_qml_0.qrc
 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp: TopDash/topdash.qmltypes
 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp: TopDash/qmldir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating .rcc/qmlcache/topdash_qml/TasksView_qml.cpp, .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating .rcc/qmlcache/topdash_qml/TasksView_qml.cpp, .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats"
 	/usr/bin/cmake -E make_directory /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml
 	/usr/lib/qt6/qmlcachegen --bare --resource-path /TopDash/qml/TasksView.qml -I /home/dxle/builds/dashboard/build -I /usr/lib/qt6/qml -i /home/dxle/builds/dashboard/build/TopDash/qmldir --resource /home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc --resource /home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc --dump-aot-stats "--module-id=TopDash(topdash)" -o /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp /home/dxle/builds/dashboard/qml/TasksView.qml
 
@@ -166,6 +180,8 @@ module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/Main_qml.cpp
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/Main_qml.cpp.aotstats
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats
+module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp
+module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
