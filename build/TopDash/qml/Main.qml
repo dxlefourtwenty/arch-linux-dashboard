@@ -169,11 +169,12 @@ Window {
         if (index === 0) return dashboardPage
         if (index === 1) return mediaPage
         if (index === 2) return performancePage
+        if (index === 3) return weatherPage
         return null
     }
 
     function switchToActiveTab() {
-        var nextIndex = Math.max(0, Math.min(activeTabIndex, 2))
+        var nextIndex = Math.max(0, Math.min(activeTabIndex, 3))
         if (nextIndex === displayedTabIndex && !tabSwitchAnimating) return
 
         if (tabSwitchAnimating) {
@@ -189,9 +190,11 @@ Window {
             dashboardPage.x = 0
             mediaPage.x = 0
             performancePage.x = 0
+            weatherPage.x = 0
             dashboardPage.visible = displayedTabIndex === 0
             mediaPage.visible = displayedTabIndex === 1
             performancePage.visible = displayedTabIndex === 2
+            weatherPage.visible = displayedTabIndex === 3
             return
         }
 
@@ -258,7 +261,7 @@ Window {
                 e.accepted = true
             }
             else if (win.visible && e.key === Qt.Key_Right) {
-                var next = Math.min(2, win.activeTabIndex + 1)
+                var next = Math.min(3, win.activeTabIndex + 1)
                 if (next !== win.activeTabIndex) {
                     win.activeTabIndex = next
                 }
@@ -417,7 +420,8 @@ Window {
                             model: [
                                 { icon: "󰕮", label: "Dashboard" },
                                 { icon: "󰲸", label: "Media" },
-                                { icon: "󰾆", label: "Performance" }
+                                { icon: "󰾆", label: "Performance" },
+                                { icon: "󰖙", label: "Weather" }
                             ]
 
                             delegate: Item {
@@ -719,6 +723,26 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                             }
                         }
+
+                        Item {
+                            id: weatherPage
+                            width: parent.width
+                            height: parent.height
+                            visible: win.displayedTabIndex === 3
+
+                            WeatherView {
+                                anchors.fill: parent
+                                cBg: win.cBg
+                                cFg: win.cFg
+                                cSecondary: win.cSecondary
+                                cAccent: win.cAccent
+                                cMuted: win.cMuted
+                                cBorder: win.cBorder
+                                cBorderWidth: win.cBorderWidth
+                                cFont: win.cFont
+                                cFontSize: win.cFontSize
+                            }
+                        }
                     }
                 }
             }
@@ -726,10 +750,11 @@ Window {
     }
 
     Component.onCompleted: {
-        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 2))
+        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 3))
         dashboardPage.visible = displayedTabIndex === 0
         mediaPage.visible = displayedTabIndex === 1
         performancePage.visible = displayedTabIndex === 2
+        weatherPage.visible = displayedTabIndex === 3
         taskView.load(calendar.selectedKey)
     }
 }

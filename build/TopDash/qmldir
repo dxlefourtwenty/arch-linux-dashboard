@@ -8,5 +8,6 @@ TasksView 1.0 qml/TasksView.qml
 ProfileCard 1.0 qml/ProfileCard.qml
 MediaView 1.0 qml/MediaView.qml
 PerformanceView 1.0 qml/PerformanceView.qml
+WeatherView 1.0 qml/WeatherView.qml
 depends QtQuick
 

@@ -579,6 +579,30 @@ build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.s
 .PHONY : build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.s
 
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.o: build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.o
+
+# target to build an object file
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o
+
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.i: build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.i
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.i
+
+# target to preprocess a source file
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.i
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.i
+
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.s: build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.s
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.s
+
+# target to generate assembly for a file
+build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.s
+.PHONY : build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.s
+
 build/.rcc/qmlcache/topdash_qmlcache_loader.o: build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o
 .PHONY : build/.rcc/qmlcache/topdash_qmlcache_loader.o
 
@@ -825,6 +849,9 @@ help:
 	@echo "... build/.rcc/qmlcache/topdash_qml/TasksView_qml.o"
 	@echo "... build/.rcc/qmlcache/topdash_qml/TasksView_qml.i"
 	@echo "... build/.rcc/qmlcache/topdash_qml/TasksView_qml.s"
+	@echo "... build/.rcc/qmlcache/topdash_qml/WeatherView_qml.o"
+	@echo "... build/.rcc/qmlcache/topdash_qml/WeatherView_qml.i"
+	@echo "... build/.rcc/qmlcache/topdash_qml/WeatherView_qml.s"
 	@echo "... build/.rcc/qmlcache/topdash_qmlcache_loader.o"
 	@echo "... build/.rcc/qmlcache/topdash_qmlcache_loader.i"
 	@echo "... build/.rcc/qmlcache/topdash_qmlcache_loader.s"

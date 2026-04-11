@@ -14,6 +14,8 @@ file(REMOVE_RECURSE
   ".rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats"
   ".rcc/qmlcache/topdash_qml/TasksView_qml.cpp"
   ".rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats"
+  ".rcc/qmlcache/topdash_qml/WeatherView_qml.cpp"
+  ".rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats"
   "CMakeFiles/module_topdash_aotstats_target"
 )
 

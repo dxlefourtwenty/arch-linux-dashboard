@@ -74,6 +74,7 @@ CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/TasksView.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/MediaView.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/PerformanceView.qml
+CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/WeatherView.qml
 CMakeFiles/topdash_qmllint_module: .rcc/qmllint/topdash_module.rsp
 	cd /home/dxle/builds/dashboard && /usr/lib/qt6/bin/qmllint @/home/dxle/builds/dashboard/build/.rcc/qmllint/topdash_module.rsp
 

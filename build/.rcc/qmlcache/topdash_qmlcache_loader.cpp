@@ -54,6 +54,13 @@ namespace _0x5f_TopDash_qml_PerformanceView_qml {
         reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
     };
 }
+namespace _0x5f_TopDash_qml_WeatherView_qml { 
+    extern const unsigned char qmlData[];
+    extern const QQmlPrivate::AOTCompiledFunction aotBuiltFunctions[];
+    const QQmlPrivate::CachedQmlUnit unit = {
+        reinterpret_cast<const QV4::CompiledData::Unit*>(&qmlData), &aotBuiltFunctions[0], nullptr
+    };
+}
 
 }
 namespace {
@@ -75,6 +82,7 @@ Registry::Registry() {
     resourcePathToCachedUnit.insert(QStringLiteral("/TopDash/qml/ProfileCard.qml"), &QmlCacheGeneratedCode::_0x5f_TopDash_qml_ProfileCard_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/TopDash/qml/MediaView.qml"), &QmlCacheGeneratedCode::_0x5f_TopDash_qml_MediaView_qml::unit);
     resourcePathToCachedUnit.insert(QStringLiteral("/TopDash/qml/PerformanceView.qml"), &QmlCacheGeneratedCode::_0x5f_TopDash_qml_PerformanceView_qml::unit);
+    resourcePathToCachedUnit.insert(QStringLiteral("/TopDash/qml/WeatherView.qml"), &QmlCacheGeneratedCode::_0x5f_TopDash_qml_WeatherView_qml::unit);
     QQmlPrivate::RegisterQmlUnitCacheHook registration;
     registration.structVersion = 0;
     registration.lookupCachedQmlUnit = &lookupCachedUnit;

@@ -18,5 +18,6 @@
 /home/dxle/builds/dashboard/qml/ProfileCard.qml
 /home/dxle/builds/dashboard/qml/MediaView.qml
 /home/dxle/builds/dashboard/qml/PerformanceView.qml
+/home/dxle/builds/dashboard/qml/WeatherView.qml
 --json
 /home/dxle/builds/dashboard/build/topdash_qmllint.json

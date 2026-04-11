@@ -19,6 +19,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp"
   )
 
 

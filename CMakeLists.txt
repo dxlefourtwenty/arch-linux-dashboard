@@ -30,6 +30,7 @@ qt_add_qml_module(topdash
         qml/ProfileCard.qml
         qml/MediaView.qml
         qml/PerformanceView.qml
+        qml/WeatherView.qml
 )
 
 target_link_libraries(topdash PRIVATE

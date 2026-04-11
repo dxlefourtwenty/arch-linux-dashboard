@@ -16,6 +16,8 @@ set(src_and_dest_list
     "/home/dxle/builds/dashboard/build/TopDash/qml/MediaView.qml"
     "/home/dxle/builds/dashboard/qml/PerformanceView.qml"
     "/home/dxle/builds/dashboard/build/TopDash/qml/PerformanceView.qml"
+    "/home/dxle/builds/dashboard/qml/WeatherView.qml"
+    "/home/dxle/builds/dashboard/build/TopDash/qml/WeatherView.qml"
 
 )
 set(timestamp_file "/home/dxle/builds/dashboard/build/.qt/topdash_qml.txt")

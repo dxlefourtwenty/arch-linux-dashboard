@@ -75,6 +75,7 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.aotstats
+.rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats
 .rcc/qmlcache/module_topdash.aotstats: .rcc/qmlcache/module_topdash.aotstatslist
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating .rcc/qmlcache/module_topdash.aotstats"
 	/usr/lib/qt6/qmlaotstats aggregate /home/dxle/builds/dashboard/build/.rcc/qmlcache/module_topdash.aotstatslist /home/dxle/builds/dashboard/build/.rcc/qmlcache/module_topdash.aotstats
@@ -170,6 +171,19 @@ CMakeFiles/module_topdash_aotstats_target: .rcc/qmlcache/module_topdash.aotstats
 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats: .rcc/qmlcache/topdash_qml/TasksView_qml.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats
 
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: /usr/lib/qt6/qmlcachegen
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: /home/dxle/builds/dashboard/qml/WeatherView.qml
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: .qt/rcc/qmake_TopDash.qrc
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: .qt/rcc/topdash_raw_qml_0.qrc
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: TopDash/topdash.qmltypes
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp: TopDash/qmldir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp, .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats"
+	/usr/bin/cmake -E make_directory /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml
+	/usr/lib/qt6/qmlcachegen --bare --resource-path /TopDash/qml/WeatherView.qml -I /home/dxle/builds/dashboard/build -I /usr/lib/qt6/qml -i /home/dxle/builds/dashboard/build/TopDash/qmldir --resource /home/dxle/builds/dashboard/build/.qt/rcc/qmake_TopDash.qrc --resource /home/dxle/builds/dashboard/build/.qt/rcc/topdash_raw_qml_0.qrc --dump-aot-stats "--module-id=TopDash(topdash)" -o /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp /home/dxle/builds/dashboard/qml/WeatherView.qml
+
+.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats: .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats
+
 CMakeFiles/module_topdash_aotstats_target.dir/codegen:
 .PHONY : CMakeFiles/module_topdash_aotstats_target.dir/codegen
 
@@ -188,6 +202,8 @@ module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/TasksView_qml.cpp
 module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats
+module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp
+module_topdash_aotstats_target: .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats
 module_topdash_aotstats_target: CMakeFiles/module_topdash_aotstats_target
 module_topdash_aotstats_target: CMakeFiles/module_topdash_aotstats_target.dir/build.make
 .PHONY : module_topdash_aotstats_target

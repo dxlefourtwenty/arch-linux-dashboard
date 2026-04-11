@@ -76,6 +76,7 @@ CMakeFiles/topdash_copy_qml: .qt/topdash_qml.txt
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/MediaView.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/PerformanceView.qml
+.qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/WeatherView.qml
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying topdash qml sources into build dir"
 	/usr/bin/cmake -DFILES_INFO_PATH=/home/dxle/builds/dashboard/build/.qt/topdash_qml.cmake -P /usr/lib/cmake/Qt6Qml/Qt6QmlCopyFiles.cmake
 

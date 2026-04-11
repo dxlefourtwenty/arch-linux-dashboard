@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o.d"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o.d"
   "/home/dxle/builds/dashboard/src/appconfig.cpp" "CMakeFiles/topdash.dir/src/appconfig.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/appconfig.cpp.o.d"
   "/home/dxle/builds/dashboard/src/configfiles.cpp" "CMakeFiles/topdash.dir/src/configfiles.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/configfiles.cpp.o.d"
@@ -37,6 +38,7 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp"
+  "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.aotstats" "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp"
   "/home/dxle/builds/dashboard/build/TopDash/topdash.qmltypes" "/home/dxle/builds/dashboard/build/topdash_qmltyperegistrations.cpp"
   )
 
