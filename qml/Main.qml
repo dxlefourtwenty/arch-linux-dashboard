@@ -252,19 +252,28 @@ Window {
         clip: true
 
         Keys.onPressed: (e) => {
+            var tabCount = 4
+            var current = win.activeTabIndex
+            var next = current
+
             if (e.key === Qt.Key_Escape) { win.toggle(); e.accepted = true }
             else if (win.visible && e.key === Qt.Key_Left) {
-                var prev = Math.max(0, win.activeTabIndex - 1)
-                if (prev !== win.activeTabIndex) {
-                    win.activeTabIndex = prev
-                }
+                next = (current - 1 + tabCount) % tabCount
+                win.activeTabIndex = next
                 e.accepted = true
             }
             else if (win.visible && e.key === Qt.Key_Right) {
-                var next = Math.min(3, win.activeTabIndex + 1)
-                if (next !== win.activeTabIndex) {
-                    win.activeTabIndex = next
+                next = (current + 1) % tabCount
+                win.activeTabIndex = next
+                e.accepted = true
+            }
+            else if (win.visible && (e.key === Qt.Key_Tab || e.key === Qt.Key_Backtab)) {
+                if (e.key === Qt.Key_Backtab || (e.modifiers & Qt.ShiftModifier)) {
+                    next = (current - 1 + tabCount) % tabCount
+                } else {
+                    next = (current + 1) % tabCount
                 }
+                win.activeTabIndex = next
                 e.accepted = true
             }
         }
