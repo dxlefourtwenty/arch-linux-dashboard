@@ -433,7 +433,7 @@ Item {
                         id: playerSelector
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: 12
-                        Layout.preferredWidth: Math.round((root.buttonSize * 5 + 40) / 2)
+                        Layout.preferredWidth: Math.round((root.buttonSize * 5 + 40) / 1.65)
                         model: MediaInfo.availablePlayerLabels
                         enabled: MediaInfo.availablePlayers.length > 0
                         currentIndex: -1

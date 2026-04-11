@@ -26,7 +26,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "toFahrenheit",
-                            "line": 31,
+                            "line": 37,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -34,7 +34,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "formatLocalTime",
-                            "line": 35,
+                            "line": 41,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -42,7 +42,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "resolveLocationName",
-                            "line": 42,
+                            "line": 48,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -50,7 +50,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "populateDailyForecast",
-                            "line": 50,
+                            "line": 59,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -58,7 +58,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "weatherGlyphForCode",
-                            "line": 86,
+                            "line": 95,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -66,7 +66,23 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "glyphScaleForCode",
-                            "line": 96,
+                            "line": 105,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "summaryForCode",
+                            "line": 113,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "weatherSnapshot",
+                            "line": 119,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -74,23 +90,31 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "fetchWeather",
-                            "line": 104,
+                            "line": 137,
                             "message": "Instruction \"generate_StoreLocal\" not implemented"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "onVisibleChanged",
+                            "line": 221,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "interval",
+                            "line": 214,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 152,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "onCompleted",
-                            "line": 155,
+                            "line": 218,
                             "message": ""
                         },
                         {
@@ -98,7 +122,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 158,
+                            "line": 228,
                             "message": ""
                         },
                         {
@@ -106,7 +130,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "preferredHeight",
-                            "line": 163,
+                            "line": 233,
                             "message": ""
                         },
                         {
@@ -114,7 +138,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 167,
+                            "line": 239,
                             "message": ""
                         },
                         {
@@ -122,7 +146,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 168,
+                            "line": 240,
                             "message": ""
                         },
                         {
@@ -130,7 +154,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 172,
+                            "line": 244,
                             "message": ""
                         },
                         {
@@ -138,7 +162,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 169,
+                            "line": 241,
                             "message": ""
                         },
                         {
@@ -146,71 +170,215 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 170,
+                            "line": 242,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 179,
+                            "functionName": "width",
+                            "line": 255,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 28,
+                            "column": 33,
                             "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 180,
+                            "functionName": "height",
+                            "line": 256,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 181,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 182,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 27,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 186,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
+                            "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 187,
+                            "line": 262,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 34,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 260,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 188,
+                            "line": 263,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 37,
+                            "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 189,
+                            "line": 264,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 273,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 274,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 275,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 279,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 280,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 281,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 282,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 293,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 294,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 301,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 299,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 302,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 303,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 312,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 313,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 314,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 318,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 319,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 320,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 321,
                             "message": ""
                         },
                         {
@@ -218,7 +386,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 198,
+                            "line": 334,
                             "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant"
                         },
                         {
@@ -226,7 +394,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 199,
+                            "line": 335,
                             "message": ""
                         },
                         {
@@ -234,7 +402,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 200,
+                            "line": 336,
                             "message": ""
                         },
                         {
@@ -242,39 +410,23 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 203,
+                            "line": 339,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 47,
+                            "column": 28,
                             "durationMicroseconds": 0,
-                            "functionName": "horizontalCenter",
-                            "line": 208,
+                            "functionName": "width",
+                            "line": 343,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 32,
+                            "column": 29,
                             "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 212,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 213,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 214,
+                            "functionName": "height",
+                            "line": 344,
                             "message": ""
                         },
                         {
@@ -282,7 +434,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 218,
+                            "line": 349,
                             "message": ""
                         },
                         {
@@ -290,7 +442,15 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 219,
+                            "line": 350,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 348,
                             "message": ""
                         },
                         {
@@ -298,7 +458,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 220,
+                            "line": 351,
                             "message": ""
                         },
                         {
@@ -306,47 +466,87 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 221,
+                            "line": 352,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 359,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 228,
+                            "line": 362,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 28,
+                            "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 229,
+                            "line": 363,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 47,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalCenter",
-                            "line": 227,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 34,
+                            "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 230,
+                            "line": 364,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 37,
+                            "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 231,
+                            "line": 365,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalCenter",
+                            "line": 367,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 371,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 372,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 373,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 374,
                             "message": ""
                         },
                         {
@@ -354,7 +554,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 241,
+                            "line": 385,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
                         },
                         {
@@ -362,7 +562,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 251,
+                            "line": 395,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -370,7 +570,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 252,
+                            "line": 396,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -378,47 +578,15 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 253,
+                            "line": 397,
                             "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 257,
-                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 256,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 261,
-                            "message": "Cannot access value for name modelData"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 36,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 262,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 50,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 265,
+                            "line": 400,
                             "message": ""
                         },
                         {
@@ -426,87 +594,143 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 266,
+                            "line": 404,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 36,
+                            "column": 37,
                             "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 267,
+                            "functionName": "height",
+                            "line": 405,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 42,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 263,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 45,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 264,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 35,
+                            "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 271,
+                            "line": 411,
                             "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 36,
+                            "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 272,
-                            "message": "Cannot access value for name root"
+                            "line": 412,
+                            "message": "Cannot access value for name modelData"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 50,
+                            "column": 57,
                             "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 276,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 36,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 277,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 36,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 278,
+                            "functionName": "verticalCenter",
+                            "line": 409,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 42,
+                            "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 273,
+                            "line": 413,
                             "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 45,
+                            "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 274,
+                            "line": 414,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 420,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 423,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 424,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 427,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 425,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 426,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 431,
+                            "message": "Cannot access value for name modelData"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 432,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 436,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 433,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 434,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -514,7 +738,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 288,
+                            "line": 448,
                             "message": ""
                         },
                         {
@@ -522,7 +746,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 289,
+                            "line": 449,
                             "message": ""
                         },
                         {
@@ -530,7 +754,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 290,
+                            "line": 450,
                             "message": ""
                         },
                         {
@@ -538,7 +762,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 300,
+                            "line": 460,
                             "message": ""
                         },
                         {
@@ -546,7 +770,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 306,
+                            "line": 466,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -554,7 +778,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 307,
+                            "line": 467,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -562,7 +786,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 308,
+                            "line": 468,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -570,7 +794,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 311,
+                            "line": 471,
                             "message": ""
                         },
                         {
@@ -578,7 +802,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 319,
+                            "line": 481,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -586,7 +810,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 320,
+                            "line": 482,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -594,7 +818,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 324,
+                            "line": 486,
                             "message": ""
                         },
                         {
@@ -602,7 +826,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 325,
+                            "line": 487,
                             "message": ""
                         },
                         {
@@ -610,7 +834,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 326,
+                            "line": 488,
                             "message": ""
                         },
                         {
@@ -618,7 +842,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 321,
+                            "line": 483,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -626,7 +850,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 322,
+                            "line": 484,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -634,7 +858,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 330,
+                            "line": 492,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -642,7 +866,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 331,
+                            "line": 493,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -650,7 +874,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 334,
+                            "line": 496,
                             "message": ""
                         },
                         {
@@ -658,7 +882,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 335,
+                            "line": 497,
                             "message": ""
                         },
                         {
@@ -666,7 +890,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 336,
+                            "line": 498,
                             "message": ""
                         },
                         {
@@ -674,7 +898,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 332,
+                            "line": 494,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -682,7 +906,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 333,
+                            "line": 495,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -690,7 +914,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 342,
+                            "line": 504,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -698,7 +922,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 343,
+                            "line": 505,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -706,7 +930,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 346,
+                            "line": 508,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -714,7 +938,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 347,
+                            "line": 509,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -722,7 +946,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 348,
+                            "line": 510,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -730,7 +954,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 349,
+                            "line": 511,
                             "message": ""
                         },
                         {
@@ -738,7 +962,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 350,
+                            "line": 512,
                             "message": ""
                         },
                         {
@@ -746,7 +970,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 351,
+                            "line": 513,
                             "message": ""
                         },
                         {
@@ -754,7 +978,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 344,
+                            "line": 506,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -762,7 +986,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 345,
+                            "line": 507,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -770,7 +994,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 357,
+                            "line": 519,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -778,7 +1002,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 358,
+                            "line": 520,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -786,7 +1010,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 361,
+                            "line": 523,
                             "message": ""
                         },
                         {
@@ -794,7 +1018,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 362,
+                            "line": 524,
                             "message": ""
                         },
                         {
@@ -802,7 +1026,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 363,
+                            "line": 525,
                             "message": ""
                         },
                         {
@@ -810,7 +1034,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 359,
+                            "line": 521,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -818,7 +1042,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 360,
+                            "line": 522,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -826,7 +1050,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 367,
+                            "line": 529,
                             "message": "Cannot access value for name model"
                         },
                         {
@@ -834,7 +1058,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 368,
+                            "line": 530,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -842,7 +1066,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 371,
+                            "line": 533,
                             "message": ""
                         },
                         {
@@ -850,7 +1074,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 372,
+                            "line": 534,
                             "message": ""
                         },
                         {
@@ -858,7 +1082,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 373,
+                            "line": 535,
                             "message": ""
                         },
                         {
@@ -866,7 +1090,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 369,
+                            "line": 531,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -874,7 +1098,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 370,
+                            "line": 532,
                             "message": "Cannot access value for name root"
                         }
                     ],
