@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 Item {
     id: root
@@ -11,9 +12,12 @@ Item {
     property color cAccent: cFg
     property color cMuted: "#888888"
     property color cBorder: "#444444"
+    property color cPrimary: cBorder
     property int cBorderWidth: 2
     property string cFont: "sans"
     property int cFontSize: 16
+    property int sectionRadius: 8
+    property int hoverAnimMs: 140
 
     property real latitude: 34.09
     property real longitude: -117.89
@@ -21,18 +25,29 @@ Item {
     property string locationName: "Loading..."
     property string sunriseText: "--:--"
     property string sunsetText: "--:--"
+    property string locationTimeText: "--:--"
     property string currentTemp: "--°F"
     property string currentSummary: "Waiting for weather data"
     property string currentGlyph: "☀"
     property string humidityText: "--%"
     property string feelsLikeText: "--°F"
-    property string windText: "-- km/h"
+    property string windText: "-- m/h"
+    property int locationUtcOffsetSeconds: 0
+    property bool hasLocationTimeOffset: false
     property int refreshIntervalMs: 60000
     property string lastWeatherSnapshot: ""
     property bool requestInFlight: false
     property bool pendingRefresh: false
+    property var locationOptions: []
+    property int selectedLocationIndex: 0
+    property real locationSelectorWidth: 120
 
     ListModel { id: dailyModel }
+    TextMetrics {
+        id: locationNameMetrics
+        font.family: root.cFont
+        font.pixelSize: root.cFontSize * 0.88
+    }
 
     function toFahrenheit(celsius) {
         return Math.round((Number(celsius) * 9 / 5) + 32)
@@ -45,15 +60,54 @@ Item {
         return Qt.formatTime(dateObj, "h:mm AP")
     }
 
+    function formatClockTextForOffset(offsetSeconds) {
+        if (!isFinite(offsetSeconds)) return "--:--"
+
+        var locationNow = new Date(Date.now() + (Number(offsetSeconds) * 1000))
+        var hour = locationNow.getUTCHours()
+        var minute = locationNow.getUTCMinutes()
+        if (!isFinite(hour) || !isFinite(minute)) return "--:--"
+
+        var meridiem = hour >= 12 ? "PM" : "AM"
+        var hour12 = hour % 12
+        if (hour12 === 0) hour12 = 12
+        var minuteText = minute < 10 ? "0" + minute : "" + minute
+        return hour12 + ":" + minuteText + " " + meridiem
+    }
+
+    function updateLocationSelectorWidth() {
+        var maxTextWidth = 0
+        if (locationOptions && locationOptions.length > 0) {
+            for (var i = 0; i < locationOptions.length; ++i) {
+                var entry = locationOptions[i]
+                var label = entry && entry.displayName ? String(entry.displayName) : ""
+                locationNameMetrics.text = label
+                maxTextWidth = Math.max(maxTextWidth, locationNameMetrics.width)
+            }
+        }
+        locationSelectorWidth = Math.max(120, Math.ceil(maxTextWidth + 28))
+    }
+
     function resolveLocationName(timezoneName) {
         if (locationDisplayName && locationDisplayName.trim().length > 0) {
             return locationDisplayName
         }
         if (!timezoneName || timezoneName.indexOf("/") === -1) {
-            return "34.09, -117.89"
+            return Number(latitude).toFixed(2) + ", " + Number(longitude).toFixed(2)
         }
         var parts = timezoneName.split("/")
         return parts[parts.length - 1].replace(/_/g, " ")
+    }
+
+    function formatCoordinate(value) {
+        return Number(value).toFixed(4)
+    }
+
+    function selectLocationIndex(index) {
+        if (!locationOptions || index < 0 || index >= locationOptions.length) {
+            return
+        }
+        WeatherConfig.selectIndex(index)
     }
 
     function populateDailyForecast(payload) {
@@ -78,6 +132,7 @@ Item {
             var code = i < weatherCodes.length ? Number(weatherCodes[i]) : -1
             var isRegularCloud = (code === 3 || code === 45 || code === 48)
             var isRainCloud = ((code >= 51 && code <= 67) || (code >= 80 && code <= 82))
+            var isPartialCloud = (code === 1 || code === 2)
 
             dailyModel.append({
                 day: dayName,
@@ -87,7 +142,7 @@ Item {
                 glyph: weatherGlyphForCode(code),
                 glyphScale: glyphScaleForCode(code),
                 isRegularCloud: isRegularCloud,
-                cloudXOffset: (isRegularCloud || isRainCloud) ? -6 : 0
+                cloudXOffset: isPartialCloud ? -6 : ((isRegularCloud || isRainCloud) ? -6 : 0)
             })
         }
     }
@@ -105,7 +160,7 @@ Item {
     function glyphScaleForCode(code) {
         if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) return 2.0
         if (code === 0) return 3.0
-        if (code === 1 || code === 2) return 4.0
+        if (code === 1 || code === 2) return 2.0
         if (code === 3 || code === 45 || code === 48) return 2.0
         return 2.0
     }
@@ -135,6 +190,11 @@ Item {
     }
 
     function fetchWeather() {
+        if (!isFinite(latitude) || !isFinite(longitude)) {
+            currentSummary = "Weather unavailable"
+            return
+        }
+
         if (requestInFlight) {
             pendingRefresh = true
             return
@@ -146,6 +206,7 @@ Item {
                 + "&longitude=" + longitude
                 + "&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code"
                 + "&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min,weather_code"
+                + "&wind_speed_unit=mph"
                 + "&timezone=auto"
         var xhr = new XMLHttpRequest()
         xhr.open("GET", url)
@@ -188,7 +249,10 @@ Item {
                 currentTemp = toFahrenheit(data.current.temperature_2m) + "°F"
                 feelsLikeText = toFahrenheit(data.current.apparent_temperature) + "°F"
                 humidityText = Math.round(Number(data.current.relative_humidity_2m)) + "%"
-                windText = Number(data.current.wind_speed_10m).toFixed(1) + " km/h"
+                windText = Number(data.current.wind_speed_10m).toFixed(1) + " mp/h"
+                locationUtcOffsetSeconds = Number(data.utc_offset_seconds)
+                hasLocationTimeOffset = true
+                locationTimeText = formatClockTextForOffset(locationUtcOffsetSeconds)
                 var currentCode = Number(data.current.weather_code)
                 currentGlyph = weatherGlyphForCode(currentCode)
                 currentSummary = summaryForCode(currentCode)
@@ -218,9 +282,146 @@ Item {
         onTriggered: root.fetchWeather()
     }
 
+    Timer {
+        interval: 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            if (root.hasLocationTimeOffset) {
+                root.locationTimeText = root.formatClockTextForOffset(root.locationUtcOffsetSeconds)
+            }
+        }
+    }
+
     onVisibleChanged: {
         if (visible) {
-            fetchWeather()
+            WeatherConfig.reload()
+        }
+    }
+
+    Connections {
+        target: WeatherConfig
+        function onConfigChanged() {
+            var nextOptions = WeatherConfig.locations
+            var nextIndex = WeatherConfig.selectedIndex
+            if (!nextOptions || nextOptions.length === 0) {
+                return
+            }
+            if (nextIndex < 0 || nextIndex >= nextOptions.length) {
+                nextIndex = 0
+            }
+
+            var selected = nextOptions[nextIndex]
+            if (!selected) {
+                return
+            }
+
+            var nextDisplayName = selected.displayName || locationDisplayName
+            var nextLatitude = Number(selected.latitude)
+            var nextLongitude = Number(selected.longitude)
+            if (!isFinite(nextLatitude) || !isFinite(nextLongitude)) {
+                return
+            }
+
+            var changed = selectedLocationIndex !== nextIndex
+                || locationDisplayName !== nextDisplayName
+                || Math.abs(latitude - nextLatitude) > 0.000001
+                || Math.abs(longitude - nextLongitude) > 0.000001
+
+            locationOptions = nextOptions
+            updateLocationSelectorWidth()
+            selectedLocationIndex = nextIndex
+            locationDisplayName = nextDisplayName
+            latitude = nextLatitude
+            longitude = nextLongitude
+            locationName = locationDisplayName
+
+            if (changed || !lastWeatherSnapshot) {
+                locationUtcOffsetSeconds = 0
+                hasLocationTimeOffset = false
+                locationTimeText = "--:--"
+                lastWeatherSnapshot = ""
+                fetchWeather()
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        WeatherConfig.reload()
+    }
+
+    onCFontChanged: updateLocationSelectorWidth()
+    onCFontSizeChanged: updateLocationSelectorWidth()
+
+    Popup {
+        id: locationSelectorPopup
+        y: locationAnchor.y + locationAnchor.height + 6
+        x: Math.max(0, locationAnchor.x)
+        width: root.locationSelectorWidth
+        padding: 4
+        modal: false
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent | Popup.CloseOnPressOutside
+        implicitHeight: contentItem.implicitHeight + 8
+
+        background: Rectangle {
+            radius: root.sectionRadius
+            color: Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.96)
+            border.width: root.cBorderWidth
+            border.color: root.cBorder
+        }
+
+        contentItem: ListView {
+            clip: true
+            implicitHeight: contentHeight
+            model: locationOptions
+            spacing: 4
+
+            delegate: ItemDelegate {
+                id: locationDelegate
+                required property var modelData
+                required property int index
+                width: locationSelectorPopup.width - 8
+                height: 42
+                highlighted: root.selectedLocationIndex === index
+                onClicked: {
+                    root.selectLocationIndex(index)
+                    locationSelectorPopup.close()
+                }
+
+                contentItem: Column {
+                    spacing: 1
+
+                    Text {
+                        text: modelData.displayName
+                        color: locationDelegate.highlighted ? root.cBg : root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 0.88
+                        elide: Text.ElideRight
+                    }
+
+                    Text {
+                        text: root.formatCoordinate(modelData.latitude) + ", " + root.formatCoordinate(modelData.longitude)
+                        color: locationDelegate.highlighted
+                            ? Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.78)
+                            : root.cMuted
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 0.72
+                        elide: Text.ElideRight
+                    }
+                }
+
+                background: Rectangle {
+                    radius: root.sectionRadius
+                    border.width: 1
+                    border.color: parent.highlighted
+                        ? Qt.rgba(root.cPrimary.r, root.cPrimary.g, root.cPrimary.b, 0.95)
+                        : Qt.rgba(root.cBorder.r, root.cBorder.g, root.cBorder.b, 0.65)
+                    color: parent.highlighted
+                        ? Qt.rgba(root.cPrimary.r, root.cPrimary.g, root.cPrimary.b, 0.95)
+                        : Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.42)
+                }
+            }
         }
     }
 
@@ -232,16 +433,47 @@ Item {
             Layout.fillWidth: true
             Layout.preferredHeight: Math.max(34, root.cFontSize + 12)
 
-            Text {
+            Item {
+                id: locationAnchor
                 Layout.fillWidth: true
                 Layout.leftMargin: 5
                 Layout.topMargin: 15
-                text: root.locationName
-                color: root.cFg
-                font.family: root.cFont
-                font.pixelSize: root.cFontSize + 2
-                font.bold: true
-                elide: Text.ElideRight
+                implicitHeight: locationTitle.implicitHeight
+
+                Text {
+                    id: locationTitle
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    text: root.locationName
+                    color: locationMouseArea.containsMouse ? root.cAccent : root.cFg
+                    font.family: root.cFont
+                    font.pixelSize: root.cFontSize + 2
+                    font.bold: true
+                    elide: Text.ElideRight
+                    transformOrigin: Item.Left
+                    scale: locationMouseArea.containsMouse ? 1.1 : 1.0
+                    Behavior on color {
+                        ColorAnimation {
+                            duration: root.hoverAnimMs
+                        }
+                    }
+                    Behavior on scale {
+                        NumberAnimation {
+                            duration: root.hoverAnimMs
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+                }
+
+                MouseArea {
+                    id: locationMouseArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        locationSelectorPopup.open()
+                    }
+                }
             }
 
             RowLayout {
@@ -252,11 +484,49 @@ Item {
                     spacing: 6
 
                     Item {
-                        width: sunriseIcon.implicitWidth + 1
+                        width: timeIcon.implicitWidth + 1 + 2
+                        height: timeIcon.implicitHeight
+
+                        Text {
+                            id: timeIcon
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: ""
+                            color: root.cAccent
+                            font.family: root.cFont
+                            font.pixelSize: Math.max(11, root.cFontSize - 2) * 1.8
+                        }
+                    }
+
+                    Column {
+                        spacing: 1
+
+                        Text {
+                            text: "Time"
+                            color: root.cFg
+                            font.family: root.cFont
+                            font.pixelSize: Math.max(10, root.cFontSize - 4) * 1.1
+                        }
+
+                        Text {
+                            text: root.locationTimeText
+                            color: root.cFg
+                            font.family: root.cFont
+                            font.pixelSize: Math.max(11, root.cFontSize - 2)
+                            font.bold: true
+                        }
+                    }
+                }
+
+                Row {
+                    spacing: 6
+
+                    Item {
+                        width: sunriseIcon.implicitWidth + 1 + 6
                         height: sunriseIcon.implicitHeight
 
                         Text {
                             id: sunriseIcon
+                            x: 6
                             anchors.verticalCenter: parent.verticalCenter
                             text: ""
                             color: root.cAccent
@@ -340,8 +610,8 @@ Item {
                 spacing: 10
 
                 Item {
-                    width: currentConditionIcon.implicitWidth + 1 + 5
-                    height: currentConditionIcon.implicitHeight
+                    width: (currentConditionIcon.implicitWidth * currentConditionIcon.scale) + 6
+                    height: currentConditionIcon.implicitHeight * currentConditionIcon.scale
 
                     Text {
                         id: currentConditionIcon
@@ -350,6 +620,7 @@ Item {
                         color: root.cFg
                         font.family: root.cFont
                         font.pixelSize: root.cFontSize * 4.6
+                        scale: root.currentGlyph === "☀" ? 1.5 : 1.0
                     }
                 }
 

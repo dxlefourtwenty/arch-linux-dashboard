@@ -3,3 +3,4 @@
 #include "UVLADIE3JM/moc_configfiles.cpp"
 #include "UVLADIE3JM/moc_mediainfo.cpp"
 #include "UVLADIE3JM/moc_systeminfo.cpp"
+#include "UVLADIE3JM/moc_weatherconfig.cpp"

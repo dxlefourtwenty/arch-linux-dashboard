@@ -454,4 +454,10 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /home/dxle/builds/dashboard/src/appconfig.h \
  /usr/include/qt6/QtCore/QString \
  /home/dxle/builds/dashboard/src/configfiles.h \
- /home/dxle/builds/dashboard/src/mediainfo.h
+ /home/dxle/builds/dashboard/src/mediainfo.h \
+ /home/dxle/builds/dashboard/src/weatherconfig.h \
+ /usr/include/qt6/QtCore/QVariantList \
+ /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QVariant \
+ /usr/include/qt6/QtCore/QVariantMap \
+ /usr/include/qt6/QtCore/qvariantmap.h /usr/include/qt6/QtCore/QMap \
+ /usr/include/qt6/QtCore/QString

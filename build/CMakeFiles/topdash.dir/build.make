@@ -318,10 +318,24 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/topdash.dir/src/mediainfo.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dxle/builds/dashboard/src/mediainfo.cpp -o CMakeFiles/topdash.dir/src/mediainfo.cpp.s
 
+CMakeFiles/topdash.dir/src/weatherconfig.cpp.o: CMakeFiles/topdash.dir/flags.make
+CMakeFiles/topdash.dir/src/weatherconfig.cpp.o: /home/dxle/builds/dashboard/src/weatherconfig.cpp
+CMakeFiles/topdash.dir/src/weatherconfig.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/topdash.dir/src/weatherconfig.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/src/weatherconfig.cpp.o -MF CMakeFiles/topdash.dir/src/weatherconfig.cpp.o.d -o CMakeFiles/topdash.dir/src/weatherconfig.cpp.o -c /home/dxle/builds/dashboard/src/weatherconfig.cpp
+
+CMakeFiles/topdash.dir/src/weatherconfig.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/topdash.dir/src/weatherconfig.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dxle/builds/dashboard/src/weatherconfig.cpp > CMakeFiles/topdash.dir/src/weatherconfig.cpp.i
+
+CMakeFiles/topdash.dir/src/weatherconfig.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/topdash.dir/src/weatherconfig.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dxle/builds/dashboard/src/weatherconfig.cpp -o CMakeFiles/topdash.dir/src/weatherconfig.cpp.s
+
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o: topdash_qmltyperegistrations.cpp
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o -MF CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o.d -o CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o -c /home/dxle/builds/dashboard/build/topdash_qmltyperegistrations.cpp
 
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.i: cmake_force
@@ -335,7 +349,7 @@ CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.s: cmake_force
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o: .qt/rcc/qrc_qmake_TopDash.cpp
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o -MF CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o.d -o CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o -c /home/dxle/builds/dashboard/build/.qt/rcc/qrc_qmake_TopDash.cpp
 
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.i: cmake_force
@@ -349,7 +363,7 @@ CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.s: cmake_force
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o: .rcc/qmlcache/topdash_qmlcache_loader.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.i: cmake_force
@@ -363,7 +377,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.s: cmake_
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o: .rcc/qmlcache/topdash_qml/Main_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.i: cmake_force
@@ -377,7 +391,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.s: cmake_for
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o: .rcc/qmlcache/topdash_qml/CalendarView_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.i: cmake_force
@@ -391,7 +405,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.s: c
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o: .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.i: cmake_force
@@ -405,7 +419,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.s: cmak
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o: .rcc/qmlcache/topdash_qml/TasksView_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.i: cmake_force
@@ -419,7 +433,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.s: cmak
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o: .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.i: cmake_force
@@ -433,7 +447,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.s: cm
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o: .rcc/qmlcache/topdash_qml/MediaView_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.i: cmake_force
@@ -447,7 +461,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.s: cmak
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o: .rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.i: cmake_force
@@ -461,7 +475,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.s
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o: .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o -MF CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o.d -o CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o -c /home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.i: cmake_force
@@ -475,7 +489,7 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.s: cm
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o: CMakeFiles/topdash.dir/flags.make
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o: .qt/rcc/qrc_topdash_raw_qml_0.cpp
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o: CMakeFiles/topdash.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o -MF CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o.d -o CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o -c /home/dxle/builds/dashboard/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp
 
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.i: cmake_force
@@ -494,6 +508,7 @@ topdash_OBJECTS = \
 "CMakeFiles/topdash.dir/src/appconfig.cpp.o" \
 "CMakeFiles/topdash.dir/src/configfiles.cpp.o" \
 "CMakeFiles/topdash.dir/src/mediainfo.cpp.o" \
+"CMakeFiles/topdash.dir/src/weatherconfig.cpp.o" \
 "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o" \
 "CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o" \
 "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o" \
@@ -516,6 +531,7 @@ topdash: CMakeFiles/topdash.dir/src/systeminfo.cpp.o
 topdash: CMakeFiles/topdash.dir/src/appconfig.cpp.o
 topdash: CMakeFiles/topdash.dir/src/configfiles.cpp.o
 topdash: CMakeFiles/topdash.dir/src/mediainfo.cpp.o
+topdash: CMakeFiles/topdash.dir/src/weatherconfig.cpp.o
 topdash: CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o
 topdash: CMakeFiles/topdash.dir/build/.qt/rcc/qrc_qmake_TopDash.cpp.o
 topdash: CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o
@@ -540,7 +556,7 @@ topdash: /usr/lib/libGLX.so
 topdash: /usr/lib/libOpenGL.so
 topdash: /usr/lib/libQt6Core.so.6.11.0
 topdash: CMakeFiles/topdash.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable topdash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Linking CXX executable topdash"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/topdash.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

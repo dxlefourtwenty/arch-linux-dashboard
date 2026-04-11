@@ -747,6 +747,30 @@ src/systeminfo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/systeminfo.cpp.s
 .PHONY : src/systeminfo.cpp.s
 
+src/weatherconfig.o: src/weatherconfig.cpp.o
+.PHONY : src/weatherconfig.o
+
+# target to build an object file
+src/weatherconfig.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/weatherconfig.cpp.o
+.PHONY : src/weatherconfig.cpp.o
+
+src/weatherconfig.i: src/weatherconfig.cpp.i
+.PHONY : src/weatherconfig.i
+
+# target to preprocess a source file
+src/weatherconfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/weatherconfig.cpp.i
+.PHONY : src/weatherconfig.cpp.i
+
+src/weatherconfig.s: src/weatherconfig.cpp.s
+.PHONY : src/weatherconfig.s
+
+# target to generate assembly for a file
+src/weatherconfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/weatherconfig.cpp.s
+.PHONY : src/weatherconfig.cpp.s
+
 topdash_autogen/mocs_compilation.o: topdash_autogen/mocs_compilation.cpp.o
 .PHONY : topdash_autogen/mocs_compilation.o
 
@@ -870,6 +894,9 @@ help:
 	@echo "... src/systeminfo.o"
 	@echo "... src/systeminfo.i"
 	@echo "... src/systeminfo.s"
+	@echo "... src/weatherconfig.o"
+	@echo "... src/weatherconfig.i"
+	@echo "... src/weatherconfig.s"
 	@echo "... topdash_autogen/mocs_compilation.o"
 	@echo "... topdash_autogen/mocs_compilation.i"
 	@echo "... topdash_autogen/mocs_compilation.s"

@@ -720,7 +720,7 @@
                         {
                             "codegenResult": 2,
                             "column": 26,
-                            "durationMicroseconds": 11000,
+                            "durationMicroseconds": 12000,
                             "functionName": "onPaint",
                             "line": 324,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
@@ -1967,10 +1967,18 @@
                         },
                         {
                             "codegenResult": 0,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "cPrimary",
+                            "line": 751,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "cBorderWidth",
-                            "line": 751,
+                            "line": 752,
                             "message": ""
                         },
                         {
@@ -1978,7 +1986,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 752,
+                            "line": 753,
                             "message": ""
                         },
                         {
@@ -1986,7 +1994,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 753,
+                            "line": 754,
                             "message": ""
                         },
                         {
@@ -2002,7 +2010,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 762,
+                            "line": 763,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         }
                     ],

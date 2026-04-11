@@ -15,6 +15,7 @@
 #include "appconfig.h"
 #include "configfiles.h"
 #include "mediainfo.h"
+#include "weatherconfig.h"
 
 static QObject *g_root = nullptr;
 
@@ -69,11 +70,13 @@ int main(int argc, char *argv[])
     MediaInfo media;
     AppConfig cfg;
     ConfigFiles configFiles(&engine);
+    WeatherConfig weatherConfig;
 
     engine.rootContext()->setContextProperty("SystemInfo", &sys);
     engine.rootContext()->setContextProperty("MediaInfo", &media);
     engine.rootContext()->setContextProperty("AppConfig", &cfg);
     engine.rootContext()->setContextProperty("ConfigFiles", &configFiles);
+    engine.rootContext()->setContextProperty("WeatherConfig", &weatherConfig);
     engine.loadFromModule("TopDash", "Main");
 
     if (engine.rootObjects().isEmpty())

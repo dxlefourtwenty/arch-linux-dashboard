@@ -429,8 +429,8 @@ Window {
                             model: [
                                 { icon: "󰕮", label: "Dashboard" },
                                 { icon: "󰲸", label: "Media" },
-                                { icon: "󰾆", label: "Performance" },
-                                { icon: "󰖙", label: "Weather" }
+                                { icon: "󰓅", label: "Performance" },
+                                { icon: "", label: "Weather" }
                             ]
 
                             delegate: Item {
@@ -748,6 +748,7 @@ Window {
                                 cAccent: win.cAccent
                                 cMuted: win.cMuted
                                 cBorder: win.cBorder
+                                cPrimary: win.cPrimary
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize

@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/src/main.cpp" "CMakeFiles/topdash.dir/src/main.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/main.cpp.o.d"
   "/home/dxle/builds/dashboard/src/mediainfo.cpp" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o.d"
   "/home/dxle/builds/dashboard/src/systeminfo.cpp" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/systeminfo.cpp.o.d"
+  "/home/dxle/builds/dashboard/src/weatherconfig.cpp" "CMakeFiles/topdash.dir/src/weatherconfig.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/weatherconfig.cpp.o.d"
   "/home/dxle/builds/dashboard/build/topdash_autogen/mocs_compilation.cpp" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o.d"
   "/home/dxle/builds/dashboard/build/topdash_qmltyperegistrations.cpp" "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o" "gcc" "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o.d"
   "" "topdash" "gcc" "CMakeFiles/topdash.dir/link.d"

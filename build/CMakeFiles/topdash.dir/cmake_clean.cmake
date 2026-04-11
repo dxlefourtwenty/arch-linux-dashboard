@@ -54,6 +54,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/topdash.dir/src/mediainfo.cpp.o.d"
   "CMakeFiles/topdash.dir/src/systeminfo.cpp.o"
   "CMakeFiles/topdash.dir/src/systeminfo.cpp.o.d"
+  "CMakeFiles/topdash.dir/src/weatherconfig.cpp.o"
+  "CMakeFiles/topdash.dir/src/weatherconfig.cpp.o.d"
   "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o"

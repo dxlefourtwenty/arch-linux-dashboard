@@ -1452,6 +1452,12 @@
 			"MU",
 			"UVLADIE3JM/moc_systeminfo.cpp",
 			null
+		],
+		[
+			"/home/dxle/builds/dashboard/src/weatherconfig.h",
+			"MU",
+			"UVLADIE3JM/moc_weatherconfig.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -1546,7 +1552,8 @@
 		[ "/home/dxle/builds/dashboard/src/configfiles.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/main.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/mediainfo.cpp", "MU", null ],
-		[ "/home/dxle/builds/dashboard/src/systeminfo.cpp", "MU", null ]
+		[ "/home/dxle/builds/dashboard/src/systeminfo.cpp", "MU", null ],
+		[ "/home/dxle/builds/dashboard/src/weatherconfig.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

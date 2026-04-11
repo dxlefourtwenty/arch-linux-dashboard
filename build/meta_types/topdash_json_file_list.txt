@@ -2,3 +2,4 @@
 /home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_configfiles.cpp.json
 /home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_mediainfo.cpp.json
 /home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_systeminfo.cpp.json
+/home/dxle/builds/dashboard/build/topdash_autogen/include/../UVLADIE3JM/moc_weatherconfig.cpp.json
