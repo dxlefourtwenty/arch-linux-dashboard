@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <QStringList>
 #include <QTimer>
 
 class MediaInfo : public QObject
@@ -8,6 +9,9 @@ class MediaInfo : public QObject
     Q_OBJECT
 
     Q_PROPERTY(QString playerName READ playerName NOTIFY mediaChanged)
+    Q_PROPERTY(QStringList availablePlayers READ availablePlayers NOTIFY mediaChanged)
+    Q_PROPERTY(QStringList availablePlayerLabels READ availablePlayerLabels NOTIFY mediaChanged)
+    Q_PROPERTY(QString selectedPlayer READ selectedPlayer NOTIFY mediaChanged)
     Q_PROPERTY(QString title READ title NOTIFY mediaChanged)
     Q_PROPERTY(QString artist READ artist NOTIFY mediaChanged)
     Q_PROPERTY(QString status READ status NOTIFY mediaChanged)
@@ -22,6 +26,9 @@ public:
     explicit MediaInfo(QObject *parent = nullptr);
 
     QString playerName() const { return m_playerName; }
+    QStringList availablePlayers() const { return m_availablePlayers; }
+    QStringList availablePlayerLabels() const { return m_availablePlayerLabels; }
+    QString selectedPlayer() const { return m_selectedPlayer; }
     QString title() const { return m_title; }
     QString artist() const { return m_artist; }
     QString status() const { return m_status; }
@@ -38,6 +45,8 @@ public:
     Q_INVOKABLE void seekToRatio(double ratio);
     Q_INVOKABLE void seekRelative(double offsetSeconds);
     Q_INVOKABLE void setVolume(double volume);
+    Q_INVOKABLE void selectPlayer(const QString &playerId);
+    Q_INVOKABLE void selectPlayerAt(int index);
 
 public slots:
     void refresh();
@@ -57,6 +66,9 @@ private:
     QTimer m_pollTimer;
 
     QString m_targetPlayer;
+    QStringList m_availablePlayers;
+    QStringList m_availablePlayerLabels;
+    QString m_selectedPlayer;
     QString m_playerName;
     QString m_title;
     QString m_artist;

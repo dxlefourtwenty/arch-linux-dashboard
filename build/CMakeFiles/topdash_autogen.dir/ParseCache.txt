@@ -767,6 +767,7 @@
  mdp:/usr/include/locale.h
  mdp:/usr/include/pthread.h
  mdp:/usr/include/qt6/QtCore/QObject
+ mdp:/usr/include/qt6/QtCore/QStringList
  mdp:/usr/include/qt6/QtCore/QTimer
  mdp:/usr/include/qt6/QtCore/q17memory.h
  mdp:/usr/include/qt6/QtCore/q20bit.h

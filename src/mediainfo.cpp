@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
+#include <QHash>
 
 namespace {
 constexpr const char *kPlayerctlBin = "/usr/bin/playerctl";
@@ -73,21 +74,110 @@ void MediaInfo::setVolume(double volume)
     refresh();
 }
 
+void MediaInfo::selectPlayer(const QString &playerId)
+{
+    const QString nextPlayer = playerId.trimmed();
+    if (nextPlayer.isEmpty() || !m_availablePlayers.contains(nextPlayer) || m_selectedPlayer == nextPlayer) {
+        return;
+    }
+
+    m_selectedPlayer = nextPlayer;
+    m_targetPlayer = nextPlayer;
+    refresh();
+}
+
+void MediaInfo::selectPlayerAt(int index)
+{
+    if (index < 0 || index >= m_availablePlayers.size()) {
+        return;
+    }
+    selectPlayer(m_availablePlayers.at(index));
+}
+
 void MediaInfo::refresh()
 {
     const QString playersOut = runPlayerctl({"-l"});
-    QStringList players = playersOut.split('\n', Qt::SkipEmptyParts);
-    for (QString &player : players) {
+    QStringList listedPlayers = playersOut.split('\n', Qt::SkipEmptyParts);
+    for (QString &player : listedPlayers) {
         player = player.trimmed();
     }
-    players.removeAll(QString());
-    players.removeDuplicates();
+    listedPlayers.removeAll(QString());
+    listedPlayers.removeDuplicates();
+
+    QStringList players;
+    QStringList playerStatuses;
+    QStringList baseLabels;
+    players.reserve(listedPlayers.size());
+    playerStatuses.reserve(listedPlayers.size());
+    baseLabels.reserve(listedPlayers.size());
+    for (const QString &player : listedPlayers) {
+        const QString playerStatus = runPlayerctl({"-p", player, "status"});
+        if (playerStatus.isEmpty()) {
+            continue;
+        }
+
+        const QString metaOut = runPlayerctl({
+            "-p", player,
+            "metadata",
+            "--format",
+            QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
+                .arg(QChar(kFieldSeparator))
+        });
+        const QStringList fields = metaOut.split(QChar(kFieldSeparator));
+        const QString rawPlayerName = fields.value(0).trimmed();
+        const QString title = compactValue(fields.value(1));
+        const QString sourceUrl = compactValue(fields.value(5)).toLower();
+        const QString titleLower = title.toLower();
+        const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
+            || sourceUrl.contains("youtu.be")
+            || titleLower.contains("youtube")
+            || titleLower.endsWith(" - youtube")
+            || titleLower.startsWith("youtube -")
+            || titleLower.contains(" youtu.be")
+            || hyprClientsShowYouTubeForBrowser(rawPlayerName);
+        QString displayName = displayPlayerName(
+            rawPlayerName,
+            looksLikeYoutube ? QStringLiteral("youtube.com") : sourceUrl
+        );
+        if (displayName.isEmpty()) {
+            displayName = player;
+        }
+
+        players.append(player);
+        playerStatuses.append(playerStatus);
+        baseLabels.append(displayName);
+    }
+
+    QHash<QString, int> totalLabelCounts;
+    for (const QString &label : baseLabels) {
+        totalLabelCounts[label] += 1;
+    }
+
+    QHash<QString, int> seenLabelCounts;
+    QStringList labels;
+    labels.reserve(baseLabels.size());
+    for (const QString &label : baseLabels) {
+        if (totalLabelCounts.value(label) > 1) {
+            const int instanceNumber = seenLabelCounts.value(label) + 1;
+            seenLabelCounts.insert(label, instanceNumber);
+            labels.append(QString("%1 - %2").arg(label, QString::number(instanceNumber)));
+        } else {
+            labels.append(label);
+        }
+    }
+
+    const bool playersChanged = m_availablePlayers != players || m_availablePlayerLabels != labels;
+    const QString previousSelectedPlayer = m_selectedPlayer;
 
     if (players.isEmpty()) {
-        const bool changed = m_hasMedia || !m_playerName.isEmpty() || !m_title.isEmpty()
+        const bool changed = playersChanged || !m_selectedPlayer.isEmpty()
+            || m_hasMedia || !m_playerName.isEmpty() || !m_title.isEmpty()
             || !m_artist.isEmpty() || !m_status.isEmpty() || m_positionSeconds != 0.0
             || m_lengthSeconds != 0.0 || m_volume != 0.0 || !m_artUrl.isEmpty() || m_isVideo;
 
+        m_availablePlayers.clear();
+        m_availablePlayerLabels.clear();
+        m_selectedPlayer.clear();
         m_targetPlayer.clear();
         m_hasMedia = false;
         m_playerName.clear();
@@ -106,26 +196,44 @@ void MediaInfo::refresh()
         return;
     }
 
+    m_availablePlayers = players;
+    m_availablePlayerLabels = labels;
+
     QString selectedPlayer;
-    for (const QString &player : players) {
-        const QString playerStatus = runPlayerctl({"-p", player, "status"});
-        if (playerStatus == "Playing") {
-            selectedPlayer = player;
-            break;
+    if (players.contains(m_selectedPlayer)) {
+        selectedPlayer = m_selectedPlayer;
+    } else {
+        for (int i = 0; i < players.size(); ++i) {
+            if (playerStatuses.at(i) == "Playing") {
+                selectedPlayer = players.at(i);
+                break;
+            }
+        }
+
+        if (selectedPlayer.isEmpty()) {
+            if (players.contains(m_targetPlayer)) {
+                selectedPlayer = m_targetPlayer;
+            } else {
+                selectedPlayer = players.first();
+            }
         }
     }
 
-    if (selectedPlayer.isEmpty()) {
-        if (players.contains(m_targetPlayer)) {
-            selectedPlayer = m_targetPlayer;
-        } else {
-            selectedPlayer = players.first();
-        }
-    }
+    m_selectedPlayer = selectedPlayer;
     m_targetPlayer = selectedPlayer;
+    const bool selectedPlayerChanged = previousSelectedPlayer != m_selectedPlayer;
+    const bool playerSelectionChanged = playersChanged || selectedPlayerChanged;
 
-    const QString statusOut = runPlayerctl({"-p", m_targetPlayer, "status"});
+    const int selectedIndex = players.indexOf(m_targetPlayer);
+    const QString statusOut = selectedIndex >= 0
+        ? playerStatuses.at(selectedIndex)
+        : runPlayerctl({"-p", m_targetPlayer, "status"});
     if (statusOut.isEmpty()) {
+        const bool changed = playerSelectionChanged || m_hasMedia || !m_playerName.isEmpty()
+            || !m_title.isEmpty() || !m_artist.isEmpty() || !m_status.isEmpty()
+            || m_positionSeconds != 0.0 || m_lengthSeconds != 0.0 || m_volume != 0.0
+            || !m_artUrl.isEmpty() || m_isVideo;
+
         m_hasMedia = false;
         m_playerName.clear();
         m_title.clear();
@@ -136,7 +244,9 @@ void MediaInfo::refresh()
         m_volume = 0.0;
         m_artUrl.clear();
         m_isVideo = false;
-        emit mediaChanged();
+        if (changed) {
+            emit mediaChanged();
+        }
         return;
     }
 
@@ -179,7 +289,7 @@ void MediaInfo::refresh()
         || sourceUrl.endsWith(".webm")
         || sourceUrl.endsWith(".mkv");
 
-    const bool changed = !m_hasMedia
+    const bool changed = playerSelectionChanged || !m_hasMedia
         || m_playerName != playerName
         || m_title != title
         || m_artist != artist

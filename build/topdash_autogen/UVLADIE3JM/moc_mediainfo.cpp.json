@@ -2,26 +2,26 @@
     "classes": [
         {
             "className": "MediaInfo",
-            "lineNumber": 6,
+            "lineNumber": 7,
             "methods": [
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 35,
+                    "lineNumber": 42,
                     "name": "playPause",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 3,
-                    "lineNumber": 36,
+                    "lineNumber": 43,
                     "name": "next",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 4,
-                    "lineNumber": 37,
+                    "lineNumber": 44,
                     "name": "previous",
                     "returnType": "void"
                 },
@@ -34,7 +34,7 @@
                         }
                     ],
                     "index": 5,
-                    "lineNumber": 38,
+                    "lineNumber": 45,
                     "name": "seekToRatio",
                     "returnType": "void"
                 },
@@ -47,7 +47,7 @@
                         }
                     ],
                     "index": 6,
-                    "lineNumber": 39,
+                    "lineNumber": 46,
                     "name": "seekRelative",
                     "returnType": "void"
                 },
@@ -60,8 +60,34 @@
                         }
                     ],
                     "index": 7,
-                    "lineNumber": 40,
+                    "lineNumber": 47,
                     "name": "setVolume",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "playerId",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 48,
+                    "name": "selectPlayer",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 49,
+                    "name": "selectPlayerAt",
                     "returnType": "void"
                 }
             ],
@@ -72,7 +98,7 @@
                     "designable": true,
                     "final": false,
                     "index": 0,
-                    "lineNumber": 10,
+                    "lineNumber": 11,
                     "name": "playerName",
                     "notify": "mediaChanged",
                     "override": false,
@@ -89,7 +115,58 @@
                     "designable": true,
                     "final": false,
                     "index": 1,
-                    "lineNumber": 11,
+                    "lineNumber": 12,
+                    "name": "availablePlayers",
+                    "notify": "mediaChanged",
+                    "override": false,
+                    "read": "availablePlayers",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 13,
+                    "name": "availablePlayerLabels",
+                    "notify": "mediaChanged",
+                    "override": false,
+                    "read": "availablePlayerLabels",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 14,
+                    "name": "selectedPlayer",
+                    "notify": "mediaChanged",
+                    "override": false,
+                    "read": "selectedPlayer",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 15,
                     "name": "title",
                     "notify": "mediaChanged",
                     "override": false,
@@ -105,8 +182,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 2,
-                    "lineNumber": 12,
+                    "index": 5,
+                    "lineNumber": 16,
                     "name": "artist",
                     "notify": "mediaChanged",
                     "override": false,
@@ -122,8 +199,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 3,
-                    "lineNumber": 13,
+                    "index": 6,
+                    "lineNumber": 17,
                     "name": "status",
                     "notify": "mediaChanged",
                     "override": false,
@@ -139,8 +216,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 4,
-                    "lineNumber": 14,
+                    "index": 7,
+                    "lineNumber": 18,
                     "name": "positionSeconds",
                     "notify": "mediaChanged",
                     "override": false,
@@ -156,8 +233,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 5,
-                    "lineNumber": 15,
+                    "index": 8,
+                    "lineNumber": 19,
                     "name": "lengthSeconds",
                     "notify": "mediaChanged",
                     "override": false,
@@ -173,8 +250,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 6,
-                    "lineNumber": 16,
+                    "index": 9,
+                    "lineNumber": 20,
                     "name": "volume",
                     "notify": "mediaChanged",
                     "override": false,
@@ -190,8 +267,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 7,
-                    "lineNumber": 17,
+                    "index": 10,
+                    "lineNumber": 21,
                     "name": "artUrl",
                     "notify": "mediaChanged",
                     "override": false,
@@ -207,8 +284,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 8,
-                    "lineNumber": 18,
+                    "index": 11,
+                    "lineNumber": 22,
                     "name": "isVideo",
                     "notify": "mediaChanged",
                     "override": false,
@@ -224,8 +301,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 9,
-                    "lineNumber": 19,
+                    "index": 12,
+                    "lineNumber": 23,
                     "name": "hasMedia",
                     "notify": "mediaChanged",
                     "override": false,
@@ -243,7 +320,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 46,
+                    "lineNumber": 55,
                     "name": "mediaChanged",
                     "returnType": "void"
                 }
@@ -252,7 +329,7 @@
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 43,
+                    "lineNumber": 52,
                     "name": "refresh",
                     "returnType": "void"
                 }

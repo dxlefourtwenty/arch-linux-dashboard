@@ -63,7 +63,19 @@ Window {
     property int    barHeight:    (style && style.barHeight !== undefined)    ? style.barHeight   : 30
     property int    finalPosition: (style && style.finalPosition !== undefined) ? style.finalPosition : 0
     property int    taskCharCutoff: (style && style.taskCharCutoff !== undefined) ? style.taskCharCutoff : 240
+    property bool   tabSlideEnabled: (style && style.tabSlideEnabled !== undefined) ? style.tabSlideEnabled : true
+    property int    tabSlideDuration: (style && style.tabSlideDuration !== undefined) ? style.tabSlideDuration : 220
+    property int    tabSlideEasing: (style && style.tabSlideEasing !== undefined) ? style.tabSlideEasing : Easing.OutCubic
+    property real   tabSlideDistanceMultiplier: (style && style.tabSlideDistanceMultiplier !== undefined) ? style.tabSlideDistanceMultiplier : 1.0
     property int    activeTabIndex: 0
+    property int    displayedTabIndex: 0
+    property bool   tabSwitchAnimating: false
+    property int    tabSwitchFromIndex: 0
+    property int    tabSwitchToIndex: 0
+    property Item   tabFromPage: null
+    property Item   tabToPage: null
+    property real   tabFromTargetX: 0
+    property real   tabToTargetX: 0
 
     // Inner card layout tuning (edit these to control per-component padding and sizing)
     property int panelOuterMargin: 16
@@ -146,6 +158,52 @@ Window {
         if (taskView) taskView.reloadCurrent()
     }
 
+    function tabPageAt(index) {
+        return index === 0 ? dashboardPage : mediaPage
+    }
+
+    function switchToActiveTab() {
+        var nextIndex = Math.max(0, Math.min(activeTabIndex, 1))
+        if (nextIndex === displayedTabIndex && !tabSwitchAnimating) return
+
+        if (tabSwitchAnimating) {
+            tabSwitch.stop()
+        }
+
+        var fromPage = tabPageAt(displayedTabIndex)
+        var toPage = tabPageAt(nextIndex)
+        if (!fromPage || !toPage) return
+
+        if (!tabSlideEnabled || pagesViewport.width <= 0) {
+            displayedTabIndex = nextIndex
+            dashboardPage.x = 0
+            mediaPage.x = 0
+            dashboardPage.visible = displayedTabIndex === 0
+            mediaPage.visible = displayedTabIndex === 1
+            return
+        }
+
+        var direction = nextIndex > displayedTabIndex ? 1 : -1
+        var distance = Math.max(1, pagesViewport.width * Math.max(0, tabSlideDistanceMultiplier))
+
+        tabSwitchFromIndex = displayedTabIndex
+        tabSwitchToIndex = nextIndex
+        tabFromPage = fromPage
+        tabToPage = toPage
+        tabFromTargetX = -direction * distance
+        tabToTargetX = 0
+
+        tabFromPage.visible = true
+        tabToPage.visible = true
+        tabFromPage.x = 0
+        tabToPage.x = direction * distance
+
+        tabSwitchAnimating = true
+        tabSwitch.start()
+    }
+
+    onActiveTabIndexChanged: switchToActiveTab()
+
     height: panelH + visibleFinalPosition
     minimumHeight: panelH + visibleFinalPosition
     maximumHeight: panelH + visibleFinalPosition
@@ -180,6 +238,20 @@ Window {
 
         Keys.onPressed: (e) => {
             if (e.key === Qt.Key_Escape) { win.toggle(); e.accepted = true }
+            else if (win.visible && e.key === Qt.Key_Left) {
+                var prev = Math.max(0, win.activeTabIndex - 1)
+                if (prev !== win.activeTabIndex) {
+                    win.activeTabIndex = prev
+                }
+                e.accepted = true
+            }
+            else if (win.visible && e.key === Qt.Key_Right) {
+                var next = Math.min(1, win.activeTabIndex + 1)
+                if (next !== win.activeTabIndex) {
+                    win.activeTabIndex = next
+                }
+                e.accepted = true
+            }
         }
 
         Rectangle {
@@ -376,7 +448,12 @@ Window {
                                 MouseArea {
                                     anchors.fill: parent
                                     cursorShape: Qt.PointingHandCursor
-                                    onClicked: win.activeTabIndex = index
+                                    enabled: !win.tabSwitchAnimating
+                                    onClicked: {
+                                        if (win.activeTabIndex !== index) {
+                                            win.activeTabIndex = index
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -398,15 +475,55 @@ Window {
                     Layout.topMargin: win.tabsHeaderBottomGap
                     clip: true
 
-                    StackLayout {
-                        id: pages
+                    Item {
+                        id: pagesViewport
                         anchors.fill: parent
                         anchors.leftMargin: win.panelOuterMargin
                         anchors.rightMargin: win.panelOuterMargin
                         anchors.bottomMargin: win.panelOuterMargin
-                        currentIndex: win.activeTabIndex
+                        clip: true
+
+                        ParallelAnimation {
+                            id: tabSwitch
+                            NumberAnimation {
+                                target: win.tabFromPage
+                                property: "x"
+                                to: win.tabFromTargetX
+                                duration: Math.max(1, win.tabSlideDuration)
+                                easing.type: win.tabSlideEasing
+                            }
+                            NumberAnimation {
+                                target: win.tabToPage
+                                property: "x"
+                                to: win.tabToTargetX
+                                duration: Math.max(1, win.tabSlideDuration)
+                                easing.type: win.tabSlideEasing
+                            }
+                            onStopped: {
+                                if (win.tabFromPage) {
+                                    win.tabFromPage.visible = false
+                                    win.tabFromPage.x = 0
+                                }
+                                if (win.tabToPage) {
+                                    win.tabToPage.visible = true
+                                    win.tabToPage.x = 0
+                                }
+
+                                win.displayedTabIndex = win.tabSwitchToIndex
+                                win.tabSwitchAnimating = false
+
+                                if (win.activeTabIndex !== win.displayedTabIndex) {
+                                    Qt.callLater(win.switchToActiveTab)
+                                }
+                            }
+                        }
 
                         Item {
+                            id: dashboardPage
+                            width: parent.width
+                            height: parent.height
+                            visible: win.displayedTabIndex === 0
+
                             GridLayout {
                                 anchors.fill: parent
                                 columns: 2
@@ -553,8 +670,14 @@ Window {
                         }
 
                         Item {
+                            id: mediaPage
+                            width: parent.width
+                            height: parent.height
+                            visible: win.displayedTabIndex === 1
+
                             MediaView {
                                 anchors.fill: parent
+                                cBg: win.cBg
                                 cFg: win.cFg
                                 cMuted: win.cMuted
                                 cBorder: win.cBorder
@@ -571,6 +694,9 @@ Window {
     }
 
     Component.onCompleted: {
+        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 1))
+        dashboardPage.visible = displayedTabIndex === 0
+        mediaPage.visible = displayedTabIndex === 1
         taskView.load(calendar.selectedKey)
     }
 }
