@@ -178,7 +178,7 @@ Window {
         if (nextIndex === displayedTabIndex && !tabSwitchAnimating) return
 
         if (tabSwitchAnimating) {
-            tabSwitch.stop()
+            return
         }
 
         var fromPage = tabPageAt(displayedTabIndex)
@@ -465,7 +465,6 @@ Window {
                                 MouseArea {
                                     anchors.fill: parent
                                     cursorShape: Qt.PointingHandCursor
-                                    enabled: !win.tabSwitchAnimating
                                     onClicked: {
                                         if (win.activeTabIndex !== index) {
                                             win.activeTabIndex = index
@@ -528,6 +527,8 @@ Window {
 
                                 win.displayedTabIndex = win.tabSwitchToIndex
                                 win.tabSwitchAnimating = false
+                                win.tabFromPage = null
+                                win.tabToPage = null
 
                                 if (win.activeTabIndex !== win.displayedTabIndex) {
                                     Qt.callLater(win.switchToActiveTab)
