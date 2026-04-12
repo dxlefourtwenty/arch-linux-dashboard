@@ -24,10 +24,6 @@ Window {
         }
     }
 
-    onActiveChanged: {
-        if (!active && open) toggle()
-    }
-
     property string themeBaseSource: StandardPaths.writableLocation(StandardPaths.HomeLocation)
                                    + "/.config/dashboard/theme.qml"
     property string styleBaseSource: StandardPaths.writableLocation(StandardPaths.HomeLocation)
@@ -76,8 +72,38 @@ Window {
     property color  cMuted:       (theme && theme.muted)                     ? theme.muted       : "#888888"
     property string cFont:        (style && style.font)                      ? style.font
                                 : (theme && theme.font)                      ? theme.font        : "sans"
-    property int    cFontSize:    (style && style.fontSize !== undefined)     ? style.fontSize
-                                : (theme && theme.fontSize !== undefined)     ? theme.fontSize    : 16
+    property int    configuredFontSize: (style && style.fontSize !== undefined) ? style.fontSize
+                                     : (theme && theme.fontSize !== undefined) ? theme.fontSize    : 16
+    property string fontMetricReferenceFont: (style && style.fontMetricReferenceFont)
+                                          ? style.fontMetricReferenceFont
+                                          : "CaskaydiaMono Nerd Font"
+    property bool   fontMetricSafetyEnabled: (style && style.fontMetricSafetyEnabled !== undefined)
+                                          ? style.fontMetricSafetyEnabled : true
+    property real   minFontMetricScale: (style && style.minFontMetricScale !== undefined)
+                                      ? style.minFontMetricScale : 0.78
+    property int    minFontSize: (style && style.minFontSize !== undefined) ? style.minFontSize : 10
+    property int    maxFontSize: (style && style.maxFontSize !== undefined) ? style.maxFontSize : 30
+    property real   fontMetricScale: {
+        if (!fontMetricSafetyEnabled) return 1.0
+        const selectedHeight = Math.max(1, selectedFontMetrics.height)
+        const selectedAscent = Math.max(1, selectedFontMetrics.ascent)
+        const selectedX = Math.max(1, selectedFontMetrics.xHeight)
+        const refHeight = Math.max(1, referenceFontMetrics.height)
+        const refAscent = Math.max(1, referenceFontMetrics.ascent)
+        const refX = Math.max(1, referenceFontMetrics.xHeight)
+        const heightRatio = refHeight / selectedHeight
+        const ascentRatio = refAscent / selectedAscent
+        const xRatio = refX / selectedX
+        const ratio = Math.min(heightRatio, Math.min(ascentRatio, xRatio))
+        const clampedMinScale = Math.max(0.5, Math.min(1.0, minFontMetricScale))
+        return Math.max(clampedMinScale, Math.min(1.0, ratio))
+    }
+    property int    cFontSize: {
+        const scaledSize = Math.round(configuredFontSize * fontMetricScale)
+        const safeMin = Math.max(1, minFontSize)
+        const safeMax = Math.max(safeMin, maxFontSize)
+        return Math.max(safeMin, Math.min(safeMax, scaledSize))
+    }
     property int    barHeight:    (style && style.barHeight !== undefined)    ? style.barHeight   : 30
     property int    finalPosition: (style && style.finalPosition !== undefined) ? style.finalPosition : 0
     property int    taskCharCutoff: (style && style.taskCharCutoff !== undefined) ? style.taskCharCutoff : 240
@@ -94,6 +120,18 @@ Window {
     property Item   tabToPage: null
     property real   tabFromTargetX: 0
     property real   tabToTargetX: 0
+
+    FontMetrics {
+        id: referenceFontMetrics
+        font.family: win.fontMetricReferenceFont
+        font.pixelSize: Math.max(1, win.configuredFontSize)
+    }
+
+    FontMetrics {
+        id: selectedFontMetrics
+        font.family: win.cFont
+        font.pixelSize: Math.max(1, win.configuredFontSize)
+    }
 
     // Inner card layout tuning (edit these to control per-component padding and sizing)
     property int panelOuterMargin: 16
@@ -272,6 +310,11 @@ Window {
         anchors.fill: parent
         focus: true
         clip: true
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: win.toggle()
+        }
 
         Keys.onPressed: (e) => {
             var tabCount = 4
@@ -502,7 +545,9 @@ Window {
                                               : (index === 3
                                                  ? (win.activeTabIndex === index ? "󰅟" : "")
                                                  : modelData.icon)
-                                        color: win.activeTabIndex === index ? win.cFg : win.cMuted
+                                        color: win.activeTabIndex === index
+                                               ? win.cFg
+                                               : (tabMouseArea.containsMouse ? win.cFg : win.cMuted)
                                         font.family: win.cFont
                                         font.pixelSize: win.cFontSize * 1.3
                                         scale: index === 3
@@ -513,7 +558,9 @@ Window {
                                     Text {
                                         anchors.horizontalCenter: parent.horizontalCenter
                                         text: modelData.label
-                                        color: win.activeTabIndex === index ? win.cFg : win.cMuted
+                                        color: win.activeTabIndex === index
+                                               ? win.cFg
+                                               : (tabMouseArea.containsMouse ? win.cFg : win.cMuted)
                                         font.family: win.cFont
                                         font.pixelSize: Math.max(12, win.cFontSize - 2)
                                     }
@@ -531,7 +578,9 @@ Window {
                                 }
 
                                 MouseArea {
+                                    id: tabMouseArea
                                     anchors.fill: parent
+                                    hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
                                     onClicked: {
                                         if (win.activeTabIndex !== index) {

@@ -11,7 +11,9 @@ Rectangle {
     property int    cBorderWidth: 2
     property int    bottomPad:    12
     property int    avatarSize:   78
+    property int    avatarTopMargin: 1
     property int    avatarYOffset: 0
+    property int    avatarBottomMargin: 0
     property int    avatarFallbackFontSize: 24
     property int    spacing: 8
     property real   hoverScale:   1.08
@@ -22,6 +24,11 @@ Rectangle {
     Column {
         anchors.centerIn: parent
         spacing: root.spacing
+
+        Item {
+            width: 1
+            height: root.avatarTopMargin
+        }
 
         Item {
             width: root.avatarSize
@@ -85,6 +92,11 @@ Rectangle {
                 font.pixelSize: root.avatarFallbackFontSize
                 visible: AppConfig.profileImage.toString().length === 0
             }
+        }
+
+        Item {
+            width: 1
+            height: root.avatarBottomMargin
         }
 
         Text {

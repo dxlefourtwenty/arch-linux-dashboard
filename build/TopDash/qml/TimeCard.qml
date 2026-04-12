@@ -6,6 +6,11 @@ Rectangle {
     property color  cFg: "white"
     property color  cAccent: "#ffffff"
     property color  cSecondary: "#888888"
+    property bool   isHovered: clockHover.hovered
+    property color  activeAccent: isHovered ? cSecondary : cAccent
+    property color  activeSecondary: isHovered ? cAccent : cSecondary
+    property real   hoverScale: 1.1
+    property int    hoverAnimMs: 140
     property string cFont: "sans"
     property int    cFontSize: 16
     property real   timeFontSize: cFontSize * 2.0
@@ -36,18 +41,30 @@ Rectangle {
         onTriggered: root.refreshTime()
     }
 
+    HoverHandler {
+        id: clockHover
+    }
+
     Component.onCompleted: root.refreshTime()
 
     Row {
+        scale: root.isHovered ? root.hoverScale : 1.0
         anchors.centerIn: parent
         spacing: 6
+
+        Behavior on scale {
+            NumberAnimation {
+                duration: root.hoverAnimMs
+                easing.type: Easing.OutCubic
+            }
+        }
 
         Row {
             spacing: 0
 
             Text {
                 text: root.currentHourText
-                color: root.cAccent
+                color: root.activeAccent
                 font.family: root.cFont
                 font.pixelSize: root.timeFontSize
                 font.weight: Font.DemiBold
@@ -55,7 +72,7 @@ Rectangle {
 
             Text {
                 text: ":"
-                color: root.cSecondary
+                color: root.activeSecondary
                 font.family: root.cFont
                 font.pixelSize: root.timeFontSize
                 font.weight: Font.DemiBold
@@ -70,7 +87,7 @@ Rectangle {
 
             Text {
                 text: root.currentMinuteText
-                color: root.cAccent
+                color: root.activeAccent
                 font.family: root.cFont
                 font.pixelSize: root.timeFontSize
                 font.weight: Font.DemiBold
@@ -79,7 +96,7 @@ Rectangle {
 
         Text {
             text: root.currentMeridiemText
-            color: root.cSecondary
+            color: root.activeSecondary
             font.family: root.cFont
             font.pixelSize: root.meridiemFontSize
             font.weight: Font.Medium
