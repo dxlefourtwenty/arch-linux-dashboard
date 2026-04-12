@@ -16,6 +16,7 @@ Item {
 
     property color  cFg:          "white"
     property color  cAccent:      cFg
+    property int    dayHoverRingWidth: 2
     property color  cMuted:       "#888888"
     property string cFont:        "sans"
     property int    cFontSize:    16
@@ -181,6 +182,7 @@ Item {
                     property int  dayNum:     index - calGrid.lead + 1
                     property bool inMonth:    dayNum >= 1 && dayNum <= calGrid.dim
                     property bool isSelected: inMonth && dayNum === root.selectedDay
+                    property bool isHovered:  inMonth && !isSelected && dayMouse.containsMouse
                     property int prevMonthDayNum: root.daysInMonth(root.viewYear, root.viewMonth - 1)
                     property int cellDayNumber: {
                         if (inMonth) return dayNum
@@ -194,6 +196,8 @@ Item {
                         height: width
                         radius: width / 2
                         color: isSelected ? root.cAccent : "transparent"
+                        border.width: isHovered ? root.dayHoverRingWidth : 0
+                        border.color: root.cFg
                     }
 
                     Text {
@@ -206,7 +210,9 @@ Item {
                     }
 
                     MouseArea {
+                        id: dayMouse
                         anchors.fill: parent
+                        hoverEnabled: true
                         enabled: inMonth
                         onClicked: root.selectedDay = dayNum
                     }
