@@ -53,6 +53,7 @@ template <> constexpr inline auto SystemInfo::qt_create_metaobjectdata<qt_meta_t
         "batteryPercentChanged",
         "osNameChanged",
         "deNameChanged",
+        "themeNameChanged",
         "uptimeTextChanged",
         "cpuUsage",
         "gpuUsage",
@@ -70,6 +71,7 @@ template <> constexpr inline auto SystemInfo::qt_create_metaobjectdata<qt_meta_t
         "batteryPercent",
         "osName",
         "deName",
+        "themeName",
         "uptimeText"
     };
 
@@ -100,44 +102,48 @@ template <> constexpr inline auto SystemInfo::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SignalData<void()>(13, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'deNameChanged'
         QtMocHelpers::SignalData<void()>(14, 2, QMC::AccessPublic, QMetaType::Void),
-        // Signal 'uptimeTextChanged'
+        // Signal 'themeNameChanged'
         QtMocHelpers::SignalData<void()>(15, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'uptimeTextChanged'
+        QtMocHelpers::SignalData<void()>(16, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
         // property 'cpuUsage'
-        QtMocHelpers::PropertyData<int>(16, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
+        QtMocHelpers::PropertyData<int>(17, QMetaType::Int, QMC::DefaultPropertyFlags, 0),
         // property 'gpuUsage'
-        QtMocHelpers::PropertyData<int>(17, QMetaType::Int, QMC::DefaultPropertyFlags, 1),
+        QtMocHelpers::PropertyData<int>(18, QMetaType::Int, QMC::DefaultPropertyFlags, 1),
         // property 'ramUsage'
-        QtMocHelpers::PropertyData<int>(18, QMetaType::Int, QMC::DefaultPropertyFlags, 2),
+        QtMocHelpers::PropertyData<int>(19, QMetaType::Int, QMC::DefaultPropertyFlags, 2),
         // property 'diskUsage'
-        QtMocHelpers::PropertyData<int>(19, QMetaType::Int, QMC::DefaultPropertyFlags, 3),
+        QtMocHelpers::PropertyData<int>(20, QMetaType::Int, QMC::DefaultPropertyFlags, 3),
         // property 'cpuName'
-        QtMocHelpers::PropertyData<QString>(20, QMetaType::QString, QMC::DefaultPropertyFlags, 4),
+        QtMocHelpers::PropertyData<QString>(21, QMetaType::QString, QMC::DefaultPropertyFlags, 4),
         // property 'gpuName'
-        QtMocHelpers::PropertyData<QString>(21, QMetaType::QString, QMC::DefaultPropertyFlags, 5),
+        QtMocHelpers::PropertyData<QString>(22, QMetaType::QString, QMC::DefaultPropertyFlags, 5),
         // property 'ramUsedGiB'
-        QtMocHelpers::PropertyData<double>(22, QMetaType::Double, QMC::DefaultPropertyFlags, 6),
-        // property 'ramTotalGiB'
         QtMocHelpers::PropertyData<double>(23, QMetaType::Double, QMC::DefaultPropertyFlags, 6),
+        // property 'ramTotalGiB'
+        QtMocHelpers::PropertyData<double>(24, QMetaType::Double, QMC::DefaultPropertyFlags, 6),
         // property 'diskUsedGiB'
-        QtMocHelpers::PropertyData<double>(24, QMetaType::Double, QMC::DefaultPropertyFlags, 7),
-        // property 'diskTotalGiB'
         QtMocHelpers::PropertyData<double>(25, QMetaType::Double, QMC::DefaultPropertyFlags, 7),
+        // property 'diskTotalGiB'
+        QtMocHelpers::PropertyData<double>(26, QMetaType::Double, QMC::DefaultPropertyFlags, 7),
         // property 'diskName'
-        QtMocHelpers::PropertyData<QString>(26, QMetaType::QString, QMC::DefaultPropertyFlags, 8),
+        QtMocHelpers::PropertyData<QString>(27, QMetaType::QString, QMC::DefaultPropertyFlags, 8),
         // property 'networkDownBps'
-        QtMocHelpers::PropertyData<double>(27, QMetaType::Double, QMC::DefaultPropertyFlags, 9),
-        // property 'networkUpBps'
         QtMocHelpers::PropertyData<double>(28, QMetaType::Double, QMC::DefaultPropertyFlags, 9),
+        // property 'networkUpBps'
+        QtMocHelpers::PropertyData<double>(29, QMetaType::Double, QMC::DefaultPropertyFlags, 9),
         // property 'batteryPercent'
-        QtMocHelpers::PropertyData<int>(29, QMetaType::Int, QMC::DefaultPropertyFlags, 10),
+        QtMocHelpers::PropertyData<int>(30, QMetaType::Int, QMC::DefaultPropertyFlags, 10),
         // property 'osName'
-        QtMocHelpers::PropertyData<QString>(30, QMetaType::QString, QMC::DefaultPropertyFlags, 11),
+        QtMocHelpers::PropertyData<QString>(31, QMetaType::QString, QMC::DefaultPropertyFlags, 11),
         // property 'deName'
-        QtMocHelpers::PropertyData<QString>(31, QMetaType::QString, QMC::DefaultPropertyFlags, 12),
+        QtMocHelpers::PropertyData<QString>(32, QMetaType::QString, QMC::DefaultPropertyFlags, 12),
+        // property 'themeName'
+        QtMocHelpers::PropertyData<QString>(33, QMetaType::QString, QMC::DefaultPropertyFlags, 13),
         // property 'uptimeText'
-        QtMocHelpers::PropertyData<QString>(32, QMetaType::QString, QMC::DefaultPropertyFlags, 13),
+        QtMocHelpers::PropertyData<QString>(34, QMetaType::QString, QMC::DefaultPropertyFlags, 14),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -172,7 +178,8 @@ void SystemInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->batteryPercentChanged(); break;
         case 11: _t->osNameChanged(); break;
         case 12: _t->deNameChanged(); break;
-        case 13: _t->uptimeTextChanged(); break;
+        case 13: _t->themeNameChanged(); break;
+        case 14: _t->uptimeTextChanged(); break;
         default: ;
         }
     }
@@ -203,7 +210,9 @@ void SystemInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             return;
         if (QtMocHelpers::indexOfMethod<void (SystemInfo::*)()>(_a, &SystemInfo::deNameChanged, 12))
             return;
-        if (QtMocHelpers::indexOfMethod<void (SystemInfo::*)()>(_a, &SystemInfo::uptimeTextChanged, 13))
+        if (QtMocHelpers::indexOfMethod<void (SystemInfo::*)()>(_a, &SystemInfo::themeNameChanged, 13))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (SystemInfo::*)()>(_a, &SystemInfo::uptimeTextChanged, 14))
             return;
     }
     if (_c == QMetaObject::ReadProperty) {
@@ -225,7 +234,8 @@ void SystemInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: *reinterpret_cast<int*>(_v) = _t->batteryPercent(); break;
         case 14: *reinterpret_cast<QString*>(_v) = _t->osName(); break;
         case 15: *reinterpret_cast<QString*>(_v) = _t->deName(); break;
-        case 16: *reinterpret_cast<QString*>(_v) = _t->uptimeText(); break;
+        case 16: *reinterpret_cast<QString*>(_v) = _t->themeName(); break;
+        case 17: *reinterpret_cast<QString*>(_v) = _t->uptimeText(); break;
         default: break;
         }
     }
@@ -250,20 +260,20 @@ int SystemInfo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 15;
     }
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 18;
     }
     return _id;
 }
@@ -347,8 +357,14 @@ void SystemInfo::deNameChanged()
 }
 
 // SIGNAL 13
-void SystemInfo::uptimeTextChanged()
+void SystemInfo::themeNameChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
+}
+
+// SIGNAL 14
+void SystemInfo::uptimeTextChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 14, nullptr);
 }
 QT_WARNING_POP

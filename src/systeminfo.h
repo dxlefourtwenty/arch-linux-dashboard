@@ -23,6 +23,7 @@ class SystemInfo : public QObject {
     Q_PROPERTY(int batteryPercent READ batteryPercent NOTIFY batteryPercentChanged)
     Q_PROPERTY(QString osName READ osName NOTIFY osNameChanged)
     Q_PROPERTY(QString deName READ deName NOTIFY deNameChanged)
+    Q_PROPERTY(QString themeName READ themeName NOTIFY themeNameChanged)
     Q_PROPERTY(QString uptimeText READ uptimeText NOTIFY uptimeTextChanged)
 
 public:
@@ -44,6 +45,7 @@ public:
     int batteryPercent() const { return m_batteryPercent; }
     QString osName() const { return m_osName; }
     QString deName() const { return m_deName; }
+    QString themeName() const { return m_themeName; }
     QString uptimeText() const { return m_uptimeText; }
 
 signals:
@@ -60,6 +62,7 @@ signals:
     void batteryPercentChanged();
     void osNameChanged();
     void deNameChanged();
+    void themeNameChanged();
     void uptimeTextChanged();
 
 private:
@@ -70,6 +73,7 @@ private:
     void updateNetwork();
     void updateBattery();
     void updateDesktopEnvironment();
+    void updateThemeName();
     void updateUptime();
     QString primaryNetworkInterface() const;
     bool readInterfaceBytes(const QString &iface, quint64 &rxBytes, quint64 &txBytes) const;
@@ -98,6 +102,7 @@ private:
     int m_batteryPercent = -1;
     QString m_osName = "Linux";
     QString m_deName = "Unknown";
+    QString m_themeName = "Unknown";
     QString m_uptimeText = "0m";
 
     long long lastIdle = 0;

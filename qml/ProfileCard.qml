@@ -1,8 +1,6 @@
 import QtQuick
 import Qt5Compat.GraphicalEffects
 
-// ProfileCard.qml
-
 Rectangle {
     id: root
 
@@ -11,19 +9,23 @@ Rectangle {
     property int    cFontSize:    16
     property color  cBorder:      "#444444"
     property int    cBorderWidth: 2
-    property int    bottomPad:    24
-    property real   hoverScale:   1.1
+    property int    bottomPad:    12
+    property int    avatarSize:   78
+    property int    avatarYOffset: 0
+    property int    avatarFallbackFontSize: 24
+    property int    spacing: 8
+    property real   hoverScale:   1.08
     property int    hoverAnimMs:  140
 
     color: "transparent"
 
     Column {
         anchors.centerIn: parent
-        spacing: 10
+        spacing: root.spacing
 
         Item {
-            width: 96
-            height: 96
+            width: root.avatarSize
+            height: root.avatarSize
             anchors.horizontalCenter: parent.horizontalCenter
             transformOrigin: Item.Center
             scale: avatarHover.hovered ? root.hoverScale : 1.0
@@ -41,9 +43,9 @@ Rectangle {
 
             Item {
                 id: avatarCircle
-                width: 96
-                height: 96
-                y: -10
+                width: root.avatarSize
+                height: root.avatarSize
+                y: root.avatarYOffset
 
                 Image {
                     id: avatarImage
@@ -67,7 +69,6 @@ Rectangle {
                 }
             }
 
-            // Border overlay on top so it isn't obscured by the image
             Rectangle {
                 anchors.fill: avatarCircle
                 radius: width / 2
@@ -81,7 +82,7 @@ Rectangle {
                 text: "?"
                 color: root.cFg
                 font.family: root.cFont
-                font.pixelSize: 28
+                font.pixelSize: root.avatarFallbackFontSize
                 visible: AppConfig.profileImage.toString().length === 0
             }
         }

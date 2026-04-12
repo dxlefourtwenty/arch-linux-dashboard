@@ -8,6 +8,8 @@ set(src_and_dest_list
     "/home/dxle/builds/dashboard/build/TopDash/qml/CalendarView.qml"
     "/home/dxle/builds/dashboard/qml/StatsCard.qml"
     "/home/dxle/builds/dashboard/build/TopDash/qml/StatsCard.qml"
+    "/home/dxle/builds/dashboard/qml/TimeCard.qml"
+    "/home/dxle/builds/dashboard/build/TopDash/qml/TimeCard.qml"
     "/home/dxle/builds/dashboard/qml/TasksView.qml"
     "/home/dxle/builds/dashboard/build/TopDash/qml/TasksView.qml"
     "/home/dxle/builds/dashboard/qml/ProfileCard.qml"

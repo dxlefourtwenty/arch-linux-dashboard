@@ -283,6 +283,23 @@
                     "final": false,
                     "index": 16,
                     "lineNumber": 26,
+                    "name": "themeName",
+                    "notify": "themeNameChanged",
+                    "override": false,
+                    "read": "themeName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 17,
+                    "lineNumber": 27,
                     "name": "uptimeText",
                     "notify": "uptimeTextChanged",
                     "override": false,
@@ -300,98 +317,105 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 50,
+                    "lineNumber": 52,
                     "name": "cpuUsageChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 51,
+                    "lineNumber": 53,
                     "name": "gpuUsageChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 52,
+                    "lineNumber": 54,
                     "name": "ramUsageChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 3,
-                    "lineNumber": 53,
+                    "lineNumber": 55,
                     "name": "diskUsageChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 4,
-                    "lineNumber": 54,
+                    "lineNumber": 56,
                     "name": "cpuNameChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 5,
-                    "lineNumber": 55,
+                    "lineNumber": 57,
                     "name": "gpuNameChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 6,
-                    "lineNumber": 56,
+                    "lineNumber": 58,
                     "name": "ramTotalsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 7,
-                    "lineNumber": 57,
+                    "lineNumber": 59,
                     "name": "diskTotalsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 8,
-                    "lineNumber": 58,
+                    "lineNumber": 60,
                     "name": "diskNameChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 9,
-                    "lineNumber": 59,
+                    "lineNumber": 61,
                     "name": "networkChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 10,
-                    "lineNumber": 60,
+                    "lineNumber": 62,
                     "name": "batteryPercentChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 11,
-                    "lineNumber": 61,
+                    "lineNumber": 63,
                     "name": "osNameChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 12,
-                    "lineNumber": 62,
+                    "lineNumber": 64,
                     "name": "deNameChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 13,
-                    "lineNumber": 63,
+                    "lineNumber": 65,
+                    "name": "themeNameChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 14,
+                    "lineNumber": 66,
                     "name": "uptimeTextChanged",
                     "returnType": "void"
                 }

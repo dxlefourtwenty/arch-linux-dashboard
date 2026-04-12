@@ -167,6 +167,7 @@ SystemInfo::SystemInfo(QObject *parent)
     loadOsName();
     loadDiskName();
     updateDesktopEnvironment();
+    updateThemeName();
     updateUptime();
 
     setupGpu();
@@ -184,6 +185,7 @@ SystemInfo::SystemInfo(QObject *parent)
         updateNetwork();
         updateBattery();
         updateDesktopEnvironment();
+        updateThemeName();
         updateUptime();
     });
 
@@ -279,6 +281,33 @@ void SystemInfo::updateDesktopEnvironment()
     if (de != m_deName) {
         m_deName = de;
         emit deNameChanged();
+    }
+}
+
+void SystemInfo::updateThemeName()
+{
+    const QString currentThemePath = QDir::homePath() + "/.config/themes/current";
+    const QFileInfo linkInfo(currentThemePath);
+
+    QString theme = "Unknown";
+    if (linkInfo.isSymLink()) {
+        const QString targetPath = linkInfo.symLinkTarget();
+        if (!targetPath.isEmpty()) {
+            const QString targetName = QFileInfo(targetPath).fileName().trimmed();
+            if (!targetName.isEmpty()) {
+                theme = targetName;
+            }
+        }
+    } else if (linkInfo.exists()) {
+        const QString fallbackName = linkInfo.fileName().trimmed();
+        if (!fallbackName.isEmpty()) {
+            theme = fallbackName;
+        }
+    }
+
+    if (theme != m_themeName) {
+        m_themeName = theme;
+        emit themeNameChanged();
     }
 }
 

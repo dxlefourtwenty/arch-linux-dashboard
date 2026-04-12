@@ -4,6 +4,7 @@ prefer :/TopDash/
 Main 1.0 qml/Main.qml
 CalendarView 1.0 qml/CalendarView.qml
 StatsCard 1.0 qml/StatsCard.qml
+TimeCard 1.0 qml/TimeCard.qml
 TasksView 1.0 qml/TasksView.qml
 ProfileCard 1.0 qml/ProfileCard.qml
 MediaView 1.0 qml/MediaView.qml

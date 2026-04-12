@@ -27,6 +27,7 @@ qt_add_qml_module(topdash
         qml/Main.qml
         qml/CalendarView.qml
         qml/StatsCard.qml
+        qml/TimeCard.qml
         qml/TasksView.qml
         qml/ProfileCard.qml
         qml/MediaView.qml

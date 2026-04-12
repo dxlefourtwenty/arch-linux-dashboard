@@ -15,6 +15,7 @@ b921d057bab52e57ca381e148dcd95be .rcc/qmlcache/module_topdash.aotstats
 90475161e72607f42ae208b16e5fcd41 .rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp
 74ff8b1114d1df35ee70394f4c9a9d20 .rcc/qmlcache/topdash_qml/StatsCard_qml.cpp
 e095850601d422f199da9f4c6ac34e29 .rcc/qmlcache/topdash_qml/TasksView_qml.cpp
+cf24248122989180380833a6e40e9fca .rcc/qmlcache/topdash_qml/TimeCard_qml.cpp
 734e94445bb2cd0dd18fdd9a613eb74f .rcc/qmlcache/topdash_qml/WeatherView_qml.cpp
 bf9878484524093f5a8a566f5e930ab2 .rcc/qmlcache/topdash_qmlcache_loader.cpp
 5d39866d8cd9313bcd47f8340854e579 CMakeFiles/all_aotstats

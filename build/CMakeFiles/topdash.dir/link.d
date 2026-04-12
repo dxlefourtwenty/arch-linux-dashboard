@@ -15,6 +15,7 @@ topdash: \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o \
+  CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TimeCard_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o \
@@ -189,6 +190,8 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o:
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o:
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o:
+
+CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TimeCard_qml.cpp.o:
 
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o:
 

@@ -72,6 +72,7 @@ CMakeFiles/topdash_copy_qml: .qt/topdash_qml.txt
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/Main.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/CalendarView.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/StatsCard.qml
+.qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/TimeCard.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/TasksView.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 .qt/topdash_qml.txt: /home/dxle/builds/dashboard/qml/MediaView.qml

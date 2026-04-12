@@ -74,6 +74,7 @@ CMakeFiles/topdash_qmlimportscan: .qt/qml_imports/topdash_build.cmake
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/Main.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/CalendarView.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/StatsCard.qml
+.qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/TimeCard.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/TasksView.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 .qt/qml_imports/topdash_build.cmake: /home/dxle/builds/dashboard/qml/MediaView.qml

@@ -56,7 +56,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "rebuildPageModel",
                             "line": 49,
                             "message": "Cannot generate efficient code for lookup in QJSValue"

@@ -5,6 +5,7 @@
 /TopDash/qml/Main.qml
 /TopDash/qml/CalendarView.qml
 /TopDash/qml/StatsCard.qml
+/TopDash/qml/TimeCard.qml
 /TopDash/qml/TasksView.qml
 /TopDash/qml/ProfileCard.qml
 /TopDash/qml/MediaView.qml

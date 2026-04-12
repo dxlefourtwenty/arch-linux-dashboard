@@ -70,6 +70,7 @@ CMakeFiles/topdash_qmllint_module: /usr/lib/qt6/bin/qmllint
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/Main.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/CalendarView.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/StatsCard.qml
+CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/TimeCard.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/TasksView.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/ProfileCard.qml
 CMakeFiles/topdash_qmllint_module: /home/dxle/builds/dashboard/qml/MediaView.qml
