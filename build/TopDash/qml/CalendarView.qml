@@ -15,6 +15,7 @@ Item {
     clip: true
 
     property color  cFg:          "white"
+    property color  cAccent:      cFg
     property color  cMuted:       "#888888"
     property string cFont:        "sans"
     property int    cFontSize:    16
@@ -95,7 +96,7 @@ Item {
             Text {
                 Layout.fillWidth: true
                 text: Qt.formatDate(new Date(root.viewYear, root.viewMonth, 1), "MMMM yyyy")
-                color: root.cFg
+                color: root.cAccent
                 font.family: root.cFont
                 font.pixelSize: root.cFontSize + 2
                 horizontalAlignment: Text.AlignHCenter
@@ -149,7 +150,7 @@ Item {
                 delegate: Text {
                     Layout.fillWidth: true
                     text: modelData
-                    color: root.cMuted
+                    color: root.cFg
                     font.family: root.cFont
                     font.pixelSize: root.cFontSize - 2
                     horizontalAlignment: Text.AlignHCenter
@@ -169,28 +170,39 @@ Item {
 
             property int lead: root.firstWeekday(root.viewYear, root.viewMonth)
             property int dim:  root.daysInMonth(root.viewYear, root.viewMonth)
+            property int totalCells: Math.ceil((lead + dim) / 7) * 7
 
             Repeater {
-                model: 42
-                delegate: Rectangle {
+                model: calGrid.totalCells
+                delegate: Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true   // cells share available height equally
 
                     property int  dayNum:     index - calGrid.lead + 1
                     property bool inMonth:    dayNum >= 1 && dayNum <= calGrid.dim
                     property bool isSelected: inMonth && dayNum === root.selectedDay
+                    property int prevMonthDayNum: root.daysInMonth(root.viewYear, root.viewMonth - 1)
+                    property int cellDayNumber: {
+                        if (inMonth) return dayNum
+                        if (dayNum < 1) return prevMonthDayNum + dayNum
+                        return dayNum - calGrid.dim
+                    }
 
-                    radius: 0
-                    color:        isSelected ? root.cBg          : "transparent"
-                    border.width: isSelected ? root.cBorderWidth : 0
-                    border.color: root.cBorder
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: Math.max(0, Math.min(parent.width, parent.height) - 2)
+                        height: width
+                        radius: width / 2
+                        color: isSelected ? root.cAccent : "transparent"
+                    }
 
                     Text {
                         anchors.centerIn: parent
-                        text: inMonth ? dayNum : ""
-                        color: root.cFg
+                        text: cellDayNumber
+                        color: isSelected ? root.cBg : (inMonth ? root.cFg : root.cMuted)
                         font.family: root.cFont
                         font.pixelSize: root.cFontSize - 2
+                        font.weight: isSelected ? Font.DemiBold : Font.Normal
                     }
 
                     MouseArea {

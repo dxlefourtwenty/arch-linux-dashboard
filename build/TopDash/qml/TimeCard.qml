@@ -10,7 +10,8 @@ Rectangle {
     property int    cFontSize: 16
     property real   timeFontSize: cFontSize * 2.0
     property real   meridiemFontSize: cFontSize * 2.0
-    property int    colonBlinkMs: 900
+    property real   meridiemOffsetX: 5
+    property int    colonBlinkMs: 1000
     property string currentHourText: "12"
     property string currentMinuteText: "00"
     property string currentMeridiemText: "AM"
@@ -83,6 +84,7 @@ Rectangle {
             font.pixelSize: root.meridiemFontSize
             font.weight: Font.Medium
             anchors.verticalCenter: parent.verticalCenter
+            transform: Translate { x: root.meridiemOffsetX }
         }
     }
 }

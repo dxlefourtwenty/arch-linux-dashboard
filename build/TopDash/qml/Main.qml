@@ -675,6 +675,7 @@ Window {
                                             anchors.bottomMargin: win.calendarPaddingBottom
 
                                             cFg: win.cFg
+                                            cAccent: win.cAccent
                                             cMuted: win.cMuted
                                             cFont: win.cFont
                                             cFontSize: win.cFontSize

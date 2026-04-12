@@ -20,7 +20,14 @@ Rectangle {
     property string themeDisplayName: {
         const name = SystemInfo.themeName
         if (!name || name.length === 0) return name
-        return name.charAt(0).toUpperCase() + name.slice(1)
+        const normalizedName = name.replace(/-/g, " ").trim()
+        if (normalizedName.length === 0) return normalizedName
+        return normalizedName
+            .split(/\s+/)
+            .map(function(word) {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            })
+            .join(" ")
     }
 
     Column {

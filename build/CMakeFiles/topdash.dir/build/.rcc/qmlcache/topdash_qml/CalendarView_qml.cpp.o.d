@@ -380,6 +380,10 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o: \
  /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
  /usr/include/qt6/QtCore/q20iterator.h \
  /usr/include/qt6/QtCore/qtyperevision.h \
+ /usr/include/qt6/QtCore/qrandom.h /usr/include/c++/15.2.1/random \
+ /usr/include/c++/15.2.1/bits/random.h \
+ /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
+ /usr/include/c++/15.2.1/bits/random.tcc \
  /usr/include/qt6/QtCore/qtimezone.h /usr/include/qt6/QtQml/qjsengine.h \
  /usr/include/qt6/QtQml/qjsmanagedvalue.h \
  /usr/include/qt6/QtQml/qqmldebug.h \

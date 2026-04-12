@@ -26,7 +26,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "refreshTime",
-                            "line": 18,
+                            "line": 19,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
@@ -34,7 +34,7 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 35,
+                            "line": 36,
                             "message": ""
                         },
                         {
@@ -42,7 +42,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 38,
+                            "line": 39,
                             "message": ""
                         },
                         {
@@ -50,7 +50,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 41,
+                            "line": 42,
                             "message": ""
                         },
                         {
@@ -58,23 +58,23 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 48,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
                             "line": 49,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 50,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 50,
+                            "line": 51,
                             "message": ""
                         },
                         {
@@ -82,7 +82,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 51,
+                            "line": 52,
                             "message": ""
                         },
                         {
@@ -90,7 +90,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 52,
+                            "line": 53,
                             "message": ""
                         },
                         {
@@ -98,7 +98,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 57,
+                            "line": 58,
                             "message": ""
                         },
                         {
@@ -106,7 +106,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 58,
+                            "line": 59,
                             "message": ""
                         },
                         {
@@ -114,7 +114,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 59,
+                            "line": 60,
                             "message": ""
                         },
                         {
@@ -122,7 +122,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 60,
+                            "line": 61,
                             "message": ""
                         },
                         {
@@ -130,7 +130,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "loops",
-                            "line": 63,
+                            "line": 64,
                             "message": ""
                         },
                         {
@@ -138,7 +138,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 65,
+                            "line": 66,
                             "message": ""
                         },
                         {
@@ -146,7 +146,7 @@
                             "column": 58,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 66,
+                            "line": 67,
                             "message": ""
                         },
                         {
@@ -154,7 +154,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 71,
+                            "line": 72,
                             "message": ""
                         },
                         {
@@ -162,7 +162,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 72,
+                            "line": 73,
                             "message": ""
                         },
                         {
@@ -170,7 +170,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 73,
+                            "line": 74,
                             "message": ""
                         },
                         {
@@ -178,7 +178,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 74,
+                            "line": 75,
                             "message": ""
                         },
                         {
@@ -186,7 +186,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 75,
+                            "line": 76,
                             "message": ""
                         },
                         {
@@ -194,7 +194,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 80,
+                            "line": 81,
                             "message": ""
                         },
                         {
@@ -202,7 +202,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 81,
+                            "line": 82,
                             "message": ""
                         },
                         {
@@ -210,7 +210,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 82,
+                            "line": 83,
                             "message": ""
                         },
                         {
@@ -218,7 +218,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 83,
+                            "line": 84,
                             "message": ""
                         },
                         {
@@ -226,7 +226,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "weight",
-                            "line": 84,
+                            "line": 85,
                             "message": ""
                         },
                         {
@@ -234,7 +234,15 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 85,
+                            "line": 86,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 87,
                             "message": ""
                         }
                     ],
