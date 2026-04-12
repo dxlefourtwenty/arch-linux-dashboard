@@ -249,6 +249,9 @@ Item {
                         text: "󰒮"
                         enabled: MediaInfo.hasMedia
                         hoverEnabled: true
+                        HoverHandler {
+                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        }
                         transformOrigin: Item.Center
                         scale: hovered ? root.hoverScale : 1.0
                         z: hovered ? 1 : 0
@@ -284,6 +287,9 @@ Item {
                         text: ""
                         enabled: MediaInfo.hasMedia
                         hoverEnabled: true
+                        HoverHandler {
+                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        }
                         transformOrigin: Item.Center
                         scale: hovered ? root.hoverScale : 1.0
                         z: hovered ? 1 : 0
@@ -321,6 +327,9 @@ Item {
                         text: MediaInfo.status === "Playing" ? "⏸" : "▶"
                         enabled: MediaInfo.hasMedia
                         hoverEnabled: true
+                        HoverHandler {
+                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        }
                         transformOrigin: Item.Center
                         scale: hovered ? root.hoverScale : 1.0
                         z: hovered ? 1 : 0
@@ -356,6 +365,9 @@ Item {
                         text: ""
                         enabled: MediaInfo.hasMedia
                         hoverEnabled: true
+                        HoverHandler {
+                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        }
                         transformOrigin: Item.Center
                         scale: hovered ? root.hoverScale : 1.0
                         z: hovered ? 1 : 0
@@ -392,6 +404,9 @@ Item {
                         text: "󰒭"
                         enabled: MediaInfo.hasMedia
                         hoverEnabled: true
+                        HoverHandler {
+                            cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                        }
                         transformOrigin: Item.Center
                         scale: hovered ? root.hoverScale : 1.0
                         z: hovered ? 1 : 0

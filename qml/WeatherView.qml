@@ -34,10 +34,12 @@ Item {
     property string windText: "-- m/h"
     property int locationUtcOffsetSeconds: 0
     property bool hasLocationTimeOffset: false
-    property int refreshIntervalMs: 60000
+    property int refreshIntervalMs: 180000
+    property int cacheTtlMs: 180000
     property string lastWeatherSnapshot: ""
     property bool requestInFlight: false
     property bool pendingRefresh: false
+    property var weatherCache: ({})
     property var locationOptions: []
     property int selectedLocationIndex: 0
     property real locationSelectorWidth: 120
@@ -101,6 +103,65 @@ Item {
 
     function formatCoordinate(value) {
         return Number(value).toFixed(4)
+    }
+
+    function locationCacheKey(lat, lon) {
+        return Number(lat).toFixed(4) + "," + Number(lon).toFixed(4)
+    }
+
+    function readCacheEntry(cacheKey) {
+        if (!weatherCache || !weatherCache[cacheKey]) {
+            return null
+        }
+        var entry = weatherCache[cacheKey]
+        if (!entry || !entry.payload || !isFinite(entry.fetchedAt)) {
+            return null
+        }
+        if ((Date.now() - Number(entry.fetchedAt)) > cacheTtlMs) {
+            return null
+        }
+        return entry
+    }
+
+    function writeCacheEntry(cacheKey, payload) {
+        if (!payload) {
+            return
+        }
+        var snapshot = weatherSnapshot(payload)
+        weatherCache[cacheKey] = {
+            fetchedAt: Date.now(),
+            snapshot: snapshot,
+            payload: payload
+        }
+    }
+
+    function applyWeatherPayload(data, snapshot) {
+        var nextSnapshot = snapshot || weatherSnapshot(data)
+        if (nextSnapshot && nextSnapshot === lastWeatherSnapshot) {
+            return
+        }
+        lastWeatherSnapshot = nextSnapshot
+        locationName = resolveLocationName(data.timezone)
+
+        if (data.current) {
+            currentTemp = toFahrenheit(data.current.temperature_2m) + "°F"
+            feelsLikeText = toFahrenheit(data.current.apparent_temperature) + "°F"
+            humidityText = Math.round(Number(data.current.relative_humidity_2m)) + "%"
+            windText = Number(data.current.wind_speed_10m).toFixed(1) + " m/h"
+            locationUtcOffsetSeconds = Number(data.utc_offset_seconds)
+            hasLocationTimeOffset = true
+            locationTimeText = formatClockTextForOffset(locationUtcOffsetSeconds)
+            var currentCode = Number(data.current.weather_code)
+            currentGlyph = weatherGlyphForCode(currentCode)
+            currentSummary = summaryForCode(currentCode)
+        }
+
+        if (data.daily) {
+            sunriseText = formatLocalTime((data.daily.sunrise || [])[0])
+            sunsetText = formatLocalTime((data.daily.sunset || [])[0])
+        }
+
+        populateDailyForecast(data)
     }
 
     function selectLocationIndex(index) {
@@ -189,10 +250,20 @@ Item {
         })
     }
 
-    function fetchWeather() {
+    function fetchWeather(forceNetwork) {
+        var shouldForceNetwork = forceNetwork === true
         if (!isFinite(latitude) || !isFinite(longitude)) {
             currentSummary = "Weather unavailable"
             return
+        }
+
+        var cacheKey = locationCacheKey(latitude, longitude)
+        if (!shouldForceNetwork) {
+            var cachedEntry = readCacheEntry(cacheKey)
+            if (cachedEntry) {
+                applyWeatherPayload(cachedEntry.payload, cachedEntry.snapshot)
+                return
+            }
         }
 
         if (requestInFlight) {
@@ -201,6 +272,7 @@ Item {
         }
 
         requestInFlight = true
+        var requestKey = cacheKey
         var url = "https://api.open-meteo.com/v1/forecast"
                 + "?latitude=" + latitude
                 + "&longitude=" + longitude
@@ -214,7 +286,9 @@ Item {
             if (xhr.readyState !== XMLHttpRequest.DONE) return
             requestInFlight = false
             if (xhr.status !== 200) {
-                currentSummary = "Weather unavailable"
+                if (requestKey === locationCacheKey(latitude, longitude)) {
+                    currentSummary = "Weather unavailable"
+                }
                 if (pendingRefresh) {
                     pendingRefresh = false
                     fetchWeather()
@@ -226,7 +300,9 @@ Item {
             try {
                 data = JSON.parse(xhr.responseText)
             } catch (err) {
-                currentSummary = "Weather unavailable"
+                if (requestKey === locationCacheKey(latitude, longitude)) {
+                    currentSummary = "Weather unavailable"
+                }
                 if (pendingRefresh) {
                     pendingRefresh = false
                     fetchWeather()
@@ -234,40 +310,15 @@ Item {
                 return
             }
 
-            var snapshot = weatherSnapshot(data)
-            if (snapshot && snapshot === lastWeatherSnapshot) {
-                if (pendingRefresh) {
-                    pendingRefresh = false
-                    fetchWeather()
-                }
-                return
+            writeCacheEntry(requestKey, data)
+            if (requestKey === locationCacheKey(latitude, longitude)) {
+                var snapshot = weatherSnapshot(data)
+                applyWeatherPayload(data, snapshot)
             }
-            lastWeatherSnapshot = snapshot
-            locationName = resolveLocationName(data.timezone)
-
-            if (data.current) {
-                currentTemp = toFahrenheit(data.current.temperature_2m) + "°F"
-                feelsLikeText = toFahrenheit(data.current.apparent_temperature) + "°F"
-                humidityText = Math.round(Number(data.current.relative_humidity_2m)) + "%"
-                windText = Number(data.current.wind_speed_10m).toFixed(1) + " mp/h"
-                locationUtcOffsetSeconds = Number(data.utc_offset_seconds)
-                hasLocationTimeOffset = true
-                locationTimeText = formatClockTextForOffset(locationUtcOffsetSeconds)
-                var currentCode = Number(data.current.weather_code)
-                currentGlyph = weatherGlyphForCode(currentCode)
-                currentSummary = summaryForCode(currentCode)
-            }
-
-            if (data.daily) {
-                sunriseText = formatLocalTime((data.daily.sunrise || [])[0])
-                sunsetText = formatLocalTime((data.daily.sunset || [])[0])
-            }
-
-            populateDailyForecast(data)
 
             if (pendingRefresh) {
                 pendingRefresh = false
-                fetchWeather()
+                fetchWeather(true)
             }
         }
         xhr.send()
@@ -279,7 +330,7 @@ Item {
         triggeredOnStart: true
         running: true
         repeat: true
-        onTriggered: root.fetchWeather()
+        onTriggered: root.fetchWeather(true)
     }
 
     Timer {
@@ -337,11 +388,17 @@ Item {
             locationName = locationDisplayName
 
             if (changed || !lastWeatherSnapshot) {
-                locationUtcOffsetSeconds = 0
-                hasLocationTimeOffset = false
-                locationTimeText = "--:--"
-                lastWeatherSnapshot = ""
-                fetchWeather()
+                var cacheKey = locationCacheKey(latitude, longitude)
+                var cachedEntry = readCacheEntry(cacheKey)
+                if (cachedEntry) {
+                    applyWeatherPayload(cachedEntry.payload, cachedEntry.snapshot)
+                } else {
+                    locationUtcOffsetSeconds = 0
+                    hasLocationTimeOffset = false
+                    locationTimeText = "--:--"
+                    lastWeatherSnapshot = ""
+                    fetchWeather(false)
+                }
             }
         }
     }
