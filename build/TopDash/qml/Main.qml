@@ -38,8 +38,19 @@ Window {
 
     property color  cBg:          (theme && theme.bg)                        ? theme.bg          : "#111111"
     property real   cOpacity:     (theme && theme.opacity !== undefined)      ? theme.opacity     : 1.0
-    property int    cRadius:      (style && style.radius !== undefined)       ? style.radius
-                                : (theme && theme.radius !== undefined)       ? theme.radius      : 0
+    property int    cRadiusTopLeft: (style && style.radiusTopLeft !== undefined) ? style.radiusTopLeft
+                                 : (theme && theme.radiusTopLeft !== undefined) ? theme.radiusTopLeft
+                                 : 0
+    property int    cRadiusTopRight: (style && style.radiusTopRight !== undefined) ? style.radiusTopRight
+                                  : (theme && theme.radiusTopRight !== undefined) ? theme.radiusTopRight
+                                  : 0
+    property int    cRadiusBottomRight: (style && style.radiusBottomRight !== undefined) ? style.radiusBottomRight
+                                     : (theme && theme.radiusBottomRight !== undefined) ? theme.radiusBottomRight
+                                     : 0
+    property int    cRadiusBottomLeft: (style && style.radiusBottomLeft !== undefined) ? style.radiusBottomLeft
+                                    : (theme && theme.radiusBottomLeft !== undefined) ? theme.radiusBottomLeft
+                                    : 0
+    property int    cRadius:      Math.max(cRadiusTopLeft, cRadiusTopRight, cRadiusBottomRight, cRadiusBottomLeft)
     property int    cBorderWidth: (style && style.borderWidth !== undefined)  ? style.borderWidth
                                 : (theme && theme.borderWidth !== undefined)  ? theme.borderWidth : 2
     property bool   cBorderLeft:  (style && style.borderLeft !== undefined)   ? style.borderLeft
@@ -304,27 +315,35 @@ Window {
                 } 
             }
 
-            radius: win.cRadius
-            color: Qt.rgba(win.cBg.r, win.cBg.g, win.cBg.b, win.cOpacity)
+            radius: 0
+            color: "transparent"
             border.width: 0
 
             Canvas {
                 id: panelBorder
                 anchors.fill: parent
-                visible: borderWidth > 0 && (borderLeft || borderRight || borderTop || borderBottom)
+                visible: true
                 antialiasing: true
 
+                property color fillColor: Qt.rgba(win.cBg.r, win.cBg.g, win.cBg.b, win.cOpacity)
                 property color borderColor: win.cBorder
                 property int borderWidth: win.cBorderWidth
-                property int radius: win.cRadius
+                property int radiusTopLeft: win.cRadiusTopLeft
+                property int radiusTopRight: win.cRadiusTopRight
+                property int radiusBottomRight: win.cRadiusBottomRight
+                property int radiusBottomLeft: win.cRadiusBottomLeft
                 property bool borderLeft: win.cBorderLeft
                 property bool borderRight: win.cBorderRight
                 property bool borderTop: win.cBorderTop
                 property bool borderBottom: win.cBorderBottom
 
+                onFillColorChanged: requestPaint()
                 onBorderColorChanged: requestPaint()
                 onBorderWidthChanged: requestPaint()
-                onRadiusChanged: requestPaint()
+                onRadiusTopLeftChanged: requestPaint()
+                onRadiusTopRightChanged: requestPaint()
+                onRadiusBottomRightChanged: requestPaint()
+                onRadiusBottomLeftChanged: requestPaint()
                 onBorderLeftChanged: requestPaint()
                 onBorderRightChanged: requestPaint()
                 onBorderTopChanged: requestPaint()
@@ -337,18 +356,50 @@ Window {
                     ctx.reset()
                     ctx.clearRect(0, 0, width, height)
 
-                    if (!visible)
-                        return
-
                     var bw = Math.max(0, borderWidth)
                     var half = bw / 2
+                    var allSides = borderLeft && borderRight && borderTop && borderBottom
+
+                    function drawRoundedPath(l, t, r, b, tl, tr, br, bl) {
+                        ctx.beginPath()
+                        ctx.moveTo(l + tl, t)
+                        ctx.lineTo(r - tr, t)
+                        if (tr > 0) ctx.arc(r - tr, t + tr, tr, -Math.PI / 2, 0)
+                        ctx.lineTo(r, b - br)
+                        if (br > 0) ctx.arc(r - br, b - br, br, 0, Math.PI / 2)
+                        ctx.lineTo(l + bl, b)
+                        if (bl > 0) ctx.arc(l + bl, b - bl, bl, Math.PI / 2, Math.PI)
+                        ctx.lineTo(l, t + tl)
+                        if (tl > 0) ctx.arc(l + tl, t + tl, tl, Math.PI, 3 * Math.PI / 2)
+                        ctx.closePath()
+                    }
+
+                    var fillLeft = 0
+                    var fillTop = 0
+                    var fillRight = width
+                    var fillBottom = height
+                    var fillCornerLimit = Math.max(0, Math.min(width / 2, height / 2))
+                    var fillTopLeft = Math.max(0, Math.min(radiusTopLeft, fillCornerLimit))
+                    var fillTopRight = Math.max(0, Math.min(radiusTopRight, fillCornerLimit))
+                    var fillBottomRight = Math.max(0, Math.min(radiusBottomRight, fillCornerLimit))
+                    var fillBottomLeft = Math.max(0, Math.min(radiusBottomLeft, fillCornerLimit))
+
+                    drawRoundedPath(fillLeft, fillTop, fillRight, fillBottom, fillTopLeft, fillTopRight, fillBottomRight, fillBottomLeft)
+                    ctx.fillStyle = fillColor
+                    ctx.fill()
+
+                    if (bw <= 0)
+                        return
+
                     var left = half
                     var top = half
                     var right = width - half
                     var bottom = height - half
-
-                    var maxRadius = Math.max(0, Math.min(radius, (width - bw) / 2, (height - bw) / 2))
-                    var allSides = borderLeft && borderRight && borderTop && borderBottom
+                    var cornerLimit = Math.max(0, Math.min((width - bw) / 2, (height - bw) / 2))
+                    var topLeft = Math.max(0, Math.min(radiusTopLeft, cornerLimit))
+                    var topRight = Math.max(0, Math.min(radiusTopRight, cornerLimit))
+                    var bottomRight = Math.max(0, Math.min(radiusBottomRight, cornerLimit))
+                    var bottomLeft = Math.max(0, Math.min(radiusBottomLeft, cornerLimit))
 
                     ctx.strokeStyle = borderColor
                     ctx.lineWidth = bw
@@ -356,64 +407,54 @@ Window {
                     ctx.lineJoin = "miter"
 
                     if (allSides) {
-                        ctx.beginPath()
-                        ctx.moveTo(left + maxRadius, top)
-                        ctx.lineTo(right - maxRadius, top)
-                        if (maxRadius > 0) ctx.arc(right - maxRadius, top + maxRadius, maxRadius, -Math.PI / 2, 0)
-                        ctx.lineTo(right, bottom - maxRadius)
-                        if (maxRadius > 0) ctx.arc(right - maxRadius, bottom - maxRadius, maxRadius, 0, Math.PI / 2)
-                        ctx.lineTo(left + maxRadius, bottom)
-                        if (maxRadius > 0) ctx.arc(left + maxRadius, bottom - maxRadius, maxRadius, Math.PI / 2, Math.PI)
-                        ctx.lineTo(left, top + maxRadius)
-                        if (maxRadius > 0) ctx.arc(left + maxRadius, top + maxRadius, maxRadius, Math.PI, 3 * Math.PI / 2)
-                        ctx.closePath()
+                        drawRoundedPath(left, top, right, bottom, topLeft, topRight, bottomRight, bottomLeft)
                         ctx.stroke()
                         return
                     }
 
                     if (borderTop) {
                         ctx.beginPath()
-                        ctx.moveTo(left + (borderLeft ? maxRadius : 0), top)
-                        ctx.lineTo(right - (borderRight ? maxRadius : 0), top)
+                        ctx.moveTo(left + (borderLeft ? topLeft : 0), top)
+                        ctx.lineTo(right - (borderRight ? topRight : 0), top)
                         ctx.stroke()
                     }
                     if (borderBottom) {
                         ctx.beginPath()
-                        ctx.moveTo(left + (borderLeft ? maxRadius : 0), bottom)
-                        ctx.lineTo(right - (borderRight ? maxRadius : 0), bottom)
+                        ctx.moveTo(left + (borderLeft ? bottomLeft : 0), bottom)
+                        ctx.lineTo(right - (borderRight ? bottomRight : 0), bottom)
                         ctx.stroke()
                     }
                     if (borderLeft) {
                         ctx.beginPath()
-                        ctx.moveTo(left, top + (borderTop ? maxRadius : 0))
-                        ctx.lineTo(left, bottom - (borderBottom ? maxRadius : 0))
+                        ctx.moveTo(left, top + (borderTop ? topLeft : 0))
+                        ctx.lineTo(left, bottom - (borderBottom ? bottomLeft : 0))
                         ctx.stroke()
                     }
                     if (borderRight) {
                         ctx.beginPath()
-                        ctx.moveTo(right, top + (borderTop ? maxRadius : 0))
-                        ctx.lineTo(right, bottom - (borderBottom ? maxRadius : 0))
+                        ctx.moveTo(right, top + (borderTop ? topRight : 0))
+                        ctx.lineTo(right, bottom - (borderBottom ? bottomRight : 0))
                         ctx.stroke()
                     }
 
-                    if (maxRadius > 0 && borderTop && borderLeft) {
+                    if (topLeft > 0 && borderTop && borderLeft) {
                         ctx.beginPath()
-                        ctx.arc(left + maxRadius, top + maxRadius, maxRadius, Math.PI, 3 * Math.PI / 2)
+                        ctx.arc(left + topLeft, top + topLeft, topLeft, Math.PI, 3 * Math.PI / 2)
                         ctx.stroke()
                     }
-                    if (maxRadius > 0 && borderTop && borderRight) {
+                    if (topRight > 0 && borderTop && borderRight) {
                         ctx.beginPath()
-                        ctx.arc(right - maxRadius, top + maxRadius, maxRadius, -Math.PI / 2, 0)
+                        ctx.arc(right - topRight, top + topRight, topRight, -Math.PI / 2, 0)
                         ctx.stroke()
                     }
-                    if (maxRadius > 0 && borderBottom && borderRight) {
+                    if (bottomRight > 0 && borderBottom && borderRight) {
                         ctx.beginPath()
-                        ctx.arc(right - maxRadius, bottom - maxRadius, maxRadius, 0, Math.PI / 2)
+                        ctx.arc(right - bottomRight, bottom - bottomRight, bottomRight, 0, Math.PI / 2)
                         ctx.stroke()
                     }
-                    if (maxRadius > 0 && borderBottom && borderLeft) {
+                    if (bottomLeft > 0 && borderBottom && borderLeft) {
                         ctx.beginPath()
-                        ctx.arc(left + maxRadius, bottom - maxRadius, maxRadius, Math.PI / 2, Math.PI)
+                        ctx.arc(left + bottomLeft, bottom - bottomLeft, bottomLeft, Math.PI / 2, Math.PI)
                         ctx.stroke()
                     }
                 }
@@ -456,10 +497,17 @@ Window {
 
                                     Text {
                                         anchors.horizontalCenter: parent.horizontalCenter
-                                        text: modelData.icon
+                                        text: index === 0
+                                              ? (win.activeTabIndex === index ? "󰕮" : "󰨝")
+                                              : (index === 3
+                                                 ? (win.activeTabIndex === index ? "󰅟" : "")
+                                                 : modelData.icon)
                                         color: win.activeTabIndex === index ? win.cFg : win.cMuted
                                         font.family: win.cFont
                                         font.pixelSize: win.cFontSize * 1.3
+                                        scale: index === 3
+                                               ? (win.activeTabIndex === index ? 1.15 : 1.40)
+                                               : 1.0
                                     }
 
                                     Text {

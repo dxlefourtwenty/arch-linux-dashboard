@@ -49,6 +49,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -56,6 +59,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -134,6 +143,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -141,6 +153,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -204,6 +222,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -211,6 +232,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -247,6 +274,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -254,6 +284,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -324,6 +360,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -331,6 +370,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -379,6 +424,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -386,6 +434,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -434,6 +488,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -441,6 +498,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -489,6 +552,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -496,6 +562,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -544,6 +616,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -551,6 +626,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -599,6 +680,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -606,6 +690,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -654,6 +744,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -661,6 +754,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -709,6 +808,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -716,6 +818,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -781,6 +889,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -788,6 +899,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -836,6 +953,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -843,6 +963,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -908,6 +1034,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -915,6 +1044,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1015,6 +1150,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -1022,6 +1160,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1122,6 +1266,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -1129,6 +1276,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1144,8 +1297,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV"
-      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV"
+      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX"
+      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1156,14 +1309,14 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV'
+        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a33f3/fast
-        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV'
-        /usr/bin/make  -f CMakeFiles/cmTC_a33f3.dir/build.make CMakeFiles/cmTC_a33f3.dir/build
-        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV'
-        Building CXX object CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_092f8/fast
+        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX'
+        /usr/bin/make  -f CMakeFiles/cmTC_092f8.dir/build.make CMakeFiles/cmTC_092f8.dir/build
+        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX'
+        Building CXX object CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         Target: x86_64-pc-linux-gnu
@@ -1171,8 +1324,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.1 20260209 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a33f3.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccQW3dz1.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_092f8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccALhxa8.s
         GNU C++17 (GCC) version 15.2.1 20260209 (x86_64-pc-linux-gnu)
         	compiled by GNU C version 15.2.1 20260209, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -1190,14 +1343,14 @@ events:
          /usr/include
         End of search list.
         Compiler executable checksum: 5e3969de92aa3c12a625237f01b15b2f
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/'
-         as -v --64 -o CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccQW3dz1.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/'
+         as -v --64 -o CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccALhxa8.s
         GNU assembler version 2.46 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46
         COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_a33f3
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a33f3.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_092f8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_092f8.dir/link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper
@@ -1208,15 +1361,15 @@ events:
         gcc version 15.2.1 20260209 (GCC) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a33f3' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_a33f3.'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL9tqeh.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a33f3 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_092f8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_092f8.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccED1olC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_092f8 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
         collect2 version 15.2.1 20260209
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL9tqeh.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a33f3 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccED1olC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_092f8 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
         GNU ld (GNU Binutils) 2.46
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a33f3' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_a33f3.'
-        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a33f3
-        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV'
-        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_092f8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_092f8.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_092f8
+        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX'
+        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX'
         
       exitCode: 0
   -
@@ -1257,14 +1410,14 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV']
+        ignore line: [Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a33f3/fast]
-        ignore line: [make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV']
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_a33f3.dir/build.make CMakeFiles/cmTC_a33f3.dir/build]
-        ignore line: [make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-9eoEXV']
-        ignore line: [Building CXX object CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_092f8/fast]
+        ignore line: [make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX']
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_092f8.dir/build.make CMakeFiles/cmTC_092f8.dir/build]
+        ignore line: [make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-cUfgHX']
+        ignore line: [Building CXX object CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [Target: x86_64-pc-linux-gnu]
@@ -1272,8 +1425,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.1 20260209 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a33f3.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccQW3dz1.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_092f8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccALhxa8.s]
         ignore line: [GNU C++17 (GCC) version 15.2.1 20260209 (x86_64-pc-linux-gnu)]
         ignore line: [	compiled by GNU C version 15.2.1 20260209  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -1291,14 +1444,14 @@ events:
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 5e3969de92aa3c12a625237f01b15b2f]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccQW3dz1.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccALhxa8.s]
         ignore line: [GNU assembler version 2.46 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_a33f3]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a33f3.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_092f8]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_092f8.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper]
@@ -1309,13 +1462,13 @@ events:
         ignore line: [gcc version 15.2.1 20260209 (GCC) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a33f3' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_a33f3.']
-        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL9tqeh.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a33f3 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_092f8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_092f8.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccED1olC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_092f8 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccL9tqeh.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccED1olC.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -1330,7 +1483,7 @@ events:
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_a33f3] ==> ignore
+          arg [cmTC_092f8] ==> ignore
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o]
@@ -1342,7 +1495,7 @@ events:
           arg [-L/lib] ==> dir [/lib]
           arg [-L/usr/lib] ==> dir [/usr/lib]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -1353,7 +1506,7 @@ events:
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o]
           arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
         ignore line: [collect2 version 15.2.1 20260209]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccL9tqeh.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a33f3 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_a33f3.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccED1olC.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_092f8 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_092f8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
         linker tool for 'CXX': /usr/bin/ld
         collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
@@ -1397,8 +1550,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz"
-      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz"
+      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt"
+      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1409,19 +1562,19 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz'
+        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ef0da/fast
-        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz'
-        /usr/bin/make  -f CMakeFiles/cmTC_ef0da.dir/build.make CMakeFiles/cmTC_ef0da.dir/build
-        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz'
-        Building CXX object CMakeFiles/cmTC_ef0da.dir/src.cxx.o
-        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++20 -o CMakeFiles/cmTC_ef0da.dir/src.cxx.o -c /home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz/src.cxx
-        Linking CXX executable cmTC_ef0da
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef0da.dir/link.txt --verbose=1
-        /usr/bin/c++ CMakeFiles/cmTC_ef0da.dir/src.cxx.o -o cmTC_ef0da
-        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz'
-        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-s1EBDz'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6e62d/fast
+        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt'
+        /usr/bin/make  -f CMakeFiles/cmTC_6e62d.dir/build.make CMakeFiles/cmTC_6e62d.dir/build
+        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt'
+        Building CXX object CMakeFiles/cmTC_6e62d.dir/src.cxx.o
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++20 -o CMakeFiles/cmTC_6e62d.dir/src.cxx.o -c /home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt/src.cxx
+        Linking CXX executable cmTC_6e62d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e62d.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_6e62d.dir/src.cxx.o -o cmTC_6e62d
+        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt'
+        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ozU7rt'
         
       exitCode: 0
   -
@@ -1440,8 +1593,8 @@ events:
     checks:
       - "Performing Test HAVE_STDATOMIC"
     directories:
-      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ"
-      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ"
+      source: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9"
+      binary: "/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1452,19 +1605,19 @@ events:
       variable: "HAVE_STDATOMIC"
       cached: true
       stdout: |
-        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ'
+        Change Dir: '/home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fbaa8/fast
-        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ'
-        /usr/bin/make  -f CMakeFiles/cmTC_fbaa8.dir/build.make CMakeFiles/cmTC_fbaa8.dir/build
-        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ'
-        Building CXX object CMakeFiles/cmTC_fbaa8.dir/src.cxx.o
-        /usr/bin/c++ -DHAVE_STDATOMIC  -std=gnu++20 -o CMakeFiles/cmTC_fbaa8.dir/src.cxx.o -c /home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ/src.cxx
-        Linking CXX executable cmTC_fbaa8
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fbaa8.dir/link.txt --verbose=1
-        /usr/bin/c++ CMakeFiles/cmTC_fbaa8.dir/src.cxx.o -o cmTC_fbaa8
-        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ'
-        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ZIT0FQ'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_db50d/fast
+        make[1]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9'
+        /usr/bin/make  -f CMakeFiles/cmTC_db50d.dir/build.make CMakeFiles/cmTC_db50d.dir/build
+        make[2]: Entering directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9'
+        Building CXX object CMakeFiles/cmTC_db50d.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_STDATOMIC  -std=gnu++20 -o CMakeFiles/cmTC_db50d.dir/src.cxx.o -c /home/dxle/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9/src.cxx
+        Linking CXX executable cmTC_db50d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db50d.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_db50d.dir/src.cxx.o -o cmTC_db50d
+        make[2]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9'
+        make[1]: Leaving directory '/home/dxle/dotfiles/builds/dashboard/build/CMakeFiles/CMakeScratch/TryCompile-ah2aj9'
         
       exitCode: 0
   -
@@ -1646,6 +1799,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -1653,6 +1809,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1786,6 +1948,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -1793,6 +1958,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1891,6 +2062,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -1898,6 +2072,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -1995,6 +2175,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2002,6 +2185,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2099,6 +2288,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2106,6 +2298,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2203,6 +2401,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2210,6 +2411,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2307,6 +2514,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2314,6 +2524,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2427,6 +2643,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2434,6 +2653,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2531,6 +2756,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2538,6 +2766,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2635,6 +2869,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2642,6 +2879,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2786,6 +3029,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2793,6 +3039,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -2937,6 +3189,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -2944,6 +3199,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3041,6 +3302,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3048,6 +3312,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3174,6 +3444,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3181,6 +3454,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3282,6 +3561,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3289,6 +3571,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3394,6 +3682,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3401,6 +3692,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3496,6 +3793,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3503,6 +3803,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3590,6 +3896,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3597,6 +3906,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3682,6 +3997,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3689,6 +4007,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -3884,6 +4208,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -3891,6 +4218,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4091,6 +4424,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4098,6 +4434,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4223,6 +4565,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4230,6 +4575,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4347,6 +4698,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4354,6 +4708,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4549,6 +4909,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4556,6 +4919,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4665,6 +5034,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4672,6 +5044,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -4805,6 +5183,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -4812,6 +5193,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -5288,6 +5675,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -5295,6 +5685,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -5604,6 +6000,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -5611,6 +6010,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -5806,6 +6211,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -5813,6 +6221,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -5930,6 +6344,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -5937,6 +6354,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -6059,6 +6482,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -6066,6 +6492,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -6183,6 +6615,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -6190,6 +6625,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -6315,6 +6756,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -6322,6 +6766,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -6863,6 +7313,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -6870,6 +7323,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -8921,6 +9380,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -8928,6 +9390,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
@@ -9118,6 +9586,9 @@ events:
         - "/opt/dart-2.19/bin"
         - "/home/dxle/bin"
         - "/home/dxle/.npm-global/bin"
+        - "/opt/dart-2.19/bin"
+        - "/home/dxle/bin"
+        - "/home/dxle/.npm-global/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/bin"
@@ -9125,6 +9596,12 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
+        - "/home/dxle/.local/bin"
+        - "/home/dxle/.spicetify"
+        - "/home/dxle/.cargo/bin"
+        - "/home/dxle/bin/dev"
+        - "/home/dxle/bin/theme-generating"
+        - "/home/dxle/.lmstudio/bin"
         - "/home/dxle/.local/bin"
         - "/home/dxle/.spicetify"
         - "/home/dxle/.cargo/bin"
