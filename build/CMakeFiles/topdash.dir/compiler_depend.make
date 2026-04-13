@@ -7220,6 +7220,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtCore/QJsonObject \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QProcess \
+  /usr/include/qt6/QtCore/QSet \
   /usr/include/qt6/QtCore/QStringList \
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/q17memory.h \
@@ -9777,6 +9778,8 @@ topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp:
 /usr/lib/libicui18n.so.78:
 
 /home/dxle/builds/dashboard/src/systeminfo.cpp:
+
+/usr/include/qt6/QtCore/QSet:
 
 /usr/include/qt6/QtCore/QHash:
 

@@ -75,6 +75,7 @@ topdash_qmltyperegistrations.cpp: /usr/lib/qt6/qmltyperegistrar
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6core_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6qml_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6network_metatypes.json
+topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6concurrent_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6gui_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6quick_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6opengl_metatypes.json

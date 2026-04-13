@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QStringList>
 #include <QTimer>
+#include <QFutureWatcher>
 
 class MediaInfo : public QObject
 {
@@ -55,15 +56,39 @@ signals:
     void mediaChanged();
 
 private:
-    QString runPlayerctl(const QStringList &args) const;
+    struct Snapshot {
+        QStringList availablePlayers;
+        QStringList availablePlayerLabels;
+        QString selectedPlayer;
+        QString targetPlayer;
+        QString playerName;
+        QString title;
+        QString artist;
+        QString status;
+        QString artUrl;
+        double positionSeconds = 0.0;
+        double lengthSeconds = 0.0;
+        double volume = 0.0;
+        bool isVideo = false;
+        bool hasMedia = false;
+    };
+
+    void startRefreshTask();
+    void applySnapshot(const Snapshot &snapshot);
     void sendPlayerctl(const QStringList &args) const;
+    void requestRefreshSoon();
     QString currentPlayerArg() const;
+
+    static Snapshot collectSnapshot(const QString &preferredSelected, const QString &preferredTarget);
+    static QString runPlayerctl(const QStringList &args);
     static QString compactValue(const QString &value);
-    static QString displayPlayerName(const QString &rawPlayerName, const QString &sourceUrlLower);
-    static bool hyprClientsShowYouTubeForBrowser(const QString &rawPlayerName);
+    static QString displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, const QString &sourceUrlLower);
+    static QStringList browserClassesWithYouTubeTitle();
     static double parseMicroseconds(const QString &raw);
 
     QTimer m_pollTimer;
+    QFutureWatcher<Snapshot> m_refreshWatcher;
+    bool m_refreshQueued = false;
 
     QString m_targetPlayer;
     QStringList m_availablePlayers;

@@ -81,6 +81,7 @@ topdash_qmltyperegistrations.cpp: /usr/lib/qt6/qmltyperegistrar
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6core_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6qml_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6network_metatypes.json
+topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6concurrent_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6gui_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6quick_metatypes.json
 topdash_qmltyperegistrations.cpp: /usr/lib/qt6/metatypes/qt6opengl_metatypes.json
@@ -576,6 +577,7 @@ topdash: CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.
 topdash: CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o
 topdash: CMakeFiles/topdash.dir/build.make
 topdash: CMakeFiles/topdash.dir/compiler_depend.ts
+topdash: /usr/lib/libQt6Concurrent.so.6.11.0
 topdash: /usr/lib/libQt6Quick.so.6.11.0
 topdash: /usr/lib/libLayerShellQtInterface.so.6.6.3
 topdash: /usr/lib/libQt6OpenGL.so.6.11.0

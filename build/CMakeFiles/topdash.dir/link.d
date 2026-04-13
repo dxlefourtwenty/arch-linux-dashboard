@@ -22,6 +22,7 @@ topdash: \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o \
+  /usr/lib/libQt6Concurrent.so.6.11.0 \
   /usr/lib/libQt6Quick.so.6.11.0 \
   /usr/lib/libLayerShellQtInterface.so.6.6.3 \
   /usr/lib/libQt6OpenGL.so.6.11.0 \
@@ -204,6 +205,8 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o:
 
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o:
+
+/usr/lib/libQt6Concurrent.so.6.11.0:
 
 /usr/lib/libQt6Quick.so.6.11.0:
 

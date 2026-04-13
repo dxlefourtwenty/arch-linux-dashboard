@@ -360,17 +360,29 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
  /usr/include/qt6/QtCore/qeventloop.h \
  /usr/include/qt6/QtCore/qdeadlinetimer.h \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
- /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
- /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
- /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/QFutureWatcher \
+ /usr/include/qt6/QtCore/qfuturewatcher.h \
+ /usr/include/qt6/QtCore/qfuture.h \
+ /usr/include/qt6/QtCore/qfutureinterface.h \
+ /usr/include/qt6/QtCore/qmutex.h /usr/include/qt6/QtCore/qtsan_impl.h \
+ /usr/include/qt6/QtCore/qresultstore.h /usr/include/qt6/QtCore/qmap.h \
  /usr/include/qt6/QtCore/qshareddata.h \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/weatherconfig.h \
- /usr/include/qt6/QtCore/QVariantList \
- /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QList \
- /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/qvariant.h \
+ /usr/include/qt6/QtCore/qshareddata_impl.h \
+ /usr/include/qt6/QtCore/qfuture_impl.h \
+ /usr/include/qt6/QtCore/qthreadpool.h /usr/include/qt6/QtCore/qthread.h \
+ /usr/include/c++/15.2.1/future /usr/include/c++/15.2.1/mutex \
+ /usr/include/c++/15.2.1/bits/unique_lock.h \
+ /usr/include/c++/15.2.1/condition_variable \
+ /usr/include/c++/15.2.1/stop_token \
+ /usr/include/c++/15.2.1/bits/std_thread.h \
+ /usr/include/c++/15.2.1/semaphore \
+ /usr/include/c++/15.2.1/bits/semaphore_base.h \
+ /usr/include/c++/15.2.1/bits/atomic_timed_wait.h \
+ /usr/include/c++/15.2.1/bits/this_thread_sleep.h /usr/include/sys/time.h \
+ /usr/include/semaphore.h /usr/include/bits/semaphore.h \
+ /usr/include/c++/15.2.1/bits/atomic_futex.h \
+ /usr/include/qt6/QtCore/qrunnable.h /usr/include/qt6/QtCore/qexception.h \
+ /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/qvariant.h \
  /usr/include/qt6/QtCore/qdebug.h /usr/include/qt6/QtCore/qtextstream.h \
  /usr/include/qt6/QtCore/qcontiguouscache.h \
  /usr/include/qt6/QtCore/qsharedpointer.h \
@@ -379,11 +391,19 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/15.2.1/bits/stl_multiset.h \
  /usr/include/c++/15.2.1/unordered_set \
  /usr/include/c++/15.2.1/bits/unordered_set.h \
- /usr/include/qt6/QtCore/qmap.h \
- /usr/include/qt6/QtCore/qshareddata_impl.h \
  /usr/include/qt6/QtCore/qset.h /usr/include/qt6/QtCore/qhash.h \
  /usr/include/qt6/QtCore/qvarlengtharray.h \
  /usr/include/qt6/QtCore/qalloc.h /usr/include/qt6/QtCore/q23utility.h \
- /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QVariantMap \
+ /usr/include/qt6/QtCore/q20utility.h \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
+ /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
+ /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
+ /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/weatherconfig.h \
+ /usr/include/qt6/QtCore/QVariantList \
+ /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QList \
+ /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/QVariantMap \
  /usr/include/qt6/QtCore/qvariantmap.h /usr/include/qt6/QtCore/QMap \
  /usr/include/qt6/QtCore/QString

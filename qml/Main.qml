@@ -511,6 +511,7 @@ Window {
                 spacing: 0
 
                 Item {
+                    id: tabsHeader
                     Layout.fillWidth: true
                     Layout.preferredHeight: win.tabsHeaderHeight
                     Layout.minimumHeight: win.tabsHeaderHeight
@@ -524,6 +525,7 @@ Window {
                         Item { Layout.fillWidth: true }
 
                         Repeater {
+                            id: tabsRepeater
                             model: [
                                 { icon: "󰕮", label: "Dashboard" },
                                 { icon: "󰲸", label: "Media" },
@@ -569,17 +571,6 @@ Window {
                                     }
                                 }
 
-                                Rectangle {
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                    anchors.bottom: parent.bottom
-                                    anchors.bottomMargin: 0
-                                    width: win.tabIndicatorWidth
-                                    height: win.tabIndicatorHeight
-                                    radius: 1
-                                    color: win.cFg
-                                    visible: win.activeTabIndex === index
-                                }
-
                                 MouseArea {
                                     id: tabMouseArea
                                     anchors.fill: parent
@@ -595,6 +586,32 @@ Window {
                         }
 
                         Item { Layout.fillWidth: true }
+                    }
+
+                    Rectangle {
+                        property Item activeTabItem: tabsRepeater.count > win.activeTabIndex
+                                                     ? tabsRepeater.itemAt(win.activeTabIndex)
+                                                     : null
+                        property real targetX: {
+                            if (!activeTabItem) return 0
+                            var mapped = activeTabItem.mapToItem(tabsHeader, 0, 0)
+                            return mapped.x + (activeTabItem.width - width) / 2
+                        }
+
+                        anchors.bottom: parent.bottom
+                        x: targetX
+                        width: win.tabIndicatorWidth
+                        height: win.tabIndicatorHeight
+                        radius: 1
+                        color: win.cFg
+                        visible: activeTabItem !== null
+
+                        Behavior on x {
+                            NumberAnimation {
+                                duration: Math.max(1, win.tabSlideDuration)
+                                easing.type: win.tabSlideEasing
+                            }
+                        }
                     }
                 }
 

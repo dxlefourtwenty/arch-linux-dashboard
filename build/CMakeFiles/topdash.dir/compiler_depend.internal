@@ -7236,6 +7236,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o
  /usr/include/qt6/QtCore/QJsonObject
  /usr/include/qt6/QtCore/QObject
  /usr/include/qt6/QtCore/QProcess
+ /usr/include/qt6/QtCore/QSet
  /usr/include/qt6/QtCore/QStringList
  /usr/include/qt6/QtCore/QTimer
  /usr/include/qt6/QtCore/q17memory.h

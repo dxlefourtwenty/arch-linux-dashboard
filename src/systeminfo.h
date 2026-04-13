@@ -110,4 +110,5 @@ private:
     quint64 m_lastRxBytes = 0;
     quint64 m_lastTxBytes = 0;
     qint64 m_lastNetSampleMs = 0;
+    int m_pollTick = 0;
 };

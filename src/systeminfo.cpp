@@ -178,15 +178,22 @@ SystemInfo::SystemInfo(QObject *parent)
     updateBattery();
 
     connect(&timer, &QTimer::timeout, this, [this]() {
+        m_pollTick += 1;
         updateCpu();
         updateGpu();
         updateRam();
         updateDisk();
         updateNetwork();
-        updateBattery();
-        updateDesktopEnvironment();
-        updateThemeName();
-        updateUptime();
+        if (m_pollTick % 2 == 0) {
+            updateBattery();
+        }
+        if (m_pollTick % 5 == 0) {
+            updateDesktopEnvironment();
+            updateThemeName();
+        }
+        if (m_pollTick % 10 == 0) {
+            updateUptime();
+        }
     });
 
     timer.start(1000);

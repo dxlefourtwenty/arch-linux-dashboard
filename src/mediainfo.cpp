@@ -1,23 +1,40 @@
 #include "mediainfo.h"
 
+#include <QHash>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
-#include <QHash>
+#include <QSet>
+#include <QtConcurrent>
 
 namespace {
 constexpr const char *kPlayerctlBin = "/usr/bin/playerctl";
 constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
-constexpr int kTimeoutMs = 400;
+constexpr int kTimeoutMs = 180;
 constexpr char kFieldSeparator = '\x1f';
+
+struct PlayerEntry {
+    QString player;
+    QString status;
+    QString metadata;
+    QString displayName;
+};
 }
 
 MediaInfo::MediaInfo(QObject *parent)
     : QObject(parent)
 {
     connect(&m_pollTimer, &QTimer::timeout, this, &MediaInfo::refresh);
+    connect(&m_refreshWatcher, &QFutureWatcher<Snapshot>::finished, this, [this]() {
+        applySnapshot(m_refreshWatcher.result());
+        if (m_refreshQueued) {
+            m_refreshQueued = false;
+            startRefreshTask();
+        }
+    });
+
     m_pollTimer.start(1000);
     refresh();
 }
@@ -25,19 +42,19 @@ MediaInfo::MediaInfo(QObject *parent)
 void MediaInfo::playPause()
 {
     sendPlayerctl({"-p", currentPlayerArg(), "play-pause"});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::next()
 {
     sendPlayerctl({"-p", currentPlayerArg(), "next"});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::previous()
 {
     sendPlayerctl({"-p", currentPlayerArg(), "previous"});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::seekToRatio(double ratio)
@@ -49,7 +66,7 @@ void MediaInfo::seekToRatio(double ratio)
     const double clamped = qBound(0.0, ratio, 1.0);
     const double targetSeconds = clamped * m_lengthSeconds;
     sendPlayerctl({"-p", currentPlayerArg(), "position", QString::number(targetSeconds, 'f', 3)});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::seekRelative(double offsetSeconds)
@@ -60,7 +77,7 @@ void MediaInfo::seekRelative(double offsetSeconds)
 
     const double targetSeconds = qBound(0.0, m_positionSeconds + offsetSeconds, m_lengthSeconds);
     sendPlayerctl({"-p", currentPlayerArg(), "position", QString::number(targetSeconds, 'f', 3)});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::setVolume(double volume)
@@ -71,7 +88,7 @@ void MediaInfo::setVolume(double volume)
 
     const double clamped = qBound(0.0, volume, 1.0);
     sendPlayerctl({"-p", currentPlayerArg(), "volume", QString::number(clamped, 'f', 3)});
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::selectPlayer(const QString &playerId)
@@ -83,7 +100,7 @@ void MediaInfo::selectPlayer(const QString &playerId)
 
     m_selectedPlayer = nextPlayer;
     m_targetPlayer = nextPlayer;
-    refresh();
+    requestRefreshSoon();
 }
 
 void MediaInfo::selectPlayerAt(int index)
@@ -96,220 +113,57 @@ void MediaInfo::selectPlayerAt(int index)
 
 void MediaInfo::refresh()
 {
-    const QString playersOut = runPlayerctl({"-l"});
-    QStringList listedPlayers = playersOut.split('\n', Qt::SkipEmptyParts);
-    for (QString &player : listedPlayers) {
-        player = player.trimmed();
-    }
-    listedPlayers.removeAll(QString());
-    listedPlayers.removeDuplicates();
-
-    QStringList players;
-    QStringList playerStatuses;
-    QStringList baseLabels;
-    players.reserve(listedPlayers.size());
-    playerStatuses.reserve(listedPlayers.size());
-    baseLabels.reserve(listedPlayers.size());
-    for (const QString &player : listedPlayers) {
-        const QString playerStatus = runPlayerctl({"-p", player, "status"});
-        if (playerStatus.isEmpty()) {
-            continue;
-        }
-
-        const QString metaOut = runPlayerctl({
-            "-p", player,
-            "metadata",
-            "--format",
-            QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
-                .arg(QChar(kFieldSeparator))
-        });
-        const QStringList fields = metaOut.split(QChar(kFieldSeparator));
-        const QString rawPlayerName = fields.value(0).trimmed();
-        const QString title = compactValue(fields.value(1));
-        const QString sourceUrl = compactValue(fields.value(5)).toLower();
-        const QString titleLower = title.toLower();
-        const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
-            || sourceUrl.contains("youtu.be")
-            || titleLower.contains("youtube")
-            || titleLower.endsWith(" - youtube")
-            || titleLower.startsWith("youtube -")
-            || titleLower.contains(" youtu.be")
-            || hyprClientsShowYouTubeForBrowser(rawPlayerName);
-        QString displayName = displayPlayerName(
-            rawPlayerName,
-            looksLikeYoutube ? QStringLiteral("youtube.com") : sourceUrl
-        );
-        if (displayName.isEmpty()) {
-            displayName = player;
-        }
-
-        players.append(player);
-        playerStatuses.append(playerStatus);
-        baseLabels.append(displayName);
-    }
-
-    QHash<QString, int> totalLabelCounts;
-    for (const QString &label : baseLabels) {
-        totalLabelCounts[label] += 1;
-    }
-
-    QHash<QString, int> seenLabelCounts;
-    QStringList labels;
-    labels.reserve(baseLabels.size());
-    for (const QString &label : baseLabels) {
-        if (totalLabelCounts.value(label) > 1) {
-            const int instanceNumber = seenLabelCounts.value(label) + 1;
-            seenLabelCounts.insert(label, instanceNumber);
-            labels.append(QString("%1 - %2").arg(label, QString::number(instanceNumber)));
-        } else {
-            labels.append(label);
-        }
-    }
-
-    const bool playersChanged = m_availablePlayers != players || m_availablePlayerLabels != labels;
-    const QString previousSelectedPlayer = m_selectedPlayer;
-
-    if (players.isEmpty()) {
-        const bool changed = playersChanged || !m_selectedPlayer.isEmpty()
-            || m_hasMedia || !m_playerName.isEmpty() || !m_title.isEmpty()
-            || !m_artist.isEmpty() || !m_status.isEmpty() || m_positionSeconds != 0.0
-            || m_lengthSeconds != 0.0 || m_volume != 0.0 || !m_artUrl.isEmpty() || m_isVideo;
-
-        m_availablePlayers.clear();
-        m_availablePlayerLabels.clear();
-        m_selectedPlayer.clear();
-        m_targetPlayer.clear();
-        m_hasMedia = false;
-        m_playerName.clear();
-        m_title.clear();
-        m_artist.clear();
-        m_status.clear();
-        m_positionSeconds = 0.0;
-        m_lengthSeconds = 0.0;
-        m_volume = 0.0;
-        m_artUrl.clear();
-        m_isVideo = false;
-
-        if (changed) {
-            emit mediaChanged();
-        }
+    if (m_refreshWatcher.isRunning()) {
+        m_refreshQueued = true;
         return;
     }
 
-    m_availablePlayers = players;
-    m_availablePlayerLabels = labels;
+    startRefreshTask();
+}
 
-    QString selectedPlayer;
-    if (players.contains(m_selectedPlayer)) {
-        selectedPlayer = m_selectedPlayer;
-    } else {
-        for (int i = 0; i < players.size(); ++i) {
-            if (playerStatuses.at(i) == "Playing") {
-                selectedPlayer = players.at(i);
-                break;
-            }
-        }
+void MediaInfo::startRefreshTask()
+{
+    const QString preferredSelected = m_selectedPlayer;
+    const QString preferredTarget = m_targetPlayer;
 
-        if (selectedPlayer.isEmpty()) {
-            if (players.contains(m_targetPlayer)) {
-                selectedPlayer = m_targetPlayer;
-            } else {
-                selectedPlayer = players.first();
-            }
-        }
-    }
+    m_refreshWatcher.setFuture(
+        QtConcurrent::run([preferredSelected, preferredTarget]() {
+            return collectSnapshot(preferredSelected, preferredTarget);
+        })
+    );
+}
 
-    m_selectedPlayer = selectedPlayer;
-    m_targetPlayer = selectedPlayer;
-    const bool selectedPlayerChanged = previousSelectedPlayer != m_selectedPlayer;
-    const bool playerSelectionChanged = playersChanged || selectedPlayerChanged;
+void MediaInfo::applySnapshot(const Snapshot &snapshot)
+{
+    const bool changed = m_availablePlayers != snapshot.availablePlayers
+        || m_availablePlayerLabels != snapshot.availablePlayerLabels
+        || m_selectedPlayer != snapshot.selectedPlayer
+        || m_targetPlayer != snapshot.targetPlayer
+        || m_hasMedia != snapshot.hasMedia
+        || m_playerName != snapshot.playerName
+        || m_title != snapshot.title
+        || m_artist != snapshot.artist
+        || m_status != snapshot.status
+        || !qFuzzyCompare(m_positionSeconds + 1.0, snapshot.positionSeconds + 1.0)
+        || !qFuzzyCompare(m_lengthSeconds + 1.0, snapshot.lengthSeconds + 1.0)
+        || !qFuzzyCompare(m_volume + 1.0, snapshot.volume + 1.0)
+        || m_artUrl != snapshot.artUrl
+        || m_isVideo != snapshot.isVideo;
 
-    const int selectedIndex = players.indexOf(m_targetPlayer);
-    const QString statusOut = selectedIndex >= 0
-        ? playerStatuses.at(selectedIndex)
-        : runPlayerctl({"-p", m_targetPlayer, "status"});
-    if (statusOut.isEmpty()) {
-        const bool changed = playerSelectionChanged || m_hasMedia || !m_playerName.isEmpty()
-            || !m_title.isEmpty() || !m_artist.isEmpty() || !m_status.isEmpty()
-            || m_positionSeconds != 0.0 || m_lengthSeconds != 0.0 || m_volume != 0.0
-            || !m_artUrl.isEmpty() || m_isVideo;
-
-        m_hasMedia = false;
-        m_playerName.clear();
-        m_title.clear();
-        m_artist.clear();
-        m_status.clear();
-        m_positionSeconds = 0.0;
-        m_lengthSeconds = 0.0;
-        m_volume = 0.0;
-        m_artUrl.clear();
-        m_isVideo = false;
-        if (changed) {
-            emit mediaChanged();
-        }
-        return;
-    }
-
-    const QString metaOut = runPlayerctl({
-        "-p", m_targetPlayer,
-        "metadata",
-        "--format",
-        QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
-            .arg(QChar(kFieldSeparator))
-    });
-
-    const QString posOut = runPlayerctl({"-p", m_targetPlayer, "position"});
-    const QString volumeOut = runPlayerctl({"-p", m_targetPlayer, "volume"});
-
-    const QStringList fields = metaOut.split(QChar(kFieldSeparator));
-    const QString rawPlayerName = fields.value(0).trimmed();
-    const QString title = compactValue(fields.value(1));
-    const QString artist = compactValue(fields.value(2));
-    const double lengthSeconds = parseMicroseconds(fields.value(3));
-    const QString artUrl = compactValue(fields.value(4));
-    const QString sourceUrl = compactValue(fields.value(5)).toLower();
-    const QString titleLower = title.toLower();
-    const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
-        || sourceUrl.contains("youtu.be")
-        || titleLower.contains("youtube")
-        || titleLower.endsWith(" - youtube")
-        || titleLower.startsWith("youtube -")
-        || titleLower.contains(" youtu.be")
-        || hyprClientsShowYouTubeForBrowser(rawPlayerName);
-    const QString playerName = displayPlayerName(rawPlayerName, looksLikeYoutube ? QStringLiteral("youtube.com") : sourceUrl);
-    const double volume = qBound(0.0, volumeOut.toDouble(), 1.0);
-    const double positionSeconds = qMax(0.0, posOut.toDouble());
-    const QString lowerPlayerName = rawPlayerName.toLower();
-    const bool isVideo = lowerPlayerName.contains("vlc")
-        || lowerPlayerName.contains("mpv")
-        || looksLikeYoutube
-        || sourceUrl.contains("vimeo.com")
-        || sourceUrl.contains("twitch.tv")
-        || sourceUrl.endsWith(".mp4")
-        || sourceUrl.endsWith(".webm")
-        || sourceUrl.endsWith(".mkv");
-
-    const bool changed = playerSelectionChanged || !m_hasMedia
-        || m_playerName != playerName
-        || m_title != title
-        || m_artist != artist
-        || m_status != statusOut
-        || !qFuzzyCompare(m_positionSeconds + 1.0, positionSeconds + 1.0)
-        || !qFuzzyCompare(m_lengthSeconds + 1.0, lengthSeconds + 1.0)
-        || !qFuzzyCompare(m_volume + 1.0, volume + 1.0)
-        || m_artUrl != artUrl
-        || m_isVideo != isVideo;
-
-    m_hasMedia = true;
-    m_playerName = playerName;
-    m_title = title;
-    m_artist = artist;
-    m_status = statusOut;
-    m_positionSeconds = positionSeconds;
-    m_lengthSeconds = lengthSeconds;
-    m_volume = volume;
-    m_artUrl = artUrl;
-    m_isVideo = isVideo;
+    m_availablePlayers = snapshot.availablePlayers;
+    m_availablePlayerLabels = snapshot.availablePlayerLabels;
+    m_selectedPlayer = snapshot.selectedPlayer;
+    m_targetPlayer = snapshot.targetPlayer;
+    m_hasMedia = snapshot.hasMedia;
+    m_playerName = snapshot.playerName;
+    m_title = snapshot.title;
+    m_artist = snapshot.artist;
+    m_status = snapshot.status;
+    m_positionSeconds = snapshot.positionSeconds;
+    m_lengthSeconds = snapshot.lengthSeconds;
+    m_volume = snapshot.volume;
+    m_artUrl = snapshot.artUrl;
+    m_isVideo = snapshot.isVideo;
 
     if (changed) {
         emit mediaChanged();
@@ -324,7 +178,195 @@ QString MediaInfo::currentPlayerArg() const
     return QString::fromUtf8(kAnyPlayer);
 }
 
-QString MediaInfo::runPlayerctl(const QStringList &args) const
+void MediaInfo::sendPlayerctl(const QStringList &args) const
+{
+    QProcess::execute(kPlayerctlBin, args);
+}
+
+void MediaInfo::requestRefreshSoon()
+{
+    QTimer::singleShot(70, this, &MediaInfo::refresh);
+}
+
+MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected, const QString &preferredTarget)
+{
+    Snapshot snapshot;
+
+    const QString playersOut = runPlayerctl({"-l"});
+    QStringList listedPlayers = playersOut.split('\n', Qt::SkipEmptyParts);
+    for (QString &player : listedPlayers) {
+        player = player.trimmed();
+    }
+    listedPlayers.removeAll(QString());
+    listedPlayers.removeDuplicates();
+
+    if (listedPlayers.isEmpty()) {
+        return snapshot;
+    }
+
+    QList<PlayerEntry> entries;
+    entries.reserve(listedPlayers.size());
+
+    const QStringList youtubeBrowserClasses = browserClassesWithYouTubeTitle();
+    for (const QString &player : listedPlayers) {
+        const QString playerStatus = runPlayerctl({"-p", player, "status"});
+        if (playerStatus.isEmpty()) {
+            continue;
+        }
+
+        const QString metadata = runPlayerctl({
+            "-p", player,
+            "metadata",
+            "--format",
+            QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
+                .arg(QChar(kFieldSeparator))
+        });
+
+        const QStringList fields = metadata.split(QChar(kFieldSeparator));
+        const QString rawPlayerName = fields.value(0).trimmed();
+        const QString title = compactValue(fields.value(1));
+        const QString sourceUrl = compactValue(fields.value(5)).toLower();
+        const QString titleLower = title.toLower();
+        const QString playerLower = rawPlayerName.toLower();
+        const QString classNeedle = playerLower.contains("brave")
+            ? "brave"
+            : (playerLower.contains("firefox")
+                ? "firefox"
+                : ((playerLower.contains("chromium") || playerLower.contains("chrome")) ? "chrom" : ""));
+
+        const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
+            || sourceUrl.contains("youtu.be")
+            || titleLower.contains("youtube")
+            || titleLower.endsWith(" - youtube")
+            || titleLower.startsWith("youtube -")
+            || titleLower.contains(" youtu.be")
+            || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+
+        QString displayName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
+        if (displayName.isEmpty()) {
+            displayName = player;
+        }
+
+        entries.append(PlayerEntry{player, playerStatus, metadata, displayName});
+    }
+
+    if (entries.isEmpty()) {
+        return snapshot;
+    }
+
+    QStringList players;
+    QStringList labels;
+    players.reserve(entries.size());
+    labels.reserve(entries.size());
+
+    QHash<QString, int> totalLabelCounts;
+    for (const PlayerEntry &entry : entries) {
+        players.append(entry.player);
+        totalLabelCounts[entry.displayName] += 1;
+    }
+
+    QHash<QString, int> seenLabelCounts;
+    for (const PlayerEntry &entry : entries) {
+        if (totalLabelCounts.value(entry.displayName) > 1) {
+            const int instanceNumber = seenLabelCounts.value(entry.displayName) + 1;
+            seenLabelCounts.insert(entry.displayName, instanceNumber);
+            labels.append(QString("%1 - %2").arg(entry.displayName, QString::number(instanceNumber)));
+        } else {
+            labels.append(entry.displayName);
+        }
+    }
+
+    snapshot.availablePlayers = players;
+    snapshot.availablePlayerLabels = labels;
+
+    QString selectedPlayer;
+    if (players.contains(preferredSelected)) {
+        selectedPlayer = preferredSelected;
+    } else {
+        for (const PlayerEntry &entry : entries) {
+            if (entry.status == "Playing") {
+                selectedPlayer = entry.player;
+                break;
+            }
+        }
+
+        if (selectedPlayer.isEmpty()) {
+            if (players.contains(preferredTarget)) {
+                selectedPlayer = preferredTarget;
+            } else {
+                selectedPlayer = players.first();
+            }
+        }
+    }
+
+    snapshot.selectedPlayer = selectedPlayer;
+    snapshot.targetPlayer = selectedPlayer;
+
+    int selectedIndex = -1;
+    for (int i = 0; i < entries.size(); ++i) {
+        if (entries.at(i).player == selectedPlayer) {
+            selectedIndex = i;
+            break;
+        }
+    }
+    if (selectedIndex < 0) {
+        return snapshot;
+    }
+
+    const PlayerEntry selectedEntry = entries.at(selectedIndex);
+    const QString statusOut = selectedEntry.status;
+    if (statusOut.isEmpty()) {
+        return snapshot;
+    }
+
+    const QString posOut = runPlayerctl({"-p", selectedPlayer, "position"});
+    const QString volumeOut = runPlayerctl({"-p", selectedPlayer, "volume"});
+
+    const QStringList fields = selectedEntry.metadata.split(QChar(kFieldSeparator));
+    const QString rawPlayerName = fields.value(0).trimmed();
+    const QString title = compactValue(fields.value(1));
+    const QString artist = compactValue(fields.value(2));
+    const double lengthSeconds = parseMicroseconds(fields.value(3));
+    const QString artUrl = compactValue(fields.value(4));
+    const QString sourceUrl = compactValue(fields.value(5)).toLower();
+    const QString titleLower = title.toLower();
+    const QString lowerPlayerName = rawPlayerName.toLower();
+    const QString classNeedle = lowerPlayerName.contains("brave")
+        ? "brave"
+        : (lowerPlayerName.contains("firefox")
+            ? "firefox"
+            : ((lowerPlayerName.contains("chromium") || lowerPlayerName.contains("chrome")) ? "chrom" : ""));
+
+    const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
+        || sourceUrl.contains("youtu.be")
+        || titleLower.contains("youtube")
+        || titleLower.endsWith(" - youtube")
+        || titleLower.startsWith("youtube -")
+        || titleLower.contains(" youtu.be")
+        || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+
+    snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
+    snapshot.title = title;
+    snapshot.artist = artist;
+    snapshot.status = statusOut;
+    snapshot.positionSeconds = qMax(0.0, posOut.toDouble());
+    snapshot.lengthSeconds = lengthSeconds;
+    snapshot.volume = qBound(0.0, volumeOut.toDouble(), 1.0);
+    snapshot.artUrl = artUrl;
+    snapshot.isVideo = lowerPlayerName.contains("vlc")
+        || lowerPlayerName.contains("mpv")
+        || looksLikeYoutube
+        || sourceUrl.contains("vimeo.com")
+        || sourceUrl.contains("twitch.tv")
+        || sourceUrl.endsWith(".mp4")
+        || sourceUrl.endsWith(".webm")
+        || sourceUrl.endsWith(".mkv");
+    snapshot.hasMedia = true;
+
+    return snapshot;
+}
+
+QString MediaInfo::runPlayerctl(const QStringList &args)
 {
     QProcess proc;
     proc.start(kPlayerctlBin, args);
@@ -343,11 +385,6 @@ QString MediaInfo::runPlayerctl(const QStringList &args) const
     return QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
 }
 
-void MediaInfo::sendPlayerctl(const QStringList &args) const
-{
-    QProcess::execute(kPlayerctlBin, args);
-}
-
 QString MediaInfo::compactValue(const QString &value)
 {
     QString out = value;
@@ -355,9 +392,9 @@ QString MediaInfo::compactValue(const QString &value)
     return out.trimmed();
 }
 
-QString MediaInfo::displayPlayerName(const QString &rawPlayerName, const QString &sourceUrlLower)
+QString MediaInfo::displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, const QString &sourceUrlLower)
 {
-    if (sourceUrlLower.contains("youtube.com") || sourceUrlLower.contains("youtu.be")) {
+    if (looksLikeYoutube || sourceUrlLower.contains("youtube.com") || sourceUrlLower.contains("youtu.be")) {
         return "YouTube";
     }
 
@@ -378,40 +415,29 @@ QString MediaInfo::displayPlayerName(const QString &rawPlayerName, const QString
     return out;
 }
 
-bool MediaInfo::hyprClientsShowYouTubeForBrowser(const QString &rawPlayerName)
+QStringList MediaInfo::browserClassesWithYouTubeTitle()
 {
-    const QString playerLower = rawPlayerName.toLower();
-    QString classNeedle;
-    if (playerLower.contains("brave")) {
-        classNeedle = "brave";
-    } else if (playerLower.contains("firefox")) {
-        classNeedle = "firefox";
-    } else if (playerLower.contains("chromium") || playerLower.contains("chrome")) {
-        classNeedle = "chrom";
-    } else {
-        return false;
-    }
-
     QProcess proc;
     proc.start(QString::fromUtf8(kHyprctlBin), {"-j", "clients"});
     if (!proc.waitForStarted(kTimeoutMs)) {
-        return false;
+        return {};
     }
     if (!proc.waitForFinished(kTimeoutMs)) {
         proc.kill();
         proc.waitForFinished();
-        return false;
+        return {};
     }
     if (proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
-        return false;
+        return {};
     }
 
     const QByteArray payload = proc.readAllStandardOutput();
     const QJsonDocument doc = QJsonDocument::fromJson(payload);
     if (!doc.isArray()) {
-        return false;
+        return {};
     }
 
+    QSet<QString> matches;
     const QJsonArray clients = doc.array();
     for (const QJsonValue &entry : clients) {
         if (!entry.isObject()) {
@@ -419,16 +445,21 @@ bool MediaInfo::hyprClientsShowYouTubeForBrowser(const QString &rawPlayerName)
         }
         const QJsonObject obj = entry.toObject();
         const QString cls = obj.value("class").toString().toLower();
-        if (!cls.contains(classNeedle)) {
-            continue;
-        }
         const QString title = obj.value("title").toString().toLower();
         if (title.contains("youtube") || title.contains("youtu.be")) {
-            return true;
+            if (cls.contains("brave")) {
+                matches.insert("brave");
+            }
+            if (cls.contains("firefox")) {
+                matches.insert("firefox");
+            }
+            if (cls.contains("chrom")) {
+                matches.insert("chrom");
+            }
         }
     }
 
-    return false;
+    return matches.values();
 }
 
 double MediaInfo::parseMicroseconds(const QString &raw)
