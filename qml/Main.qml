@@ -68,6 +68,9 @@ Window {
     property color  cPrimary:     (theme && theme.primary)                   ? theme.primary
                                 : (theme && theme.accent)                    ? theme.accent
                                 : (theme && theme.border)                    ? theme.border      : "#444444"
+    property color  cGreen:       (theme && theme.green)                     ? theme.green
+                                : (theme && theme.secondary)                 ? theme.secondary
+                                : (theme && theme.accent)                    ? theme.accent      : "#6fbf73"
     property color  cFg:          (theme && theme.fg)                        ? theme.fg          : "white"
     property color  cMuted:       (theme && theme.muted)                     ? theme.muted       : "#888888"
     property string cFont:        (style && style.font)                      ? style.font
@@ -855,11 +858,13 @@ Window {
 
                             PerformanceView {
                                 anchors.fill: parent
+                                cBg: win.cBg
                                 cFg: win.cFg
                                 cMuted: win.cMuted
                                 cPrimary: win.cPrimary
                                 cAccent: win.cAccent
                                 cSecondary: win.cSecondary
+                                cGreen: win.cGreen
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
                                 cBorderWidth: win.cBorderWidth

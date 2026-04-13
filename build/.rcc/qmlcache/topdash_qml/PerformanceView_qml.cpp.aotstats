@@ -10,7 +10,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "cPrimary",
-                            "line": 9,
+                            "line": 10,
                             "message": ""
                         },
                         {
@@ -18,7 +18,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "cAccent",
-                            "line": 10,
+                            "line": 11,
                             "message": ""
                         },
                         {
@@ -26,7 +26,15 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "cSecondary",
-                            "line": 11,
+                            "line": 12,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 29,
+                            "durationMicroseconds": 0,
+                            "functionName": "cGreen",
+                            "line": 13,
                             "message": ""
                         },
                         {
@@ -34,7 +42,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 26,
+                            "line": 28,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -42,14 +50,6 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 28,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 23,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
                             "line": 30,
                             "message": "Cannot access value for name root"
                         },
@@ -57,8 +57,16 @@
                             "codegenResult": 2,
                             "column": 23,
                             "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 32,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 31,
+                            "line": 33,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -66,7 +74,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 34,
+                            "line": 36,
                             "message": ""
                         },
                         {
@@ -74,23 +82,23 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 42,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
                             "line": 44,
                             "message": ""
                         },
                         {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 46,
+                            "message": ""
+                        },
+                        {
                             "codegenResult": 2,
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 45,
+                            "line": 47,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -98,7 +106,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 46,
+                            "line": 48,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -106,7 +114,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 51,
+                            "line": 53,
                             "message": ""
                         },
                         {
@@ -114,7 +122,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 52,
+                            "line": 54,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -122,7 +130,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 53,
+                            "line": 55,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -130,7 +138,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 54,
+                            "line": 56,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -138,7 +146,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 60,
+                            "line": 62,
                             "message": ""
                         },
                         {
@@ -146,7 +154,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 61,
+                            "line": 63,
                             "message": ""
                         },
                         {
@@ -154,30 +162,6 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 62,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 65,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 63,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
                             "line": 64,
                             "message": "Cannot access value for name root"
                         },
@@ -185,8 +169,32 @@
                             "codegenResult": 0,
                             "column": 24,
                             "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 67,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 65,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 66,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 70,
+                            "line": 72,
                             "message": ""
                         },
                         {
@@ -194,7 +202,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 76,
+                            "line": 78,
                             "message": ""
                         },
                         {
@@ -202,7 +210,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 77,
+                            "line": 79,
                             "message": ""
                         },
                         {
@@ -210,7 +218,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "left",
-                            "line": 74,
+                            "line": 76,
                             "message": ""
                         },
                         {
@@ -218,7 +226,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 75,
+                            "line": 77,
                             "message": ""
                         },
                         {
@@ -226,7 +234,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 78,
+                            "line": 80,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -234,7 +242,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 79,
+                            "line": 81,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -242,7 +250,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 87,
+                            "line": 89,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -250,7 +258,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 84,
+                            "line": 86,
                             "message": ""
                         },
                         {
@@ -258,7 +266,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 85,
+                            "line": 87,
                             "message": ""
                         },
                         {
@@ -266,7 +274,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 88,
+                            "line": 90,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -274,7 +282,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 89,
+                            "line": 91,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -282,7 +290,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 94,
+                            "line": 96,
                             "message": ""
                         },
                         {
@@ -290,7 +298,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 97,
+                            "line": 99,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -298,7 +306,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 100,
+                            "line": 102,
                             "message": ""
                         },
                         {
@@ -306,7 +314,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 101,
+                            "line": 103,
                             "message": ""
                         },
                         {
@@ -314,7 +322,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 102,
+                            "line": 104,
                             "message": "Cannot load property radius from (component in /home/dxle/builds/dashboard/qml/PerformanceView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -322,7 +330,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 103,
+                            "line": 105,
                             "message": ""
                         },
                         {
@@ -330,7 +338,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 116,
+                            "line": 118,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -338,7 +346,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 118,
+                            "line": 120,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -346,7 +354,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "onValueChanged",
-                            "line": 222,
+                            "line": 224,
                             "message": ""
                         },
                         {
@@ -354,7 +362,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 120,
+                            "line": 122,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -362,7 +370,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 121,
+                            "line": 123,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -370,7 +378,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 124,
+                            "line": 126,
                             "message": ""
                         },
                         {
@@ -378,23 +386,23 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 132,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
                             "line": 134,
                             "message": ""
                         },
                         {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 136,
+                            "message": ""
+                        },
+                        {
                             "codegenResult": 2,
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 135,
+                            "line": 137,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -402,7 +410,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 136,
+                            "line": 138,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -410,7 +418,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 141,
+                            "line": 143,
                             "message": ""
                         },
                         {
@@ -418,7 +426,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 142,
+                            "line": 144,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -426,7 +434,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 143,
+                            "line": 145,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -434,7 +442,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 144,
+                            "line": 146,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -442,7 +450,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 150,
+                            "line": 152,
                             "message": ""
                         },
                         {
@@ -450,7 +458,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 151,
+                            "line": 153,
                             "message": ""
                         },
                         {
@@ -458,7 +466,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 156,
+                            "line": 158,
                             "message": ""
                         },
                         {
@@ -466,7 +474,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 157,
+                            "line": 159,
                             "message": ""
                         },
                         {
@@ -474,7 +482,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 158,
+                            "line": 160,
                             "message": ""
                         },
                         {
@@ -482,7 +490,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 155,
+                            "line": 157,
                             "message": ""
                         },
                         {
@@ -490,7 +498,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 163,
+                            "line": 165,
                             "message": ""
                         },
                         {
@@ -498,7 +506,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onPaint",
-                            "line": 175,
+                            "line": 177,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -506,7 +514,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 173,
+                            "line": 175,
                             "message": ""
                         },
                         {
@@ -514,7 +522,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 202,
+                            "line": 204,
                             "message": ""
                         },
                         {
@@ -522,7 +530,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 203,
+                            "line": 205,
                             "message": ""
                         },
                         {
@@ -530,7 +538,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 201,
+                            "line": 203,
                             "message": ""
                         },
                         {
@@ -538,7 +546,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 204,
+                            "line": 206,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -546,7 +554,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 205,
+                            "line": 207,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -554,7 +562,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 214,
+                            "line": 216,
                             "message": ""
                         },
                         {
@@ -562,7 +570,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 215,
+                            "line": 217,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -570,7 +578,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 211,
+                            "line": 213,
                             "message": ""
                         },
                         {
@@ -578,7 +586,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalCenter",
-                            "line": 213,
+                            "line": 215,
                             "message": ""
                         },
                         {
@@ -586,7 +594,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 216,
+                            "line": 218,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -594,7 +602,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 217,
+                            "line": 219,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -602,7 +610,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 223,
+                            "line": 225,
                             "message": ""
                         },
                         {
@@ -610,7 +618,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "glyphColor",
-                            "line": 233,
+                            "line": 240,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -618,7 +626,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "line1ValueColor",
-                            "line": 236,
+                            "line": 243,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -626,7 +634,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "line2ValueColor",
-                            "line": 237,
+                            "line": 244,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -634,7 +642,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 239,
+                            "line": 246,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -642,7 +650,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 241,
+                            "line": 248,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -650,7 +658,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 242,
+                            "line": 249,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -658,7 +666,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 245,
+                            "line": 252,
                             "message": ""
                         },
                         {
@@ -666,7 +674,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 253,
+                            "line": 260,
                             "message": ""
                         },
                         {
@@ -674,47 +682,47 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 255,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 256,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 257,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 27,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
                             "line": 262,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 28,
+                            "column": 34,
                             "durationMicroseconds": 0,
-                            "functionName": "color",
+                            "functionName": "family",
                             "line": 263,
                             "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 264,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 269,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 270,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 264,
+                            "line": 271,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -722,7 +730,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 265,
+                            "line": 272,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -730,71 +738,119 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 271,
+                            "line": 278,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 30,
                             "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 276,
+                            "functionName": "spacing",
+                            "line": 283,
                             "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 277,
-                            "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 280,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
                             "column": 34,
                             "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 278,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 279,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 27,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 285,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
+                            "functionName": "visible",
                             "line": 286,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 287,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 288,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 289,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 290,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 295,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 296,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 299,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 297,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 298,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 305,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 306,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 289,
+                            "line": 309,
                             "message": ""
                         },
                         {
@@ -802,7 +858,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 287,
+                            "line": 307,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -810,7 +866,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 288,
+                            "line": 308,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -818,136 +874,120 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 295,
+                            "line": 315,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 30,
                             "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 300,
+                            "functionName": "spacing",
+                            "line": 320,
                             "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 301,
-                            "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 304,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
                             "column": 34,
                             "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 302,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 303,
-                            "message": "Cannot access value for name root"
+                            "functionName": "visible",
+                            "line": 323,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 309,
+                            "line": 324,
                             "message": ""
                         },
                         {
-                            "codegenResult": 0,
-                            "column": 28,
+                            "codegenResult": 2,
+                            "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 310,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 313,
-                            "message": ""
+                            "line": 325,
+                            "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 34,
+                            "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 311,
+                            "line": 326,
                             "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 37,
+                            "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 312,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 17,
-                            "durationMicroseconds": 0,
-                            "functionName": "radius",
                             "line": 327,
                             "message": "Cannot access value for name root"
                         },
                         {
-                            "codegenResult": 2,
-                            "column": 23,
+                            "codegenResult": 0,
+                            "column": 31,
                             "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 329,
-                            "message": "Cannot access value for name root"
+                            "functionName": "text",
+                            "line": 332,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 23,
+                            "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 330,
+                            "line": 333,
                             "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 333,
+                            "functionName": "elide",
+                            "line": 336,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 334,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 335,
+                            "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 341,
+                            "line": 342,
                             "message": ""
                         },
                         {
-                            "codegenResult": 2,
+                            "codegenResult": 0,
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
                             "line": 343,
-                            "message": "Cannot access value for name root"
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 346,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
@@ -967,10 +1007,58 @@
                         },
                         {
                             "codegenResult": 0,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "ratio",
+                            "line": 359,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "lowBattery",
+                            "line": 361,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 17,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 363,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 365,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 366,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 369,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 350,
+                            "line": 377,
                             "message": ""
                         },
                         {
@@ -978,7 +1066,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 351,
+                            "line": 379,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -986,7 +1074,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 352,
+                            "line": 380,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -994,7 +1082,39 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 353,
+                            "line": 381,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 386,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 387,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 388,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 389,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1002,7 +1122,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 359,
+                            "line": 395,
                             "message": ""
                         },
                         {
@@ -1010,47 +1130,303 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 360,
+                            "line": 396,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 27,
+                            "column": 35,
                             "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 364,
+                            "functionName": "fill",
+                            "line": 399,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "barWidth",
+                            "line": 408,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalCenter",
+                            "line": 404,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "top",
+                            "line": 405,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 412,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 413,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 421,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "left",
+                            "line": 417,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "right",
+                            "line": 418,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 420,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 28,
+                            "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 365,
+                            "line": 425,
                             "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 433,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 434,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 436,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 437,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "left",
+                            "line": 430,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 432,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 58,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 443,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 448,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 456,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 458,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 469,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 470,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 472,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "right",
+                            "line": 467,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalCenter",
+                            "line": 468,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 476,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 477,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 478,
+                            "message": "Cannot load property color from (component in /home/dxle/builds/dashboard/qml/PerformanceView.qml)::parent with type QQuickItem."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "left",
+                            "line": 475,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 63,
+                            "durationMicroseconds": 0,
+                            "functionName": "fitsInsideFill",
+                            "line": 485,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 487,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "y",
+                            "line": 493,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 39,
                             "durationMicroseconds": 0,
-                            "functionName": "centerIn",
-                            "line": 363,
+                            "functionName": "text",
+                            "line": 494,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 34,
+                            "column": 40,
                             "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 366,
+                            "functionName": "color",
+                            "line": 495,
                             "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,
-                            "column": 37,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 496,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 367,
+                            "line": 497,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1058,7 +1434,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 375,
+                            "line": 508,
                             "message": ""
                         },
                         {
@@ -1066,7 +1442,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "detail",
-                            "line": 389,
+                            "line": 522,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1074,7 +1450,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 390,
+                            "line": 523,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1082,7 +1458,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 391,
+                            "line": 524,
                             "message": ""
                         },
                         {
@@ -1090,7 +1466,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "detail",
-                            "line": 399,
+                            "line": 532,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1098,7 +1474,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 400,
+                            "line": 533,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1106,7 +1482,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 401,
+                            "line": 534,
                             "message": ""
                         },
                         {
@@ -1114,7 +1490,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "detail",
-                            "line": 416,
+                            "line": 549,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1122,7 +1498,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 417,
+                            "line": 550,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1130,7 +1506,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 418,
+                            "line": 551,
                             "message": ""
                         },
                         {
@@ -1138,7 +1514,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "label",
-                            "line": 425,
+                            "line": 558,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1146,7 +1522,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "detail",
-                            "line": 426,
+                            "line": 559,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1154,7 +1530,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 427,
+                            "line": 560,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1162,7 +1538,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "accent",
-                            "line": 428,
+                            "line": 561,
                             "message": ""
                         },
                         {
@@ -1170,7 +1546,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "glyphColor",
-                            "line": 443,
+                            "line": 576,
                             "message": ""
                         },
                         {
@@ -1178,7 +1554,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "line1Value",
-                            "line": 445,
+                            "line": 579,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1186,7 +1562,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "line2Value",
-                            "line": 447,
+                            "line": 582,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -1194,7 +1570,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "line1ValueColor",
-                            "line": 448,
+                            "line": 584,
                             "message": ""
                         },
                         {
@@ -1202,15 +1578,15 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "line2ValueColor",
-                            "line": 449,
+                            "line": 585,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
-                            "column": 28,
+                            "column": 24,
                             "durationMicroseconds": 0,
-                            "functionName": "valueText",
-                            "line": 457,
+                            "functionName": "value",
+                            "line": 593,
                             "message": "Cannot access value for name SystemInfo"
                         }
                     ],

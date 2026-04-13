@@ -4,11 +4,13 @@ import QtQuick.Layouts
 Rectangle {
     id: root
 
+    property color  cBg: "#111111"
     property color  cFg: "white"
     property color  cMuted: "#888888"
     property color  cPrimary: cFg
     property color  cAccent: cFg
     property color  cSecondary: cMuted
+    property color  cGreen: cSecondary
     property string cFont: "sans"
     property int    cFontSize: 16
     property int    cBorderWidth: 2
@@ -230,6 +232,11 @@ Rectangle {
         property string label: ""
         property string line1: ""
         property string line2: ""
+        property string line1Glyph: ""
+        property string line2Glyph: ""
+        property string line1Label: ""
+        property string line2Label: ""
+        property int lineLabelLeftMargin: 0
         property color glyphColor: root.cFg
         property string line1Value: ""
         property string line2Value: ""
@@ -271,14 +278,27 @@ Rectangle {
                 width: parent.width
                 spacing: 4
 
-                Text {
+                RowLayout {
                     Layout.fillWidth: true
-                    text: infoCard.line1
-                    color: root.cFg
-                    font.family: root.cFont
-                    font.pixelSize: root.cFontSize * 1.05
-                    elide: Text.ElideRight
-                    maximumLineCount: 1
+                    spacing: infoCard.lineLabelLeftMargin
+
+                    Text {
+                        visible: infoCard.line1Glyph !== ""
+                        text: infoCard.line1Glyph
+                        color: root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 1.05
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        text: infoCard.line1Label !== "" ? infoCard.line1Label : infoCard.line1
+                        color: root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 1.05
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                    }
                 }
 
                 Text {
@@ -295,14 +315,27 @@ Rectangle {
                 width: parent.width
                 spacing: 4
 
-                Text {
+                RowLayout {
                     Layout.fillWidth: true
-                    text: infoCard.line2
-                    color: root.cFg
-                    font.family: root.cFont
-                    font.pixelSize: root.cFontSize * 1.05
-                    elide: Text.ElideRight
-                    maximumLineCount: 1
+                    spacing: infoCard.lineLabelLeftMargin
+
+                    Text {
+                        visible: infoCard.line2Glyph !== ""
+                        text: infoCard.line2Glyph
+                        color: root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 1.05
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+                        text: infoCard.line2Label !== "" ? infoCard.line2Label : infoCard.line2
+                        color: root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 1.05
+                        elide: Text.ElideRight
+                        maximumLineCount: 1
+                    }
                 }
 
                 Text {
@@ -322,7 +355,10 @@ Rectangle {
 
         property string glyph: ""
         property string label: ""
-        property string valueText: ""
+        property int value: -1
+        property real ratio: value >= 0 ? Math.max(0, Math.min(100, value)) / 100 : 0
+        property real progressScale: 0.8
+        property bool lowBattery: value >= 0 && value < 20
 
         radius: root.cardRadius
         color: "transparent"
@@ -357,15 +393,112 @@ Rectangle {
 
             Item {
                 width: parent.width
-                height: Math.max(46, parent.height - 36)
+                height: Math.max(58, parent.height - 36)
 
-                Text {
-                    anchors.centerIn: parent
-                    text: batteryCard.valueText
-                    color: root.cSecondary
-                    font.family: root.cFont
-                    font.pixelSize: root.cFontSize * 1.75
-                    font.bold: true
+                Column {
+                    anchors.fill: parent
+                    spacing: 0
+
+                    Column {
+                        id: batteryStack
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                        spacing: 1
+
+                        property real barWidth: parent.width * batteryCard.progressScale
+
+                        Item {
+                            id: barContainer
+                            width: batteryStack.barWidth
+                            height: 44 * batteryCard.progressScale
+
+                            Rectangle {
+                                id: batteryBody
+                                anchors.left: parent.left
+                                anchors.right: batteryCap.left
+                                anchors.rightMargin: 0
+                                anchors.verticalCenter: parent.verticalCenter
+                                height: 36 * batteryCard.progressScale
+                                radius: 4
+                                color: "transparent"
+                                border.width: 2
+                                border.color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.85)
+                                clip: true
+
+                                Rectangle {
+                                    id: batteryFill
+                                anchors.left: parent.left
+                                anchors.leftMargin: 2
+                                anchors.verticalCenter: parent.verticalCenter
+                                height: parent.height - 4
+                                    width: (parent.width - 4) * batteryCard.ratio
+                                    radius: 2
+                                    color: root.cGreen
+                                    visible: batteryCard.value >= 0
+                                    clip: true
+
+                                    Behavior on width {
+                                        NumberAnimation {
+                                            duration: 180
+                                            easing.type: Easing.OutCubic
+                                        }
+                                    }
+
+                                Row {
+                                    anchors.fill: parent
+                                    anchors.margins: 1
+                                    spacing: 2
+
+                                    Repeater {
+                                        model: 16
+                                        Rectangle {
+                                            width: 3
+                                            height: parent.height
+                                            radius: 1
+                                            color: Qt.rgba(root.cFg.r, root.cFg.g, root.cFg.b, 0.85)
+                                        }
+                                    }
+                                }
+                                }
+                            }
+
+                            Rectangle {
+                                id: batteryCap
+                                anchors.right: parent.right
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: 8 * batteryCard.progressScale
+                                height: 20 * batteryCard.progressScale
+                                radius: 2
+                                color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.85)
+
+                                Rectangle {
+                                    anchors.left: parent.left
+                                    width: parent.width / 2
+                                    height: parent.height
+                                    color: parent.color
+                                }
+                            }
+
+                            Text {
+                                id: percentText
+                                property real padding: 6
+                                property bool fitsInsideFill: batteryCard.value >= 0
+                                    && batteryFill.width >= (width + padding * 2)
+                                x: fitsInsideFill
+                                    ? Math.max(padding, batteryFill.width - width - padding)
+                                    : Math.min(
+                                        batteryBody.width - width - padding,
+                                        Math.max(padding, batteryFill.width + padding)
+                                    )
+                                y: batteryBody.y + (batteryBody.height - height) / 2
+                                text: batteryCard.value >= 0 ? (batteryCard.value + "%") : "N/A"
+                                color: batteryCard.lowBattery ? root.cFg : (fitsInsideFill ? root.cBg : root.cFg)
+                                font.family: root.cFont
+                                font.pixelSize: Math.max(1, (root.cFontSize * 1.45 - 2) / 1.5)
+                                font.bold: true
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -441,10 +574,13 @@ Rectangle {
                 glyph: "󰓢"
                 label: "Network"
                 glyphColor: root.cSecondary
-                line1: " Download"
+                line1Glyph: ""
+                line1Label: "Download"
                 line1Value: Number(SystemInfo.networkDownBps).toFixed(1) + " B/s"
-                line2: " Upload"
+                line2Glyph: ""
+                line2Label: "Upload"
                 line2Value: Number(SystemInfo.networkUpBps).toFixed(1) + " B/s"
+                lineLabelLeftMargin: 8
                 line1ValueColor: root.cPrimary
                 line2ValueColor: root.cSecondary
             }
@@ -454,7 +590,7 @@ Rectangle {
                 Layout.fillHeight: true
                 glyph: "󰁹"
                 label: "Battery"
-                valueText: SystemInfo.batteryPercent >= 0 ? (SystemInfo.batteryPercent + "%") : "N/A"
+                value: SystemInfo.batteryPercent
             }
         }
     }

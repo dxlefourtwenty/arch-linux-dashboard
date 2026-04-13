@@ -412,6 +412,7 @@ Item {
 
     Popup {
         id: locationSelectorPopup
+        z: 30
         y: locationAnchor.y + locationAnchor.height + 6
         x: Math.max(0, locationAnchor.x)
         width: root.locationSelectorWidth
@@ -482,6 +483,19 @@ Item {
         }
     }
 
+    MouseArea {
+        id: locationSelectorDismissArea
+        anchors.fill: parent
+        z: 20
+        visible: locationSelectorPopup.visible
+        enabled: locationSelectorPopup.visible
+        acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+        onPressed: function(mouse) {
+            locationSelectorPopup.close()
+            mouse.accepted = true
+        }
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 10
@@ -528,7 +542,11 @@ Item {
                     hoverEnabled: true
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        locationSelectorPopup.open()
+                        if (locationSelectorPopup.visible) {
+                            locationSelectorPopup.close()
+                        } else {
+                            locationSelectorPopup.open()
+                        }
                     }
                 }
             }
