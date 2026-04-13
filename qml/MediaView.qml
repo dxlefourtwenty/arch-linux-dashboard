@@ -26,6 +26,21 @@ Item {
     property real hoverScale: 1.1
     property int hoverAnimMs: 140
     property bool seekVisualLock: false
+    property real lastBackendPositionSeconds: 0
+    property double lastBackendSyncMs: Date.now()
+    property int playbackTick: 0
+    property real visualPlaybackPositionSeconds: {
+        const _tick = playbackTick
+        const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+        if (!MediaInfo.hasMedia) {
+            return 0
+        }
+        if (MediaInfo.status !== "Playing") {
+            return backendPosition
+        }
+        const elapsedSeconds = Math.max(0, (Date.now() - lastBackendSyncMs) / 1000.0)
+        return Math.max(0, Math.min(progressSlider.to, lastBackendPositionSeconds + elapsedSeconds))
+    }
 
     function formatTime(seconds) {
         const total = Math.max(0, Math.floor(seconds))
@@ -48,15 +63,29 @@ Item {
         onTriggered: root.seekVisualLock = false
     }
 
+    Timer {
+        id: playbackTickTimer
+        interval: 200
+        repeat: true
+        running: MediaInfo.hasMedia
+            && MediaInfo.status === "Playing"
+            && !progressSlider.pressed
+            && !root.seekVisualLock
+        onTriggered: root.playbackTick += 1
+    }
+
     Connections {
         target: MediaInfo
 
         function onMediaChanged() {
+            const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+            root.lastBackendPositionSeconds = backendPosition
+            root.lastBackendSyncMs = Date.now()
+
             if (!root.seekVisualLock) {
                 return
             }
 
-            const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
             if (Math.abs(backendPosition - progressSlider.value) <= 0.45) {
                 root.seekVisualLock = false
                 seekVisualLockTimer.stop()
@@ -229,7 +258,7 @@ Item {
                     from: 0
                     to: Math.max(1, MediaInfo.lengthSeconds)
                     enabled: MediaInfo.hasMedia && MediaInfo.lengthSeconds > 0
-                    value: (pressed || root.seekVisualLock) ? value : Math.min(MediaInfo.positionSeconds, to)
+                    value: (pressed || root.seekVisualLock) ? value : root.visualPlaybackPositionSeconds
 
                     HoverHandler {
                         id: progressHover
@@ -239,6 +268,8 @@ Item {
                     onMoved: {
                         if (to > 0) {
                             root.seekVisualLock = true
+                            root.lastBackendPositionSeconds = value
+                            root.lastBackendSyncMs = Date.now()
                             seekVisualLockTimer.restart()
                             MediaInfo.seekToRatio(value / to)
                         }
