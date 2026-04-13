@@ -24,6 +24,7 @@ Item {
     property int titleTruncationInset: 20
     property real hoverScale: 1.1
     property int hoverAnimMs: 140
+    property bool seekVisualLock: false
 
     function formatTime(seconds) {
         const total = Math.max(0, Math.floor(seconds))
@@ -37,6 +38,29 @@ Item {
             return hhStr + ":" + mmStr + ":" + ssStr
         }
         return mmStr + ":" + ssStr
+    }
+
+    Timer {
+        id: seekVisualLockTimer
+        interval: 1200
+        repeat: false
+        onTriggered: root.seekVisualLock = false
+    }
+
+    Connections {
+        target: MediaInfo
+
+        function onMediaChanged() {
+            if (!root.seekVisualLock) {
+                return
+            }
+
+            const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+            if (Math.abs(backendPosition - progressSlider.value) <= 0.45) {
+                root.seekVisualLock = false
+                seekVisualLockTimer.stop()
+            }
+        }
     }
 
     ColumnLayout {
@@ -203,40 +227,34 @@ Item {
                     from: 0
                     to: Math.max(1, MediaInfo.lengthSeconds)
                     enabled: MediaInfo.hasMedia && MediaInfo.lengthSeconds > 0
-                    value: pressed ? value : Math.min(MediaInfo.positionSeconds, to)
+                    value: (pressed || root.seekVisualLock) ? value : Math.min(MediaInfo.positionSeconds, to)
 
                     onMoved: {
                         if (to > 0) {
+                            root.seekVisualLock = true
+                            seekVisualLockTimer.restart()
                             MediaInfo.seekToRatio(value / to)
                         }
                     }
 
                     background: Rectangle {
                         implicitWidth: 260
-                        implicitHeight: 8
-                        radius: 0
-                        color: root.cMuted
-                        opacity: 0.2
-                        border.width: root.cBorderWidth
-                        border.color: root.cBorder
+                        implicitHeight: 6
+                        radius: 3
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.35)
 
                         Rectangle {
                             width: progressSlider.visualPosition * parent.width
                             height: parent.height
+                            radius: parent.radius
                             color: root.cPrimary
-                            opacity: 1.0
                         }
                     }
 
                     handle: Rectangle {
-                        implicitWidth: 14
-                        implicitHeight: 14
-                        x: progressSlider.leftPadding + progressSlider.visualPosition * (progressSlider.availableWidth - width)
-                        y: progressSlider.topPadding + (progressSlider.availableHeight - height) / 2
-                        radius: 0
-                        color: root.cPrimary
-                        border.width: root.cBorderWidth
-                        border.color: root.cBorder
+                        implicitWidth: 0
+                        implicitHeight: 0
+                        color: "transparent"
                     }
                 }
 
