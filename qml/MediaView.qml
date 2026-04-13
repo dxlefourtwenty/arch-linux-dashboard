@@ -8,6 +8,7 @@ Item {
     property color cBg: "#111111"
     property color cFg: "white"
     property color cMuted: "#888888"
+    property color cSecondary: cMuted
     property color cBorder: "#444444"
     property color cPrimary: cBorder
     property int cBorderWidth: 2
@@ -129,7 +130,7 @@ Item {
                         radius: root.sectionRadius
                         color: "transparent"
                         border.width: Math.max(1, root.cBorderWidth)
-                        border.color: root.innerBorderColor
+                        border.color: root.cSecondary
                     }
                 }
 
@@ -154,7 +155,7 @@ Item {
                         ? (MediaInfo.artist.length ? MediaInfo.artist : "Unknown artist")
                         : "It's quiet…"
                     horizontalAlignment: Text.AlignHCenter
-                    color: root.cMuted
+                    color: root.cSecondary
                     font.family: root.cFont
                     font.pixelSize: root.cFontSize
                     elide: Text.ElideRight
@@ -224,10 +225,16 @@ Item {
                     Layout.fillWidth: true
                     Layout.maximumWidth: Math.max(240, root.width * 0.72)
                     Layout.alignment: Qt.AlignHCenter
+                    hoverEnabled: true
                     from: 0
                     to: Math.max(1, MediaInfo.lengthSeconds)
                     enabled: MediaInfo.hasMedia && MediaInfo.lengthSeconds > 0
                     value: (pressed || root.seekVisualLock) ? value : Math.min(MediaInfo.positionSeconds, to)
+
+                    HoverHandler {
+                        id: progressHover
+                        cursorShape: progressSlider.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    }
 
                     onMoved: {
                         if (to > 0) {
@@ -240,8 +247,26 @@ Item {
                     background: Rectangle {
                         implicitWidth: 260
                         implicitHeight: 6
-                        radius: 3
+                        radius: 3 * (progressHover.hovered ? 2.0 : 1.0)
                         color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.35)
+                        Behavior on radius {
+                            NumberAnimation {
+                                duration: root.hoverAnimMs
+                                easing.type: Easing.OutCubic
+                            }
+                        }
+                        transform: Scale {
+                            origin.x: progressSlider.background.width / 2
+                            origin.y: progressSlider.background.height / 2
+                            yScale: progressHover.hovered ? 2.0 : 1.0
+                            xScale: 1.0
+                            Behavior on yScale {
+                                NumberAnimation {
+                                    duration: root.hoverAnimMs
+                                    easing.type: Easing.OutCubic
+                                }
+                            }
+                        }
 
                         Rectangle {
                             width: progressSlider.visualPosition * parent.width

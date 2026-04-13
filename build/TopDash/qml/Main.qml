@@ -842,6 +842,7 @@ Window {
                                 cBg: win.cBg
                                 cFg: win.cFg
                                 cMuted: win.cMuted
+                                cSecondary: win.cSecondary
                                 cBorder: win.cBorder
                                 cPrimary: win.cPrimary
                                 cBorderWidth: win.cBorderWidth
