@@ -452,7 +452,8 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /home/dxle/builds/dashboard/src/systeminfo.h \
  /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
  /home/dxle/builds/dashboard/src/appconfig.h \
- /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/QVector /usr/include/qt6/QtCore/qvector.h \
  /home/dxle/builds/dashboard/src/configfiles.h \
  /home/dxle/builds/dashboard/src/mediainfo.h \
  /usr/include/qt6/QtCore/QFutureWatcher \

@@ -345,8 +345,7 @@ CMakeFiles/topdash.dir/src/appconfig.cpp.o: \
  /usr/include/c++/15.2.1/bits/sstream.tcc \
  /usr/include/c++/15.2.1/bits/chrono_io.h /usr/include/c++/15.2.1/iomanip \
  /usr/include/c++/15.2.1/bits/quoted_string.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/QStringList \
- /usr/include/qt6/QtCore/QDate /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/qdatetime.h \
  /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
  /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qdebug.h \
  /usr/include/qt6/QtCore/qtextstream.h \
@@ -363,15 +362,19 @@ CMakeFiles/topdash.dir/src/appconfig.cpp.o: \
  /usr/include/qt6/QtCore/qset.h /usr/include/qt6/QtCore/qhash.h \
  /usr/include/qt6/QtCore/qvarlengtharray.h \
  /usr/include/qt6/QtCore/qalloc.h /usr/include/qt6/QtCore/q23utility.h \
- /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QFile \
- /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/qfiledevice.h \
+ /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/QStringList /usr/include/qt6/QtCore/QVector \
+ /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/QDate \
+ /usr/include/qt6/QtCore/QFile /usr/include/qt6/QtCore/qfile.h \
+ /usr/include/qt6/QtCore/qfiledevice.h \
  /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
  /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
  /usr/include/c++/15.2.1/filesystem /usr/include/c++/15.2.1/bits/fs_fwd.h \
  /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
- /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/QJsonArray \
- /usr/include/qt6/QtCore/qjsonarray.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/QFileInfo \
+ /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h \
  /usr/include/qt6/QtCore/qcborcommon.h \

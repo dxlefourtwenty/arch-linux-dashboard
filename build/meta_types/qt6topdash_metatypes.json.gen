@@ -3,12 +3,12 @@
         "classes": [
             {
                 "className": "AppConfig",
-                "lineNumber": 7,
+                "lineNumber": 9,
                 "methods": [
                     {
                         "access": "public",
                         "index": 1,
-                        "lineNumber": 22,
+                        "lineNumber": 24,
                         "name": "reload",
                         "returnType": "void"
                     },
@@ -22,7 +22,7 @@
                         ],
                         "index": 2,
                         "isConst": true,
-                        "lineNumber": 23,
+                        "lineNumber": 25,
                         "name": "tasksForDate",
                         "returnType": "QStringList"
                     }
@@ -34,7 +34,7 @@
                         "designable": true,
                         "final": false,
                         "index": 0,
-                        "lineNumber": 11,
+                        "lineNumber": 13,
                         "name": "username",
                         "notify": "configChanged",
                         "override": false,
@@ -51,7 +51,7 @@
                         "designable": true,
                         "final": false,
                         "index": 1,
-                        "lineNumber": 12,
+                        "lineNumber": 14,
                         "name": "profileImage",
                         "notify": "configChanged",
                         "override": false,
@@ -68,7 +68,7 @@
                         "designable": true,
                         "final": false,
                         "index": 2,
-                        "lineNumber": 13,
+                        "lineNumber": 15,
                         "name": "outputName",
                         "notify": "configChanged",
                         "override": false,
@@ -86,7 +86,7 @@
                     {
                         "access": "public",
                         "index": 0,
-                        "lineNumber": 26,
+                        "lineNumber": 28,
                         "name": "configChanged",
                         "returnType": "void"
                     }

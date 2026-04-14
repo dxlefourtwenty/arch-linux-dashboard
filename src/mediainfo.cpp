@@ -1,11 +1,13 @@
 #include "mediainfo.h"
 
+#include <QDir>
 #include <QHash>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
 #include <QSet>
+#include <QUrl>
 #include <QtConcurrent>
 
 namespace {
@@ -331,6 +333,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     const QString sourceUrl = compactValue(fields.value(5)).toLower();
     const QString titleLower = title.toLower();
     const QString lowerPlayerName = rawPlayerName.toLower();
+    const bool looksLikeNetflix = titleLower.contains("netflix");
     const QString classNeedle = lowerPlayerName.contains("brave")
         ? "brave"
         : (lowerPlayerName.contains("firefox")
@@ -347,12 +350,14 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
 
     snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
     snapshot.title = title;
-    snapshot.artist = artist;
+    snapshot.artist = looksLikeNetflix ? "Netflix" : artist;
     snapshot.status = statusOut;
     snapshot.positionSeconds = qMax(0.0, posOut.toDouble());
     snapshot.lengthSeconds = lengthSeconds;
     snapshot.volume = qBound(0.0, volumeOut.toDouble(), 1.0);
-    snapshot.artUrl = artUrl;
+    snapshot.artUrl = looksLikeNetflix
+        ? QUrl::fromLocalFile(QDir::homePath() + "/.local/share/icons/netflix.png").toString()
+        : artUrl;
     snapshot.isVideo = lowerPlayerName.contains("vlc")
         || lowerPlayerName.contains("mpv")
         || looksLikeYoutube

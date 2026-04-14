@@ -341,6 +341,7 @@ topdash_autogen/timestamp: \
 	/usr/include/linux/types.h \
 	/usr/include/locale.h \
 	/usr/include/pthread.h \
+	/usr/include/qt6/QtCore/QDateTime \
 	/usr/include/qt6/QtCore/QFutureWatcher \
 	/usr/include/qt6/QtCore/QList \
 	/usr/include/qt6/QtCore/QMap \
@@ -352,6 +353,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/QVariant \
 	/usr/include/qt6/QtCore/QVariantList \
 	/usr/include/qt6/QtCore/QVariantMap \
+	/usr/include/qt6/QtCore/QVector \
 	/usr/include/qt6/QtCore/q17memory.h \
 	/usr/include/qt6/QtCore/q20bit.h \
 	/usr/include/qt6/QtCore/q20functional.h \
@@ -378,6 +380,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/qbytearrayalgorithms.h \
 	/usr/include/qt6/QtCore/qbytearraylist.h \
 	/usr/include/qt6/QtCore/qbytearrayview.h \
+	/usr/include/qt6/QtCore/qcalendar.h \
 	/usr/include/qt6/QtCore/qchar.h \
 	/usr/include/qt6/QtCore/qcompare.h \
 	/usr/include/qt6/QtCore/qcompare_impl.h \
@@ -391,6 +394,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/qcontiguouscache.h \
 	/usr/include/qt6/QtCore/qdarwinhelpers.h \
 	/usr/include/qt6/QtCore/qdatastream.h \
+	/usr/include/qt6/QtCore/qdatetime.h \
 	/usr/include/qt6/QtCore/qdeadlinetimer.h \
 	/usr/include/qt6/QtCore/qdebug.h \
 	/usr/include/qt6/QtCore/qeventloop.h \
@@ -416,6 +420,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/qiterator.h \
 	/usr/include/qt6/QtCore/qlatin1stringview.h \
 	/usr/include/qt6/QtCore/qlist.h \
+	/usr/include/qt6/QtCore/qlocale.h \
 	/usr/include/qt6/QtCore/qlogging.h \
 	/usr/include/qt6/QtCore/qmalloc.h \
 	/usr/include/qt6/QtCore/qmap.h \
@@ -491,6 +496,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/qvariantlist.h \
 	/usr/include/qt6/QtCore/qvariantmap.h \
 	/usr/include/qt6/QtCore/qvarlengtharray.h \
+	/usr/include/qt6/QtCore/qvector.h \
 	/usr/include/qt6/QtCore/qversiontagging.h \
 	/usr/include/qt6/QtCore/qxptype_traits.h \
 	/usr/include/qt6/QtCore/qyieldcpu.h \

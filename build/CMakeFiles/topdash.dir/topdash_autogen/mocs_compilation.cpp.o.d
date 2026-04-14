@@ -347,8 +347,26 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/15.2.1/bits/sstream.tcc \
  /usr/include/c++/15.2.1/bits/chrono_io.h /usr/include/c++/15.2.1/iomanip \
  /usr/include/c++/15.2.1/bits/quoted_string.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/QStringList \
- /usr/include/qt6/QtCore/qtmochelpers.h \
+ /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qdebug.h \
+ /usr/include/qt6/QtCore/qtextstream.h \
+ /usr/include/qt6/QtCore/qcontiguouscache.h \
+ /usr/include/qt6/QtCore/qsharedpointer.h \
+ /usr/include/qt6/QtCore/qshareddata.h \
+ /usr/include/qt6/QtCore/qsharedpointer_impl.h \
+ /usr/include/c++/15.2.1/set /usr/include/c++/15.2.1/bits/stl_set.h \
+ /usr/include/c++/15.2.1/bits/stl_multiset.h \
+ /usr/include/c++/15.2.1/unordered_set \
+ /usr/include/c++/15.2.1/bits/unordered_set.h \
+ /usr/include/qt6/QtCore/qmap.h \
+ /usr/include/qt6/QtCore/qshareddata_impl.h \
+ /usr/include/qt6/QtCore/qset.h /usr/include/qt6/QtCore/qhash.h \
+ /usr/include/qt6/QtCore/qvarlengtharray.h \
+ /usr/include/qt6/QtCore/qalloc.h /usr/include/qt6/QtCore/q23utility.h \
+ /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/QStringList /usr/include/qt6/QtCore/QVector \
+ /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/qtmochelpers.h \
  /usr/include/qt6/QtCore/qtmocconstants.h \
  /usr/include/qt6/QtCore/q20algorithm.h \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_configfiles.cpp \
@@ -365,9 +383,7 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qfuture.h \
  /usr/include/qt6/QtCore/qfutureinterface.h \
  /usr/include/qt6/QtCore/qmutex.h /usr/include/qt6/QtCore/qtsan_impl.h \
- /usr/include/qt6/QtCore/qresultstore.h /usr/include/qt6/QtCore/qmap.h \
- /usr/include/qt6/QtCore/qshareddata.h \
- /usr/include/qt6/QtCore/qshareddata_impl.h \
+ /usr/include/qt6/QtCore/qresultstore.h \
  /usr/include/qt6/QtCore/qfuture_impl.h \
  /usr/include/qt6/QtCore/qthreadpool.h /usr/include/qt6/QtCore/qthread.h \
  /usr/include/c++/15.2.1/future /usr/include/c++/15.2.1/mutex \
@@ -382,19 +398,7 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/semaphore.h /usr/include/bits/semaphore.h \
  /usr/include/c++/15.2.1/bits/atomic_futex.h \
  /usr/include/qt6/QtCore/qrunnable.h /usr/include/qt6/QtCore/qexception.h \
- /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/qvariant.h \
- /usr/include/qt6/QtCore/qdebug.h /usr/include/qt6/QtCore/qtextstream.h \
- /usr/include/qt6/QtCore/qcontiguouscache.h \
- /usr/include/qt6/QtCore/qsharedpointer.h \
- /usr/include/qt6/QtCore/qsharedpointer_impl.h \
- /usr/include/c++/15.2.1/set /usr/include/c++/15.2.1/bits/stl_set.h \
- /usr/include/c++/15.2.1/bits/stl_multiset.h \
- /usr/include/c++/15.2.1/unordered_set \
- /usr/include/c++/15.2.1/bits/unordered_set.h \
- /usr/include/qt6/QtCore/qset.h /usr/include/qt6/QtCore/qhash.h \
- /usr/include/qt6/QtCore/qvarlengtharray.h \
- /usr/include/qt6/QtCore/qalloc.h /usr/include/qt6/QtCore/q23utility.h \
- /usr/include/qt6/QtCore/q20utility.h \
+ /usr/include/qt6/QtCore/qpromise.h \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
  /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \

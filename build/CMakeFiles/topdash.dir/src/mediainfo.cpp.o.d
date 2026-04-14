@@ -384,13 +384,23 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qset.h /usr/include/qt6/QtCore/qhash.h \
  /usr/include/qt6/QtCore/qvarlengtharray.h \
  /usr/include/qt6/QtCore/qalloc.h /usr/include/qt6/QtCore/q23utility.h \
- /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QHash \
- /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
+ /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QDir \
+ /usr/include/qt6/QtCore/qdir.h /usr/include/qt6/QtCore/qdirlisting.h \
+ /usr/include/qt6/QtCore/qfiledevice.h \
+ /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
+ /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/c++/15.2.1/filesystem /usr/include/c++/15.2.1/bits/fs_fwd.h \
+ /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
+ /usr/include/c++/15.2.1/bits/fs_dir.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h \
+ /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
+ /usr/include/qt6/QtCore/qlocale.h /usr/include/qt6/QtCore/qfile.h \
+ /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
+ /usr/include/qt6/QtCore/QHash /usr/include/qt6/QtCore/QJsonArray \
+ /usr/include/qt6/QtCore/qjsonarray.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h \
  /usr/include/qt6/QtCore/qcborcommon.h \
- /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
- /usr/include/qt6/QtCore/qlocale.h \
  /usr/include/qt6/QtCore/qregularexpression.h \
  /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
  /usr/include/qt6/QtCore/qendian.h \
@@ -399,10 +409,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/QJsonDocument \
  /usr/include/qt6/QtCore/QJsonObject \
  /usr/include/qt6/QtCore/qjsonobject.h /usr/include/qt6/QtCore/QProcess \
- /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
- /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
- /usr/include/qt6/QtCore/q20iterator.h /usr/include/qt6/QtCore/QSet \
- /usr/include/qt6/QtConcurrent/QtConcurrent \
+ /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/QSet \
+ /usr/include/qt6/QtCore/QUrl /usr/include/qt6/QtConcurrent/QtConcurrent \
  /usr/include/qt6/QtConcurrent/QtConcurrentDepends \
  /usr/include/qt6/QtCore/QtCore /usr/include/qt6/QtCore/QtCoreDepends \
  /usr/include/qt6/QtCore/q20algorithm.h \
@@ -440,13 +448,6 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qcommandlineparser.h \
  /usr/include/qt6/QtCore/qconcatenatetablesproxymodel.h \
  /usr/include/qt6/QtCore/qcryptographichash.h \
- /usr/include/qt6/QtCore/qdir.h /usr/include/qt6/QtCore/qdirlisting.h \
- /usr/include/qt6/QtCore/qfiledevice.h /usr/include/c++/15.2.1/filesystem \
- /usr/include/c++/15.2.1/bits/fs_fwd.h \
- /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
- /usr/include/c++/15.2.1/bits/fs_dir.h \
- /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/qfile.h \
- /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
  /usr/include/qt6/QtCore/qdiriterator.h \
  /usr/include/qt6/QtCore/qeasingcurve.h \
  /usr/include/qt6/QtCore/qelapsedtimer.h \

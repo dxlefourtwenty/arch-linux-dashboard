@@ -2,6 +2,7 @@
 
 #include <QDate>
 #include <QFile>
+#include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -11,6 +12,7 @@ AppConfig::AppConfig(QObject *parent)
     : QObject(parent)
 {
     load();
+    refreshTasksCache();
 }
 
 QString AppConfig::username() const
@@ -36,6 +38,8 @@ void AppConfig::reload()
 
 QStringList AppConfig::tasksForDate(const QString &dateKey) const
 {
+    refreshTasksCache();
+
     QStringList out;
 
     const QDate date = QDate::fromString(dateKey, "yyyy-MM-dd");
@@ -48,23 +52,65 @@ QStringList AppConfig::tasksForDate(const QString &dateKey) const
     };
     const QString weekdayShort = kWeekdays.at(date.dayOfWeek() - 1);
 
+    for (const TaskRule &rule : m_taskRules) {
+        bool include = false;
+        if (rule.recurrenceType == "daily") {
+            include = true;
+        } else if (rule.recurrenceType == "weekly") {
+            for (const QString &day : rule.weeklyDays) {
+                if (day == weekdayShort) {
+                    include = true;
+                    break;
+                }
+            }
+        } else if (rule.recurrenceType == "date") {
+            include = (rule.recurrenceValue == dateKey);
+        }
+
+        if (include) {
+            out.append(rule.task);
+        }
+    }
+
+    return out;
+}
+
+void AppConfig::refreshTasksCache() const
+{
     const QString path =
         QStandardPaths::writableLocation(
             QStandardPaths::HomeLocation)
         + "/.config/dashboard/tasks.json";
 
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly)) {
-        return out;
+    const QFileInfo info(path);
+    const QDateTime lastModified = info.exists()
+        ? info.lastModified()
+        : QDateTime();
+
+    if (m_tasksCacheLoaded
+        && m_tasksPath == path
+        && m_tasksLastModified == lastModified) {
+        return;
     }
 
-    const auto doc = QJsonDocument::fromJson(file.readAll());
+    m_taskRules.clear();
+    m_tasksPath = path;
+    m_tasksLastModified = lastModified;
+    m_tasksCacheLoaded = true;
+
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
     if (!doc.isArray()) {
-        return out;
+        return;
     }
 
     const QJsonArray arr = doc.array();
-    for (const auto &v : arr) {
+    m_taskRules.reserve(arr.size());
+    for (const QJsonValue &v : arr) {
         if (!v.isObject()) {
             continue;
         }
@@ -75,33 +121,23 @@ QStringList AppConfig::tasksForDate(const QString &dateKey) const
             continue;
         }
 
-        const QString recurrenceType =
-            obj.value("recurrence_type").toString();
-        const QString recurrenceValue =
-            obj.value("recurrence_value").toString();
+        TaskRule rule;
+        rule.task = task;
+        rule.recurrenceType = obj.value("recurrence_type").toString();
+        rule.recurrenceValue = obj.value("recurrence_value").toString();
 
-        bool include = false;
-        if (recurrenceType == "daily") {
-            include = true;
-        } else if (recurrenceType == "weekly") {
-            const QStringList weeklyDays =
-                recurrenceValue.split(',', Qt::SkipEmptyParts);
+        if (rule.recurrenceType == "weekly" && !rule.recurrenceValue.isEmpty()) {
+            const QStringList weeklyDays = rule.recurrenceValue.split(',', Qt::SkipEmptyParts);
             for (const QString &day : weeklyDays) {
-                if (day.trimmed() == weekdayShort) {
-                    include = true;
-                    break;
+                const QString trimmed = day.trimmed();
+                if (!trimmed.isEmpty()) {
+                    rule.weeklyDays.append(trimmed);
                 }
             }
-        } else if (recurrenceType == "date") {
-            include = (recurrenceValue == dateKey);
         }
 
-        if (include) {
-            out.append(task);
-        }
+        m_taskRules.append(rule);
     }
-
-    return out;
 }
 
 void AppConfig::load()
