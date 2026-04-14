@@ -14,13 +14,13 @@ Window {
     function toggle() {
         if (open) {
             open = false
+            openWorkTimer.stop()
             hideTimer.restart()
         } else {
             visible = true
             hideTimer.stop()
             open = true
-            calendar.refreshToToday()
-            stage.forceActiveFocus()
+            openWorkTimer.restart()
         }
     }
 
@@ -308,6 +308,17 @@ Window {
         onTriggered: { if (!win.open) win.visible = false }
     }
 
+    Timer {
+        id: openWorkTimer
+        interval: win.animMs
+        repeat: false
+        onTriggered: {
+            if (!win.open) return
+            calendar.refreshToToday()
+            stage.forceActiveFocus()
+        }
+    }
+
     Item {
         id: stage
         anchors.fill: parent
@@ -356,10 +367,16 @@ Window {
             y: win.open ? win.visibleFinalPosition : (-height - 12)
             Behavior on y { 
                 NumberAnimation { 
+                  id: panelSlideAnimation
                   duration: win.animMs; 
                   easing.type: Easing.OutCubic 
+                  onRunningChanged: {
+                      SystemInfo.setPollingPaused(running)
+                      MediaInfo.setPollingPaused(running)
+                  }
                 } 
             }
+            layer.enabled: panelSlideAnimation.running
 
             radius: 0
             color: "transparent"
@@ -760,6 +777,7 @@ Window {
                                             cSecondary: win.cSecondary
                                             cFont: win.cFont
                                             cFontSize: win.cFontSize
+                                            animationEnabled: !panelSlideAnimation.running
                                         }
                                     }
                                 }
@@ -865,6 +883,7 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
+                                active: win.displayedTabIndex === 1
                             }
                         }
 
@@ -907,6 +926,7 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
+                                active: win.displayedTabIndex === 3
                             }
                         }
                     }

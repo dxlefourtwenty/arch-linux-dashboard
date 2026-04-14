@@ -47,6 +47,7 @@ public:
     QString deName() const { return m_deName; }
     QString themeName() const { return m_themeName; }
     QString uptimeText() const { return m_uptimeText; }
+    Q_INVOKABLE void setPollingPaused(bool paused);
 
 signals:
     void cpuUsageChanged();
@@ -111,4 +112,5 @@ private:
     quint64 m_lastTxBytes = 0;
     qint64 m_lastNetSampleMs = 0;
     int m_pollTick = 0;
+    bool m_pollPaused = false;
 };

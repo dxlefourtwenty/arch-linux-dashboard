@@ -16,6 +16,7 @@ Item {
     property int cBorderWidth: 2
     property string cFont: "sans"
     property int cFontSize: 16
+    property bool active: true
     property int sectionRadius: 8
     property int hoverAnimMs: 140
 
@@ -328,14 +329,14 @@ Item {
         id: weatherRefreshTimer
         interval: root.refreshIntervalMs
         triggeredOnStart: true
-        running: true
+        running: root.active
         repeat: true
         onTriggered: root.fetchWeather(true)
     }
 
     Timer {
         interval: 1000
-        running: true
+        running: root.active
         repeat: true
         onTriggered: {
             if (root.hasLocationTimeOffset) {
@@ -345,7 +346,13 @@ Item {
     }
 
     onVisibleChanged: {
-        if (visible) {
+        if (visible && active) {
+            WeatherConfig.reload()
+        }
+    }
+
+    onActiveChanged: {
+        if (active && visible) {
             WeatherConfig.reload()
         }
     }

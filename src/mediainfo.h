@@ -48,6 +48,7 @@ public:
     Q_INVOKABLE void setVolume(double volume);
     Q_INVOKABLE void selectPlayer(const QString &playerId);
     Q_INVOKABLE void selectPlayerAt(int index);
+    Q_INVOKABLE void setPollingPaused(bool paused);
 
 public slots:
     void refresh();
@@ -89,6 +90,7 @@ private:
     QTimer m_pollTimer;
     QFutureWatcher<Snapshot> m_refreshWatcher;
     bool m_refreshQueued = false;
+    bool m_pollPaused = false;
 
     QString m_targetPlayer;
     QStringList m_availablePlayers;

@@ -89,6 +89,19 @@
                     "lineNumber": 50,
                     "name": "selectPlayerAt",
                     "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "paused",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 10,
+                    "lineNumber": 51,
+                    "name": "setPollingPaused",
+                    "returnType": "void"
                 }
             ],
             "object": true,
@@ -320,7 +333,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 56,
+                    "lineNumber": 57,
                     "name": "mediaChanged",
                     "returnType": "void"
                 }
@@ -329,7 +342,7 @@
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 53,
+                    "lineNumber": 54,
                     "name": "refresh",
                     "returnType": "void"
                 }

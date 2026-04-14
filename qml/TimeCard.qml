@@ -17,6 +17,7 @@ Rectangle {
     property real   meridiemFontSize: cFontSize * 2.0
     property real   meridiemOffsetX: 5
     property int    colonBlinkMs: 1000
+    property bool   animationEnabled: true
     property string currentHourText: "12"
     property string currentMinuteText: "00"
     property string currentMeridiemText: "AM"
@@ -36,7 +37,7 @@ Rectangle {
 
     Timer {
         interval: 1000
-        running: true
+        running: root.animationEnabled
         repeat: true
         onTriggered: root.refreshTime()
     }
@@ -79,7 +80,7 @@ Rectangle {
 
                 SequentialAnimation on opacity {
                     loops: Animation.Infinite
-                    running: true
+                    running: root.animationEnabled
                     NumberAnimation { to: 0.25; duration: root.colonBlinkMs }
                     NumberAnimation { to: 1.0; duration: root.colonBlinkMs }
                 }

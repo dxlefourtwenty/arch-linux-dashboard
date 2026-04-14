@@ -16,6 +16,7 @@ Item {
     property string cNerdFont: "JetBrainsMono Nerd Font"
     property int cFontSize: 16
     property color innerBorderColor: cMuted
+    property bool active: true
 
     property int sectionGap: 12
     property int sectionPadding: 16
@@ -67,7 +68,8 @@ Item {
         id: playbackTickTimer
         interval: 200
         repeat: true
-        running: MediaInfo.hasMedia
+        running: root.active
+            && MediaInfo.hasMedia
             && MediaInfo.status === "Playing"
             && !progressSlider.pressed
             && !root.seekVisualLock

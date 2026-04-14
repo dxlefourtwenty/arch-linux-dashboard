@@ -41,6 +41,23 @@ MediaInfo::MediaInfo(QObject *parent)
     refresh();
 }
 
+void MediaInfo::setPollingPaused(bool paused)
+{
+    if (m_pollPaused == paused) {
+        return;
+    }
+
+    m_pollPaused = paused;
+    if (m_pollPaused) {
+        m_pollTimer.stop();
+        m_refreshQueued = false;
+        return;
+    }
+
+    m_pollTimer.start(1000);
+    refresh();
+}
+
 void MediaInfo::playPause()
 {
     sendPlayerctl({"-p", currentPlayerArg(), "play-pause"});
@@ -115,6 +132,10 @@ void MediaInfo::selectPlayerAt(int index)
 
 void MediaInfo::refresh()
 {
+    if (m_pollPaused) {
+        return;
+    }
+
     if (m_refreshWatcher.isRunning()) {
         m_refreshQueued = true;
         return;

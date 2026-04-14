@@ -199,6 +199,27 @@ SystemInfo::SystemInfo(QObject *parent)
     timer.start(1000);
 }
 
+void SystemInfo::setPollingPaused(bool paused)
+{
+    if (m_pollPaused == paused) {
+        return;
+    }
+
+    m_pollPaused = paused;
+    if (m_pollPaused) {
+        timer.stop();
+        return;
+    }
+
+    updateCpu();
+    updateGpu();
+    updateRam();
+    updateDisk();
+    updateNetwork();
+    updateBattery();
+    timer.start(1000);
+}
+
 void SystemInfo::loadOsName()
 {
     QFile file("/etc/os-release");
