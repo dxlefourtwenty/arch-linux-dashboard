@@ -815,10 +815,30 @@ Item {
                 delegate: Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    property bool isHovered: false
                     radius: 10
-                    color: Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.7)
+                    color: isHovered
+                           ? root.cMuted
+                           : Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.7)
                     border.width: root.cBorderWidth
                     border.color: root.cMuted
+
+                    Behavior on color {
+                        ColorAnimation {
+                            duration: root.hoverAnimMs
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+
+                    MouseArea {
+                        id: forecastCardHover
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        acceptedButtons: Qt.NoButton
+                        onEntered: parent.isHovered = true
+                        onExited: parent.isHovered = false
+                        onCanceled: parent.isHovered = false
+                    }
 
                     Column {
                         anchors.fill: parent
