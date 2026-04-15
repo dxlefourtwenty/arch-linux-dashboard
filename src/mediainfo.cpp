@@ -368,15 +368,16 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         || titleLower.startsWith("youtube -")
         || titleLower.contains(" youtu.be")
         || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+    const bool applyNetflixBranding = looksLikeNetflix && !looksLikeYoutube;
 
     snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
     snapshot.title = title;
-    snapshot.artist = looksLikeNetflix ? "Netflix" : artist;
+    snapshot.artist = applyNetflixBranding ? "Netflix" : artist;
     snapshot.status = statusOut;
     snapshot.positionSeconds = qMax(0.0, posOut.toDouble());
     snapshot.lengthSeconds = lengthSeconds;
     snapshot.volume = qBound(0.0, volumeOut.toDouble(), 1.0);
-    snapshot.artUrl = looksLikeNetflix
+    snapshot.artUrl = applyNetflixBranding
         ? QUrl::fromLocalFile(QDir::homePath() + "/.local/share/icons/netflix.png").toString()
         : artUrl;
     snapshot.isVideo = lowerPlayerName.contains("vlc")
