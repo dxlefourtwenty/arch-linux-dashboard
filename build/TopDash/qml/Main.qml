@@ -114,19 +114,25 @@ Window {
     property int    tabSlideDuration: (style && style.tabSlideDuration !== undefined) ? style.tabSlideDuration : 220
     property int    tabSlideEasing: (style && style.tabSlideEasing !== undefined) ? style.tabSlideEasing : Easing.OutCubic
     property real   tabSlideDistanceMultiplier: (style && style.tabSlideDistanceMultiplier !== undefined) ? style.tabSlideDistanceMultiplier : 1.0
+    property bool   tabRapidSlideEnabled: (style && style.tabRapidSlideEnabled !== undefined) ? style.tabRapidSlideEnabled : true
+    property int    tabRapidSlideWindowMs: (style && style.tabRapidSlideWindowMs !== undefined) ? style.tabRapidSlideWindowMs : 220
+    property int    tabRapidSlideMinDuration: (style && style.tabRapidSlideMinDuration !== undefined) ? style.tabRapidSlideMinDuration : 24
+    property real   tabRapidSlideFactor: (style && style.tabRapidSlideFactor !== undefined) ? style.tabRapidSlideFactor : 1.0
     property bool   tabSlideLayerCaching: (style && style.tabSlideLayerCaching !== undefined) ? style.tabSlideLayerCaching : true
     property bool   pauseClockAnimationDuringTransitions: (style && style.pauseClockAnimationDuringTransitions !== undefined) ? style.pauseClockAnimationDuringTransitions : true
     property bool   panelSlideLayerCaching: (style && style.panelSlideLayerCaching !== undefined) ? style.panelSlideLayerCaching : false
     property bool   pauseTabPollingDuringTransitions: (style && style.pauseTabPollingDuringTransitions !== undefined) ? style.pauseTabPollingDuringTransitions : true
+    property int    tabCount: 4
     property int    activeTabIndex: 0
     property int    displayedTabIndex: 0
     property bool   tabSwitchAnimating: false
-    property int    tabSwitchFromIndex: 0
-    property int    tabSwitchToIndex: 0
-    property Item   tabFromPage: null
-    property Item   tabToPage: null
-    property real   tabFromTargetX: 0
-    property real   tabToTargetX: 0
+    property double tabLastNavTimestamp: 0
+    property int    tabRapidNavStreak: 0
+    property int    tabSlideDurationCurrent: Math.max(1, tabSlideDuration)
+    property int    tabSlideAnimationDuration: Math.max(1, tabSlideDuration)
+    property real   tabTrackTargetX: 0
+    property int    tabNavDirectionHint: 0
+    property bool   tabTrackSnapImmediate: false
 
     FontMetrics {
         id: referenceFontMetrics
@@ -233,59 +239,111 @@ Window {
         if (taskView) taskView.reloadCurrent()
     }
 
-    function tabPageAt(index) {
-        if (index === 0) return dashboardPage
-        if (index === 1) return mediaPage
-        if (index === 2) return performancePage
-        if (index === 3) return weatherPage
-        return null
+    function tabStepDistance() {
+        if (!pagesViewport) return 1
+        return Math.max(1, pagesViewport.width * Math.max(0.1, tabSlideDistanceMultiplier))
     }
 
-    function switchToActiveTab() {
-        var nextIndex = Math.max(0, Math.min(activeTabIndex, 3))
-        if (nextIndex === displayedTabIndex && !tabSwitchAnimating) return
+    function tabDurationForTarget(targetX) {
+        var step = tabStepDistance()
+        var remainingDistance = Math.abs(targetX - pagesTrack.x)
+        var stepUnits = remainingDistance / step
+        return Math.max(1, Math.round(Math.max(1, tabSlideDurationCurrent) * stepUnits))
+    }
 
-        if (tabSwitchAnimating) {
+    function syncTabTrack(immediate) {
+        var boundedIndex = Math.max(0, Math.min(activeTabIndex, tabCount - 1))
+        if (boundedIndex !== activeTabIndex) {
+            activeTabIndex = boundedIndex
             return
         }
 
-        var fromPage = tabPageAt(displayedTabIndex)
-        var toPage = tabPageAt(nextIndex)
-        if (!fromPage || !toPage) return
+        var fromIndex = displayedTabIndex
+        var step = tabStepDistance()
+        var targetTrackIndex = boundedIndex
+        if (!immediate && tabSlideEnabled && pagesViewport && pagesViewport.width > 0) {
+            if (tabNavDirectionHint > 0 && fromIndex === tabCount - 1 && boundedIndex === 0) {
+                targetTrackIndex = tabCount
+            } else if (tabNavDirectionHint < 0 && fromIndex === 0 && boundedIndex === tabCount - 1) {
+                targetTrackIndex = -1
+            } else if (tabNavDirectionHint === 0) {
+                var forwardSteps = (boundedIndex - fromIndex + tabCount) % tabCount
+                var backwardSteps = (fromIndex - boundedIndex + tabCount) % tabCount
+                if (forwardSteps < backwardSteps) {
+                    targetTrackIndex = fromIndex + forwardSteps
+                } else if (backwardSteps < forwardSteps) {
+                    targetTrackIndex = fromIndex - backwardSteps
+                }
+            }
+        }
 
-        if (!tabSlideEnabled || pagesViewport.width <= 0) {
-            displayedTabIndex = nextIndex
-            dashboardPage.x = 0
-            mediaPage.x = 0
-            performancePage.x = 0
-            weatherPage.x = 0
-            dashboardPage.visible = displayedTabIndex === 0
-            mediaPage.visible = displayedTabIndex === 1
-            performancePage.visible = displayedTabIndex === 2
-            weatherPage.visible = displayedTabIndex === 3
+        displayedTabIndex = boundedIndex
+        tabTrackTargetX = -targetTrackIndex * step
+
+        if (immediate || !tabSlideEnabled || !pagesViewport || pagesViewport.width <= 0) {
+            tabSlideAnimationDuration = 1
+            if (tabConveyorAnimation.running) tabConveyorAnimation.stop()
+            tabTrackSnapImmediate = true
+            pagesTrack.x = tabTrackTargetX
+            tabTrackSnapImmediate = false
+            tabSwitchAnimating = false
+            tabNavDirectionHint = 0
             return
         }
 
-        var direction = nextIndex > displayedTabIndex ? 1 : -1
-        var distance = Math.max(1, pagesViewport.width * Math.max(0, tabSlideDistanceMultiplier))
-
-        tabSwitchFromIndex = displayedTabIndex
-        tabSwitchToIndex = nextIndex
-        tabFromPage = fromPage
-        tabToPage = toPage
-        tabFromTargetX = -direction * distance
-        tabToTargetX = 0
-
-        tabFromPage.visible = true
-        tabToPage.visible = true
-        tabFromPage.x = 0
-        tabToPage.x = direction * distance
-
-        tabSwitchAnimating = true
-        tabSwitch.start()
+        tabSlideAnimationDuration = tabDurationForTarget(tabTrackTargetX)
+        pagesTrack.x = tabTrackTargetX
+        tabNavDirectionHint = 0
     }
 
-    onActiveTabIndexChanged: switchToActiveTab()
+    function normalizeTabTrackAfterWrap() {
+        var step = tabStepDistance()
+        var normalizedX = -displayedTabIndex * step
+        var shouldSnap = false
+
+        if (displayedTabIndex === 0 && pagesTrack.x < -(tabCount - 0.5) * step) {
+            shouldSnap = true
+        } else if (displayedTabIndex === tabCount - 1 && pagesTrack.x > 0.5 * step) {
+            shouldSnap = true
+        }
+
+        if (!shouldSnap) return
+
+        tabTrackSnapImmediate = true
+        pagesTrack.x = normalizedX
+        tabTrackTargetX = normalizedX
+        tabTrackSnapImmediate = false
+    }
+
+    function registerTabNavigation() {
+        if (!tabRapidSlideEnabled) {
+            tabRapidNavStreak = 0
+            tabSlideDurationCurrent = Math.max(1, tabSlideDuration)
+            return
+        }
+
+        var now = Date.now()
+        if (tabLastNavTimestamp > 0 && (now - tabLastNavTimestamp) <= Math.max(1, tabRapidSlideWindowMs)) {
+            tabRapidNavStreak += 1
+        } else {
+            tabRapidNavStreak = 0
+        }
+        tabLastNavTimestamp = now
+
+        var accel = 1 + (tabRapidNavStreak * Math.max(0, tabRapidSlideFactor))
+        var minDuration = Math.max(1, tabRapidSlideMinDuration)
+        tabSlideDurationCurrent = Math.max(minDuration, Math.round(tabSlideDuration / accel))
+        tabSlideResetTimer.restart()
+    }
+
+    onActiveTabIndexChanged: syncTabTrack(false)
+    onTabSlideEnabledChanged: syncTabTrack(true)
+    onTabSlideDistanceMultiplierChanged: syncTabTrack(true)
+    onTabSlideDurationChanged: {
+        if (tabRapidNavStreak === 0) {
+            tabSlideDurationCurrent = Math.max(1, tabSlideDuration)
+        }
+    }
 
     height: panelH + visibleFinalPosition
     minimumHeight: panelH + visibleFinalPosition
@@ -324,6 +382,16 @@ Window {
         }
     }
 
+    Timer {
+        id: tabSlideResetTimer
+        interval: Math.max(200, win.tabRapidSlideWindowMs * 2)
+        repeat: false
+        onTriggered: {
+            win.tabRapidNavStreak = 0
+            win.tabSlideDurationCurrent = Math.max(1, win.tabSlideDuration)
+        }
+    }
+
     Item {
         id: stage
         anchors.fill: parent
@@ -336,25 +404,32 @@ Window {
         }
 
         Keys.onPressed: (e) => {
-            var tabCount = 4
+            var tabCount = win.tabCount
             var current = win.activeTabIndex
             var next = current
 
             if (e.key === Qt.Key_Escape) { win.toggle(); e.accepted = true }
             else if (win.visible && e.key === Qt.Key_Left) {
+                win.registerTabNavigation()
+                win.tabNavDirectionHint = -1
                 next = (current - 1 + tabCount) % tabCount
                 win.activeTabIndex = next
                 e.accepted = true
             }
             else if (win.visible && e.key === Qt.Key_Right) {
+                win.registerTabNavigation()
+                win.tabNavDirectionHint = 1
                 next = (current + 1) % tabCount
                 win.activeTabIndex = next
                 e.accepted = true
             }
             else if (win.visible && (e.key === Qt.Key_Tab || e.key === Qt.Key_Backtab)) {
+                win.registerTabNavigation()
                 if (e.key === Qt.Key_Backtab || (e.modifiers & Qt.ShiftModifier)) {
+                    win.tabNavDirectionHint = -1
                     next = (current - 1 + tabCount) % tabCount
                 } else {
+                    win.tabNavDirectionHint = 1
                     next = (current + 1) % tabCount
                 }
                 win.activeTabIndex = next
@@ -600,6 +675,8 @@ Window {
                                     cursorShape: Qt.PointingHandCursor
                                     onClicked: {
                                         if (win.activeTabIndex !== index) {
+                                            win.registerTabNavigation()
+                                            win.tabNavDirectionHint = 0
                                             win.activeTabIndex = index
                                         }
                                     }
@@ -630,7 +707,7 @@ Window {
 
                         Behavior on x {
                             NumberAnimation {
-                                duration: Math.max(1, win.tabSlideDuration)
+                                duration: Math.max(1, win.tabSlideDurationCurrent)
                                 easing.type: win.tabSlideEasing
                             }
                         }
@@ -657,49 +734,51 @@ Window {
                         anchors.rightMargin: win.panelOuterMargin
                         anchors.bottomMargin: win.panelOuterMargin
                         clip: true
+                        onWidthChanged: win.syncTabTrack(true)
 
-                        ParallelAnimation {
-                            id: tabSwitch
-                            NumberAnimation {
-                                target: win.tabFromPage
-                                property: "x"
-                                to: win.tabFromTargetX
-                                duration: Math.max(1, win.tabSlideDuration)
-                                easing.type: win.tabSlideEasing
-                            }
-                            NumberAnimation {
-                                target: win.tabToPage
-                                property: "x"
-                                to: win.tabToTargetX
-                                duration: Math.max(1, win.tabSlideDuration)
-                                easing.type: win.tabSlideEasing
-                            }
-                            onStopped: {
-                                if (win.tabFromPage) {
-                                    win.tabFromPage.visible = false
-                                    win.tabFromPage.x = 0
-                                }
-                                if (win.tabToPage) {
-                                    win.tabToPage.visible = true
-                                    win.tabToPage.x = 0
-                                }
+                        Item {
+                            id: pagesTrack
+                            width: Math.max(parent.width * (win.tabCount + 2), win.tabStepDistance() * (win.tabCount + 2))
+                            height: parent.height
+                            x: win.tabTrackTargetX
 
-                                win.displayedTabIndex = win.tabSwitchToIndex
-                                win.tabSwitchAnimating = false
-                                win.tabFromPage = null
-                                win.tabToPage = null
-
-                                if (win.activeTabIndex !== win.displayedTabIndex) {
-                                    Qt.callLater(win.switchToActiveTab)
+                            Behavior on x {
+                                enabled: !win.tabTrackSnapImmediate && win.tabSlideEnabled
+                                NumberAnimation {
+                                    id: tabConveyorAnimation
+                                    duration: Math.max(1, win.tabSlideAnimationDuration)
+                                    easing.type: win.tabSlideEasing
+                                    onRunningChanged: {
+                                        win.tabSwitchAnimating = running
+                                        if (!running) {
+                                            win.normalizeTabTrackAfterWrap()
+                                        }
+                                    }
                                 }
                             }
                         }
 
                         Item {
+                            parent: pagesTrack
+                            x: -win.tabStepDistance()
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: win.tabSlideEnabled
+                            ShaderEffectSource {
+                                anchors.fill: parent
+                                sourceItem: weatherPage
+                                live: true
+                                hideSource: false
+                            }
+                        }
+
+                        Item {
                             id: dashboardPage
-                            width: parent.width
-                            height: parent.height
-                            visible: win.displayedTabIndex === 0
+                            parent: pagesTrack
+                            x: 0
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: true
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -875,9 +954,11 @@ Window {
 
                         Item {
                             id: mediaPage
-                            width: parent.width
-                            height: parent.height
-                            visible: win.displayedTabIndex === 1
+                            parent: pagesTrack
+                            x: win.tabStepDistance()
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: true
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -892,16 +973,18 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
-                                active: win.displayedTabIndex === 1
+                                active: win.activeTabIndex === 1
                                         && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
                             }
                         }
 
                         Item {
                             id: performancePage
-                            width: parent.width
-                            height: parent.height
-                            visible: win.displayedTabIndex === 2
+                            parent: pagesTrack
+                            x: win.tabStepDistance() * 2
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: true
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -922,9 +1005,11 @@ Window {
 
                         Item {
                             id: weatherPage
-                            width: parent.width
-                            height: parent.height
-                            visible: win.displayedTabIndex === 3
+                            parent: pagesTrack
+                            x: win.tabStepDistance() * (win.tabCount - 1)
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: true
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -940,8 +1025,22 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
-                                active: win.displayedTabIndex === 3
+                                active: win.activeTabIndex === 3
                                         && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
+                            }
+                        }
+
+                        Item {
+                            parent: pagesTrack
+                            x: win.tabStepDistance() * win.tabCount
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: win.tabSlideEnabled
+                            ShaderEffectSource {
+                                anchors.fill: parent
+                                sourceItem: dashboardPage
+                                live: true
+                                hideSource: false
                             }
                         }
                     }
@@ -951,11 +1050,9 @@ Window {
     }
 
     Component.onCompleted: {
-        displayedTabIndex = Math.max(0, Math.min(activeTabIndex, 3))
-        dashboardPage.visible = displayedTabIndex === 0
-        mediaPage.visible = displayedTabIndex === 1
-        performancePage.visible = displayedTabIndex === 2
-        weatherPage.visible = displayedTabIndex === 3
+        activeTabIndex = Math.max(0, Math.min(activeTabIndex, tabCount - 1))
+        displayedTabIndex = activeTabIndex
+        syncTabTrack(true)
         taskView.load(calendar.selectedKey)
     }
 }

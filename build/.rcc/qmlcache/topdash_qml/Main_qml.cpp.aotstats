@@ -329,8 +329,40 @@
                             "codegenResult": 2,
                             "column": 43,
                             "durationMicroseconds": 0,
-                            "functionName": "tabSlideLayerCaching",
+                            "functionName": "tabRapidSlideEnabled",
                             "line": 117,
+                            "message": "Cannot load property tabRapidSlideEnabled from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabRapidSlideWindowMs",
+                            "line": 118,
+                            "message": "Cannot load property tabRapidSlideWindowMs from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabRapidSlideMinDuration",
+                            "line": 119,
+                            "message": "Cannot load property tabRapidSlideMinDuration from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabRapidSlideFactor",
+                            "line": 120,
+                            "message": "Cannot load property tabRapidSlideFactor from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabSlideLayerCaching",
+                            "line": 121,
                             "message": "Cannot load property tabSlideLayerCaching from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
                         },
                         {
@@ -338,7 +370,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "pauseClockAnimationDuringTransitions",
-                            "line": 118,
+                            "line": 122,
                             "message": "Cannot load property pauseClockAnimationDuringTransitions from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
                         },
                         {
@@ -346,7 +378,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "panelSlideLayerCaching",
-                            "line": 119,
+                            "line": 123,
                             "message": "Cannot load property panelSlideLayerCaching from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
                         },
                         {
@@ -354,15 +386,31 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "pauseTabPollingDuringTransitions",
-                            "line": 120,
+                            "line": 124,
                             "message": "Cannot load property pauseTabPollingDuringTransitions from (component in /home/dxle/builds/dashboard/qml/Main.qml)::style with type QObject."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabSlideDurationCurrent",
+                            "line": 131,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabSlideAnimationDuration",
+                            "line": 132,
+                            "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "profileMinWidth",
-                            "line": 196,
+                            "line": 202,
                             "message": ""
                         },
                         {
@@ -370,7 +418,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "profileMinHeight",
-                            "line": 197,
+                            "line": 203,
                             "message": ""
                         },
                         {
@@ -378,7 +426,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "calendarMinWidth",
-                            "line": 198,
+                            "line": 204,
                             "message": ""
                         },
                         {
@@ -386,7 +434,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "calendarMinHeight",
-                            "line": 199,
+                            "line": 205,
                             "message": ""
                         },
                         {
@@ -394,7 +442,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "statsMinWidth",
-                            "line": 200,
+                            "line": 206,
                             "message": ""
                         },
                         {
@@ -402,7 +450,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "statsMinHeight",
-                            "line": 201,
+                            "line": 207,
                             "message": ""
                         },
                         {
@@ -410,7 +458,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "timeMinWidth",
-                            "line": 202,
+                            "line": 208,
                             "message": ""
                         },
                         {
@@ -418,7 +466,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "timeMinHeight",
-                            "line": 203,
+                            "line": 209,
                             "message": ""
                         },
                         {
@@ -426,7 +474,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "tasksMinWidth",
-                            "line": 204,
+                            "line": 210,
                             "message": ""
                         },
                         {
@@ -434,7 +482,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "tasksMinHeight",
-                            "line": 205,
+                            "line": 211,
                             "message": ""
                         },
                         {
@@ -442,7 +490,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "panelMinWidthFromLayout",
-                            "line": 214,
+                            "line": 220,
                             "message": ""
                         },
                         {
@@ -450,46 +498,6 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "leftColumnMinHeight",
-                            "line": 218,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "rightColumnMinHeight",
-                            "line": 219,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "panelMinHeightFromLayout",
-                            "line": 220,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 26,
-                            "durationMicroseconds": 0,
-                            "functionName": "panelW",
-                            "line": 222,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "dashboardContentH",
-                            "line": 223,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 26,
-                            "durationMicroseconds": 0,
-                            "functionName": "panelH",
                             "line": 224,
                             "message": ""
                         },
@@ -497,8 +505,48 @@
                             "codegenResult": 0,
                             "column": 40,
                             "durationMicroseconds": 0,
-                            "functionName": "visibleFinalPosition",
+                            "functionName": "rightColumnMinHeight",
                             "line": 225,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "panelMinHeightFromLayout",
+                            "line": 226,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "panelW",
+                            "line": 228,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "dashboardContentH",
+                            "line": 229,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "panelH",
+                            "line": 230,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "visibleFinalPosition",
+                            "line": 231,
                             "message": ""
                         },
                         {
@@ -506,22 +554,6 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "uiTransitionActive",
-                            "line": 226,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 5,
-                            "durationMicroseconds": 0,
-                            "functionName": "reloadTheme",
-                            "line": 228,
-                            "message": "Cannot access value for name ConfigFiles"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 5,
-                            "durationMicroseconds": 0,
-                            "functionName": "reloadTasks",
                             "line": 232,
                             "message": ""
                         },
@@ -529,24 +561,88 @@
                             "codegenResult": 2,
                             "column": 5,
                             "durationMicroseconds": 0,
-                            "functionName": "tabPageAt",
-                            "line": 236,
+                            "functionName": "reloadTheme",
+                            "line": 234,
+                            "message": "Cannot access value for name ConfigFiles"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "reloadTasks",
+                            "line": 238,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabStepDistance",
+                            "line": 242,
+                            "message": "function without return type annotation returns int. This may prevent proper compilation to Cpp."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "tabDurationForTarget",
+                            "line": 247,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 1000,
-                            "functionName": "switchToActiveTab",
-                            "line": 244,
+                            "durationMicroseconds": 0,
+                            "functionName": "syncTabTrack",
+                            "line": 254,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "normalizeTabTrackAfterWrap",
+                            "line": 299,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "registerTabNavigation",
+                            "line": 318,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "onActiveTabIndexChanged",
+                            "line": 339,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTabSlideEnabledChanged",
+                            "line": 340,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTabSlideDistanceMultiplierChanged",
+                            "line": 341,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
                             "codegenResult": 0,
-                            "column": 30,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "onActiveTabIndexChanged",
-                            "line": 288,
+                            "functionName": "onTabSlideDurationChanged",
+                            "line": 342,
                             "message": ""
                         },
                         {
@@ -554,7 +650,7 @@
                             "column": 13,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 290,
+                            "line": 348,
                             "message": ""
                         },
                         {
@@ -562,7 +658,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "minimumHeight",
-                            "line": 291,
+                            "line": 349,
                             "message": ""
                         },
                         {
@@ -570,7 +666,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "maximumHeight",
-                            "line": 292,
+                            "line": 350,
                             "message": ""
                         },
                         {
@@ -578,7 +674,7 @@
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 293,
+                            "line": 351,
                             "message": ""
                         },
                         {
@@ -586,7 +682,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "minimumWidth",
-                            "line": 294,
+                            "line": 352,
                             "message": ""
                         },
                         {
@@ -594,7 +690,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "maximumWidth",
-                            "line": 295,
+                            "line": 353,
                             "message": ""
                         },
                         {
@@ -602,23 +698,7 @@
                             "column": 12,
                             "durationMicroseconds": 0,
                             "functionName": "flags",
-                            "line": 299,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 22,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 133,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 25,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 134,
+                            "line": 357,
                             "message": ""
                         },
                         {
@@ -641,8 +721,24 @@
                             "codegenResult": 0,
                             "column": 22,
                             "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 145,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 25,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 146,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
                             "functionName": "layer",
-                            "line": 302,
+                            "line": 360,
                             "message": ""
                         },
                         {
@@ -650,7 +746,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "anchors",
-                            "line": 303,
+                            "line": 361,
                             "message": ""
                         },
                         {
@@ -658,7 +754,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "keyboardInteractivity",
-                            "line": 305,
+                            "line": 363,
                             "message": ""
                         },
                         {
@@ -666,7 +762,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 301,
+                            "line": 359,
                             "message": ""
                         },
                         {
@@ -674,7 +770,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "interval",
-                            "line": 311,
+                            "line": 369,
                             "message": ""
                         },
                         {
@@ -682,7 +778,7 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 313,
+                            "line": 371,
                             "message": ""
                         },
                         {
@@ -690,7 +786,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "interval",
-                            "line": 318,
+                            "line": 376,
                             "message": ""
                         },
                         {
@@ -698,7 +794,23 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 320,
+                            "line": 378,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 0,
+                            "functionName": "interval",
+                            "line": 387,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTriggered",
+                            "line": 389,
                             "message": ""
                         },
                         {
@@ -706,7 +818,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 329,
+                            "line": 397,
                             "message": ""
                         },
                         {
@@ -714,7 +826,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "acceptedButtons",
-                            "line": 334,
+                            "line": 402,
                             "message": ""
                         },
                         {
@@ -722,7 +834,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "onTapped",
-                            "line": 335,
+                            "line": 403,
                             "message": ""
                         },
                         {
@@ -730,7 +842,7 @@
                             "column": 25,
                             "durationMicroseconds": 1000,
                             "functionName": "onPressed",
-                            "line": 338,
+                            "line": 406,
                             "message": ""
                         },
                         {
@@ -738,7 +850,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "onPressed",
-                            "line": 338,
+                            "line": 406,
                             "message": ""
                         },
                         {
@@ -746,7 +858,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 367,
+                            "line": 442,
                             "message": ""
                         },
                         {
@@ -754,7 +866,7 @@
                             "column": 21,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 368,
+                            "line": 443,
                             "message": ""
                         },
                         {
@@ -762,7 +874,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 372,
+                            "line": 447,
                             "message": ""
                         },
                         {
@@ -770,7 +882,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalCenter",
-                            "line": 369,
+                            "line": 444,
                             "message": ""
                         },
                         {
@@ -778,7 +890,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 376,
+                            "line": 451,
                             "message": ""
                         },
                         {
@@ -786,7 +898,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "onRunningChanged",
-                            "line": 378,
+                            "line": 453,
                             "message": "Cannot access value for name SystemInfo"
                         },
                         {
@@ -794,7 +906,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 377,
+                            "line": 452,
                             "message": ""
                         },
                         {
@@ -802,7 +914,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 384,
+                            "line": 459,
                             "message": ""
                         },
                         {
@@ -810,7 +922,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fillColor",
-                            "line": 396,
+                            "line": 471,
                             "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant"
                         },
                         {
@@ -818,7 +930,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "borderColor",
-                            "line": 397,
+                            "line": 472,
                             "message": ""
                         },
                         {
@@ -826,7 +938,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "borderWidth",
-                            "line": 398,
+                            "line": 473,
                             "message": ""
                         },
                         {
@@ -834,7 +946,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "radiusTopLeft",
-                            "line": 399,
+                            "line": 474,
                             "message": ""
                         },
                         {
@@ -842,7 +954,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "radiusTopRight",
-                            "line": 400,
+                            "line": 475,
                             "message": ""
                         },
                         {
@@ -850,7 +962,7 @@
                             "column": 49,
                             "durationMicroseconds": 0,
                             "functionName": "radiusBottomRight",
-                            "line": 401,
+                            "line": 476,
                             "message": ""
                         },
                         {
@@ -858,7 +970,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "radiusBottomLeft",
-                            "line": 402,
+                            "line": 477,
                             "message": ""
                         },
                         {
@@ -866,7 +978,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "borderLeft",
-                            "line": 403,
+                            "line": 478,
                             "message": ""
                         },
                         {
@@ -874,7 +986,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "borderRight",
-                            "line": 404,
+                            "line": 479,
                             "message": ""
                         },
                         {
@@ -882,7 +994,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "borderTop",
-                            "line": 405,
+                            "line": 480,
                             "message": ""
                         },
                         {
@@ -890,7 +1002,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "borderBottom",
-                            "line": 406,
+                            "line": 481,
                             "message": ""
                         },
                         {
@@ -898,7 +1010,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "onFillColorChanged",
-                            "line": 408,
+                            "line": 483,
                             "message": ""
                         },
                         {
@@ -906,7 +1018,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderColorChanged",
-                            "line": 409,
+                            "line": 484,
                             "message": ""
                         },
                         {
@@ -914,7 +1026,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderWidthChanged",
-                            "line": 410,
+                            "line": 485,
                             "message": ""
                         },
                         {
@@ -922,7 +1034,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "onRadiusTopLeftChanged",
-                            "line": 411,
+                            "line": 486,
                             "message": ""
                         },
                         {
@@ -930,7 +1042,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "onRadiusTopRightChanged",
-                            "line": 412,
+                            "line": 487,
                             "message": ""
                         },
                         {
@@ -938,7 +1050,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "onRadiusBottomRightChanged",
-                            "line": 413,
+                            "line": 488,
                             "message": ""
                         },
                         {
@@ -946,7 +1058,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onRadiusBottomLeftChanged",
-                            "line": 414,
+                            "line": 489,
                             "message": ""
                         },
                         {
@@ -954,7 +1066,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderLeftChanged",
-                            "line": 415,
+                            "line": 490,
                             "message": ""
                         },
                         {
@@ -962,7 +1074,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderRightChanged",
-                            "line": 416,
+                            "line": 491,
                             "message": ""
                         },
                         {
@@ -970,7 +1082,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderTopChanged",
-                            "line": 417,
+                            "line": 492,
                             "message": ""
                         },
                         {
@@ -978,7 +1090,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "onBorderBottomChanged",
-                            "line": 418,
+                            "line": 493,
                             "message": ""
                         },
                         {
@@ -986,7 +1098,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "onWidthChanged",
-                            "line": 419,
+                            "line": 494,
                             "message": ""
                         },
                         {
@@ -994,7 +1106,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onHeightChanged",
-                            "line": 420,
+                            "line": 495,
                             "message": ""
                         },
                         {
@@ -1002,7 +1114,7 @@
                             "column": 26,
                             "durationMicroseconds": 1000,
                             "functionName": "onPaint",
-                            "line": 422,
+                            "line": 497,
                             "message": "Instruction \"generate_StoreLocal\" not implemented"
                         },
                         {
@@ -1010,7 +1122,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 392,
+                            "line": 467,
                             "message": ""
                         },
                         {
@@ -1018,7 +1130,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 532,
+                            "line": 607,
                             "message": ""
                         },
                         {
@@ -1026,7 +1138,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "preferredHeight",
-                            "line": 538,
+                            "line": 613,
                             "message": ""
                         },
                         {
@@ -1034,7 +1146,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "minimumHeight",
-                            "line": 539,
+                            "line": 614,
                             "message": ""
                         },
                         {
@@ -1042,7 +1154,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 542,
+                            "line": 617,
                             "message": ""
                         },
                         {
@@ -1050,7 +1162,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 543,
+                            "line": 618,
                             "message": ""
                         },
                         {
@@ -1058,7 +1170,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 544,
+                            "line": 619,
                             "message": ""
                         },
                         {
@@ -1066,7 +1178,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 551,
+                            "line": 626,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
                         },
                         {
@@ -1074,7 +1186,7 @@
                             "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalCenter",
-                            "line": 563,
+                            "line": 638,
                             "message": ""
                         },
                         {
@@ -1082,7 +1194,7 @@
                             "column": 53,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 564,
+                            "line": 639,
                             "message": ""
                         },
                         {
@@ -1090,7 +1202,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 565,
+                            "line": 640,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1098,7 +1210,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 570,
+                            "line": 645,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -1106,7 +1218,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 575,
+                            "line": 650,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1114,7 +1226,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 580,
+                            "line": 655,
                             "message": "Cannot access value for name index"
                         },
                         {
@@ -1122,7 +1234,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalCenter",
-                            "line": 569,
+                            "line": 644,
                             "message": ""
                         },
                         {
@@ -1130,7 +1242,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 578,
+                            "line": 653,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1138,7 +1250,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 579,
+                            "line": 654,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1146,7 +1258,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 587,
+                            "line": 662,
                             "message": "Cannot access value for name modelData"
                         },
                         {
@@ -1154,7 +1266,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 588,
+                            "line": 663,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1162,7 +1274,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalCenter",
-                            "line": 586,
+                            "line": 661,
                             "message": ""
                         },
                         {
@@ -1170,7 +1282,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 591,
+                            "line": 666,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1178,7 +1290,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 592,
+                            "line": 667,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1186,7 +1298,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "cursorShape",
-                            "line": 600,
+                            "line": 675,
                             "message": ""
                         },
                         {
@@ -1194,7 +1306,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 601,
+                            "line": 676,
                             "message": "Cannot access value for name win"
                         },
                         {
@@ -1202,7 +1314,7 @@
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 598,
+                            "line": 673,
                             "message": ""
                         },
                         {
@@ -1210,7 +1322,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "activeTabItem",
-                            "line": 614,
+                            "line": 691,
                             "message": ""
                         },
                         {
@@ -1218,7 +1330,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "targetX",
-                            "line": 617,
+                            "line": 694,
                             "message": "Cannot use shadowable base type for further lookups: call to method mapToItem, returning QPointF"
                         },
                         {
@@ -1226,7 +1338,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 624,
+                            "line": 701,
                             "message": ""
                         },
                         {
@@ -1234,7 +1346,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 625,
+                            "line": 702,
                             "message": ""
                         },
                         {
@@ -1242,7 +1354,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 626,
+                            "line": 703,
                             "message": ""
                         },
                         {
@@ -1250,7 +1362,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 628,
+                            "line": 705,
                             "message": ""
                         },
                         {
@@ -1258,7 +1370,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 629,
+                            "line": 706,
                             "message": ""
                         },
                         {
@@ -1266,7 +1378,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 623,
+                            "line": 700,
                             "message": ""
                         },
                         {
@@ -1274,7 +1386,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 633,
+                            "line": 710,
                             "message": ""
                         },
                         {
@@ -1282,7 +1394,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 634,
+                            "line": 711,
                             "message": ""
                         },
                         {
@@ -1290,7 +1402,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 643,
+                            "line": 720,
                             "message": ""
                         },
                         {
@@ -1298,15 +1410,23 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "topMargin",
-                            "line": 650,
+                            "line": 727,
                             "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "onWidthChanged",
+                            "line": 737,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
                             "codegenResult": 0,
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 655,
+                            "line": 732,
                             "message": ""
                         },
                         {
@@ -1314,7 +1434,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 656,
+                            "line": 733,
                             "message": ""
                         },
                         {
@@ -1322,7 +1442,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 657,
+                            "line": 734,
                             "message": ""
                         },
                         {
@@ -1330,79 +1450,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 658,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "onStopped",
-                            "line": 677,
-                            "message": "Cannot generate efficient code for lookup of function property."
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "target",
-                            "line": 664,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "to",
-                            "line": 666,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 43,
-                            "durationMicroseconds": 0,
-                            "functionName": "duration",
-                            "line": 667,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "type",
-                            "line": 668,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "target",
-                            "line": 671,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 37,
-                            "durationMicroseconds": 0,
-                            "functionName": "to",
-                            "line": 673,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 43,
-                            "durationMicroseconds": 0,
-                            "functionName": "duration",
-                            "line": 674,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "type",
-                            "line": 675,
+                            "line": 735,
                             "message": ""
                         },
                         {
@@ -1410,7 +1458,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 700,
+                            "line": 741,
                             "message": ""
                         },
                         {
@@ -1418,206 +1466,38 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 701,
+                            "line": 742,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 38,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 702,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 703,
+                            "functionName": "x",
+                            "line": 743,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 42,
                             "durationMicroseconds": 0,
-                            "functionName": "spacing",
-                            "line": 708,
+                            "functionName": "enabled",
+                            "line": 746,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 47,
                             "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 707,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "spacing",
-                            "line": 715,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 60,
-                            "durationMicroseconds": 0,
-                            "functionName": "preferredWidth",
-                            "line": 713,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 58,
-                            "durationMicroseconds": 0,
-                            "functionName": "minimumWidth",
-                            "line": 714,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "preferredHeight",
-                            "line": 720,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 63,
-                            "durationMicroseconds": 0,
-                            "functionName": "minimumHeight",
-                            "line": 721,
+                            "functionName": "duration",
+                            "line": 749,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 55,
                             "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 725,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 726,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 50,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFg",
-                            "line": 734,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 52,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFont",
-                            "line": 735,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 56,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFontSize",
-                            "line": 736,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 54,
-                            "durationMicroseconds": 0,
-                            "functionName": "cBorder",
-                            "line": 737,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 59,
-                            "durationMicroseconds": 0,
-                            "functionName": "cBorderWidth",
-                            "line": 738,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 59,
-                            "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 729,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 64,
-                            "durationMicroseconds": 0,
-                            "functionName": "topMargin",
-                            "line": 730,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "leftMargin",
-                            "line": 731,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 66,
-                            "durationMicroseconds": 0,
-                            "functionName": "rightMargin",
-                            "line": 732,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 67,
-                            "durationMicroseconds": 0,
-                            "functionName": "bottomMargin",
-                            "line": 733,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "preferredHeight",
-                            "line": 745,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 63,
-                            "durationMicroseconds": 0,
-                            "functionName": "minimumHeight",
-                            "line": 746,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 750,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
+                            "functionName": "onRunningChanged",
                             "line": 751,
                             "message": ""
                         },
@@ -1625,184 +1505,112 @@
                             "codegenResult": 0,
                             "column": 50,
                             "durationMicroseconds": 0,
-                            "functionName": "cFg",
-                            "line": 759,
+                            "functionName": "type",
+                            "line": 750,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 52,
+                            "column": 37,
                             "durationMicroseconds": 0,
-                            "functionName": "cFont",
-                            "line": 760,
+                            "functionName": "parent",
+                            "line": 762,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 56,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "cFontSize",
-                            "line": 761,
+                            "functionName": "x",
+                            "line": 763,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 59,
+                            "column": 36,
                             "durationMicroseconds": 0,
-                            "functionName": "fill",
-                            "line": 754,
+                            "functionName": "width",
+                            "line": 764,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 64,
+                            "column": 37,
                             "durationMicroseconds": 0,
-                            "functionName": "topMargin",
-                            "line": 755,
+                            "functionName": "height",
+                            "line": 765,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 65,
+                            "column": 38,
                             "durationMicroseconds": 0,
-                            "functionName": "leftMargin",
-                            "line": 756,
+                            "functionName": "visible",
+                            "line": 766,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 66,
+                            "column": 45,
                             "durationMicroseconds": 0,
-                            "functionName": "rightMargin",
-                            "line": 757,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 67,
-                            "durationMicroseconds": 0,
-                            "functionName": "bottomMargin",
-                            "line": 758,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "preferredHeight",
-                            "line": 768,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 63,
-                            "durationMicroseconds": 0,
-                            "functionName": "minimumHeight",
+                            "functionName": "sourceItem",
                             "line": 769,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 773,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 774,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 50,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFg",
-                            "line": 782,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 54,
-                            "durationMicroseconds": 0,
-                            "functionName": "cAccent",
-                            "line": 783,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 57,
-                            "durationMicroseconds": 0,
-                            "functionName": "cSecondary",
-                            "line": 784,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 52,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFont",
-                            "line": 785,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 56,
-                            "durationMicroseconds": 0,
-                            "functionName": "cFontSize",
-                            "line": 786,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 63,
-                            "durationMicroseconds": 0,
-                            "functionName": "animationEnabled",
-                            "line": 787,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 59,
+                            "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
+                            "line": 768,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "parent",
                             "line": 777,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 64,
+                            "column": 36,
                             "durationMicroseconds": 0,
-                            "functionName": "topMargin",
-                            "line": 778,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 65,
-                            "durationMicroseconds": 0,
-                            "functionName": "leftMargin",
+                            "functionName": "width",
                             "line": 779,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 66,
+                            "column": 37,
                             "durationMicroseconds": 0,
-                            "functionName": "rightMargin",
+                            "functionName": "height",
                             "line": 780,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 67,
+                            "column": 44,
                             "durationMicroseconds": 0,
-                            "functionName": "bottomMargin",
-                            "line": 781,
+                            "functionName": "enabled",
+                            "line": 782,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "spacing",
+                            "line": 787,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 786,
                             "message": ""
                         },
                         {
@@ -1810,7 +1618,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "spacing",
-                            "line": 797,
+                            "line": 794,
                             "message": ""
                         },
                         {
@@ -1818,7 +1626,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "preferredWidth",
-                            "line": 795,
+                            "line": 792,
                             "message": ""
                         },
                         {
@@ -1826,7 +1634,7 @@
                             "column": 58,
                             "durationMicroseconds": 0,
                             "functionName": "minimumWidth",
-                            "line": 796,
+                            "line": 793,
                             "message": ""
                         },
                         {
@@ -1834,7 +1642,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "preferredHeight",
-                            "line": 803,
+                            "line": 799,
                             "message": ""
                         },
                         {
@@ -1842,6 +1650,14 @@
                             "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "minimumHeight",
+                            "line": 800,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
                             "line": 804,
                             "message": ""
                         },
@@ -1849,16 +1665,8 @@
                             "codegenResult": 0,
                             "column": 55,
                             "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 808,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 55,
-                            "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 809,
+                            "line": 805,
                             "message": ""
                         },
                         {
@@ -1866,23 +1674,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "cFg",
-                            "line": 819,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 54,
-                            "durationMicroseconds": 0,
-                            "functionName": "cAccent",
-                            "line": 820,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 53,
-                            "durationMicroseconds": 0,
-                            "functionName": "cMuted",
-                            "line": 821,
+                            "line": 813,
                             "message": ""
                         },
                         {
@@ -1890,7 +1682,7 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 822,
+                            "line": 814,
                             "message": ""
                         },
                         {
@@ -1898,15 +1690,7 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 823,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 50,
-                            "durationMicroseconds": 0,
-                            "functionName": "cBg",
-                            "line": 824,
+                            "line": 815,
                             "message": ""
                         },
                         {
@@ -1914,7 +1698,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "cBorder",
-                            "line": 825,
+                            "line": 816,
                             "message": ""
                         },
                         {
@@ -1922,31 +1706,15 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "cBorderWidth",
-                            "line": 826,
+                            "line": 817,
                             "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 54,
-                            "durationMicroseconds": 0,
-                            "functionName": "cRadius",
-                            "line": 827,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 67,
-                            "durationMicroseconds": 0,
-                            "functionName": "onSelectedKeyChanged",
-                            "line": 829,
-                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         },
                         {
                             "codegenResult": 0,
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 813,
+                            "line": 808,
                             "message": ""
                         },
                         {
@@ -1954,7 +1722,7 @@
                             "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "topMargin",
-                            "line": 814,
+                            "line": 809,
                             "message": ""
                         },
                         {
@@ -1962,7 +1730,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 815,
+                            "line": 810,
                             "message": ""
                         },
                         {
@@ -1970,7 +1738,7 @@
                             "column": 66,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 816,
+                            "line": 811,
                             "message": ""
                         },
                         {
@@ -1978,7 +1746,7 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 817,
+                            "line": 812,
                             "message": ""
                         },
                         {
@@ -1986,7 +1754,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "preferredHeight",
-                            "line": 836,
+                            "line": 824,
                             "message": ""
                         },
                         {
@@ -1994,7 +1762,7 @@
                             "column": 63,
                             "durationMicroseconds": 0,
                             "functionName": "minimumHeight",
-                            "line": 837,
+                            "line": 825,
                             "message": ""
                         },
                         {
@@ -2002,7 +1770,7 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 841,
+                            "line": 829,
                             "message": ""
                         },
                         {
@@ -2010,7 +1778,31 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 842,
+                            "line": 830,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFg",
+                            "line": 838,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFont",
+                            "line": 839,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 56,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFontSize",
+                            "line": 840,
                             "message": ""
                         },
                         {
@@ -2018,7 +1810,7 @@
                             "column": 59,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 845,
+                            "line": 833,
                             "message": ""
                         },
                         {
@@ -2026,7 +1818,7 @@
                             "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "topMargin",
-                            "line": 846,
+                            "line": 834,
                             "message": ""
                         },
                         {
@@ -2034,7 +1826,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 847,
+                            "line": 835,
                             "message": ""
                         },
                         {
@@ -2042,7 +1834,7 @@
                             "column": 66,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 848,
+                            "line": 836,
                             "message": ""
                         },
                         {
@@ -2050,7 +1842,375 @@
                             "column": 67,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 849,
+                            "line": 837,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "preferredHeight",
+                            "line": 847,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 63,
+                            "durationMicroseconds": 0,
+                            "functionName": "minimumHeight",
+                            "line": 848,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 852,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 853,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFg",
+                            "line": 861,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "cAccent",
+                            "line": 862,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 57,
+                            "durationMicroseconds": 0,
+                            "functionName": "cSecondary",
+                            "line": 863,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFont",
+                            "line": 864,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 56,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFontSize",
+                            "line": 865,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 63,
+                            "durationMicroseconds": 0,
+                            "functionName": "animationEnabled",
+                            "line": 866,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 856,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 64,
+                            "durationMicroseconds": 0,
+                            "functionName": "topMargin",
+                            "line": 857,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "leftMargin",
+                            "line": 858,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 66,
+                            "durationMicroseconds": 0,
+                            "functionName": "rightMargin",
+                            "line": 859,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 67,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottomMargin",
+                            "line": 860,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "spacing",
+                            "line": 876,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 60,
+                            "durationMicroseconds": 0,
+                            "functionName": "preferredWidth",
+                            "line": 874,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 58,
+                            "durationMicroseconds": 0,
+                            "functionName": "minimumWidth",
+                            "line": 875,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "preferredHeight",
+                            "line": 882,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 63,
+                            "durationMicroseconds": 0,
+                            "functionName": "minimumHeight",
+                            "line": 883,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 887,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 888,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFg",
+                            "line": 898,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "cAccent",
+                            "line": 899,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 53,
+                            "durationMicroseconds": 0,
+                            "functionName": "cMuted",
+                            "line": 900,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFont",
+                            "line": 901,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 56,
+                            "durationMicroseconds": 0,
+                            "functionName": "cFontSize",
+                            "line": 902,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 50,
+                            "durationMicroseconds": 0,
+                            "functionName": "cBg",
+                            "line": 903,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "cBorder",
+                            "line": 904,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 0,
+                            "functionName": "cBorderWidth",
+                            "line": 905,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "cRadius",
+                            "line": 906,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 67,
+                            "durationMicroseconds": 0,
+                            "functionName": "onSelectedKeyChanged",
+                            "line": 908,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 892,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 64,
+                            "durationMicroseconds": 0,
+                            "functionName": "topMargin",
+                            "line": 893,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "leftMargin",
+                            "line": 894,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 66,
+                            "durationMicroseconds": 0,
+                            "functionName": "rightMargin",
+                            "line": 895,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 67,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottomMargin",
+                            "line": 896,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "preferredHeight",
+                            "line": 915,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 63,
+                            "durationMicroseconds": 0,
+                            "functionName": "minimumHeight",
+                            "line": 916,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 920,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 55,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 921,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 924,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 64,
+                            "durationMicroseconds": 0,
+                            "functionName": "topMargin",
+                            "line": 925,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 65,
+                            "durationMicroseconds": 0,
+                            "functionName": "leftMargin",
+                            "line": 926,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 66,
+                            "durationMicroseconds": 0,
+                            "functionName": "rightMargin",
+                            "line": 927,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 67,
+                            "durationMicroseconds": 0,
+                            "functionName": "bottomMargin",
+                            "line": 928,
                             "message": ""
                         },
                         {
@@ -2058,7 +2218,7 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 853,
+                            "line": 932,
                             "message": ""
                         },
                         {
@@ -2066,7 +2226,7 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 854,
+                            "line": 933,
                             "message": ""
                         },
                         {
@@ -2074,7 +2234,7 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 857,
+                            "line": 936,
                             "message": ""
                         },
                         {
@@ -2082,7 +2242,7 @@
                             "column": 62,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 855,
+                            "line": 934,
                             "message": ""
                         },
                         {
@@ -2090,7 +2250,7 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 856,
+                            "line": 935,
                             "message": ""
                         },
                         {
@@ -2098,7 +2258,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "cFg",
-                            "line": 864,
+                            "line": 943,
                             "message": ""
                         },
                         {
@@ -2106,7 +2266,7 @@
                             "column": 57,
                             "durationMicroseconds": 0,
                             "functionName": "cMuted",
-                            "line": 865,
+                            "line": 944,
                             "message": ""
                         },
                         {
@@ -2114,7 +2274,7 @@
                             "column": 56,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 866,
+                            "line": 945,
                             "message": ""
                         },
                         {
@@ -2122,7 +2282,7 @@
                             "column": 60,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 867,
+                            "line": 946,
                             "message": ""
                         },
                         {
@@ -2130,7 +2290,23 @@
                             "column": 65,
                             "durationMicroseconds": 0,
                             "functionName": "taskCharCutoff",
-                            "line": 868,
+                            "line": 947,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "parent",
+                            "line": 957,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 958,
                             "message": ""
                         },
                         {
@@ -2138,7 +2314,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 878,
+                            "line": 959,
                             "message": ""
                         },
                         {
@@ -2146,15 +2322,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 879,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 880,
+                            "line": 960,
                             "message": ""
                         },
                         {
@@ -2162,7 +2330,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 881,
+                            "line": 962,
                             "message": ""
                         },
                         {
@@ -2170,7 +2338,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cBg",
-                            "line": 886,
+                            "line": 967,
                             "message": ""
                         },
                         {
@@ -2178,7 +2346,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cFg",
-                            "line": 887,
+                            "line": 968,
                             "message": ""
                         },
                         {
@@ -2186,7 +2354,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "cMuted",
-                            "line": 888,
+                            "line": 969,
                             "message": ""
                         },
                         {
@@ -2194,7 +2362,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "cSecondary",
-                            "line": 889,
+                            "line": 970,
                             "message": ""
                         },
                         {
@@ -2202,7 +2370,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "cBorder",
-                            "line": 890,
+                            "line": 971,
                             "message": ""
                         },
                         {
@@ -2210,7 +2378,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "cPrimary",
-                            "line": 891,
+                            "line": 972,
                             "message": ""
                         },
                         {
@@ -2218,7 +2386,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "cBorderWidth",
-                            "line": 892,
+                            "line": 973,
                             "message": ""
                         },
                         {
@@ -2226,7 +2394,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 893,
+                            "line": 974,
                             "message": ""
                         },
                         {
@@ -2234,7 +2402,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 894,
+                            "line": 975,
                             "message": ""
                         },
                         {
@@ -2242,7 +2410,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "active",
-                            "line": 895,
+                            "line": 976,
                             "message": ""
                         },
                         {
@@ -2250,7 +2418,23 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 885,
+                            "line": 966,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "parent",
+                            "line": 983,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 984,
                             "message": ""
                         },
                         {
@@ -2258,7 +2442,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 902,
+                            "line": 985,
                             "message": ""
                         },
                         {
@@ -2266,15 +2450,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 903,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 904,
+                            "line": 986,
                             "message": ""
                         },
                         {
@@ -2282,7 +2458,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 905,
+                            "line": 988,
                             "message": ""
                         },
                         {
@@ -2290,7 +2466,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cBg",
-                            "line": 910,
+                            "line": 993,
                             "message": ""
                         },
                         {
@@ -2298,7 +2474,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cFg",
-                            "line": 911,
+                            "line": 994,
                             "message": ""
                         },
                         {
@@ -2306,7 +2482,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "cMuted",
-                            "line": 912,
+                            "line": 995,
                             "message": ""
                         },
                         {
@@ -2314,7 +2490,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "cPrimary",
-                            "line": 913,
+                            "line": 996,
                             "message": ""
                         },
                         {
@@ -2322,7 +2498,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "cAccent",
-                            "line": 914,
+                            "line": 997,
                             "message": ""
                         },
                         {
@@ -2330,7 +2506,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "cSecondary",
-                            "line": 915,
+                            "line": 998,
                             "message": ""
                         },
                         {
@@ -2338,7 +2514,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "cGreen",
-                            "line": 916,
+                            "line": 999,
                             "message": ""
                         },
                         {
@@ -2346,7 +2522,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 917,
+                            "line": 1000,
                             "message": ""
                         },
                         {
@@ -2354,7 +2530,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 918,
+                            "line": 1001,
                             "message": ""
                         },
                         {
@@ -2362,7 +2538,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "cBorderWidth",
-                            "line": 919,
+                            "line": 1002,
                             "message": ""
                         },
                         {
@@ -2370,7 +2546,23 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 909,
+                            "line": 992,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "parent",
+                            "line": 1008,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 1009,
                             "message": ""
                         },
                         {
@@ -2378,7 +2570,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 925,
+                            "line": 1010,
                             "message": ""
                         },
                         {
@@ -2386,15 +2578,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 926,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 927,
+                            "line": 1011,
                             "message": ""
                         },
                         {
@@ -2402,7 +2586,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 928,
+                            "line": 1013,
                             "message": ""
                         },
                         {
@@ -2410,7 +2594,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cBg",
-                            "line": 933,
+                            "line": 1018,
                             "message": ""
                         },
                         {
@@ -2418,7 +2602,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cFg",
-                            "line": 934,
+                            "line": 1019,
                             "message": ""
                         },
                         {
@@ -2426,7 +2610,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "cSecondary",
-                            "line": 935,
+                            "line": 1020,
                             "message": ""
                         },
                         {
@@ -2434,7 +2618,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "cAccent",
-                            "line": 936,
+                            "line": 1021,
                             "message": ""
                         },
                         {
@@ -2442,7 +2626,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "cMuted",
-                            "line": 937,
+                            "line": 1022,
                             "message": ""
                         },
                         {
@@ -2450,7 +2634,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "cBorder",
-                            "line": 938,
+                            "line": 1023,
                             "message": ""
                         },
                         {
@@ -2458,7 +2642,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "cPrimary",
-                            "line": 939,
+                            "line": 1024,
                             "message": ""
                         },
                         {
@@ -2466,7 +2650,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "cBorderWidth",
-                            "line": 940,
+                            "line": 1025,
                             "message": ""
                         },
                         {
@@ -2474,7 +2658,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "cFont",
-                            "line": 941,
+                            "line": 1026,
                             "message": ""
                         },
                         {
@@ -2482,7 +2666,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "cFontSize",
-                            "line": 942,
+                            "line": 1027,
                             "message": ""
                         },
                         {
@@ -2490,7 +2674,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "active",
-                            "line": 943,
+                            "line": 1028,
                             "message": ""
                         },
                         {
@@ -2498,7 +2682,63 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 932,
+                            "line": 1017,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "parent",
+                            "line": 1034,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 1035,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 1036,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 37,
+                            "durationMicroseconds": 0,
+                            "functionName": "height",
+                            "line": 1037,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 1038,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 45,
+                            "durationMicroseconds": 0,
+                            "functionName": "sourceItem",
+                            "line": 1041,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "fill",
+                            "line": 1040,
                             "message": ""
                         },
                         {
@@ -2506,7 +2746,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 953,
+                            "line": 1052,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
                         }
                     ],
