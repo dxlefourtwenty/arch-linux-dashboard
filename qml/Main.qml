@@ -115,9 +115,9 @@ Window {
     property int    tabSlideEasing: (style && style.tabSlideEasing !== undefined) ? style.tabSlideEasing : Easing.OutCubic
     property real   tabSlideDistanceMultiplier: (style && style.tabSlideDistanceMultiplier !== undefined) ? style.tabSlideDistanceMultiplier : 1.0
     property bool   tabRapidSlideEnabled: (style && style.tabRapidSlideEnabled !== undefined) ? style.tabRapidSlideEnabled : true
-    property int    tabRapidSlideWindowMs: (style && style.tabRapidSlideWindowMs !== undefined) ? style.tabRapidSlideWindowMs : 220
-    property int    tabRapidSlideMinDuration: (style && style.tabRapidSlideMinDuration !== undefined) ? style.tabRapidSlideMinDuration : 24
-    property real   tabRapidSlideFactor: (style && style.tabRapidSlideFactor !== undefined) ? style.tabRapidSlideFactor : 1.0
+    property int    tabRapidSlideWindowMs: (style && style.tabRapidSlideWindowMs !== undefined) ? style.tabRapidSlideWindowMs : 200
+    property int    tabRapidSlideMinDuration: (style && style.tabRapidSlideMinDuration !== undefined) ? style.tabRapidSlideMinDuration : 36
+    property real   tabRapidSlideFactor: (style && style.tabRapidSlideFactor !== undefined) ? style.tabRapidSlideFactor : 0.75
     property bool   tabSlideLayerCaching: (style && style.tabSlideLayerCaching !== undefined) ? style.tabSlideLayerCaching : true
     property bool   pauseClockAnimationDuringTransitions: (style && style.pauseClockAnimationDuringTransitions !== undefined) ? style.pauseClockAnimationDuringTransitions : true
     property bool   panelSlideLayerCaching: (style && style.panelSlideLayerCaching !== undefined) ? style.panelSlideLayerCaching : false
