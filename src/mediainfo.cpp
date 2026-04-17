@@ -14,7 +14,7 @@ namespace {
 constexpr const char *kPlayerctlBin = "/usr/bin/playerctl";
 constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
-constexpr int kTimeoutMs = 180;
+constexpr int kTimeoutMs = 450;
 constexpr char kFieldSeparator = '\x1f';
 
 struct PlayerEntry {
@@ -158,6 +158,13 @@ void MediaInfo::startRefreshTask()
 
 void MediaInfo::applySnapshot(const Snapshot &snapshot)
 {
+    const bool mediaIdentityChanged = m_hasMedia != snapshot.hasMedia
+        || m_selectedPlayer != snapshot.selectedPlayer
+        || m_playerName != snapshot.playerName
+        || m_title != snapshot.title
+        || m_artist != snapshot.artist
+        || m_artUrl != snapshot.artUrl;
+
     const bool changed = m_availablePlayers != snapshot.availablePlayers
         || m_availablePlayerLabels != snapshot.availablePlayerLabels
         || m_selectedPlayer != snapshot.selectedPlayer
@@ -190,6 +197,11 @@ void MediaInfo::applySnapshot(const Snapshot &snapshot)
 
     if (changed) {
         emit mediaChanged();
+    }
+
+    if (!m_pollPaused && snapshot.hasMedia && mediaIdentityChanged) {
+        QTimer::singleShot(120, this, &MediaInfo::refresh);
+        QTimer::singleShot(360, this, &MediaInfo::refresh);
     }
 }
 
@@ -302,23 +314,35 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     snapshot.availablePlayers = players;
     snapshot.availablePlayerLabels = labels;
 
+    QString firstPlayingPlayer;
+    for (const PlayerEntry &entry : entries) {
+        if (entry.status == "Playing") {
+            firstPlayingPlayer = entry.player;
+            break;
+        }
+    }
+
     QString selectedPlayer;
+    bool preferredSelectedIsPlaying = false;
     if (players.contains(preferredSelected)) {
         selectedPlayer = preferredSelected;
-    } else {
         for (const PlayerEntry &entry : entries) {
-            if (entry.status == "Playing") {
-                selectedPlayer = entry.player;
+            if (entry.player == preferredSelected) {
+                preferredSelectedIsPlaying = (entry.status == "Playing");
                 break;
             }
         }
+    }
 
-        if (selectedPlayer.isEmpty()) {
-            if (players.contains(preferredTarget)) {
-                selectedPlayer = preferredTarget;
-            } else {
-                selectedPlayer = players.first();
-            }
+    if (!firstPlayingPlayer.isEmpty() && !preferredSelectedIsPlaying) {
+        selectedPlayer = firstPlayingPlayer;
+    }
+
+    if (selectedPlayer.isEmpty()) {
+        if (players.contains(preferredTarget)) {
+            selectedPlayer = preferredTarget;
+        } else {
+            selectedPlayer = players.first();
         }
     }
 

@@ -114,6 +114,10 @@ Window {
     property int    tabSlideDuration: (style && style.tabSlideDuration !== undefined) ? style.tabSlideDuration : 220
     property int    tabSlideEasing: (style && style.tabSlideEasing !== undefined) ? style.tabSlideEasing : Easing.OutCubic
     property real   tabSlideDistanceMultiplier: (style && style.tabSlideDistanceMultiplier !== undefined) ? style.tabSlideDistanceMultiplier : 1.0
+    property bool   tabSlideLayerCaching: (style && style.tabSlideLayerCaching !== undefined) ? style.tabSlideLayerCaching : true
+    property bool   pauseClockAnimationDuringTransitions: (style && style.pauseClockAnimationDuringTransitions !== undefined) ? style.pauseClockAnimationDuringTransitions : true
+    property bool   panelSlideLayerCaching: (style && style.panelSlideLayerCaching !== undefined) ? style.panelSlideLayerCaching : false
+    property bool   pauseTabPollingDuringTransitions: (style && style.pauseTabPollingDuringTransitions !== undefined) ? style.pauseTabPollingDuringTransitions : true
     property int    activeTabIndex: 0
     property int    displayedTabIndex: 0
     property bool   tabSwitchAnimating: false
@@ -219,6 +223,7 @@ Window {
     property int dashboardContentH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
     property int panelH: dashboardContentH + tabsHeaderHeight + tabsHeaderBottomGap
     property int visibleFinalPosition: Math.max(0, finalPosition)
+    property bool uiTransitionActive: panelSlideAnimation.running || tabSwitchAnimating
 
     function reloadTheme() {
         ConfigFiles.reload()
@@ -376,7 +381,7 @@ Window {
                   }
                 } 
             }
-            layer.enabled: panelSlideAnimation.running
+            layer.enabled: win.panelSlideLayerCaching && panelSlideAnimation.running
 
             radius: 0
             color: "transparent"
@@ -695,6 +700,8 @@ Window {
                             width: parent.width
                             height: parent.height
                             visible: win.displayedTabIndex === 0
+                            layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
+                            layer.smooth: true
 
                             RowLayout {
                                 anchors.fill: parent
@@ -777,7 +784,7 @@ Window {
                                             cSecondary: win.cSecondary
                                             cFont: win.cFont
                                             cFontSize: win.cFontSize
-                                            animationEnabled: !panelSlideAnimation.running
+                                            animationEnabled: !(win.pauseClockAnimationDuringTransitions && win.uiTransitionActive)
                                         }
                                     }
                                 }
@@ -871,6 +878,8 @@ Window {
                             width: parent.width
                             height: parent.height
                             visible: win.displayedTabIndex === 1
+                            layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
+                            layer.smooth: true
 
                             MediaView {
                                 anchors.fill: parent
@@ -884,6 +893,7 @@ Window {
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
                                 active: win.displayedTabIndex === 1
+                                        && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
                             }
                         }
 
@@ -892,6 +902,8 @@ Window {
                             width: parent.width
                             height: parent.height
                             visible: win.displayedTabIndex === 2
+                            layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
+                            layer.smooth: true
 
                             PerformanceView {
                                 anchors.fill: parent
@@ -913,6 +925,8 @@ Window {
                             width: parent.width
                             height: parent.height
                             visible: win.displayedTabIndex === 3
+                            layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
+                            layer.smooth: true
 
                             WeatherView {
                                 anchors.fill: parent
@@ -927,6 +941,7 @@ Window {
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
                                 active: win.displayedTabIndex === 3
+                                        && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
                             }
                         }
                     }

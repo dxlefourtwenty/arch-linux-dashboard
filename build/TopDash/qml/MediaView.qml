@@ -230,7 +230,7 @@ Item {
                     spacing: 12
 
                     Text {
-                        text: MediaInfo.hasMedia ? root.formatTime(MediaInfo.positionSeconds) : "0:00"
+                        text: MediaInfo.hasMedia ? root.formatTime(root.visualPlaybackPositionSeconds) : "0:00"
                         color: root.cFg
                         font.family: root.cFont
                         font.pixelSize: root.cFontSize * 0.94
