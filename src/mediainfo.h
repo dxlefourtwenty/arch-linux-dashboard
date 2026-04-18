@@ -4,6 +4,7 @@
 #include <QStringList>
 #include <QTimer>
 #include <QFutureWatcher>
+#include <QProcess>
 
 class MediaInfo : public QObject
 {
@@ -76,6 +77,7 @@ private:
     };
 
     void startRefreshTask();
+    void startPlayerEventsFollow();
     void applySnapshot(const Snapshot &snapshot);
     void sendPlayerctl(const QStringList &args) const;
     void requestRefreshSoon();
@@ -89,6 +91,7 @@ private:
     static double parseMicroseconds(const QString &raw);
 
     QTimer m_pollTimer;
+    QProcess m_playerEventsProc;
     QFutureWatcher<Snapshot> m_refreshWatcher;
     bool m_refreshQueued = false;
     bool m_pollPaused = false;

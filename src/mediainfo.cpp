@@ -32,6 +32,22 @@ MediaInfo::MediaInfo(QObject *parent)
     : QObject(parent)
 {
     connect(&m_pollTimer, &QTimer::timeout, this, &MediaInfo::refresh);
+    connect(&m_playerEventsProc, &QProcess::readyReadStandardOutput, this, [this]() {
+        m_playerEventsProc.readAllStandardOutput();
+        if (!m_pollPaused) {
+            requestRefreshSoon();
+        }
+    });
+    connect(&m_playerEventsProc, &QProcess::finished, this, [this](int, QProcess::ExitStatus) {
+        if (!m_pollPaused) {
+            QTimer::singleShot(1000, this, &MediaInfo::startPlayerEventsFollow);
+        }
+    });
+    connect(&m_playerEventsProc, &QProcess::errorOccurred, this, [this](QProcess::ProcessError) {
+        if (!m_pollPaused) {
+            QTimer::singleShot(1000, this, &MediaInfo::startPlayerEventsFollow);
+        }
+    });
     connect(&m_refreshWatcher, &QFutureWatcher<Snapshot>::finished, this, [this]() {
         applySnapshot(m_refreshWatcher.result());
         if (m_refreshQueued) {
@@ -41,6 +57,7 @@ MediaInfo::MediaInfo(QObject *parent)
     });
 
     m_pollTimer.start(1000);
+    startPlayerEventsFollow();
     refresh();
 }
 
@@ -54,10 +71,15 @@ void MediaInfo::setPollingPaused(bool paused)
     if (m_pollPaused) {
         m_pollTimer.stop();
         m_refreshQueued = false;
+        if (m_playerEventsProc.state() != QProcess::NotRunning) {
+            m_playerEventsProc.kill();
+            m_playerEventsProc.waitForFinished();
+        }
         return;
     }
 
     m_pollTimer.start(1000);
+    startPlayerEventsFollow();
     refresh();
 }
 
@@ -159,15 +181,43 @@ void MediaInfo::startRefreshTask()
     );
 }
 
-void MediaInfo::applySnapshot(const Snapshot &snapshot)
+void MediaInfo::startPlayerEventsFollow()
 {
+    if (m_playerEventsProc.state() != QProcess::NotRunning) {
+        return;
+    }
+    m_playerEventsProc.start(kPlayerctlBin, {
+        "--all-players",
+        "metadata",
+        "--follow",
+        "--format", "{{playerName}}"
+    });
+}
+
+void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
+{
+    Snapshot snapshot = rawSnapshot;
+    const bool likelyBrowserMetadataLag = m_hasMedia
+        && snapshot.hasMedia
+        && m_selectedPlayer == snapshot.selectedPlayer
+        && snapshot.isVideo
+        && (snapshot.positionSeconds + 4.0) < m_positionSeconds
+        && snapshot.lengthSeconds > 0.0
+        && qAbs(snapshot.lengthSeconds - m_lengthSeconds) < 0.001
+        && snapshot.title == m_title
+        && snapshot.sourceUrl == m_sourceUrl;
+    if (likelyBrowserMetadataLag) {
+        snapshot.lengthSeconds = 0.0;
+    }
+
     const bool mediaIdentityChanged = m_hasMedia != snapshot.hasMedia
         || m_selectedPlayer != snapshot.selectedPlayer
         || m_playerName != snapshot.playerName
         || m_title != snapshot.title
         || m_artist != snapshot.artist
         || m_artUrl != snapshot.artUrl
-        || m_sourceUrl != snapshot.sourceUrl;
+        || m_sourceUrl != snapshot.sourceUrl
+        || likelyBrowserMetadataLag;
 
     const bool changed = m_availablePlayers != snapshot.availablePlayers
         || m_availablePlayerLabels != snapshot.availablePlayerLabels
@@ -205,7 +255,9 @@ void MediaInfo::applySnapshot(const Snapshot &snapshot)
     }
 
     if (!m_pollPaused && snapshot.hasMedia && mediaIdentityChanged) {
+        QTimer::singleShot(80, this, &MediaInfo::refresh);
         QTimer::singleShot(120, this, &MediaInfo::refresh);
+        QTimer::singleShot(180, this, &MediaInfo::refresh);
         QTimer::singleShot(360, this, &MediaInfo::refresh);
         QTimer::singleShot(760, this, &MediaInfo::refresh);
         QTimer::singleShot(1300, this, &MediaInfo::refresh);

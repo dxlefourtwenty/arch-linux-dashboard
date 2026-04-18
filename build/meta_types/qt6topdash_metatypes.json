@@ -185,26 +185,26 @@
         "classes": [
             {
                 "className": "MediaInfo",
-                "lineNumber": 8,
+                "lineNumber": 9,
                 "methods": [
                     {
                         "access": "public",
                         "index": 2,
-                        "lineNumber": 43,
+                        "lineNumber": 44,
                         "name": "playPause",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 3,
-                        "lineNumber": 44,
+                        "lineNumber": 45,
                         "name": "next",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 4,
-                        "lineNumber": 45,
+                        "lineNumber": 46,
                         "name": "previous",
                         "returnType": "void"
                     },
@@ -217,7 +217,7 @@
                             }
                         ],
                         "index": 5,
-                        "lineNumber": 46,
+                        "lineNumber": 47,
                         "name": "seekToRatio",
                         "returnType": "void"
                     },
@@ -230,7 +230,7 @@
                             }
                         ],
                         "index": 6,
-                        "lineNumber": 47,
+                        "lineNumber": 48,
                         "name": "seekRelative",
                         "returnType": "void"
                     },
@@ -243,7 +243,7 @@
                             }
                         ],
                         "index": 7,
-                        "lineNumber": 48,
+                        "lineNumber": 49,
                         "name": "setVolume",
                         "returnType": "void"
                     },
@@ -256,7 +256,7 @@
                             }
                         ],
                         "index": 8,
-                        "lineNumber": 49,
+                        "lineNumber": 50,
                         "name": "selectPlayer",
                         "returnType": "void"
                     },
@@ -269,7 +269,7 @@
                             }
                         ],
                         "index": 9,
-                        "lineNumber": 50,
+                        "lineNumber": 51,
                         "name": "selectPlayerAt",
                         "returnType": "void"
                     },
@@ -282,7 +282,7 @@
                             }
                         ],
                         "index": 10,
-                        "lineNumber": 51,
+                        "lineNumber": 52,
                         "name": "setPollingPaused",
                         "returnType": "void"
                     }
@@ -294,7 +294,7 @@
                         "designable": true,
                         "final": false,
                         "index": 0,
-                        "lineNumber": 12,
+                        "lineNumber": 13,
                         "name": "playerName",
                         "notify": "mediaChanged",
                         "override": false,
@@ -311,7 +311,7 @@
                         "designable": true,
                         "final": false,
                         "index": 1,
-                        "lineNumber": 13,
+                        "lineNumber": 14,
                         "name": "availablePlayers",
                         "notify": "mediaChanged",
                         "override": false,
@@ -328,7 +328,7 @@
                         "designable": true,
                         "final": false,
                         "index": 2,
-                        "lineNumber": 14,
+                        "lineNumber": 15,
                         "name": "availablePlayerLabels",
                         "notify": "mediaChanged",
                         "override": false,
@@ -345,7 +345,7 @@
                         "designable": true,
                         "final": false,
                         "index": 3,
-                        "lineNumber": 15,
+                        "lineNumber": 16,
                         "name": "selectedPlayer",
                         "notify": "mediaChanged",
                         "override": false,
@@ -362,7 +362,7 @@
                         "designable": true,
                         "final": false,
                         "index": 4,
-                        "lineNumber": 16,
+                        "lineNumber": 17,
                         "name": "title",
                         "notify": "mediaChanged",
                         "override": false,
@@ -379,7 +379,7 @@
                         "designable": true,
                         "final": false,
                         "index": 5,
-                        "lineNumber": 17,
+                        "lineNumber": 18,
                         "name": "artist",
                         "notify": "mediaChanged",
                         "override": false,
@@ -396,7 +396,7 @@
                         "designable": true,
                         "final": false,
                         "index": 6,
-                        "lineNumber": 18,
+                        "lineNumber": 19,
                         "name": "status",
                         "notify": "mediaChanged",
                         "override": false,
@@ -413,7 +413,7 @@
                         "designable": true,
                         "final": false,
                         "index": 7,
-                        "lineNumber": 19,
+                        "lineNumber": 20,
                         "name": "positionSeconds",
                         "notify": "mediaChanged",
                         "override": false,
@@ -430,7 +430,7 @@
                         "designable": true,
                         "final": false,
                         "index": 8,
-                        "lineNumber": 20,
+                        "lineNumber": 21,
                         "name": "lengthSeconds",
                         "notify": "mediaChanged",
                         "override": false,
@@ -447,7 +447,7 @@
                         "designable": true,
                         "final": false,
                         "index": 9,
-                        "lineNumber": 21,
+                        "lineNumber": 22,
                         "name": "volume",
                         "notify": "mediaChanged",
                         "override": false,
@@ -464,7 +464,7 @@
                         "designable": true,
                         "final": false,
                         "index": 10,
-                        "lineNumber": 22,
+                        "lineNumber": 23,
                         "name": "artUrl",
                         "notify": "mediaChanged",
                         "override": false,
@@ -481,7 +481,7 @@
                         "designable": true,
                         "final": false,
                         "index": 11,
-                        "lineNumber": 23,
+                        "lineNumber": 24,
                         "name": "isVideo",
                         "notify": "mediaChanged",
                         "override": false,
@@ -498,7 +498,7 @@
                         "designable": true,
                         "final": false,
                         "index": 12,
-                        "lineNumber": 24,
+                        "lineNumber": 25,
                         "name": "hasMedia",
                         "notify": "mediaChanged",
                         "override": false,
@@ -516,7 +516,7 @@
                     {
                         "access": "public",
                         "index": 0,
-                        "lineNumber": 57,
+                        "lineNumber": 58,
                         "name": "mediaChanged",
                         "returnType": "void"
                     }
@@ -525,7 +525,7 @@
                     {
                         "access": "public",
                         "index": 1,
-                        "lineNumber": 54,
+                        "lineNumber": 55,
                         "name": "refresh",
                         "returnType": "void"
                     }
