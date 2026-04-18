@@ -529,7 +529,7 @@ Item {
                 Layout.topMargin: 0
 
                 Text {
-                    text: MediaInfo.hasMedia ? root.formatTime(root.visualPlaybackPositionSeconds) : "-1:-1"
+                    text: MediaInfo.hasMedia ? root.formatTime(root.visualPlaybackPositionSeconds) : "0:00"
                     color: root.cFg
                     font.family: root.cFont
                     font.pixelSize: root.cFontSize * 0.82
@@ -538,7 +538,7 @@ Item {
                 Item { Layout.fillWidth: true }
 
                 Text {
-                    text: MediaInfo.hasMedia ? root.formatTime(MediaInfo.lengthSeconds) : "-1:-1"
+                    text: MediaInfo.hasMedia ? root.formatTime(MediaInfo.lengthSeconds) : "0:00"
                     color: root.cFg
                     font.family: root.cFont
                     font.pixelSize: root.cFontSize * 0.82
