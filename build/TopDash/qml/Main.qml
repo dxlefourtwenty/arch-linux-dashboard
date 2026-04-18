@@ -122,6 +122,7 @@ Window {
     property bool   pauseClockAnimationDuringTransitions: (style && style.pauseClockAnimationDuringTransitions !== undefined) ? style.pauseClockAnimationDuringTransitions : true
     property bool   panelSlideLayerCaching: (style && style.panelSlideLayerCaching !== undefined) ? style.panelSlideLayerCaching : false
     property bool   pauseTabPollingDuringTransitions: (style && style.pauseTabPollingDuringTransitions !== undefined) ? style.pauseTabPollingDuringTransitions : true
+    property int    mediaArtworkSpinDurationMs: (style && style.mediaArtworkSpinDurationMs !== undefined) ? style.mediaArtworkSpinDurationMs : 12000
     property int    tabCount: 4
     property int    activeTabIndex: 0
     property int    displayedTabIndex: 0
@@ -133,6 +134,8 @@ Window {
     property real   tabTrackTargetX: 0
     property int    tabNavDirectionHint: 0
     property bool   tabTrackSnapImmediate: false
+    property bool   tabJumpProxyEnabled: false
+    property int    tabJumpProxyTrackIndex: 0
 
     FontMetrics {
         id: referenceFontMetrics
@@ -251,6 +254,13 @@ Window {
         return Math.max(1, Math.round(Math.max(1, tabSlideDurationCurrent) * stepUnits))
     }
 
+    function tabPageOpacity(index) {
+        if (!tabJumpProxyEnabled) return 1.0
+        var proxyNormalized = ((tabJumpProxyTrackIndex % tabCount) + tabCount) % tabCount
+        if (index === proxyNormalized && index !== activeTabIndex) return 0.0
+        return 1.0
+    }
+
     function syncTabTrack(immediate) {
         var boundedIndex = Math.max(0, Math.min(activeTabIndex, tabCount - 1))
         if (boundedIndex !== activeTabIndex) {
@@ -261,15 +271,40 @@ Window {
         var fromIndex = displayedTabIndex
         var step = tabStepDistance()
         var targetTrackIndex = boundedIndex
+        var useJumpProxy = false
+
         if (!immediate && tabSlideEnabled && pagesViewport && pagesViewport.width > 0) {
+            var forwardSteps = (boundedIndex - fromIndex + tabCount) % tabCount
+            var backwardSteps = (fromIndex - boundedIndex + tabCount) % tabCount
+
+            if (forwardSteps > 1 && backwardSteps > 1) {
+                var jumpDirection = 1
+                if (tabNavDirectionHint < 0) {
+                    jumpDirection = -1
+                } else if (tabNavDirectionHint === 0) {
+                    var rawDelta = boundedIndex - fromIndex
+                    jumpDirection = rawDelta < 0 ? -1 : 1
+                }
+                targetTrackIndex = fromIndex + jumpDirection
+                useJumpProxy = true
+            }
+
             if (tabNavDirectionHint > 0 && fromIndex === tabCount - 1 && boundedIndex === 0) {
-                targetTrackIndex = tabCount
+                targetTrackIndex = fromIndex - 1
+                useJumpProxy = true
             } else if (tabNavDirectionHint < 0 && fromIndex === 0 && boundedIndex === tabCount - 1) {
-                targetTrackIndex = -1
+                targetTrackIndex = fromIndex + 1
+                useJumpProxy = true
             } else if (tabNavDirectionHint === 0) {
-                var forwardSteps = (boundedIndex - fromIndex + tabCount) % tabCount
-                var backwardSteps = (fromIndex - boundedIndex + tabCount) % tabCount
-                if (forwardSteps < backwardSteps) {
+                var isEndpointJump = (fromIndex === 0 && boundedIndex === tabCount - 1)
+                                  || (fromIndex === tabCount - 1 && boundedIndex === 0)
+
+                if (isEndpointJump) {
+                    var rawDelta = boundedIndex - fromIndex
+                    var endpointDirection = rawDelta < 0 ? -1 : 1
+                    targetTrackIndex = fromIndex + endpointDirection
+                    useJumpProxy = true
+                } else if (forwardSteps < backwardSteps) {
                     targetTrackIndex = fromIndex + forwardSteps
                 } else if (backwardSteps < forwardSteps) {
                     targetTrackIndex = fromIndex - backwardSteps
@@ -278,6 +313,8 @@ Window {
         }
 
         displayedTabIndex = boundedIndex
+        tabJumpProxyEnabled = useJumpProxy
+        tabJumpProxyTrackIndex = targetTrackIndex
         tabTrackTargetX = -targetTrackIndex * step
 
         if (immediate || !tabSlideEnabled || !pagesViewport || pagesViewport.width <= 0) {
@@ -288,6 +325,7 @@ Window {
             tabTrackSnapImmediate = false
             tabSwitchAnimating = false
             tabNavDirectionHint = 0
+            tabJumpProxyEnabled = false
             return
         }
 
@@ -299,7 +337,7 @@ Window {
     function normalizeTabTrackAfterWrap() {
         var step = tabStepDistance()
         var normalizedX = -displayedTabIndex * step
-        var shouldSnap = false
+        var shouldSnap = tabJumpProxyEnabled
 
         if (displayedTabIndex === 0 && pagesTrack.x < -(tabCount - 0.5) * step) {
             shouldSnap = true
@@ -313,6 +351,7 @@ Window {
         pagesTrack.x = normalizedX
         tabTrackTargetX = normalizedX
         tabTrackSnapImmediate = false
+        tabJumpProxyEnabled = false
     }
 
     function registerTabNavigation() {
@@ -760,6 +799,24 @@ Window {
 
                         Item {
                             parent: pagesTrack
+                            x: win.tabJumpProxyTrackIndex * win.tabStepDistance()
+                            width: pagesViewport.width
+                            height: pagesViewport.height
+                            visible: win.tabJumpProxyEnabled
+                            z: 10
+                            ShaderEffectSource {
+                                anchors.fill: parent
+                                sourceItem: win.activeTabIndex === 0 ? dashboardPage
+                                           : win.activeTabIndex === 1 ? mediaPage
+                                           : win.activeTabIndex === 2 ? performancePage
+                                           : weatherPage
+                                live: true
+                                hideSource: false
+                            }
+                        }
+
+                        Item {
+                            parent: pagesTrack
                             x: -win.tabStepDistance()
                             width: pagesViewport.width
                             height: pagesViewport.height
@@ -779,6 +836,7 @@ Window {
                             width: pagesViewport.width
                             height: pagesViewport.height
                             visible: true
+                            opacity: win.tabPageOpacity(0)
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -959,6 +1017,7 @@ Window {
                             width: pagesViewport.width
                             height: pagesViewport.height
                             visible: true
+                            opacity: win.tabPageOpacity(1)
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -973,6 +1032,7 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
+                                artworkSpinDurationMs: win.mediaArtworkSpinDurationMs
                                 active: win.activeTabIndex === 1
                                         && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
                             }
@@ -985,6 +1045,7 @@ Window {
                             width: pagesViewport.width
                             height: pagesViewport.height
                             visible: true
+                            opacity: win.tabPageOpacity(2)
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 
@@ -1010,6 +1071,7 @@ Window {
                             width: pagesViewport.width
                             height: pagesViewport.height
                             visible: true
+                            opacity: win.tabPageOpacity(3)
                             layer.enabled: win.tabSlideLayerCaching && win.tabSwitchAnimating
                             layer.smooth: true
 

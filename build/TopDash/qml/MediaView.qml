@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
 
 Item {
     id: root
@@ -22,10 +23,17 @@ Item {
     property int sectionPadding: 16
     property int sectionRadius: 8
     property int buttonSize: 42
-    property int artworkSize: 92
+    property int artworkSize: 110
     property int titleTruncationInset: 20
     property real hoverScale: 1.1
     property int hoverAnimMs: 140
+    property int artworkSpinDurationMs: 12000
+    property int nonSpotifyArtworkRadius: 8
+    property real nonSpotifyArtworkScale: 0.9
+    property string spinMediaIdentity: ""
+    property bool spotifyMedia: MediaInfo.hasMedia
+                              && MediaInfo.playerName.toLowerCase().indexOf("spotify") !== -1
+    property bool spinRunning: root.active && root.spotifyMedia && MediaInfo.status === "Playing"
     property bool seekVisualLock: false
     property real lastBackendPositionSeconds: 0
     property double lastBackendSyncMs: Date.now()
@@ -57,6 +65,14 @@ Item {
         return mmStr + ":" + ssStr
     }
 
+    function currentMediaIdentity() {
+        if (!MediaInfo.hasMedia) {
+            return ""
+        }
+        const lengthIdentity = Math.max(0, Math.round(MediaInfo.lengthSeconds))
+        return MediaInfo.playerName + "|" + MediaInfo.title + "|" + MediaInfo.artist + "|" + MediaInfo.artUrl + "|" + lengthIdentity
+    }
+
     Timer {
         id: seekVisualLockTimer
         interval: 1200
@@ -84,6 +100,17 @@ Item {
             root.lastBackendPositionSeconds = backendPosition
             root.lastBackendSyncMs = Date.now()
 
+            if (!root.spotifyMedia) {
+                root.spinMediaIdentity = ""
+                artworkDisc.rotation = 0
+            } else {
+                const nextIdentity = root.currentMediaIdentity()
+                if (nextIdentity !== root.spinMediaIdentity) {
+                    root.spinMediaIdentity = nextIdentity
+                    artworkDisc.rotation = 0
+                }
+            }
+
             if (!root.seekVisualLock) {
                 return
             }
@@ -109,21 +136,24 @@ Item {
             border.color: root.innerBorderColor
 
             ColumnLayout {
-                anchors.fill: parent
-                anchors.margins: root.sectionPadding
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: root.sectionPadding
+                anchors.rightMargin: root.sectionPadding
+                anchors.verticalCenter: parent.verticalCenter
                 spacing: 8
 
-                Item { Layout.fillHeight: true }
-
                 Rectangle {
+                    id: artworkDisc
                     Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 3
                     Layout.preferredWidth: root.artworkSize
                     Layout.preferredHeight: root.artworkSize
-                    radius: root.sectionRadius
+                    radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
                     color: "transparent"
-                    clip: true
                     transformOrigin: Item.Center
-                    scale: artworkHover.hovered ? root.hoverScale : 1.0
+                    scale: (artworkHover.hovered ? root.hoverScale : 1.0) * (root.spotifyMedia ? 1.0 : root.nonSpotifyArtworkScale)
+                    rotation: 0
                     z: artworkHover.hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
@@ -131,19 +161,44 @@ Item {
                             easing.type: Easing.OutCubic
                         }
                     }
+                    RotationAnimator {
+                        target: artworkDisc
+                        from: artworkDisc.rotation
+                        to: artworkDisc.rotation + 360
+                        duration: Math.max(1000, root.artworkSpinDurationMs)
+                        loops: Animation.Infinite
+                        running: root.spinRunning
+                    }
 
                     HoverHandler {
                         id: artworkHover
                     }
 
-                    Image {
+                    Item {
+                        id: artworkCircle
                         anchors.fill: parent
                         anchors.margins: root.cBorderWidth
-                        visible: MediaInfo.hasMedia && MediaInfo.artUrl.length > 0
-                        source: MediaInfo.artUrl
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        cache: true
+
+                        Image {
+                            id: artworkImage
+                            anchors.fill: parent
+                            source: MediaInfo.artUrl
+                            fillMode: Image.PreserveAspectCrop
+                            asynchronous: true
+                            cache: true
+                            visible: false
+                        }
+
+                        OpacityMask {
+                            anchors.fill: parent
+                            source: artworkImage
+                            visible: MediaInfo.hasMedia && MediaInfo.artUrl.length > 0
+                            maskSource: Rectangle {
+                                width: artworkCircle.width
+                                height: artworkCircle.height
+                                radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
+                            }
+                        }
                     }
 
                     Text {
@@ -158,7 +213,7 @@ Item {
 
                     Rectangle {
                         anchors.fill: parent
-                        radius: root.sectionRadius
+                        radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
                         color: "transparent"
                         border.width: Math.max(1, root.cBorderWidth)
                         border.color: root.cSecondary
@@ -194,8 +249,9 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
+                    Layout.bottomMargin: 5
                     text: MediaInfo.hasMedia
-                        ? (MediaInfo.playerName.length ? MediaInfo.playerName : "player") + " - " + MediaInfo.status
+                        ? (MediaInfo.playerName.length ? MediaInfo.playerName : "player")
                         : ""
                     visible: MediaInfo.hasMedia
                     horizontalAlignment: Text.AlignHCenter
@@ -205,7 +261,6 @@ Item {
                     elide: Text.ElideRight
                 }
 
-                Item { Layout.fillHeight: true }
             }
         }
 
