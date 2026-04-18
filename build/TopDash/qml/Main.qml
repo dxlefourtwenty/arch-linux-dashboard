@@ -1025,6 +1025,7 @@ Window {
                                 anchors.fill: parent
                                 cBg: win.cBg
                                 cFg: win.cFg
+                                cAccent: win.cAccent
                                 cMuted: win.cMuted
                                 cSecondary: win.cSecondary
                                 cBorder: win.cBorder
