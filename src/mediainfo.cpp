@@ -14,8 +14,11 @@ namespace {
 constexpr const char *kPlayerctlBin = "/usr/bin/playerctl";
 constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
-constexpr int kTimeoutMs = 450;
+constexpr int kTimeoutMs = 900;
 constexpr char kFieldSeparator = '\x1f';
+const QString kMetadataFormat =
+    QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
+        .arg(QChar(kFieldSeparator));
 
 struct PlayerEntry {
     QString player;
@@ -163,7 +166,8 @@ void MediaInfo::applySnapshot(const Snapshot &snapshot)
         || m_playerName != snapshot.playerName
         || m_title != snapshot.title
         || m_artist != snapshot.artist
-        || m_artUrl != snapshot.artUrl;
+        || m_artUrl != snapshot.artUrl
+        || m_sourceUrl != snapshot.sourceUrl;
 
     const bool changed = m_availablePlayers != snapshot.availablePlayers
         || m_availablePlayerLabels != snapshot.availablePlayerLabels
@@ -193,6 +197,7 @@ void MediaInfo::applySnapshot(const Snapshot &snapshot)
     m_lengthSeconds = snapshot.lengthSeconds;
     m_volume = snapshot.volume;
     m_artUrl = snapshot.artUrl;
+    m_sourceUrl = snapshot.sourceUrl;
     m_isVideo = snapshot.isVideo;
 
     if (changed) {
@@ -202,6 +207,8 @@ void MediaInfo::applySnapshot(const Snapshot &snapshot)
     if (!m_pollPaused && snapshot.hasMedia && mediaIdentityChanged) {
         QTimer::singleShot(120, this, &MediaInfo::refresh);
         QTimer::singleShot(360, this, &MediaInfo::refresh);
+        QTimer::singleShot(760, this, &MediaInfo::refresh);
+        QTimer::singleShot(1300, this, &MediaInfo::refresh);
     }
 }
 
@@ -252,9 +259,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         const QString metadata = runPlayerctl({
             "-p", player,
             "metadata",
-            "--format",
-            QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
-                .arg(QChar(kFieldSeparator))
+            "--format", kMetadataFormat
         });
 
         const QStringList fields = metadata.split(QChar(kFieldSeparator));
@@ -366,10 +371,16 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         return snapshot;
     }
 
+    const QString selectedMetadataOut = runPlayerctl({
+        "-p", selectedPlayer,
+        "metadata",
+        "--format", kMetadataFormat
+    });
     const QString posOut = runPlayerctl({"-p", selectedPlayer, "position"});
     const QString volumeOut = runPlayerctl({"-p", selectedPlayer, "volume"});
 
-    const QStringList fields = selectedEntry.metadata.split(QChar(kFieldSeparator));
+    const QString metadata = selectedMetadataOut.isEmpty() ? selectedEntry.metadata : selectedMetadataOut;
+    const QStringList fields = metadata.split(QChar(kFieldSeparator));
     const QString rawPlayerName = fields.value(0).trimmed();
     const QString title = compactValue(fields.value(1));
     const QString artist = compactValue(fields.value(2));
@@ -404,6 +415,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     snapshot.artUrl = applyNetflixBranding
         ? QUrl::fromLocalFile(QDir::homePath() + "/.local/share/icons/netflix.png").toString()
         : artUrl;
+    snapshot.sourceUrl = sourceUrl;
     snapshot.isVideo = lowerPlayerName.contains("vlc")
         || lowerPlayerName.contains("mpv")
         || looksLikeYoutube

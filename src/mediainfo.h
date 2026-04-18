@@ -67,6 +67,7 @@ private:
         QString artist;
         QString status;
         QString artUrl;
+        QString sourceUrl;
         double positionSeconds = 0.0;
         double lengthSeconds = 0.0;
         double volume = 0.0;
@@ -104,6 +105,7 @@ private:
     double m_lengthSeconds = 0.0;
     double m_volume = 0.0;
     QString m_artUrl;
+    QString m_sourceUrl;
     bool m_isVideo = false;
     bool m_hasMedia = false;
 };

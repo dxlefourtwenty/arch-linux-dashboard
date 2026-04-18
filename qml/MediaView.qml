@@ -33,6 +33,7 @@ Item {
     property string spinMediaIdentity: ""
     property bool spotifyMedia: MediaInfo.hasMedia
                               && MediaInfo.playerName.toLowerCase().indexOf("spotify") !== -1
+    property bool circularArtwork: root.spotifyMedia || !MediaInfo.hasMedia
     property bool spinRunning: root.active && root.spotifyMedia && MediaInfo.status === "Playing"
     property bool seekVisualLock: false
     property real lastBackendPositionSeconds: 0
@@ -149,7 +150,7 @@ Item {
                     Layout.topMargin: 3
                     Layout.preferredWidth: root.artworkSize
                     Layout.preferredHeight: root.artworkSize
-                    radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
+                    radius: root.circularArtwork ? width / 2 : root.nonSpotifyArtworkRadius
                     color: "transparent"
                     transformOrigin: Item.Center
                     scale: (artworkHover.hovered ? root.hoverScale : 1.0) * (root.spotifyMedia ? 1.0 : root.nonSpotifyArtworkScale)
@@ -196,7 +197,7 @@ Item {
                             maskSource: Rectangle {
                                 width: artworkCircle.width
                                 height: artworkCircle.height
-                                radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
+                                radius: root.circularArtwork ? width / 2 : root.nonSpotifyArtworkRadius
                             }
                         }
                     }
@@ -213,7 +214,7 @@ Item {
 
                     Rectangle {
                         anchors.fill: parent
-                        radius: root.spotifyMedia ? width / 2 : root.nonSpotifyArtworkRadius
+                        radius: root.circularArtwork ? width / 2 : root.nonSpotifyArtworkRadius
                         color: "transparent"
                         border.width: Math.max(1, root.cBorderWidth)
                         border.color: root.cSecondary
