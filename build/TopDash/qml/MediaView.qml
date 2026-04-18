@@ -270,7 +270,7 @@ Item {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                     transformOrigin: Item.Center
-                    scale: hovered ? root.hoverScale : 1.0
+                    scale: hovered ? 1.2 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
@@ -307,7 +307,7 @@ Item {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                     transformOrigin: Item.Center
-                    scale: hovered ? root.hoverScale : 1.0
+                    scale: hovered ? 1.2 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
@@ -339,6 +339,7 @@ Item {
                 }
 
                 Button {
+                    id: playPauseButton
                     text: MediaInfo.status === "Playing" ? "⏸" : "▶"
                     enabled: MediaInfo.hasMedia
                     hoverEnabled: true
@@ -346,7 +347,7 @@ Item {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                     transformOrigin: Item.Center
-                    scale: hovered ? root.hoverScale : 1.0
+                    scale: hovered ? 1.1 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
@@ -357,11 +358,11 @@ Item {
                     onClicked: MediaInfo.playPause()
 
                     contentItem: Text {
-                        text: parent.text
-                        color: parent.enabled ? root.cFg : root.cMuted
+                        text: playPauseButton.text
+                        color: playPauseButton.enabled ? root.cFg : root.cMuted
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        transform: Translate { x: 0 }
+                        transform: Translate { x: playPauseButton.text === "▶" ? 1 : 0 }
                         font.family: root.cNerdFont
                         font.pixelSize: root.cFontSize * 1.5
                     }
@@ -385,7 +386,7 @@ Item {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                     transformOrigin: Item.Center
-                    scale: hovered ? root.hoverScale : 1.0
+                    scale: hovered ? 1.2 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
@@ -423,7 +424,7 @@ Item {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                     transformOrigin: Item.Center
-                    scale: hovered ? root.hoverScale : 1.0
+                    scale: hovered ? 1.2 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
                         NumberAnimation {
