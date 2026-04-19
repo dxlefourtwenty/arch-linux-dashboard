@@ -69,7 +69,7 @@ Item {
     property double visualizerLastPositionAdvanceMs: 0
     property real visualPlaybackPositionSeconds: {
         const _tick = playbackTick
-        const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+        const backendPosition = root.boundedPosition(MediaInfo.positionSeconds)
         if (!MediaInfo.hasMedia) {
             return 0
         }
@@ -77,7 +77,15 @@ Item {
             return backendPosition
         }
         const elapsedSeconds = Math.max(0, (Date.now() - lastBackendSyncMs) / 1000.0)
-        return Math.max(0, Math.min(progressSlider.to, lastBackendPositionSeconds + elapsedSeconds))
+        return root.boundedPosition(lastBackendPositionSeconds + elapsedSeconds)
+    }
+
+    function boundedPosition(seconds) {
+        const safeSeconds = Math.max(0, seconds)
+        if (MediaInfo.lengthSeconds > 0) {
+            return Math.min(progressSlider.to, safeSeconds)
+        }
+        return safeSeconds
     }
 
     function formatTime(seconds) {
@@ -156,7 +164,7 @@ Item {
 
         function onMediaChanged() {
             const nowMs = Date.now()
-            const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+            const backendPosition = root.boundedPosition(MediaInfo.positionSeconds)
             if ((backendPosition - root.lastBackendPositionSeconds) > root.visualizerPositionAdvanceThresholdSeconds) {
                 root.visualizerLastPositionAdvanceMs = nowMs
             }
@@ -314,7 +322,7 @@ Item {
         id: visualizerToggleButton
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.topMargin: root.cBorderWidth + 6
+        anchors.topMargin: root.cBorderWidth + 7
         anchors.rightMargin: root.cBorderWidth + 8
         z: 3
         hoverEnabled: true
@@ -610,7 +618,7 @@ Item {
                         implicitWidth: root.buttonSize
                         implicitHeight: root.buttonSize
                         radius: width / 2
-                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.7)
                         border.width: root.cBorderWidth
                         border.color: root.cBorder
                         opacity: 1.0
@@ -877,7 +885,7 @@ Item {
                     background: Rectangle {
                         implicitHeight: 34
                         radius: Math.round(implicitHeight / 2)
-                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.7)
                         border.width: root.cBorderWidth
                         border.color: root.cSecondary
                     }

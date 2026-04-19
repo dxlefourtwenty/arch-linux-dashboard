@@ -91,6 +91,9 @@ private:
     static QString compactValue(const QString &value);
     static QString displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, bool looksLikeNetflix, const QString &sourceUrlLower);
     static QStringList browserClassesWithYouTubeTitle();
+    static QString normalizeBrowserWindowTitle(const QString &rawTitle);
+    static QString browserVideoTokenForClass(const QString &classNeedle);
+    static QString tokenTitlePart(const QString &token);
     static QString activeBrowserVideoToken();
     static double parseMicroseconds(const QString &raw);
 
@@ -118,4 +121,6 @@ private:
     bool m_isVideo = false;
     bool m_hasMedia = false;
     qint64 m_lastStableSnapshotMs = 0;
+    qint64 m_lastVideoSwitchNudgeMs = 0;
+    QString m_lastVideoSwitchNudgeIdentity;
 };

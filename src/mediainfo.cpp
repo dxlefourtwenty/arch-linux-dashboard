@@ -17,6 +17,8 @@ constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
 constexpr int kTimeoutMs = 900;
 constexpr qint64 kTransientEmptySnapshotGraceMs = 2200;
+constexpr qint64 kVideoSwitchNudgeRetryMs = 2500;
+constexpr qint64 kVideoSwitchNudgeUndoDelayMs = 95;
 constexpr char kFieldSeparator = '\x1f';
 const QString kStatusFormat = QString("{{playerName}}%1{{status}}").arg(QChar(kFieldSeparator));
 const QString kMetadataFormat =
@@ -239,6 +241,50 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
 {
     Snapshot snapshot = rawSnapshot;
     const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+    const bool selectedVideoContext = m_hasMedia
+        && rawSnapshot.hasMedia
+        && rawSnapshot.isVideo
+        && !rawSnapshot.selectedPlayer.isEmpty()
+        && m_selectedPlayer == rawSnapshot.selectedPlayer;
+    const bool likelyNewVideoByUrl = selectedVideoContext
+        && !rawSnapshot.sourceUrl.isEmpty()
+        && !m_sourceUrl.isEmpty()
+        && rawSnapshot.sourceUrl != m_sourceUrl;
+    const bool likelyNewVideoByTitle = selectedVideoContext
+        && !rawSnapshot.title.isEmpty()
+        && !m_title.isEmpty()
+        && rawSnapshot.title != m_title;
+    const bool likelyNewVideoByTrack = selectedVideoContext
+        && !rawSnapshot.trackId.isEmpty()
+        && !m_trackId.isEmpty()
+        && rawSnapshot.trackId != m_trackId;
+    const bool likelyNewVideoByToken = selectedVideoContext
+        && !rawSnapshot.browserVideoToken.isEmpty()
+        && rawSnapshot.browserVideoToken != m_browserVideoToken;
+    const QString rawSourceUrlLower = rawSnapshot.sourceUrl.toLower();
+    const bool rawLooksLikeYoutube = rawSnapshot.playerName == "YouTube"
+        || rawSourceUrlLower.contains("youtube.com")
+        || rawSourceUrlLower.contains("youtu.be");
+    const QString rawBrowserTokenTitle = tokenTitlePart(rawSnapshot.browserVideoToken);
+    const bool rawBrowserTokenTitleMismatch = selectedVideoContext
+        && rawLooksLikeYoutube
+        && !rawBrowserTokenTitle.isEmpty()
+        && !rawSnapshot.title.isEmpty()
+        && rawSnapshot.title.toLower() != rawBrowserTokenTitle;
+    const bool shouldNudgeOnVideoSwitch = !m_pollPaused
+        && rawLooksLikeYoutube
+        && (likelyNewVideoByUrl || likelyNewVideoByTitle || likelyNewVideoByTrack || likelyNewVideoByToken || rawBrowserTokenTitleMismatch);
+    const QString nudgeIdentity = rawSnapshot.selectedPlayer
+        + "|"
+        + rawSnapshot.trackId
+        + "|"
+        + rawSnapshot.sourceUrl
+        + "|"
+        + rawSnapshot.title
+        + "|"
+        + rawBrowserTokenTitle
+        + "|"
+        + rawSnapshot.browserVideoToken;
 
     if (snapshot.hasMedia) {
         m_lastStableSnapshotMs = nowMs;
@@ -272,6 +318,22 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         snapshot.trackId.clear();
         snapshot.sourceUrl.clear();
     }
+    const QString browserTokenTitle = tokenTitlePart(snapshot.browserVideoToken);
+    const bool likelyBrowserTokenMetadataLag = m_hasMedia
+        && snapshot.hasMedia
+        && snapshot.isVideo
+        && m_selectedPlayer == snapshot.selectedPlayer
+        && snapshot.playerName == "YouTube"
+        && !browserTokenTitle.isEmpty()
+        && !snapshot.title.isEmpty()
+        && snapshot.title.toLower() != browserTokenTitle
+        && snapshot.positionSeconds > 2.0;
+    if (likelyBrowserTokenMetadataLag) {
+        snapshot.positionSeconds = 0.0;
+        snapshot.lengthSeconds = 0.0;
+        snapshot.trackId.clear();
+        snapshot.sourceUrl.clear();
+    }
     const bool likelyBrowserMetadataLag = m_hasMedia
         && snapshot.hasMedia
         && m_selectedPlayer == snapshot.selectedPlayer
@@ -295,6 +357,24 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
     if (likelyTrackDurationLag) {
         snapshot.lengthSeconds = 0.0;
     }
+    if (shouldNudgeOnVideoSwitch) {
+        const bool firstNudgeForIdentity = nudgeIdentity != m_lastVideoSwitchNudgeIdentity;
+        const bool retryAfterDelay = !firstNudgeForIdentity
+            && (nowMs - m_lastVideoSwitchNudgeMs) >= kVideoSwitchNudgeRetryMs;
+        if (firstNudgeForIdentity || retryAfterDelay) {
+            m_lastVideoSwitchNudgeIdentity = nudgeIdentity;
+            m_lastVideoSwitchNudgeMs = nowMs;
+            const QString playerForNudge = rawSnapshot.selectedPlayer;
+            sendPlayerctl({"-p", playerForNudge, "position", "0.05+"});
+            QTimer::singleShot(kVideoSwitchNudgeUndoDelayMs, this, [this, playerForNudge]() {
+                sendPlayerctl({"-p", playerForNudge, "position", "0.05-"});
+                requestRefreshSoon();
+            });
+            QTimer::singleShot(45, this, &MediaInfo::refresh);
+            QTimer::singleShot(130, this, &MediaInfo::refresh);
+            QTimer::singleShot(320, this, &MediaInfo::refresh);
+        }
+    }
 
     const bool mediaIdentityChanged = m_hasMedia != snapshot.hasMedia
         || m_selectedPlayer != snapshot.selectedPlayer
@@ -306,6 +386,7 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         || m_sourceUrl != snapshot.sourceUrl
         || m_browserVideoToken != snapshot.browserVideoToken
         || activeBrowserVideoChanged
+        || likelyBrowserTokenMetadataLag
         || likelyBrowserMetadataLag
         || likelyTrackDurationLag;
 
@@ -614,7 +695,10 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         || sourceUrl.endsWith(".webm")
         || sourceUrl.endsWith(".mkv");
     if (!classNeedle.isEmpty() && snapshot.isVideo) {
-        const QString activeBrowserToken = activeBrowserVideoToken();
+        QString activeBrowserToken = browserVideoTokenForClass(classNeedle);
+        if (activeBrowserToken.isEmpty()) {
+            activeBrowserToken = activeBrowserVideoToken();
+        }
         const QString prefix = classNeedle + "|";
         if (activeBrowserToken.startsWith(prefix)) {
             snapshot.browserVideoToken = activeBrowserToken;
@@ -724,6 +808,120 @@ QStringList MediaInfo::browserClassesWithYouTubeTitle()
     return matches.values();
 }
 
+QString MediaInfo::normalizeBrowserWindowTitle(const QString &rawTitle)
+{
+    QString title = compactValue(rawTitle);
+    if (title.isEmpty()) {
+        return {};
+    }
+
+    auto stripSuffix = [&title](const QString &suffix) {
+        if (title.endsWith(suffix, Qt::CaseInsensitive)) {
+            title.chop(suffix.size());
+            title = title.trimmed();
+        }
+    };
+    stripSuffix(" - Brave");
+    stripSuffix(" - Chromium");
+    stripSuffix(" - Google Chrome");
+    stripSuffix(" - Mozilla Firefox");
+    stripSuffix(" - YouTube");
+    stripSuffix(" - Netflix");
+    stripSuffix(" - Twitch");
+    stripSuffix(" - Vimeo");
+    if (title.isEmpty()) {
+        return {};
+    }
+
+    return title.toLower();
+}
+
+QString MediaInfo::browserVideoTokenForClass(const QString &classNeedle)
+{
+    if (classNeedle.isEmpty()) {
+        return {};
+    }
+
+    QProcess proc;
+    proc.start(QString::fromUtf8(kHyprctlBin), {"-j", "clients"});
+    if (!proc.waitForStarted(kTimeoutMs)) {
+        return {};
+    }
+    if (!proc.waitForFinished(kTimeoutMs)) {
+        proc.kill();
+        proc.waitForFinished();
+        return {};
+    }
+    if (proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
+        return {};
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson(proc.readAllStandardOutput());
+    if (!doc.isArray()) {
+        return {};
+    }
+
+    const QJsonArray clients = doc.array();
+    QString bestToken;
+    int bestSiteRank = 99;
+    int bestFocusRank = 1000000;
+    for (const QJsonValue &entry : clients) {
+        if (!entry.isObject()) {
+            continue;
+        }
+
+        const QJsonObject obj = entry.toObject();
+        const QString windowClass = obj.value("class").toString().toLower();
+        if (!windowClass.contains(classNeedle)) {
+            continue;
+        }
+
+        const QString normalizedTitle = normalizeBrowserWindowTitle(obj.value("title").toString());
+        if (normalizedTitle.isEmpty()) {
+            continue;
+        }
+
+        int siteRank = 4;
+        if (normalizedTitle.contains("youtube") || normalizedTitle.contains("youtu.be")) {
+            siteRank = 0;
+        } else if (normalizedTitle.contains("netflix")) {
+            siteRank = 1;
+        } else if (normalizedTitle.contains("twitch")) {
+            siteRank = 2;
+        } else if (normalizedTitle.contains("vimeo")) {
+            siteRank = 3;
+        }
+
+        int focusRank = 1000000;
+        const QJsonValue focusHistoryValue = obj.value("focusHistoryID");
+        if (focusHistoryValue.isDouble()) {
+            const int parsed = focusHistoryValue.toInt();
+            if (parsed >= 0) {
+                focusRank = parsed;
+            }
+        } else if (obj.value("focused").toBool(false)) {
+            focusRank = 0;
+        }
+
+        if (siteRank < bestSiteRank || (siteRank == bestSiteRank && focusRank < bestFocusRank)) {
+            bestSiteRank = siteRank;
+            bestFocusRank = focusRank;
+            bestToken = classNeedle + "|" + normalizedTitle;
+        }
+    }
+
+    return bestToken;
+}
+
+QString MediaInfo::tokenTitlePart(const QString &token)
+{
+    const int separatorIndex = token.indexOf('|');
+    if (separatorIndex < 0 || separatorIndex >= (token.size() - 1)) {
+        return {};
+    }
+    return token.mid(separatorIndex + 1).trimmed();
+}
+
 QString MediaInfo::activeBrowserVideoToken()
 {
     QProcess proc;
@@ -758,29 +956,11 @@ QString MediaInfo::activeBrowserVideoToken()
         return {};
     }
 
-    QString title = compactValue(obj.value("title").toString());
-    if (title.isEmpty()) {
+    const QString normalizedTitle = normalizeBrowserWindowTitle(obj.value("title").toString());
+    if (normalizedTitle.isEmpty()) {
         return {};
     }
-
-    auto stripSuffix = [&title](const QString &suffix) {
-        if (title.endsWith(suffix, Qt::CaseInsensitive)) {
-            title.chop(suffix.size());
-            title = title.trimmed();
-        }
-    };
-    stripSuffix(" - Brave");
-    stripSuffix(" - Chromium");
-    stripSuffix(" - Google Chrome");
-    stripSuffix(" - Mozilla Firefox");
-    stripSuffix(" - YouTube");
-    stripSuffix(" - Netflix");
-    stripSuffix(" - Twitch");
-    stripSuffix(" - Vimeo");
-    if (title.isEmpty()) {
-        return {};
-    }
-    return classKey + "|" + title.toLower();
+    return classKey + "|" + normalizedTitle;
 }
 
 double MediaInfo::parseMicroseconds(const QString &raw)
