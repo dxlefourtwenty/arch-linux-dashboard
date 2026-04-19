@@ -88,7 +88,7 @@ private:
     static Snapshot collectSnapshot(const QString &preferredSelected, const QString &preferredTarget);
     static QString runPlayerctl(const QStringList &args);
     static QString compactValue(const QString &value);
-    static QString displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, const QString &sourceUrlLower);
+    static QString displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, bool looksLikeNetflix, const QString &sourceUrlLower);
     static QStringList browserClassesWithYouTubeTitle();
     static QString activeBrowserVideoToken();
     static double parseMicroseconds(const QString &raw);

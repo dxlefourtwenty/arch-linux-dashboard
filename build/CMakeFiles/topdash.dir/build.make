@@ -579,7 +579,7 @@ topdash: CMakeFiles/topdash.dir/build.make
 topdash: CMakeFiles/topdash.dir/compiler_depend.ts
 topdash: /usr/lib/libQt6Concurrent.so.6.11.0
 topdash: /usr/lib/libQt6Quick.so.6.11.0
-topdash: /usr/lib/libLayerShellQtInterface.so.6.6.3
+topdash: /usr/lib/libLayerShellQtInterface.so.6.6.4
 topdash: /usr/lib/libQt6OpenGL.so.6.11.0
 topdash: /usr/lib/libQt6Qml.so.6.11.0
 topdash: /usr/lib/libQt6Network.so.6.11.0

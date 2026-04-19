@@ -7,8 +7,21 @@
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 24,
+                    "lineNumber": 26,
                     "name": "reload",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 27,
+                    "name": "setUse24Hour",
                     "returnType": "void"
                 },
                 {
@@ -19,9 +32,9 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 2,
+                    "index": 3,
                     "isConst": true,
-                    "lineNumber": 25,
+                    "lineNumber": 28,
                     "name": "tasksForDate",
                     "returnType": "QStringList"
                 }
@@ -78,6 +91,23 @@
                     "type": "QString",
                     "user": false,
                     "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 16,
+                    "name": "use24Hour",
+                    "notify": "configChanged",
+                    "override": false,
+                    "read": "use24Hour",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "AppConfig",
@@ -85,7 +115,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 28,
+                    "lineNumber": 31,
                     "name": "configChanged",
                     "returnType": "void"
                 }

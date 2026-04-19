@@ -1,6 +1,7 @@
 #include "appconfig.h"
 
 #include <QDate>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QJsonArray>
@@ -11,6 +12,9 @@
 AppConfig::AppConfig(QObject *parent)
     : QObject(parent)
 {
+    m_path = QStandardPaths::writableLocation(
+        QStandardPaths::HomeLocation)
+        + "/.config/dashboard/config.json";
     load();
     refreshTasksCache();
 }
@@ -30,9 +34,25 @@ QString AppConfig::outputName() const
     return m_outputName;
 }
 
+bool AppConfig::use24Hour() const
+{
+    return m_use24Hour;
+}
+
 void AppConfig::reload()
 {
     load();
+    emit configChanged();
+}
+
+void AppConfig::setUse24Hour(bool enabled)
+{
+    if (m_use24Hour == enabled) {
+        return;
+    }
+
+    m_use24Hour = enabled;
+    save();
     emit configChanged();
 }
 
@@ -142,14 +162,14 @@ void AppConfig::refreshTasksCache() const
 
 void AppConfig::load()
 {
-    QString path =
-        QStandardPaths::writableLocation(
-            QStandardPaths::HomeLocation)
-        + "/.config/dashboard/config.json";
-
-    QFile file(path);
-    if (!file.open(QIODevice::ReadOnly))
+    QFile file(m_path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        m_username = "user";
+        m_profileImage = "";
+        m_outputName = "";
+        m_use24Hour = false;
         return;
+    }
 
     auto doc = QJsonDocument::fromJson(file.readAll());
     auto obj = doc.object();
@@ -157,4 +177,34 @@ void AppConfig::load()
     m_username = obj["username"].toString("user");
     m_profileImage = obj["profileImage"].toString("");
     m_outputName = obj["outputName"].toString("");
+    m_use24Hour = obj["use24Hour"].toBool(false);
+}
+
+void AppConfig::save() const
+{
+    const QString configDir = QFileInfo(m_path).absolutePath();
+    if (!configDir.isEmpty()) {
+        QDir().mkpath(configDir);
+    }
+
+    QJsonObject obj;
+    QFile inputFile(m_path);
+    if (inputFile.open(QIODevice::ReadOnly)) {
+        const QJsonDocument inputDoc = QJsonDocument::fromJson(inputFile.readAll());
+        if (inputDoc.isObject()) {
+            obj = inputDoc.object();
+        }
+    }
+
+    obj.insert("username", m_username);
+    obj.insert("profileImage", m_profileImage);
+    obj.insert("outputName", m_outputName);
+    obj.insert("use24Hour", m_use24Hour);
+
+    QFile file(m_path);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        return;
+    }
+
+    file.write(QJsonDocument(obj).toJson(QJsonDocument::Indented));
 }

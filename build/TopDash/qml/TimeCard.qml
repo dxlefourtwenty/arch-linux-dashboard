@@ -2,6 +2,7 @@ import QtQuick
 
 Rectangle {
     id: root
+    signal toggleFormatRequested()
 
     property color  cFg: "white"
     property color  cAccent: "#ffffff"
@@ -18,6 +19,7 @@ Rectangle {
     property real   meridiemOffsetX: 5
     property int    colonBlinkMs: 1000
     property bool   animationEnabled: true
+    property bool   use24Hour: false
     property string currentHourText: "12"
     property string currentMinuteText: "00"
     property string currentMeridiemText: "AM"
@@ -26,7 +28,8 @@ Rectangle {
         const now = new Date()
         const rawHour = now.getHours()
         const hour12 = rawHour % 12 === 0 ? 12 : rawHour % 12
-        const hourText = hour12 < 10 ? "0" + hour12 : "" + hour12
+        const displayHour = root.use24Hour ? rawHour : hour12
+        const hourText = displayHour < 10 ? "0" + displayHour : "" + displayHour
         const minuteText = now.getMinutes() < 10 ? "0" + now.getMinutes() : "" + now.getMinutes()
         root.currentHourText = hourText
         root.currentMinuteText = minuteText
@@ -44,7 +47,14 @@ Rectangle {
 
     HoverHandler {
         id: clockHover
+        cursorShape: Qt.PointingHandCursor
     }
+
+    TapHandler {
+        onTapped: root.toggleFormatRequested()
+    }
+
+    onUse24HourChanged: root.refreshTime()
 
     Component.onCompleted: root.refreshTime()
 
@@ -97,6 +107,7 @@ Rectangle {
 
         Text {
             text: root.currentMeridiemText
+            visible: !root.use24Hour
             color: root.activeSecondary
             font.family: root.cFont
             font.pixelSize: root.meridiemFontSize

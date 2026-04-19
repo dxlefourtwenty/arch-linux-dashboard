@@ -364,8 +364,12 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
             || titleLower.startsWith("youtube -")
             || titleLower.contains(" youtu.be")
             || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+        const bool looksLikeNetflix = sourceUrl.contains("netflix.com")
+            || titleLower.contains("netflix")
+            || titleLower.endsWith(" - netflix")
+            || titleLower.startsWith("netflix -");
 
-        QString displayName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
+        QString displayName = displayPlayerName(rawPlayerName, looksLikeYoutube, looksLikeNetflix, sourceUrl);
         if (displayName.isEmpty()) {
             displayName = player;
         }
@@ -473,7 +477,10 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     const QString sourceUrl = compactValue(fields.value(6)).toLower();
     const QString titleLower = title.toLower();
     const QString lowerPlayerName = rawPlayerName.toLower();
-    const bool looksLikeNetflix = titleLower.contains("netflix");
+    const bool looksLikeNetflix = sourceUrl.contains("netflix.com")
+        || titleLower.contains("netflix")
+        || titleLower.endsWith(" - netflix")
+        || titleLower.startsWith("netflix -");
     const QString classNeedle = lowerPlayerName.contains("brave")
         ? "brave"
         : (lowerPlayerName.contains("firefox")
@@ -489,7 +496,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
     const bool applyNetflixBranding = looksLikeNetflix && !looksLikeYoutube;
 
-    snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
+    snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, looksLikeNetflix, sourceUrl);
     snapshot.title = title;
     snapshot.trackId = trackId;
     snapshot.artist = applyNetflixBranding ? "Netflix" : artist;
@@ -547,10 +554,13 @@ QString MediaInfo::compactValue(const QString &value)
     return out.trimmed();
 }
 
-QString MediaInfo::displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, const QString &sourceUrlLower)
+QString MediaInfo::displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, bool looksLikeNetflix, const QString &sourceUrlLower)
 {
     if (looksLikeYoutube || sourceUrlLower.contains("youtube.com") || sourceUrlLower.contains("youtu.be")) {
         return "YouTube";
+    }
+    if (looksLikeNetflix || sourceUrlLower.contains("netflix.com")) {
+        return "Netflix";
     }
 
     const QString lower = rawPlayerName.toLower();

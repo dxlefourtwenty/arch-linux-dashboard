@@ -1486,12 +1486,12 @@
                             "message": ""
                         },
                         {
-                            "codegenResult": 0,
-                            "column": 34,
+                            "codegenResult": 2,
+                            "column": 32,
                             "durationMicroseconds": 0,
-                            "functionName": "opacity",
-                            "line": 548,
-                            "message": ""
+                            "functionName": "color",
+                            "line": 545,
+                            "message": "Cannot access value for name root"
                         },
                         {
                             "codegenResult": 2,

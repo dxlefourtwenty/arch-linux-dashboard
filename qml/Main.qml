@@ -921,7 +921,9 @@ Window {
                                             cSecondary: win.cSecondary
                                             cFont: win.cFont
                                             cFontSize: win.cFontSize
+                                            use24Hour: AppConfig.use24Hour
                                             animationEnabled: !(win.pauseClockAnimationDuringTransitions && win.uiTransitionActive)
+                                            onToggleFormatRequested: AppConfig.setUse24Hour(!AppConfig.use24Hour)
                                         }
                                     }
                                 }

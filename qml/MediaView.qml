@@ -542,10 +542,10 @@ Item {
                         implicitWidth: root.buttonSize
                         implicitHeight: root.buttonSize
                         radius: width / 2
-                        color: "transparent"
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 1.0)
                         border.width: root.cBorderWidth
                         border.color: root.cBorder
-                        opacity: parent.enabled ? 1.0 : 0.55
+                        opacity: 1.0
                     }
                 }
 
@@ -658,7 +658,7 @@ Item {
                     implicitWidth: 260
                     implicitHeight: 6
                     radius: 3 * (progressHover.hovered ? 2.0 : 1.0)
-                    color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.35)
+                    color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
                     Behavior on radius {
                         NumberAnimation {
                             duration: root.hoverAnimMs
@@ -809,7 +809,7 @@ Item {
                     background: Rectangle {
                         implicitHeight: 34
                         radius: Math.round(implicitHeight / 2)
-                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.22)
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 1.0)
                         border.width: root.cBorderWidth
                         border.color: root.cSecondary
                     }

@@ -5543,6 +5543,7 @@ CMakeFiles/topdash.dir/src/appconfig.cpp.o: /home/dxle/builds/dashboard/src/appc
   /usr/include/pthread.h \
   /usr/include/qt6/QtCore/QDate \
   /usr/include/qt6/QtCore/QDateTime \
+  /usr/include/qt6/QtCore/QDir \
   /usr/include/qt6/QtCore/QFile \
   /usr/include/qt6/QtCore/QFileInfo \
   /usr/include/qt6/QtCore/QJsonArray \
@@ -5595,6 +5596,8 @@ CMakeFiles/topdash.dir/src/appconfig.cpp.o: /home/dxle/builds/dashboard/src/appc
   /usr/include/qt6/QtCore/qdatastream.h \
   /usr/include/qt6/QtCore/qdatetime.h \
   /usr/include/qt6/QtCore/qdebug.h \
+  /usr/include/qt6/QtCore/qdir.h \
+  /usr/include/qt6/QtCore/qdirlisting.h \
   /usr/include/qt6/QtCore/qendian.h \
   /usr/include/qt6/QtCore/qexceptionhandling.h \
   /usr/include/qt6/QtCore/qfile.h \
@@ -9848,7 +9851,7 @@ topdash: /usr/lib/Scrt1.o \
   /usr/lib/libEGL.so.1 \
   /usr/lib/libGLX.so \
   /usr/lib/libGLdispatch.so.0 \
-  /usr/lib/libLayerShellQtInterface.so.6.6.3 \
+  /usr/lib/libLayerShellQtInterface.so.6.6.4 \
   /usr/lib/libOpenGL.so \
   /usr/lib/libQt6Concurrent.so.6.11.0 \
   /usr/lib/libQt6Core.so.6.11.0 \
@@ -10088,8 +10091,6 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/StatsCard_qml.cpp.o:
 /usr/lib/libQt6Network.so.6.11.0:
 
 /usr/lib/libQt6Core.so.6.11.0:
-
-/usr/lib/libLayerShellQtInterface.so.6.6.3:
 
 /usr/lib/libGLX.so:
 
@@ -12032,6 +12033,8 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o:
 /usr/include/qt6/QtCore/qcborstreamwriter.h:
 
 /usr/include/qt6/QtCore/qfiledevice.h:
+
+/usr/lib/libLayerShellQtInterface.so.6.6.4:
 
 /usr/include/qt6/QtCore/qtnoop.h:
 
