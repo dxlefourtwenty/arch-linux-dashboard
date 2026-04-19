@@ -256,7 +256,7 @@
                         {
                             "codegenResult": 0,
                             "column": 38,
-                            "durationMicroseconds": 1000,
+                            "durationMicroseconds": 0,
                             "functionName": "fontMetricScale",
                             "line": 89,
                             "message": ""
@@ -624,7 +624,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 1000,
+                            "durationMicroseconds": 0,
                             "functionName": "registerTabNavigation",
                             "line": 357,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
@@ -1224,7 +1224,7 @@
                         {
                             "codegenResult": 2,
                             "column": 47,
-                            "durationMicroseconds": 1000,
+                            "durationMicroseconds": 0,
                             "functionName": "text",
                             "line": 684,
                             "message": "Cannot access value for name index"

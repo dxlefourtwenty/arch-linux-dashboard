@@ -21,6 +21,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o.d"
   "/home/dxle/builds/dashboard/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o" "gcc" "CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o.d"
   "/home/dxle/builds/dashboard/src/appconfig.cpp" "CMakeFiles/topdash.dir/src/appconfig.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/appconfig.cpp.o.d"
+  "/home/dxle/builds/dashboard/src/audiospectrum.cpp" "CMakeFiles/topdash.dir/src/audiospectrum.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/audiospectrum.cpp.o.d"
   "/home/dxle/builds/dashboard/src/configfiles.cpp" "CMakeFiles/topdash.dir/src/configfiles.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/configfiles.cpp.o.d"
   "/home/dxle/builds/dashboard/src/main.cpp" "CMakeFiles/topdash.dir/src/main.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/main.cpp.o.d"
   "/home/dxle/builds/dashboard/src/mediainfo.cpp" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o" "gcc" "CMakeFiles/topdash.dir/src/mediainfo.cpp.o.d"

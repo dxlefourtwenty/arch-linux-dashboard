@@ -15,6 +15,7 @@
 #include "appconfig.h"
 #include "configfiles.h"
 #include "mediainfo.h"
+#include "audiospectrum.h"
 #include "weatherconfig.h"
 
 static QObject *g_root = nullptr;
@@ -68,12 +69,14 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     SystemInfo sys;
     MediaInfo media;
+    AudioSpectrum audioSpectrum;
     AppConfig cfg;
     ConfigFiles configFiles(&engine);
     WeatherConfig weatherConfig;
 
     engine.rootContext()->setContextProperty("SystemInfo", &sys);
     engine.rootContext()->setContextProperty("MediaInfo", &media);
+    engine.rootContext()->setContextProperty("AudioSpectrum", &audioSpectrum);
     engine.rootContext()->setContextProperty("AppConfig", &cfg);
     engine.rootContext()->setContextProperty("ConfigFiles", &configFiles);
     engine.rootContext()->setContextProperty("WeatherConfig", &weatherConfig);

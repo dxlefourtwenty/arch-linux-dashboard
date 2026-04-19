@@ -47,16 +47,7 @@ Item {
     property int visualizerPauseDebounceMs: 200
     property int visualizerPositionGraceMs: 900
     property real visualizerPositionAdvanceThresholdSeconds: 0.08
-    property real visualizerPhase: 0
-    property int visualizerPhaseDurationMs: 3000
-    property int visualizerPhaseTickMs: 16
-    property double visualizerLastTickMs: 0
-    property int visualizerPhaseLoopCycles: 3600
-    readonly property real visualizerPhaseLoopSpan: (Math.PI * 2) * root.visualizerPhaseLoopCycles
-    readonly property int visualizerPhaseLoopDurationMs: Math.max(1, root.visualizerPhaseDurationMs * root.visualizerPhaseLoopCycles)
-    readonly property bool visualizerPhaseActive: root.active
-        && root.visualizerEnabled
-        && MediaInfo.hasMedia
+    readonly property var visualizerLevels: AudioSpectrum.levels
     readonly property bool visualizerPlayingLive: root.active
         && root.visualizerEnabled
         && MediaInfo.hasMedia
@@ -126,33 +117,6 @@ Item {
                 return
             }
             root.visualizerPlaying = false
-        }
-    }
-
-    Timer {
-        id: visualizerPhaseTimer
-        interval: Math.max(1, root.visualizerPhaseTickMs)
-        repeat: true
-        running: root.visualizerPhaseActive
-        onRunningChanged: {
-            if (!running) {
-                root.visualizerLastTickMs = 0
-            }
-        }
-        onTriggered: {
-            const nowMs = Date.now()
-            if (root.visualizerLastTickMs <= 0) {
-                root.visualizerLastTickMs = nowMs
-                return
-            }
-
-            const elapsedMs = Math.max(0, nowMs - root.visualizerLastTickMs)
-            root.visualizerLastTickMs = nowMs
-            const phaseStep = (root.visualizerPhaseLoopSpan * elapsedMs) / Math.max(1, root.visualizerPhaseLoopDurationMs)
-            const nextPhase = root.visualizerPhase + phaseStep
-            root.visualizerPhase = nextPhase >= root.visualizerPhaseLoopSpan
-                ? nextPhase % root.visualizerPhaseLoopSpan
-                : nextPhase
         }
     }
 
@@ -259,6 +223,18 @@ Item {
     onVisualizerEnabledChanged: syncVisualizerPlayingState()
     Component.onCompleted: syncVisualizerPlayingState()
 
+    Binding {
+        target: AudioSpectrum
+        property: "barCount"
+        value: root.visualizerBarCount
+    }
+
+    Binding {
+        target: AudioSpectrum
+        property: "running"
+        value: root.visualizerPlaying
+    }
+
     Rectangle {
         id: panelBorder
         anchors.fill: parent
@@ -304,19 +280,11 @@ Item {
                     Rectangle {
                         width: parent.width
                         height: {
-                            const indexPhase = parent.index
-                            const phase = root.visualizerPhase
-                            const normalizedIndex = indexPhase / Math.max(1, root.visualizerBarCount - 1)
-                            const waveA = 0.5 + (0.5 * Math.sin((indexPhase * 0.41) + (phase * (1.05 + (normalizedIndex * 0.72)))))
-                            const waveB = 0.5 + (0.5 * Math.sin((indexPhase * 0.17) - (phase * (1.58 + (normalizedIndex * 0.48)))))
-                            const ripple = 0.5 + (0.5 * Math.sin((indexPhase * 1.23) + (phase * 2.47)))
-                            const travelPhase = ((phase * (0.22 + (normalizedIndex * 0.09))) + (indexPhase * 0.6)) / (Math.PI * 2)
-                            const travelFrac = travelPhase - Math.floor(travelPhase)
-                            const travel = 1.0 - Math.abs((travelFrac * 2.0) - 1.0)
-                            const dynamicLevel = 0.12 + (waveA * 0.33) + (waveB * 0.22) + (ripple * 0.2) + (travel * 0.11)
+                            const levels = root.visualizerLevels
+                            const audioLevel = levels && parent.index < levels.length ? Number(levels[parent.index]) : 0
+                            const dynamicLevel = Math.max(root.visualizerPausedFloor, Math.min(0.96, 0.06 + (audioLevel * 0.9)))
                             const mixedLevel = root.visualizerPausedFloor + ((dynamicLevel - root.visualizerPausedFloor) * root.visualizerEnergy)
-                            const clamped = Math.max(root.visualizerPausedFloor, Math.min(0.96, mixedLevel))
-                            return Math.max(2, parent.height * clamped)
+                            return Math.max(2, parent.height * mixedLevel)
                         }
                         anchors.bottom: parent.bottom
                         radius: 0

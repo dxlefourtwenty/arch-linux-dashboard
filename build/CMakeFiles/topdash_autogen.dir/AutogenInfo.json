@@ -1376,6 +1376,12 @@
 			null
 		],
 		[
+			"/home/dxle/builds/dashboard/src/audiospectrum.h",
+			"MU",
+			"UVLADIE3JM/moc_audiospectrum.cpp",
+			null
+		],
+		[
 			"/home/dxle/builds/dashboard/src/configfiles.h",
 			"MU",
 			"UVLADIE3JM/moc_configfiles.cpp",
@@ -1492,6 +1498,7 @@
 	"SOURCES" : 
 	[
 		[ "/home/dxle/builds/dashboard/src/appconfig.cpp", "MU", null ],
+		[ "/home/dxle/builds/dashboard/src/audiospectrum.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/configfiles.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/main.cpp", "MU", null ],
 		[ "/home/dxle/builds/dashboard/src/mediainfo.cpp", "MU", null ],

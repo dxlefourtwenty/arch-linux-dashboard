@@ -17,6 +17,7 @@ qt_add_executable(topdash
     src/appconfig.cpp
     src/configfiles.cpp
     src/mediainfo.cpp
+    src/audiospectrum.cpp
     src/weatherconfig.cpp
 )
 

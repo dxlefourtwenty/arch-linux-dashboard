@@ -675,6 +675,30 @@ src/appconfig.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/appconfig.cpp.s
 .PHONY : src/appconfig.cpp.s
 
+src/audiospectrum.o: src/audiospectrum.cpp.o
+.PHONY : src/audiospectrum.o
+
+# target to build an object file
+src/audiospectrum.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/audiospectrum.cpp.o
+.PHONY : src/audiospectrum.cpp.o
+
+src/audiospectrum.i: src/audiospectrum.cpp.i
+.PHONY : src/audiospectrum.i
+
+# target to preprocess a source file
+src/audiospectrum.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/audiospectrum.cpp.i
+.PHONY : src/audiospectrum.cpp.i
+
+src/audiospectrum.s: src/audiospectrum.cpp.s
+.PHONY : src/audiospectrum.s
+
+# target to generate assembly for a file
+src/audiospectrum.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/topdash.dir/build.make CMakeFiles/topdash.dir/src/audiospectrum.cpp.s
+.PHONY : src/audiospectrum.cpp.s
+
 src/configfiles.o: src/configfiles.cpp.o
 .PHONY : src/configfiles.o
 
@@ -909,6 +933,9 @@ help:
 	@echo "... src/appconfig.o"
 	@echo "... src/appconfig.i"
 	@echo "... src/appconfig.s"
+	@echo "... src/audiospectrum.o"
+	@echo "... src/audiospectrum.i"
+	@echo "... src/audiospectrum.s"
 	@echo "... src/configfiles.o"
 	@echo "... src/configfiles.i"
 	@echo "... src/configfiles.s"

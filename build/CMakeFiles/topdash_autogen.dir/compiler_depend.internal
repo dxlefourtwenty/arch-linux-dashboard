@@ -9,6 +9,8 @@
  /home/dxle/builds/dashboard/build/topdash_autogen/moc_predefs.h
  /home/dxle/builds/dashboard/src/appconfig.cpp
  /home/dxle/builds/dashboard/src/appconfig.h
+ /home/dxle/builds/dashboard/src/audiospectrum.cpp
+ /home/dxle/builds/dashboard/src/audiospectrum.h
  /home/dxle/builds/dashboard/src/configfiles.cpp
  /home/dxle/builds/dashboard/src/configfiles.h
  /home/dxle/builds/dashboard/src/main.cpp
@@ -142,6 +144,11 @@
  /usr/include/c++/15.2.1/bits/exception.h
  /usr/include/c++/15.2.1/bits/exception_defines.h
  /usr/include/c++/15.2.1/bits/exception_ptr.h
+ /usr/include/c++/15.2.1/bits/formatfwd.h
+ /usr/include/c++/15.2.1/bits/fs_dir.h
+ /usr/include/c++/15.2.1/bits/fs_fwd.h
+ /usr/include/c++/15.2.1/bits/fs_ops.h
+ /usr/include/c++/15.2.1/bits/fs_path.h
  /usr/include/c++/15.2.1/bits/functexcept.h
  /usr/include/c++/15.2.1/bits/functional_hash.h
  /usr/include/c++/15.2.1/bits/hash_bytes.h
@@ -163,6 +170,7 @@
  /usr/include/c++/15.2.1/bits/max_size_type.h
  /usr/include/c++/15.2.1/bits/memory_resource.h
  /usr/include/c++/15.2.1/bits/memoryfwd.h
+ /usr/include/c++/15.2.1/bits/monostate.h
  /usr/include/c++/15.2.1/bits/move.h
  /usr/include/c++/15.2.1/bits/nested_exception.h
  /usr/include/c++/15.2.1/bits/new_allocator.h
@@ -222,6 +230,8 @@
  /usr/include/c++/15.2.1/bits/string_view.tcc
  /usr/include/c++/15.2.1/bits/stringfwd.h
  /usr/include/c++/15.2.1/bits/this_thread_sleep.h
+ /usr/include/c++/15.2.1/bits/unicode-data.h
+ /usr/include/c++/15.2.1/bits/unicode.h
  /usr/include/c++/15.2.1/bits/uniform_int_dist.h
  /usr/include/c++/15.2.1/bits/unique_lock.h
  /usr/include/c++/15.2.1/bits/unique_ptr.h
@@ -240,6 +250,7 @@
  /usr/include/c++/15.2.1/climits
  /usr/include/c++/15.2.1/clocale
  /usr/include/c++/15.2.1/cmath
+ /usr/include/c++/15.2.1/codecvt
  /usr/include/c++/15.2.1/compare
  /usr/include/c++/15.2.1/concepts
  /usr/include/c++/15.2.1/condition_variable
@@ -261,6 +272,7 @@
  /usr/include/c++/15.2.1/ext/numeric_traits.h
  /usr/include/c++/15.2.1/ext/string_conversions.h
  /usr/include/c++/15.2.1/ext/type_traits.h
+ /usr/include/c++/15.2.1/filesystem
  /usr/include/c++/15.2.1/format
  /usr/include/c++/15.2.1/functional
  /usr/include/c++/15.2.1/future
@@ -277,15 +289,20 @@
  /usr/include/c++/15.2.1/memory
  /usr/include/c++/15.2.1/mutex
  /usr/include/c++/15.2.1/new
+ /usr/include/c++/15.2.1/numbers
  /usr/include/c++/15.2.1/numeric
  /usr/include/c++/15.2.1/optional
  /usr/include/c++/15.2.1/ostream
  /usr/include/c++/15.2.1/pstl/execution_defs.h
+ /usr/include/c++/15.2.1/pstl/glue_algorithm_defs.h
+ /usr/include/c++/15.2.1/pstl/glue_memory_defs.h
  /usr/include/c++/15.2.1/pstl/glue_numeric_defs.h
  /usr/include/c++/15.2.1/pstl/pstl_config.h
+ /usr/include/c++/15.2.1/ranges
  /usr/include/c++/15.2.1/ratio
  /usr/include/c++/15.2.1/semaphore
  /usr/include/c++/15.2.1/set
+ /usr/include/c++/15.2.1/span
  /usr/include/c++/15.2.1/sstream
  /usr/include/c++/15.2.1/stdexcept
  /usr/include/c++/15.2.1/stop_token
@@ -354,6 +371,7 @@
  /usr/include/qt6/QtCore/QProcess
  /usr/include/qt6/QtCore/QString
  /usr/include/qt6/QtCore/QStringList
+ /usr/include/qt6/QtCore/QTemporaryFile
  /usr/include/qt6/QtCore/QTimer
  /usr/include/qt6/QtCore/QVariant
  /usr/include/qt6/QtCore/QVariantList
@@ -406,6 +424,8 @@
  /usr/include/qt6/QtCore/qeventloop.h
  /usr/include/qt6/QtCore/qexception.h
  /usr/include/qt6/QtCore/qexceptionhandling.h
+ /usr/include/qt6/QtCore/qfile.h
+ /usr/include/qt6/QtCore/qfiledevice.h
  /usr/include/qt6/QtCore/qflags.h
  /usr/include/qt6/QtCore/qfloat16.h
  /usr/include/qt6/QtCore/qforeach.h
@@ -480,6 +500,7 @@
  /usr/include/qt6/QtCore/qtcoreglobal.h
  /usr/include/qt6/QtCore/qtdeprecationdefinitions.h
  /usr/include/qt6/QtCore/qtdeprecationmarkers.h
+ /usr/include/qt6/QtCore/qtemporaryfile.h
  /usr/include/qt6/QtCore/qtenvironmentvariables.h
  /usr/include/qt6/QtCore/qtextstream.h
  /usr/include/qt6/QtCore/qtformat_impl.h

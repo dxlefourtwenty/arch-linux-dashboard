@@ -478,9 +478,12 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/atomic_futex.h \
  /usr/include/qt6/QtCore/qrunnable.h /usr/include/qt6/QtCore/qexception.h \
  /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/QtGlobal \
- /home/dxle/builds/dashboard/src/weatherconfig.h \
+ /home/dxle/builds/dashboard/src/audiospectrum.h \
+ /usr/include/qt6/QtCore/QTemporaryFile \
+ /usr/include/qt6/QtCore/qtemporaryfile.h \
  /usr/include/qt6/QtCore/QVariantList \
  /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QVariant \
+ /home/dxle/builds/dashboard/src/weatherconfig.h \
  /usr/include/qt6/QtCore/QVariantMap \
  /usr/include/qt6/QtCore/qvariantmap.h /usr/include/qt6/QtCore/QMap \
  /usr/include/qt6/QtCore/QString
