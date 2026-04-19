@@ -7358,6 +7358,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/qxptype_traits.h \
   /usr/include/qt6/QtCore/qyieldcpu.h \
   /usr/include/qt6/QtGui/QGuiApplication \
+  /usr/include/qt6/QtGui/QRegion \
   /usr/include/qt6/QtGui/QScreen \
   /usr/include/qt6/QtGui/QTransform \
   /usr/include/qt6/QtGui/QWindow \
@@ -12067,6 +12068,8 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/ProfileCard_qml.cpp.o:
 /usr/include/c++/15.2.1/algorithm:
 
 /usr/include/c++/15.2.1/backward/auto_ptr.h:
+
+/usr/include/qt6/QtGui/QRegion:
 
 /usr/include/c++/15.2.1/bits/basic_ios.h:
 

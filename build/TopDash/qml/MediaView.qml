@@ -320,6 +320,7 @@ Item {
 
     ToolButton {
         id: visualizerToggleButton
+        readonly property color toggleColor: root.visualizerEnabled ? root.cSecondary : root.cMuted
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.topMargin: root.cBorderWidth + 7
@@ -335,7 +336,7 @@ Item {
             Text {
                 anchors.centerIn: parent
                 text: "≋"
-                color: root.cMuted
+                color: visualizerToggleButton.toggleColor
                 font.family: root.cFont
                 font.pixelSize: root.cFontSize * 0.9
                 font.bold: true
@@ -347,7 +348,7 @@ Item {
                 anchors.centerIn: parent
                 visible: !root.visualizerEnabled
                 text: "/"
-                color: root.cMuted
+                color: visualizerToggleButton.toggleColor
                 font.family: root.cFont
                 font.pixelSize: root.cFontSize * 1.25
                 font.bold: true
@@ -360,9 +361,19 @@ Item {
             implicitWidth: 28
             implicitHeight: 28
             radius: 14
-            color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, visualizerToggleButton.hovered ? 0.14 : 0.08)
+            color: Qt.rgba(
+                visualizerToggleButton.toggleColor.r,
+                visualizerToggleButton.toggleColor.g,
+                visualizerToggleButton.toggleColor.b,
+                visualizerToggleButton.hovered ? 0.14 : 0.08
+            )
             border.width: 1
-            border.color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, visualizerToggleButton.hovered ? 0.5 : 0.35)
+            border.color: Qt.rgba(
+                visualizerToggleButton.toggleColor.r,
+                visualizerToggleButton.toggleColor.g,
+                visualizerToggleButton.toggleColor.b,
+                visualizerToggleButton.hovered ? 0.5 : 0.35
+            )
         }
     }
 

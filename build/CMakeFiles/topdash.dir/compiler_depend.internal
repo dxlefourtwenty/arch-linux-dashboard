@@ -7374,6 +7374,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o
  /usr/include/qt6/QtCore/qxptype_traits.h
  /usr/include/qt6/QtCore/qyieldcpu.h
  /usr/include/qt6/QtGui/QGuiApplication
+ /usr/include/qt6/QtGui/QRegion
  /usr/include/qt6/QtGui/QScreen
  /usr/include/qt6/QtGui/QTransform
  /usr/include/qt6/QtGui/QWindow

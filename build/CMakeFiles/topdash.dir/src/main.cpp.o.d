@@ -434,9 +434,10 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
  /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/QFile \
- /usr/include/qt6/QtCore/QStringList /usr/include/c++/15.2.1/csignal \
- /usr/include/signal.h /usr/include/bits/signum-generic.h \
- /usr/include/bits/signum-arch.h /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/qt6/QtCore/QStringList /usr/include/qt6/QtGui/QRegion \
+ /usr/include/c++/15.2.1/csignal /usr/include/signal.h \
+ /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
+ /usr/include/bits/types/sig_atomic_t.h \
  /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
  /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
  /usr/include/bits/siginfo-consts-arch.h \

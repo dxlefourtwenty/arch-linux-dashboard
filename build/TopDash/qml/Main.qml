@@ -122,6 +122,8 @@ Window {
     property bool   pauseClockAnimationDuringTransitions: (style && style.pauseClockAnimationDuringTransitions !== undefined) ? style.pauseClockAnimationDuringTransitions : true
     property bool   panelSlideLayerCaching: (style && style.panelSlideLayerCaching !== undefined) ? style.panelSlideLayerCaching : false
     property bool   pauseTabPollingDuringTransitions: (style && style.pauseTabPollingDuringTransitions !== undefined) ? style.pauseTabPollingDuringTransitions : true
+    property bool   forceRefreshOnOpen: (style && style.forceRefreshOnOpen !== undefined) ? style.forceRefreshOnOpen : true
+    property int    forceRefreshOnOpenDelayMs: (style && style.forceRefreshOnOpenDelayMs !== undefined) ? style.forceRefreshOnOpenDelayMs : 180
     property int    mediaArtworkSpinDurationMs: (style && style.mediaArtworkSpinDurationMs !== undefined) ? style.mediaArtworkSpinDurationMs : 12000
     property int    tabCount: 4
     property int    activeTabIndex: 0
@@ -232,6 +234,9 @@ Window {
     property int dashboardContentH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
     property int panelH: dashboardContentH + tabsHeaderHeight + tabsHeaderBottomGap
     property int visibleFinalPosition: Math.max(0, finalPosition)
+    property bool inputMaskEnabled: (style && style.inputMaskEnabled !== undefined) ? style.inputMaskEnabled : true
+    property int inputMaskTop: (style && style.inputMaskTop !== undefined) ? style.inputMaskTop : visibleFinalPosition
+    property int inputMaskHeight: (style && style.inputMaskHeight !== undefined) ? style.inputMaskHeight : panelH
     property bool uiTransitionActive: panelSlideAnimation.running || tabSwitchAnimating
 
     function reloadTheme() {
@@ -417,7 +422,23 @@ Window {
         onTriggered: {
             if (!win.open) return
             calendar.refreshToToday()
+            if (win.forceRefreshOnOpen) {
+                SystemInfo.setPollingPaused(false)
+                MediaInfo.setPollingPaused(false)
+                MediaInfo.refresh()
+                forceRefreshOnOpenTimer.restart()
+            }
             stage.forceActiveFocus()
+        }
+    }
+
+    Timer {
+        id: forceRefreshOnOpenTimer
+        interval: Math.max(0, win.forceRefreshOnOpenDelayMs)
+        repeat: false
+        onTriggered: {
+            if (!win.open || !win.forceRefreshOnOpen) return
+            MediaInfo.refresh()
         }
     }
 

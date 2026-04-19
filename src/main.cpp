@@ -8,6 +8,9 @@
 #include <QDir>
 #include <QFile>
 #include <QStringList>
+#include <QRegion>
+#include <algorithm>
+#include <functional>
 #include <csignal>
 #include <QQmlContext>
 #include <LayerShellQt/window.h>
@@ -87,6 +90,7 @@ int main(int argc, char *argv[])
 
     QObject *root = engine.rootObjects().first();
     g_root = root;
+    std::function<void()> updateInputMask;
 
     if (auto *window = qobject_cast<QWindow *>(root)) {
         if (QScreen *screen = preferredScreen(app, cfg.outputName())) {
@@ -95,6 +99,30 @@ int main(int argc, char *argv[])
                 layerShellWindow->setScreen(screen);
             }
         }
+
+        updateInputMask = [root, window]() {
+            const bool enabled = root->property("inputMaskEnabled").toBool();
+            if (!enabled) {
+                window->setMask(QRegion());
+                return;
+            }
+
+            const int windowWidth = window->width();
+            const int windowHeight = window->height();
+            const int topInset = std::clamp(root->property("inputMaskTop").toInt(), 0, windowHeight);
+            const int maskHeight = std::clamp(root->property("inputMaskHeight").toInt(), 0, windowHeight - topInset);
+
+            if (windowWidth <= 0 || maskHeight <= 0) {
+                window->setMask(QRegion());
+                return;
+            }
+
+            window->setMask(QRegion(0, topInset, windowWidth, maskHeight));
+        };
+
+        QObject::connect(window, &QWindow::widthChanged, root, updateInputMask);
+        QObject::connect(window, &QWindow::heightChanged, root, updateInputMask);
+        updateInputMask();
     }
 
     std::signal(SIGUSR1, onSigUsr1);
@@ -143,12 +171,20 @@ int main(int argc, char *argv[])
     QObject::connect(
         reloadTimer,
         &QTimer::timeout,
-        [root]() {
+        [root, updateInputMask]() {
             QMetaObject::invokeMethod(
                 root,
                 "reloadTheme",
                 Qt::QueuedConnection
             );
+
+            if (updateInputMask) {
+                QMetaObject::invokeMethod(
+                    root,
+                    [updateInputMask]() { updateInputMask(); },
+                    Qt::QueuedConnection
+                );
+            }
         }
     );
 
