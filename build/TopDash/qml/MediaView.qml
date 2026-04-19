@@ -44,10 +44,22 @@ Item {
     property real visualizerOpacity: 0.1
     property bool visualizerEnabled: true
     property real visualizerPausedFloor: 0.08
+    property real visualizerBarTopGap: 2
     property int visualizerPauseDebounceMs: 200
     property int visualizerPositionGraceMs: 900
     property real visualizerPositionAdvanceThresholdSeconds: 0.08
     readonly property var visualizerLevels: AudioSpectrum.levels
+    readonly property real visualizerMaxBarHeight: {
+        const rowHeight = visualizerRow.height
+        if (rowHeight <= 0) {
+            return 2
+        }
+        const rowTop = visualizerLayer.y + visualizerRow.y
+        const rowBottom = rowTop + rowHeight
+        const thumbTop = mediaInfoColumn.y + artworkDisc.y
+        const maxHeight = rowBottom - thumbTop - root.visualizerBarTopGap
+        return Math.max(2, Math.min(rowHeight, maxHeight))
+    }
     readonly property bool visualizerPlayingLive: root.active
         && root.visualizerEnabled
         && MediaInfo.hasMedia
@@ -284,7 +296,7 @@ Item {
                             const audioLevel = levels && parent.index < levels.length ? Number(levels[parent.index]) : 0
                             const dynamicLevel = Math.max(root.visualizerPausedFloor, Math.min(0.96, 0.06 + (audioLevel * 0.9)))
                             const mixedLevel = root.visualizerPausedFloor + ((dynamicLevel - root.visualizerPausedFloor) * root.visualizerEnergy)
-                            return Math.max(2, parent.height * mixedLevel)
+                            return Math.max(2, Math.min(root.visualizerMaxBarHeight, parent.height * mixedLevel))
                         }
                         anchors.bottom: parent.bottom
                         radius: 0
@@ -598,7 +610,7 @@ Item {
                         implicitWidth: root.buttonSize
                         implicitHeight: root.buttonSize
                         radius: width / 2
-                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 1.0)
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
                         border.width: root.cBorderWidth
                         border.color: root.cBorder
                         opacity: 1.0
@@ -857,7 +869,7 @@ Item {
                         x: playerSelector.width - width - 10
                         y: (playerSelector.height - height) / 2
                         text: "▾"
-                        color: root.cMuted
+                        color: root.cFg
                         font.family: root.cFont
                         font.pixelSize: root.cFontSize * 0.95
                     }
@@ -865,7 +877,7 @@ Item {
                     background: Rectangle {
                         implicitHeight: 34
                         radius: Math.round(implicitHeight / 2)
-                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 1.0)
+                        color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
                         border.width: root.cBorderWidth
                         border.color: root.cSecondary
                     }

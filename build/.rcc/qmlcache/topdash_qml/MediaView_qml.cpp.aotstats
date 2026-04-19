@@ -74,15 +74,23 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "visualizerLevels",
-                            "line": 50,
+                            "line": 51,
                             "message": "Cannot access value for name AudioSpectrum"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "visualizerMaxBarHeight",
+                            "line": 52,
+                            "message": ""
                         },
                         {
                             "codegenResult": 2,
                             "column": 51,
                             "durationMicroseconds": 0,
                             "functionName": "visualizerPlayingLive",
-                            "line": 51,
+                            "line": 63,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -90,7 +98,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "visualizerPlaying",
-                            "line": 55,
+                            "line": 67,
                             "message": ""
                         },
                         {
@@ -98,7 +106,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "visualizerEnergy",
-                            "line": 56,
+                            "line": 68,
                             "message": ""
                         },
                         {
@@ -106,7 +114,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "visualPlaybackPositionSeconds",
-                            "line": 58,
+                            "line": 70,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -114,7 +122,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "formatTime",
-                            "line": 71,
+                            "line": 83,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -122,7 +130,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "currentMediaIdentity",
-                            "line": 85,
+                            "line": 97,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -130,7 +138,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "mixColors",
-                            "line": 92,
+                            "line": 104,
                             "message": "Functions without type annotations won't be compiled"
                         },
                         {
@@ -138,7 +146,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "shouldVisualizerKeepPlaying",
-                            "line": 182,
+                            "line": 194,
                             "message": "function without return type annotation returns bool. This may prevent proper compilation to Cpp."
                         },
                         {
@@ -146,7 +154,7 @@
                             "column": 5,
                             "durationMicroseconds": 0,
                             "functionName": "syncVisualizerPlayingState",
-                            "line": 198,
+                            "line": 210,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -154,7 +162,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "onVisualizerPlayingLiveChanged",
-                            "line": 221,
+                            "line": 233,
                             "message": ""
                         },
                         {
@@ -162,7 +170,7 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onActiveChanged",
-                            "line": 222,
+                            "line": 234,
                             "message": ""
                         },
                         {
@@ -170,7 +178,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "onVisualizerEnabledChanged",
-                            "line": 223,
+                            "line": 235,
                             "message": ""
                         },
                         {
@@ -178,7 +186,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 104,
+                            "line": 116,
                             "message": ""
                         },
                         {
@@ -186,7 +194,7 @@
                             "column": 19,
                             "durationMicroseconds": 0,
                             "functionName": "interval",
-                            "line": 110,
+                            "line": 122,
                             "message": ""
                         },
                         {
@@ -194,24 +202,8 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "onTriggered",
-                            "line": 112,
+                            "line": 124,
                             "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 22,
-                            "durationMicroseconds": 0,
-                            "functionName": "onTriggered",
-                            "line": 127,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 18,
-                            "durationMicroseconds": 0,
-                            "functionName": "running",
-                            "line": 134,
-                            "message": "Cannot access value for name MediaInfo"
                         },
                         {
                             "codegenResult": 0,
@@ -223,10 +215,26 @@
                         },
                         {
                             "codegenResult": 2,
+                            "column": 18,
+                            "durationMicroseconds": 0,
+                            "functionName": "running",
+                            "line": 146,
+                            "message": "Cannot access value for name MediaInfo"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "onTriggered",
+                            "line": 151,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 143,
+                            "line": 155,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -234,7 +242,7 @@
                             "column": 9,
                             "durationMicroseconds": 0,
                             "functionName": "onMediaChanged",
-                            "line": 145,
+                            "line": 157,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -242,7 +250,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 224,
+                            "line": 236,
                             "message": ""
                         },
                         {
@@ -250,7 +258,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 227,
+                            "line": 239,
                             "message": "Cannot access value for name AudioSpectrum"
                         },
                         {
@@ -258,7 +266,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 229,
+                            "line": 241,
                             "message": ""
                         },
                         {
@@ -266,7 +274,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 233,
+                            "line": 245,
                             "message": "Cannot access value for name AudioSpectrum"
                         },
                         {
@@ -274,7 +282,7 @@
                             "column": 16,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 235,
+                            "line": 247,
                             "message": ""
                         },
                         {
@@ -282,7 +290,7 @@
                             "column": 17,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 241,
+                            "line": 253,
                             "message": ""
                         },
                         {
@@ -290,7 +298,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 240,
+                            "line": 252,
                             "message": ""
                         },
                         {
@@ -298,7 +306,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 243,
+                            "line": 255,
                             "message": ""
                         },
                         {
@@ -306,7 +314,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 244,
+                            "line": 256,
                             "message": ""
                         },
                         {
@@ -314,7 +322,7 @@
                             "column": 18,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 253,
+                            "line": 265,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -322,7 +330,7 @@
                             "column": 18,
                             "durationMicroseconds": 0,
                             "functionName": "opacity",
-                            "line": 254,
+                            "line": 266,
                             "message": ""
                         },
                         {
@@ -330,7 +338,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 250,
+                            "line": 262,
                             "message": ""
                         },
                         {
@@ -338,7 +346,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "margins",
-                            "line": 251,
+                            "line": 263,
                             "message": ""
                         },
                         {
@@ -346,7 +354,7 @@
                             "column": 21,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 259,
+                            "line": 271,
                             "message": ""
                         },
                         {
@@ -354,7 +362,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 260,
+                            "line": 272,
                             "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant"
                         },
                         {
@@ -362,7 +370,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 258,
+                            "line": 270,
                             "message": ""
                         },
                         {
@@ -370,7 +378,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 265,
+                            "line": 277,
                             "message": ""
                         },
                         {
@@ -378,7 +386,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 266,
+                            "line": 278,
                             "message": ""
                         },
                         {
@@ -386,7 +394,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 267,
+                            "line": 279,
                             "message": ""
                         },
                         {
@@ -394,7 +402,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "topMargin",
-                            "line": 268,
+                            "line": 280,
                             "message": ""
                         },
                         {
@@ -402,7 +410,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "bottomMargin",
-                            "line": 269,
+                            "line": 281,
                             "message": ""
                         },
                         {
@@ -410,7 +418,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 273,
+                            "line": 285,
                             "message": ""
                         },
                         {
@@ -418,7 +426,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 277,
+                            "line": 289,
                             "message": "Cannot access value for name visualizerRow"
                         },
                         {
@@ -426,7 +434,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 278,
+                            "line": 290,
                             "message": "Cannot access value for name visualizerRow"
                         },
                         {
@@ -434,7 +442,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 281,
+                            "line": 293,
                             "message": ""
                         },
                         {
@@ -442,7 +450,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 282,
+                            "line": 294,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -450,7 +458,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 291,
+                            "line": 303,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -458,7 +466,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "bottom",
-                            "line": 289,
+                            "line": 301,
                             "message": ""
                         },
                         {
@@ -466,7 +474,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 309,
+                            "line": 321,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -474,7 +482,7 @@
                             "column": 22,
                             "durationMicroseconds": 0,
                             "functionName": "top",
-                            "line": 303,
+                            "line": 315,
                             "message": "Could not find property \"top\"."
                         },
                         {
@@ -482,7 +490,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 304,
+                            "line": 316,
                             "message": "Could not find property \"right\"."
                         },
                         {
@@ -490,7 +498,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "topMargin",
-                            "line": 305,
+                            "line": 317,
                             "message": "Could not find property \"topMargin\"."
                         },
                         {
@@ -498,64 +506,8 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 306,
-                            "message": "Could not find property \"rightMargin\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
                             "line": 318,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 322,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 36,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 323,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 35,
-                            "durationMicroseconds": 0,
-                            "functionName": "centerIn",
-                            "line": 316,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 319,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 320,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 26,
-                            "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 328,
-                            "message": "Cannot access value for name root"
+                            "message": "Could not find property \"rightMargin\"."
                         },
                         {
                             "codegenResult": 2,
@@ -586,7 +538,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 327,
+                            "line": 328,
                             "message": ""
                         },
                         {
@@ -607,10 +559,66 @@
                         },
                         {
                             "codegenResult": 2,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 340,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 342,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
+                            "line": 346,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 36,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 347,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 35,
+                            "durationMicroseconds": 0,
+                            "functionName": "centerIn",
+                            "line": 339,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 343,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 344,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 343,
+                            "line": 355,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -618,7 +626,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 345,
+                            "line": 357,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -626,7 +634,7 @@
                             "column": 18,
                             "durationMicroseconds": 0,
                             "functionName": "spacing",
-                            "line": 353,
+                            "line": 365,
                             "message": ""
                         },
                         {
@@ -634,7 +642,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 351,
+                            "line": 363,
                             "message": ""
                         },
                         {
@@ -642,7 +650,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "margins",
-                            "line": 352,
+                            "line": 364,
                             "message": ""
                         },
                         {
@@ -650,7 +658,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 359,
+                            "line": 371,
                             "message": ""
                         },
                         {
@@ -658,7 +666,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "preferredWidth",
-                            "line": 360,
+                            "line": 372,
                             "message": ""
                         },
                         {
@@ -666,7 +674,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 369,
+                            "line": 381,
                             "message": ""
                         },
                         {
@@ -674,7 +682,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "transformOrigin",
-                            "line": 371,
+                            "line": 383,
                             "message": ""
                         },
                         {
@@ -682,7 +690,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 372,
+                            "line": 384,
                             "message": ""
                         },
                         {
@@ -690,7 +698,7 @@
                             "column": 20,
                             "durationMicroseconds": 0,
                             "functionName": "z",
-                            "line": 373,
+                            "line": 385,
                             "message": ""
                         },
                         {
@@ -698,7 +706,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 365,
+                            "line": 377,
                             "message": ""
                         },
                         {
@@ -706,7 +714,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "preferredWidth",
-                            "line": 367,
+                            "line": 379,
                             "message": ""
                         },
                         {
@@ -714,7 +722,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "preferredHeight",
-                            "line": 368,
+                            "line": 380,
                             "message": ""
                         },
                         {
@@ -722,7 +730,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 376,
+                            "line": 388,
                             "message": ""
                         },
                         {
@@ -730,7 +738,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 377,
+                            "line": 389,
                             "message": ""
                         },
                         {
@@ -738,7 +746,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "transformOrigin",
-                            "line": 389,
+                            "line": 401,
                             "message": ""
                         },
                         {
@@ -746,7 +754,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 387,
+                            "line": 399,
                             "message": ""
                         },
                         {
@@ -754,7 +762,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "margins",
-                            "line": 388,
+                            "line": 400,
                             "message": ""
                         },
                         {
@@ -762,7 +770,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 391,
+                            "line": 403,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -770,7 +778,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 395,
+                            "line": 407,
                             "message": ""
                         },
                         {
@@ -778,7 +786,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "from",
-                            "line": 396,
+                            "line": 408,
                             "message": ""
                         },
                         {
@@ -786,7 +794,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "to",
-                            "line": 397,
+                            "line": 409,
                             "message": ""
                         },
                         {
@@ -794,7 +802,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 398,
+                            "line": 410,
                             "message": ""
                         },
                         {
@@ -802,7 +810,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "loops",
-                            "line": 399,
+                            "line": 411,
                             "message": ""
                         },
                         {
@@ -810,7 +818,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "running",
-                            "line": 400,
+                            "line": 412,
                             "message": ""
                         },
                         {
@@ -818,7 +826,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 405,
+                            "line": 417,
                             "message": ""
                         },
                         {
@@ -826,7 +834,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "source",
-                            "line": 410,
+                            "line": 422,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -834,7 +842,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "fillMode",
-                            "line": 413,
+                            "line": 425,
                             "message": ""
                         },
                         {
@@ -842,7 +850,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 409,
+                            "line": 421,
                             "message": ""
                         },
                         {
@@ -850,7 +858,7 @@
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 411,
+                            "line": 423,
                             "message": ""
                         },
                         {
@@ -858,7 +866,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 412,
+                            "line": 424,
                             "message": ""
                         },
                         {
@@ -866,7 +874,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "source",
-                            "line": 421,
+                            "line": 433,
                             "message": ""
                         },
                         {
@@ -874,7 +882,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "visible",
-                            "line": 422,
+                            "line": 434,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -882,7 +890,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 420,
+                            "line": 432,
                             "message": ""
                         },
                         {
@@ -890,62 +898,6 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 425,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "height",
-                            "line": 426,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "radius",
-                            "line": 427,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "visible",
-                            "line": 434,
-                            "message": "Cannot access value for name MediaInfo"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 31,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 435,
-                            "message": "Cannot access value for name MediaInfo"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 436,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 43,
-                            "durationMicroseconds": 0,
-                            "functionName": "centerIn",
-                            "line": 433,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
                             "line": 437,
                             "message": ""
                         },
@@ -953,8 +905,64 @@
                             "codegenResult": 0,
                             "column": 41,
                             "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
+                            "functionName": "height",
                             "line": 438,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 439,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "visible",
+                            "line": 446,
+                            "message": "Cannot access value for name MediaInfo"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 447,
+                            "message": "Cannot access value for name MediaInfo"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 448,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "centerIn",
+                            "line": 445,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 449,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 450,
                             "message": ""
                         },
                         {
@@ -962,7 +970,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 445,
+                            "line": 457,
                             "message": ""
                         },
                         {
@@ -970,7 +978,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 444,
+                            "line": 456,
                             "message": ""
                         },
                         {
@@ -978,7 +986,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 447,
+                            "line": 459,
                             "message": ""
                         },
                         {
@@ -986,7 +994,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 448,
+                            "line": 460,
                             "message": ""
                         },
                         {
@@ -994,7 +1002,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 456,
+                            "line": 468,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -1002,7 +1010,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 459,
+                            "line": 471,
                             "message": ""
                         },
                         {
@@ -1010,7 +1018,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 460,
+                            "line": 472,
                             "message": ""
                         },
                         {
@@ -1018,7 +1026,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 464,
+                            "line": 476,
                             "message": ""
                         },
                         {
@@ -1026,7 +1034,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "leftMargin",
-                            "line": 454,
+                            "line": 466,
                             "message": ""
                         },
                         {
@@ -1034,7 +1042,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "rightMargin",
-                            "line": 455,
+                            "line": 467,
                             "message": ""
                         },
                         {
@@ -1042,7 +1050,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 461,
+                            "line": 473,
                             "message": ""
                         },
                         {
@@ -1050,7 +1058,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 462,
+                            "line": 474,
                             "message": ""
                         },
                         {
@@ -1058,7 +1066,7 @@
                             "column": 23,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 470,
+                            "line": 482,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -1066,7 +1074,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 473,
+                            "line": 485,
                             "message": ""
                         },
                         {
@@ -1074,7 +1082,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 474,
+                            "line": 486,
                             "message": ""
                         },
                         {
@@ -1082,7 +1090,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 477,
+                            "line": 489,
                             "message": ""
                         },
                         {
@@ -1090,7 +1098,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 475,
+                            "line": 487,
                             "message": ""
                         },
                         {
@@ -1098,7 +1106,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 476,
+                            "line": 488,
                             "message": ""
                         },
                         {
@@ -1106,7 +1114,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 483,
+                            "line": 495,
                             "message": ""
                         },
                         {
@@ -1114,7 +1122,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "preferredWidth",
-                            "line": 484,
+                            "line": 496,
                             "message": ""
                         },
                         {
@@ -1122,7 +1130,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 488,
+                            "line": 500,
                             "message": ""
                         },
                         {
@@ -1130,7 +1138,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 494,
+                            "line": 506,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -1138,7 +1146,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "transformOrigin",
-                            "line": 499,
+                            "line": 511,
                             "message": "Could not find property \"transformOrigin\"."
                         },
                         {
@@ -1146,7 +1154,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 500,
+                            "line": 512,
                             "message": "Could not find property \"scale\"."
                         },
                         {
@@ -1154,7 +1162,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "z",
-                            "line": 501,
+                            "line": 513,
                             "message": "Could not find property \"z\"."
                         },
                         {
@@ -1162,7 +1170,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 508,
+                            "line": 520,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -1170,7 +1178,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cursorShape",
-                            "line": 497,
+                            "line": 509,
                             "message": ""
                         },
                         {
@@ -1178,159 +1186,15 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 504,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 42,
-                            "durationMicroseconds": 0,
-                            "functionName": "type",
-                            "line": 505,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 31,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 511,
-                            "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 512,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 513,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 514,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 515,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
                             "line": 516,
                             "message": "Cannot access value for name root"
                         },
                         {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitWidth",
-                            "line": 520,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitHeight",
-                            "line": 521,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "radius",
-                            "line": 522,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "opacity",
-                            "line": 525,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 531,
-                            "message": "Could not find property \"enabled\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "transformOrigin",
-                            "line": 536,
-                            "message": "Could not find property \"transformOrigin\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "scale",
-                            "line": 537,
-                            "message": "Could not find property \"scale\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "z",
-                            "line": 538,
-                            "message": "Could not find property \"z\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 545,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "cursorShape",
-                            "line": 534,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "duration",
-                            "line": 541,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
                             "codegenResult": 0,
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 542,
+                            "line": 517,
                             "message": ""
                         },
                         {
@@ -1338,7 +1202,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 550,
+                            "line": 523,
                             "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -1346,7 +1210,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 551,
+                            "line": 524,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1354,7 +1218,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 552,
+                            "line": 525,
                             "message": ""
                         },
                         {
@@ -1362,7 +1226,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 553,
+                            "line": 526,
                             "message": ""
                         },
                         {
@@ -1370,7 +1234,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 554,
+                            "line": 527,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1378,7 +1242,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 555,
+                            "line": 528,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1386,7 +1250,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "implicitWidth",
-                            "line": 559,
+                            "line": 532,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1394,7 +1258,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "implicitHeight",
-                            "line": 560,
+                            "line": 533,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1402,7 +1266,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 561,
+                            "line": 534,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1410,7 +1274,151 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "opacity",
+                            "line": 537,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 543,
+                            "message": "Could not find property \"enabled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "transformOrigin",
+                            "line": 548,
+                            "message": "Could not find property \"transformOrigin\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "scale",
+                            "line": 549,
+                            "message": "Could not find property \"scale\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "z",
+                            "line": 550,
+                            "message": "Could not find property \"z\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 557,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "cursorShape",
+                            "line": 546,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 553,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 554,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 562,
+                            "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 563,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
                             "line": 564,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 565,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 566,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 567,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitWidth",
+                            "line": 571,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitHeight",
+                            "line": 572,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 573,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "opacity",
+                            "line": 576,
                             "message": ""
                         },
                         {
@@ -1418,7 +1426,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 570,
+                            "line": 582,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -1426,7 +1434,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 571,
+                            "line": 583,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -1434,7 +1442,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "transformOrigin",
-                            "line": 576,
+                            "line": 588,
                             "message": "Could not find property \"transformOrigin\"."
                         },
                         {
@@ -1442,7 +1450,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 577,
+                            "line": 589,
                             "message": "Could not find property \"scale\"."
                         },
                         {
@@ -1450,7 +1458,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "z",
-                            "line": 578,
+                            "line": 590,
                             "message": "Could not find property \"z\"."
                         },
                         {
@@ -1458,7 +1466,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 585,
+                            "line": 597,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -1466,7 +1474,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cursorShape",
-                            "line": 574,
+                            "line": 586,
                             "message": ""
                         },
                         {
@@ -1474,7 +1482,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 581,
+                            "line": 593,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1482,7 +1490,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 582,
+                            "line": 594,
                             "message": ""
                         },
                         {
@@ -1490,80 +1498,8 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 588,
-                            "message": "Cannot access value for name playPauseButton"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 589,
-                            "message": "Cannot access value for name playPauseButton"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 590,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 591,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 51,
-                            "durationMicroseconds": 0,
-                            "functionName": "x",
-                            "line": 592,
-                            "message": "Cannot access value for name playPauseButton"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 593,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 594,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitWidth",
-                            "line": 598,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitHeight",
-                            "line": 599,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "radius",
                             "line": 600,
-                            "message": ""
+                            "message": "Cannot access value for name playPauseButton"
                         },
                         {
                             "codegenResult": 2,
@@ -1571,6 +1507,78 @@
                             "durationMicroseconds": 0,
                             "functionName": "color",
                             "line": 601,
+                            "message": "Cannot access value for name playPauseButton"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
+                            "line": 602,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 603,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "x",
+                            "line": 604,
+                            "message": "Cannot access value for name playPauseButton"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 605,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 606,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitWidth",
+                            "line": 610,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitHeight",
+                            "line": 611,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 612,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 613,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1578,7 +1586,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 602,
+                            "line": 614,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1586,7 +1594,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 603,
+                            "line": 615,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1594,7 +1602,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 610,
+                            "line": 622,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -1602,7 +1610,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "transformOrigin",
-                            "line": 615,
+                            "line": 627,
                             "message": "Could not find property \"transformOrigin\"."
                         },
                         {
@@ -1610,7 +1618,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "scale",
-                            "line": 616,
+                            "line": 628,
                             "message": "Could not find property \"scale\"."
                         },
                         {
@@ -1618,7 +1626,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "z",
-                            "line": 617,
+                            "line": 629,
                             "message": "Could not find property \"z\"."
                         },
                         {
@@ -1626,7 +1634,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 624,
+                            "line": 636,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -1634,7 +1642,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "cursorShape",
-                            "line": 613,
+                            "line": 625,
                             "message": ""
                         },
                         {
@@ -1642,159 +1650,15 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 620,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 42,
-                            "durationMicroseconds": 0,
-                            "functionName": "type",
-                            "line": 621,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 31,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 628,
-                            "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 629,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 630,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 631,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
                             "line": 632,
                             "message": "Cannot access value for name root"
                         },
                         {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 633,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitWidth",
-                            "line": 637,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 41,
-                            "durationMicroseconds": 0,
-                            "functionName": "implicitHeight",
-                            "line": 638,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 33,
-                            "durationMicroseconds": 0,
-                            "functionName": "radius",
-                            "line": 639,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 34,
-                            "durationMicroseconds": 0,
-                            "functionName": "opacity",
-                            "line": 642,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 30,
-                            "durationMicroseconds": 0,
-                            "functionName": "enabled",
-                            "line": 648,
-                            "message": "Could not find property \"enabled\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "transformOrigin",
-                            "line": 653,
-                            "message": "Could not find property \"transformOrigin\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 28,
-                            "durationMicroseconds": 0,
-                            "functionName": "scale",
-                            "line": 654,
-                            "message": "Could not find property \"scale\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 24,
-                            "durationMicroseconds": 0,
-                            "functionName": "z",
-                            "line": 655,
-                            "message": "Could not find property \"z\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 32,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 662,
-                            "message": "Could not find signal \"clicked\"."
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 38,
-                            "durationMicroseconds": 0,
-                            "functionName": "cursorShape",
-                            "line": 651,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "duration",
-                            "line": 658,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
                             "codegenResult": 0,
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 659,
+                            "line": 633,
                             "message": ""
                         },
                         {
@@ -1802,7 +1666,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 665,
+                            "line": 640,
                             "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -1810,7 +1674,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 666,
+                            "line": 641,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1818,7 +1682,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "horizontalAlignment",
-                            "line": 667,
+                            "line": 642,
                             "message": ""
                         },
                         {
@@ -1826,7 +1690,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 668,
+                            "line": 643,
                             "message": ""
                         },
                         {
@@ -1834,7 +1698,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 669,
+                            "line": 644,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1842,7 +1706,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 670,
+                            "line": 645,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1850,7 +1714,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "implicitWidth",
-                            "line": 674,
+                            "line": 649,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1858,7 +1722,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "implicitHeight",
-                            "line": 675,
+                            "line": 650,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1866,7 +1730,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 676,
+                            "line": 651,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1874,7 +1738,151 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "opacity",
+                            "line": 654,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 660,
+                            "message": "Could not find property \"enabled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "transformOrigin",
+                            "line": 665,
+                            "message": "Could not find property \"transformOrigin\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "scale",
+                            "line": 666,
+                            "message": "Could not find property \"scale\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "z",
+                            "line": 667,
+                            "message": "Could not find property \"z\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 674,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "cursorShape",
+                            "line": 663,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "duration",
+                            "line": 670,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "type",
+                            "line": 671,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 31,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 677,
+                            "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 678,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
                             "line": 679,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 680,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 681,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 682,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitWidth",
+                            "line": 686,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 0,
+                            "functionName": "implicitHeight",
+                            "line": 687,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 33,
+                            "durationMicroseconds": 0,
+                            "functionName": "radius",
+                            "line": 688,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 34,
+                            "durationMicroseconds": 0,
+                            "functionName": "opacity",
+                            "line": 691,
                             "message": ""
                         },
                         {
@@ -1882,7 +1890,7 @@
                             "column": 21,
                             "durationMicroseconds": 0,
                             "functionName": "to",
-                            "line": 694,
+                            "line": 706,
                             "message": "Could not find property \"to\"."
                         },
                         {
@@ -1890,7 +1898,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 695,
+                            "line": 707,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -1898,7 +1906,7 @@
                             "column": 24,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 696,
+                            "line": 708,
                             "message": "Could not find property \"value\"."
                         },
                         {
@@ -1906,7 +1914,7 @@
                             "column": 26,
                             "durationMicroseconds": 0,
                             "functionName": "onMoved",
-                            "line": 703,
+                            "line": 715,
                             "message": "Could not find signal \"moved\"."
                         },
                         {
@@ -1914,7 +1922,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 686,
+                            "line": 698,
                             "message": ""
                         },
                         {
@@ -1922,7 +1930,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "cursorShape",
-                            "line": 700,
+                            "line": 712,
                             "message": "Cannot retrieve a non-object type by ID: progressSlider"
                         },
                         {
@@ -1930,7 +1938,7 @@
                             "column": 29,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 716,
+                            "line": 728,
                             "message": "Cannot access value for name progressHover"
                         },
                         {
@@ -1938,7 +1946,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 717,
+                            "line": 729,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1946,7 +1954,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 720,
+                            "line": 732,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1954,7 +1962,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 721,
+                            "line": 733,
                             "message": ""
                         },
                         {
@@ -1962,7 +1970,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "yScale",
-                            "line": 727,
+                            "line": 739,
                             "message": "Cannot access value for name progressHover"
                         },
                         {
@@ -1970,7 +1978,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 725,
+                            "line": 737,
                             "message": "Cannot access value for name progressSlider"
                         },
                         {
@@ -1978,7 +1986,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 726,
+                            "line": 738,
                             "message": "Cannot access value for name progressSlider"
                         },
                         {
@@ -1986,7 +1994,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "duration",
-                            "line": 731,
+                            "line": 743,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -1994,7 +2002,7 @@
                             "column": 46,
                             "durationMicroseconds": 0,
                             "functionName": "type",
-                            "line": 732,
+                            "line": 744,
                             "message": ""
                         },
                         {
@@ -2002,7 +2010,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 738,
+                            "line": 750,
                             "message": "Cannot access value for name progressSlider"
                         },
                         {
@@ -2010,7 +2018,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "height",
-                            "line": 739,
+                            "line": 751,
                             "message": ""
                         },
                         {
@@ -2018,7 +2026,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 740,
+                            "line": 752,
                             "message": "Cannot load property radius from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -2026,7 +2034,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 741,
+                            "line": 753,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2034,7 +2042,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 759,
+                            "line": 771,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -2042,7 +2050,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 760,
+                            "line": 772,
                             "message": ""
                         },
                         {
@@ -2050,7 +2058,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 761,
+                            "line": 773,
                             "message": ""
                         },
                         {
@@ -2058,7 +2066,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 762,
+                            "line": 774,
                             "message": ""
                         },
                         {
@@ -2066,7 +2074,7 @@
                             "column": 27,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 768,
+                            "line": 780,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -2074,7 +2082,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 769,
+                            "line": 781,
                             "message": ""
                         },
                         {
@@ -2082,7 +2090,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 770,
+                            "line": 782,
                             "message": ""
                         },
                         {
@@ -2090,7 +2098,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 771,
+                            "line": 783,
                             "message": ""
                         },
                         {
@@ -2098,7 +2106,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 776,
+                            "line": 788,
                             "message": ""
                         },
                         {
@@ -2106,7 +2114,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 785,
+                            "line": 797,
                             "message": "Could not find property \"model\"."
                         },
                         {
@@ -2114,7 +2122,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 786,
+                            "line": 798,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -2122,7 +2130,7 @@
                             "column": 21,
                             "durationMicroseconds": 0,
                             "functionName": "syncSelectedPlayer",
-                            "line": 793,
+                            "line": 805,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -2130,7 +2138,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onActivated",
-                            "line": 813,
+                            "line": 825,
                             "message": "Could not find signal \"activated\"."
                         },
                         {
@@ -2138,7 +2146,7 @@
                             "column": 34,
                             "durationMicroseconds": 0,
                             "functionName": "onActivated",
-                            "line": 813,
+                            "line": 825,
                             "message": "Could not find signal \"activated\"."
                         },
                         {
@@ -2146,7 +2154,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "alignment",
-                            "line": 782,
+                            "line": 794,
                             "message": ""
                         },
                         {
@@ -2154,7 +2162,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "preferredWidth",
-                            "line": 784,
+                            "line": 796,
                             "message": ""
                         },
                         {
@@ -2162,7 +2170,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onCompleted",
-                            "line": 804,
+                            "line": 816,
                             "message": ""
                         },
                         {
@@ -2170,7 +2178,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "target",
-                            "line": 807,
+                            "line": 819,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -2178,7 +2186,7 @@
                             "column": 25,
                             "durationMicroseconds": 0,
                             "functionName": "onMediaChanged",
-                            "line": 808,
+                            "line": 820,
                             "message": "Cannot retrieve a non-object type by ID: playerSelector"
                         },
                         {
@@ -2186,7 +2194,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "implicitHeight",
-                            "line": 820,
+                            "line": 832,
                             "message": "Cannot access value for name labelRow"
                         },
                         {
@@ -2194,7 +2202,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "left",
-                            "line": 824,
+                            "line": 836,
                             "message": ""
                         },
                         {
@@ -2202,7 +2210,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "right",
-                            "line": 825,
+                            "line": 837,
                             "message": ""
                         },
                         {
@@ -2210,7 +2218,7 @@
                             "column": 53,
                             "durationMicroseconds": 0,
                             "functionName": "verticalCenter",
-                            "line": 826,
+                            "line": 838,
                             "message": ""
                         },
                         {
@@ -2218,55 +2226,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 832,
-                            "message": "Cannot access value for name MediaInfo"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 833,
-                            "message": "Cannot access value for name playerSelector"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 52,
-                            "durationMicroseconds": 0,
-                            "functionName": "verticalAlignment",
-                            "line": 836,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 46,
-                            "durationMicroseconds": 0,
-                            "functionName": "family",
-                            "line": 834,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 49,
-                            "durationMicroseconds": 0,
-                            "functionName": "pixelSize",
-                            "line": 835,
-                            "message": "Cannot access value for name root"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "width",
-                            "line": 841,
-                            "message": "Cannot access value for name labelRow"
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 39,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 842,
+                            "line": 844,
                             "message": "Cannot access value for name MediaInfo"
                         },
                         {
@@ -2279,26 +2239,10 @@
                         },
                         {
                             "codegenResult": 0,
-                            "column": 54,
-                            "durationMicroseconds": 0,
-                            "functionName": "horizontalAlignment",
-                            "line": 848,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 849,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 40,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 850,
+                            "line": 848,
                             "message": ""
                         },
                         {
@@ -2319,10 +2263,74 @@
                         },
                         {
                             "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "width",
+                            "line": 853,
+                            "message": "Cannot access value for name labelRow"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 854,
+                            "message": "Cannot access value for name MediaInfo"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 857,
+                            "message": "Cannot access value for name playerSelector"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "horizontalAlignment",
+                            "line": 860,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 861,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 862,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 46,
+                            "durationMicroseconds": 0,
+                            "functionName": "family",
+                            "line": 858,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 49,
+                            "durationMicroseconds": 0,
+                            "functionName": "pixelSize",
+                            "line": 859,
+                            "message": "Cannot access value for name root"
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "x",
-                            "line": 857,
+                            "line": 869,
                             "message": "Cannot access value for name playerSelector"
                         },
                         {
@@ -2330,7 +2338,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 858,
+                            "line": 870,
                             "message": "Cannot access value for name playerSelector"
                         },
                         {
@@ -2338,7 +2346,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 860,
+                            "line": 872,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2346,7 +2354,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 861,
+                            "line": 873,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2354,7 +2362,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 862,
+                            "line": 874,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2362,7 +2370,7 @@
                             "column": 33,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 867,
+                            "line": 879,
                             "message": ""
                         },
                         {
@@ -2370,7 +2378,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 868,
+                            "line": 880,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2378,7 +2386,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 869,
+                            "line": 881,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2386,7 +2394,7 @@
                             "column": 39,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 870,
+                            "line": 882,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2394,7 +2402,7 @@
                             "column": 28,
                             "durationMicroseconds": 0,
                             "functionName": "y",
-                            "line": 874,
+                            "line": 886,
                             "message": "Could not find property \"y\"."
                         },
                         {
@@ -2402,7 +2410,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 875,
+                            "line": 887,
                             "message": "Could not find property \"width\"."
                         },
                         {
@@ -2410,7 +2418,7 @@
                             "column": 41,
                             "durationMicroseconds": 0,
                             "functionName": "implicitHeight",
-                            "line": 877,
+                            "line": 889,
                             "message": "Could not find property \"implicitHeight\"."
                         },
                         {
@@ -2418,7 +2426,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 880,
+                            "line": 892,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2426,7 +2434,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 881,
+                            "line": 893,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2434,7 +2442,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 882,
+                            "line": 894,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2442,7 +2450,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 883,
+                            "line": 895,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2450,7 +2458,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "implicitHeight",
-                            "line": 888,
+                            "line": 900,
                             "message": ""
                         },
                         {
@@ -2458,7 +2466,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "model",
-                            "line": 889,
+                            "line": 901,
                             "message": "Cannot access value for name playerSelector"
                         },
                         {
@@ -2466,7 +2474,7 @@
                             "column": 32,
                             "durationMicroseconds": 0,
                             "functionName": "width",
-                            "line": 894,
+                            "line": 906,
                             "message": "Could not find property \"width\"."
                         },
                         {
@@ -2474,7 +2482,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 896,
+                            "line": 908,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -2482,7 +2490,7 @@
                             "column": 38,
                             "durationMicroseconds": 0,
                             "functionName": "highlighted",
-                            "line": 897,
+                            "line": 909,
                             "message": "Could not find property \"highlighted\"."
                         },
                         {
@@ -2490,7 +2498,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 900,
+                            "line": 912,
                             "message": "Cannot load property text from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -2498,7 +2506,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 901,
+                            "line": 913,
                             "message": "Cannot load property highlighted from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -2506,7 +2514,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 904,
+                            "line": 916,
                             "message": ""
                         },
                         {
@@ -2514,7 +2522,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 905,
+                            "line": 917,
                             "message": ""
                         },
                         {
@@ -2522,7 +2530,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "family",
-                            "line": 902,
+                            "line": 914,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2530,7 +2538,7 @@
                             "column": 45,
                             "durationMicroseconds": 0,
                             "functionName": "pixelSize",
-                            "line": 903,
+                            "line": 915,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2538,7 +2546,7 @@
                             "column": 37,
                             "durationMicroseconds": 0,
                             "functionName": "radius",
-                            "line": 909,
+                            "line": 921,
                             "message": "Cannot access value for name root"
                         },
                         {
@@ -2546,7 +2554,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 914,
+                            "line": 926,
                             "message": "Cannot load property highlighted from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         },
                         {
@@ -2554,7 +2562,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 911,
+                            "line": 923,
                             "message": "Cannot load property highlighted from (component in /home/dxle/builds/dashboard/qml/MediaView.qml)::parent with type QQuickItem."
                         }
                     ],
