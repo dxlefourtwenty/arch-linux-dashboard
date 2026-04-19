@@ -776,6 +776,8 @@ Window {
 
                 Rectangle {
                     Layout.fillWidth: true
+                    Layout.leftMargin: win.cBorderLeft ? Math.max(0, win.cBorderWidth) : 0
+                    Layout.rightMargin: win.cBorderRight ? Math.max(0, win.cBorderWidth) : 0
                     Layout.preferredHeight: 1
                     color: win.cMuted
                     opacity: 0.35
