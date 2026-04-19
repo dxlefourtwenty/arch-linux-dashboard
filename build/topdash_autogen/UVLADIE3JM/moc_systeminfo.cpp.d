@@ -309,6 +309,7 @@
   /usr/include/linux/types.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QByteArray \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QProcess \
   /usr/include/qt6/QtCore/QTimer \

@@ -6642,6 +6642,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QByteArray \
   /usr/include/qt6/QtCore/QDateTime \
   /usr/include/qt6/QtCore/QDir \
   /usr/include/qt6/QtCore/QEvent \
@@ -6663,6 +6664,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/QVariantList \
   /usr/include/qt6/QtCore/QVariantMap \
   /usr/include/qt6/QtCore/QVector \
+  /usr/include/qt6/QtCore/QtGlobal \
   /usr/include/qt6/QtCore/q17memory.h \
   /usr/include/qt6/QtCore/q20bit.h \
   /usr/include/qt6/QtCore/q20functional.h \
@@ -7299,6 +7301,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtConcurrent/qtconcurrenttask.h \
   /usr/include/qt6/QtConcurrent/qtconcurrentthreadengine.h \
   /usr/include/qt6/QtConcurrent/qtconcurrentversion.h \
+  /usr/include/qt6/QtCore/QDateTime \
   /usr/include/qt6/QtCore/QDeadlineTimer \
   /usr/include/qt6/QtCore/QDir \
   /usr/include/qt6/QtCore/QFutureWatcher \
@@ -7319,6 +7322,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtCore/QVariant \
   /usr/include/qt6/QtCore/QtCore \
   /usr/include/qt6/QtCore/QtCoreDepends \
+  /usr/include/qt6/QtCore/QtGlobal \
   /usr/include/qt6/QtCore/q17memory.h \
   /usr/include/qt6/QtCore/q20algorithm.h \
   /usr/include/qt6/QtCore/q20bit.h \
@@ -8084,6 +8088,7 @@ CMakeFiles/topdash.dir/src/systeminfo.cpp.o: /home/dxle/builds/dashboard/src/sys
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QByteArray \
   /usr/include/qt6/QtCore/QDateTime \
   /usr/include/qt6/QtCore/QDir \
   /usr/include/qt6/QtCore/QFile \
@@ -9140,6 +9145,7 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: topdash_autogen/m
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QByteArray \
   /usr/include/qt6/QtCore/QDateTime \
   /usr/include/qt6/QtCore/QFutureWatcher \
   /usr/include/qt6/QtCore/QList \
@@ -9153,6 +9159,7 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: topdash_autogen/m
   /usr/include/qt6/QtCore/QVariantList \
   /usr/include/qt6/QtCore/QVariantMap \
   /usr/include/qt6/QtCore/QVector \
+  /usr/include/qt6/QtCore/QtGlobal \
   /usr/include/qt6/QtCore/q17memory.h \
   /usr/include/qt6/QtCore/q20algorithm.h \
   /usr/include/qt6/QtCore/q20bit.h \
@@ -10510,6 +10517,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o:
 
 /usr/include/qt6/QtCore/qabstracteventdispatcher.h:
 
+/usr/include/qt6/QtCore/QtGlobal:
+
 /usr/include/qt6/QtCore/QVariantMap:
 
 /usr/include/qt6/QtCore/QVariant:
@@ -11671,6 +11680,8 @@ topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp:
 /usr/include/c++/15.2.1/typeinfo:
 
 /usr/include/qt6/QtCore/qcompare_impl.h:
+
+/usr/include/qt6/QtCore/QByteArray:
 
 /usr/include/c++/15.2.1/unordered_map:
 

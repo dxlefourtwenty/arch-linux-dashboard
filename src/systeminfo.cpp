@@ -208,6 +208,11 @@ void SystemInfo::setPollingPaused(bool paused)
     m_pollPaused = paused;
     if (m_pollPaused) {
         timer.stop();
+        if (gpuProc.state() != QProcess::NotRunning) {
+            gpuProc.kill();
+            gpuProc.waitForFinished();
+        }
+        m_gpuOutputBuffer.clear();
         return;
     }
 
@@ -633,25 +638,25 @@ void SystemInfo::updateBattery()
 
 void SystemInfo::setupGpu()
 {
+    connect(&gpuProc, &QProcess::readyReadStandardOutput, this, [this]() {
+        consumeGpuOutput(gpuProc.readAllStandardOutput());
+    });
+
     connect(&gpuProc, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
-        if (exitStatus != QProcess::NormalExit || exitCode != 0) {
+        flushPendingGpuOutput();
+
+        if (m_pollPaused) {
             return;
         }
 
-        const QList<QByteArray> lines = gpuProc.readAllStandardOutput().trimmed().split('\n');
-        if (lines.isEmpty()) {
+        const bool wasLoopMode = m_gpuSupportsLoopMs;
+        if (wasLoopMode && (exitStatus != QProcess::NormalExit || exitCode != 0)) {
+            m_gpuSupportsLoopMs = false;
             return;
         }
 
-        bool ok = false;
-        const int usage = lines.first().trimmed().toInt(&ok);
-        if (!ok) {
-            return;
-        }
-
-        if (usage != m_gpu) {
-            m_gpu = usage;
-            emit gpuUsageChanged();
+        if (wasLoopMode) {
+            updateGpu();
         }
     });
 
@@ -664,7 +669,73 @@ void SystemInfo::updateGpu()
         return;
     }
 
-    gpuProc.start("nvidia-smi", {"--query-gpu=utilization.gpu", "--format=csv,noheader,nounits"});
+    m_gpuOutputBuffer.clear();
+
+    QStringList args{
+        "--query-gpu=utilization.gpu",
+        "--format=csv,noheader,nounits"
+    };
+    if (m_gpuSupportsLoopMs) {
+        args << "--loop-ms=1000";
+    }
+
+    gpuProc.start("/usr/bin/nvidia-smi", args);
+}
+
+void SystemInfo::consumeGpuOutput(const QByteArray &chunk)
+{
+    if (chunk.isEmpty()) {
+        return;
+    }
+
+    m_gpuOutputBuffer.append(chunk);
+    while (true) {
+        const int newlineIndex = m_gpuOutputBuffer.indexOf('\n');
+        if (newlineIndex < 0) {
+            break;
+        }
+
+        const QByteArray rawLine = m_gpuOutputBuffer.left(newlineIndex).trimmed();
+        m_gpuOutputBuffer.remove(0, newlineIndex + 1);
+        if (rawLine.isEmpty()) {
+            continue;
+        }
+
+        bool ok = false;
+        const int usage = rawLine.toInt(&ok);
+        if (!ok) {
+            continue;
+        }
+
+        if (usage != m_gpu) {
+            m_gpu = usage;
+            emit gpuUsageChanged();
+        }
+    }
+}
+
+void SystemInfo::flushPendingGpuOutput()
+{
+    if (m_gpuOutputBuffer.isEmpty()) {
+        return;
+    }
+
+    const QByteArray rawLine = m_gpuOutputBuffer.trimmed();
+    m_gpuOutputBuffer.clear();
+    if (rawLine.isEmpty()) {
+        return;
+    }
+
+    bool ok = false;
+    const int usage = rawLine.toInt(&ok);
+    if (!ok) {
+        return;
+    }
+
+    if (usage != m_gpu) {
+        m_gpu = usage;
+        emit gpuUsageChanged();
+    }
 }
 
 void SystemInfo::loadCpuName()
@@ -697,7 +768,7 @@ void SystemInfo::loadCpuName()
 void SystemInfo::loadGpuName()
 {
     QProcess proc;
-    proc.start("nvidia-smi", {"--query-gpu=name", "--format=csv,noheader"});
+    proc.start("/usr/bin/nvidia-smi", {"--query-gpu=name", "--format=csv,noheader"});
     if (!proc.waitForFinished(250) || proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
         return;
     }

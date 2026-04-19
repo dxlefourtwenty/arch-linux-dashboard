@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <QByteArray>
 #include <QProcess>
 #include <QTimer>
 
@@ -69,6 +70,8 @@ signals:
 private:
     void updateCpu();
     void updateGpu();
+    void consumeGpuOutput(const QByteArray &chunk);
+    void flushPendingGpuOutput();
     void updateRam();
     void updateDisk();
     void updateNetwork();
@@ -111,6 +114,8 @@ private:
     quint64 m_lastRxBytes = 0;
     quint64 m_lastTxBytes = 0;
     qint64 m_lastNetSampleMs = 0;
+    QByteArray m_gpuOutputBuffer;
+    bool m_gpuSupportsLoopMs = true;
     int m_pollTick = 0;
     bool m_pollPaused = false;
 };

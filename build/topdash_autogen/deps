@@ -341,6 +341,7 @@ topdash_autogen/timestamp: \
 	/usr/include/linux/types.h \
 	/usr/include/locale.h \
 	/usr/include/pthread.h \
+	/usr/include/qt6/QtCore/QByteArray \
 	/usr/include/qt6/QtCore/QDateTime \
 	/usr/include/qt6/QtCore/QFutureWatcher \
 	/usr/include/qt6/QtCore/QList \
@@ -354,6 +355,7 @@ topdash_autogen/timestamp: \
 	/usr/include/qt6/QtCore/QVariantList \
 	/usr/include/qt6/QtCore/QVariantMap \
 	/usr/include/qt6/QtCore/QVector \
+	/usr/include/qt6/QtCore/QtGlobal \
 	/usr/include/qt6/QtCore/q17memory.h \
 	/usr/include/qt6/QtCore/q20bit.h \
 	/usr/include/qt6/QtCore/q20functional.h \

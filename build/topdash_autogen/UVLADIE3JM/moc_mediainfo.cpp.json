@@ -2,26 +2,26 @@
     "classes": [
         {
             "className": "MediaInfo",
-            "lineNumber": 9,
+            "lineNumber": 10,
             "methods": [
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 44,
+                    "lineNumber": 45,
                     "name": "playPause",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 3,
-                    "lineNumber": 45,
+                    "lineNumber": 46,
                     "name": "next",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 4,
-                    "lineNumber": 46,
+                    "lineNumber": 47,
                     "name": "previous",
                     "returnType": "void"
                 },
@@ -34,7 +34,7 @@
                         }
                     ],
                     "index": 5,
-                    "lineNumber": 47,
+                    "lineNumber": 48,
                     "name": "seekToRatio",
                     "returnType": "void"
                 },
@@ -47,7 +47,7 @@
                         }
                     ],
                     "index": 6,
-                    "lineNumber": 48,
+                    "lineNumber": 49,
                     "name": "seekRelative",
                     "returnType": "void"
                 },
@@ -60,7 +60,7 @@
                         }
                     ],
                     "index": 7,
-                    "lineNumber": 49,
+                    "lineNumber": 50,
                     "name": "setVolume",
                     "returnType": "void"
                 },
@@ -73,7 +73,7 @@
                         }
                     ],
                     "index": 8,
-                    "lineNumber": 50,
+                    "lineNumber": 51,
                     "name": "selectPlayer",
                     "returnType": "void"
                 },
@@ -86,7 +86,7 @@
                         }
                     ],
                     "index": 9,
-                    "lineNumber": 51,
+                    "lineNumber": 52,
                     "name": "selectPlayerAt",
                     "returnType": "void"
                 },
@@ -99,7 +99,7 @@
                         }
                     ],
                     "index": 10,
-                    "lineNumber": 52,
+                    "lineNumber": 53,
                     "name": "setPollingPaused",
                     "returnType": "void"
                 }
@@ -111,7 +111,7 @@
                     "designable": true,
                     "final": false,
                     "index": 0,
-                    "lineNumber": 13,
+                    "lineNumber": 14,
                     "name": "playerName",
                     "notify": "mediaChanged",
                     "override": false,
@@ -128,7 +128,7 @@
                     "designable": true,
                     "final": false,
                     "index": 1,
-                    "lineNumber": 14,
+                    "lineNumber": 15,
                     "name": "availablePlayers",
                     "notify": "mediaChanged",
                     "override": false,
@@ -145,7 +145,7 @@
                     "designable": true,
                     "final": false,
                     "index": 2,
-                    "lineNumber": 15,
+                    "lineNumber": 16,
                     "name": "availablePlayerLabels",
                     "notify": "mediaChanged",
                     "override": false,
@@ -162,7 +162,7 @@
                     "designable": true,
                     "final": false,
                     "index": 3,
-                    "lineNumber": 16,
+                    "lineNumber": 17,
                     "name": "selectedPlayer",
                     "notify": "mediaChanged",
                     "override": false,
@@ -179,7 +179,7 @@
                     "designable": true,
                     "final": false,
                     "index": 4,
-                    "lineNumber": 17,
+                    "lineNumber": 18,
                     "name": "title",
                     "notify": "mediaChanged",
                     "override": false,
@@ -196,7 +196,7 @@
                     "designable": true,
                     "final": false,
                     "index": 5,
-                    "lineNumber": 18,
+                    "lineNumber": 19,
                     "name": "artist",
                     "notify": "mediaChanged",
                     "override": false,
@@ -213,7 +213,7 @@
                     "designable": true,
                     "final": false,
                     "index": 6,
-                    "lineNumber": 19,
+                    "lineNumber": 20,
                     "name": "status",
                     "notify": "mediaChanged",
                     "override": false,
@@ -230,7 +230,7 @@
                     "designable": true,
                     "final": false,
                     "index": 7,
-                    "lineNumber": 20,
+                    "lineNumber": 21,
                     "name": "positionSeconds",
                     "notify": "mediaChanged",
                     "override": false,
@@ -247,7 +247,7 @@
                     "designable": true,
                     "final": false,
                     "index": 8,
-                    "lineNumber": 21,
+                    "lineNumber": 22,
                     "name": "lengthSeconds",
                     "notify": "mediaChanged",
                     "override": false,
@@ -264,7 +264,7 @@
                     "designable": true,
                     "final": false,
                     "index": 9,
-                    "lineNumber": 22,
+                    "lineNumber": 23,
                     "name": "volume",
                     "notify": "mediaChanged",
                     "override": false,
@@ -281,7 +281,7 @@
                     "designable": true,
                     "final": false,
                     "index": 10,
-                    "lineNumber": 23,
+                    "lineNumber": 24,
                     "name": "artUrl",
                     "notify": "mediaChanged",
                     "override": false,
@@ -298,7 +298,7 @@
                     "designable": true,
                     "final": false,
                     "index": 11,
-                    "lineNumber": 24,
+                    "lineNumber": 25,
                     "name": "isVideo",
                     "notify": "mediaChanged",
                     "override": false,
@@ -315,7 +315,7 @@
                     "designable": true,
                     "final": false,
                     "index": 12,
-                    "lineNumber": 25,
+                    "lineNumber": 26,
                     "name": "hasMedia",
                     "notify": "mediaChanged",
                     "override": false,
@@ -333,7 +333,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 58,
+                    "lineNumber": 59,
                     "name": "mediaChanged",
                     "returnType": "void"
                 }
@@ -342,7 +342,7 @@
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 55,
+                    "lineNumber": 56,
                     "name": "refresh",
                     "returnType": "void"
                 }

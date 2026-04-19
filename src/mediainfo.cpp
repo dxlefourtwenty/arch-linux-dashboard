@@ -1,6 +1,7 @@
 #include "mediainfo.h"
 
 #include <QDir>
+#include <QDateTime>
 #include <QHash>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -15,7 +16,9 @@ constexpr const char *kPlayerctlBin = "/usr/bin/playerctl";
 constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
 constexpr int kTimeoutMs = 900;
+constexpr qint64 kTransientEmptySnapshotGraceMs = 2200;
 constexpr char kFieldSeparator = '\x1f';
+const QString kStatusFormat = QString("{{playerName}}%1{{status}}").arg(QChar(kFieldSeparator));
 const QString kMetadataFormat =
     QString("{{playerName}}%1{{xesam:title}}%1{{mpris:trackid}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
         .arg(QChar(kFieldSeparator));
@@ -26,6 +29,44 @@ struct PlayerEntry {
     QString metadata;
     QString displayName;
 };
+
+QHash<QString, QString> parseStatusByPlayer(const QString &rawOutput)
+{
+    QHash<QString, QString> statusByPlayer;
+    const QStringList lines = rawOutput.split('\n', Qt::SkipEmptyParts);
+    for (const QString &line : lines) {
+        const QStringList fields = line.split(QChar(kFieldSeparator));
+        if (fields.size() < 2) {
+            continue;
+        }
+
+        const QString player = fields.at(0).trimmed();
+        if (player.isEmpty()) {
+            continue;
+        }
+
+        statusByPlayer.insert(player, fields.at(1).trimmed());
+    }
+
+    return statusByPlayer;
+}
+
+QHash<QString, QString> parseMetadataByPlayer(const QString &rawOutput)
+{
+    QHash<QString, QString> metadataByPlayer;
+    const QStringList lines = rawOutput.split('\n', Qt::SkipEmptyParts);
+    for (const QString &line : lines) {
+        const QStringList fields = line.split(QChar(kFieldSeparator));
+        const QString player = fields.value(0).trimmed();
+        if (player.isEmpty()) {
+            continue;
+        }
+
+        metadataByPlayer.insert(player, line.trimmed());
+    }
+
+    return metadataByPlayer;
+}
 }
 
 MediaInfo::MediaInfo(QObject *parent)
@@ -197,6 +238,28 @@ void MediaInfo::startPlayerEventsFollow()
 void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
 {
     Snapshot snapshot = rawSnapshot;
+    const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
+
+    if (snapshot.hasMedia) {
+        m_lastStableSnapshotMs = nowMs;
+    } else if (m_hasMedia) {
+        const bool looksLikeTransientEmptySnapshot = snapshot.availablePlayers.isEmpty()
+            && snapshot.availablePlayerLabels.isEmpty()
+            && snapshot.selectedPlayer.isEmpty()
+            && snapshot.targetPlayer.isEmpty()
+            && snapshot.playerName.isEmpty()
+            && snapshot.title.isEmpty()
+            && snapshot.trackId.isEmpty()
+            && snapshot.artist.isEmpty()
+            && snapshot.status.isEmpty()
+            && snapshot.artUrl.isEmpty()
+            && snapshot.sourceUrl.isEmpty()
+            && snapshot.browserVideoToken.isEmpty();
+        if (looksLikeTransientEmptySnapshot && (nowMs - m_lastStableSnapshotMs) < kTransientEmptySnapshotGraceMs) {
+            return;
+        }
+    }
+
     const bool activeBrowserVideoChanged = m_hasMedia
         && snapshot.hasMedia
         && snapshot.isVideo
@@ -332,18 +395,37 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     QList<PlayerEntry> entries;
     entries.reserve(listedPlayers.size());
 
-    const QStringList youtubeBrowserClasses = browserClassesWithYouTubeTitle();
+    const QHash<QString, QString> statusesByPlayer =
+        parseStatusByPlayer(runPlayerctl({"--all-players", "status", "--format", kStatusFormat}));
+    const QHash<QString, QString> metadataByPlayer =
+        parseMetadataByPlayer(runPlayerctl({"--all-players", "metadata", "--format", kMetadataFormat}));
+
+    QStringList youtubeBrowserClasses;
+    bool youtubeBrowserClassesLoaded = false;
+    auto ensureYouTubeBrowserClasses = [&youtubeBrowserClasses, &youtubeBrowserClassesLoaded]() {
+        if (!youtubeBrowserClassesLoaded) {
+            youtubeBrowserClasses = browserClassesWithYouTubeTitle();
+            youtubeBrowserClassesLoaded = true;
+        }
+    };
+
     for (const QString &player : listedPlayers) {
-        const QString playerStatus = runPlayerctl({"-p", player, "status"});
+        QString playerStatus = statusesByPlayer.value(player);
+        if (playerStatus.isEmpty()) {
+            playerStatus = runPlayerctl({"-p", player, "status"});
+        }
         if (playerStatus.isEmpty()) {
             continue;
         }
 
-        const QString metadata = runPlayerctl({
-            "-p", player,
-            "metadata",
-            "--format", kMetadataFormat
-        });
+        QString metadata = metadataByPlayer.value(player);
+        if (metadata.isEmpty()) {
+            metadata = runPlayerctl({
+                "-p", player,
+                "metadata",
+                "--format", kMetadataFormat
+            });
+        }
 
         const QStringList fields = metadata.split(QChar(kFieldSeparator));
         const QString rawPlayerName = fields.value(0).trimmed();
@@ -363,7 +445,13 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
             || titleLower.endsWith(" - youtube")
             || titleLower.startsWith("youtube -")
             || titleLower.contains(" youtu.be")
-            || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+            || ([&]() -> bool {
+                if (classNeedle.isEmpty()) {
+                    return false;
+                }
+                ensureYouTubeBrowserClasses();
+                return youtubeBrowserClasses.contains(classNeedle);
+            })();
         const bool looksLikeNetflix = sourceUrl.contains("netflix.com")
             || titleLower.contains("netflix")
             || titleLower.endsWith(" - netflix")
@@ -458,11 +546,14 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         return snapshot;
     }
 
-    const QString selectedMetadataOut = runPlayerctl({
-        "-p", selectedPlayer,
-        "metadata",
-        "--format", kMetadataFormat
-    });
+    QString selectedMetadataOut = selectedEntry.metadata;
+    if (selectedMetadataOut.isEmpty()) {
+        selectedMetadataOut = runPlayerctl({
+            "-p", selectedPlayer,
+            "metadata",
+            "--format", kMetadataFormat
+        });
+    }
     const QString posOut = runPlayerctl({"-p", selectedPlayer, "position"});
     const QString volumeOut = runPlayerctl({"-p", selectedPlayer, "volume"});
 
@@ -493,7 +584,13 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         || titleLower.endsWith(" - youtube")
         || titleLower.startsWith("youtube -")
         || titleLower.contains(" youtu.be")
-        || (!classNeedle.isEmpty() && youtubeBrowserClasses.contains(classNeedle));
+        || ([&]() -> bool {
+            if (classNeedle.isEmpty()) {
+                return false;
+            }
+            ensureYouTubeBrowserClasses();
+            return youtubeBrowserClasses.contains(classNeedle);
+        })();
     const bool applyNetflixBranding = looksLikeNetflix && !looksLikeYoutube;
 
     snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, looksLikeNetflix, sourceUrl);

@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QFutureWatcher>
 #include <QProcess>
+#include <QtGlobal>
 
 class MediaInfo : public QObject
 {
@@ -116,4 +117,5 @@ private:
     QString m_browserVideoToken;
     bool m_isVideo = false;
     bool m_hasMedia = false;
+    qint64 m_lastStableSnapshotMs = 0;
 };

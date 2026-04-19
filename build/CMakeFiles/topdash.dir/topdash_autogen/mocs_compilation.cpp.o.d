@@ -401,9 +401,10 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/QProcess \
  /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
  /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
- /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/q20iterator.h /usr/include/qt6/QtCore/QtGlobal \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
+ /usr/include/qt6/QtCore/QByteArray \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/weatherconfig.h \
  /usr/include/qt6/QtCore/QVariantList \

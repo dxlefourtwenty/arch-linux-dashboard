@@ -44,15 +44,26 @@ Item {
     property real visualizerOpacity: 0.1
     property bool visualizerEnabled: true
     property real visualizerPausedFloor: 0.08
+    property int visualizerPauseDebounceMs: 200
+    property int visualizerPositionGraceMs: 900
+    property real visualizerPositionAdvanceThresholdSeconds: 0.08
     property real visualizerPhase: 0
+    property int visualizerPhaseDurationMs: 3000
     property int visualizerPhaseTickMs: 16
-    property int visualizerPhaseDurationMs: 4500
     property double visualizerLastTickMs: 0
-    readonly property bool visualizerPlaying: root.active
+    property int visualizerPhaseLoopCycles: 3600
+    readonly property real visualizerPhaseLoopSpan: (Math.PI * 2) * root.visualizerPhaseLoopCycles
+    readonly property int visualizerPhaseLoopDurationMs: Math.max(1, root.visualizerPhaseDurationMs * root.visualizerPhaseLoopCycles)
+    readonly property bool visualizerPhaseActive: root.active
+        && root.visualizerEnabled
+        && MediaInfo.hasMedia
+    readonly property bool visualizerPlayingLive: root.active
         && root.visualizerEnabled
         && MediaInfo.hasMedia
         && MediaInfo.status === "Playing"
-    property real visualizerEnergy: visualizerPlaying ? 1.0 : 0.0
+    property bool visualizerPlaying: visualizerPlayingLive
+    property real visualizerEnergy: root.visualizerPlaying ? 1.0 : 0.0
+    property double visualizerLastPositionAdvanceMs: 0
     property real visualPlaybackPositionSeconds: {
         const _tick = playbackTick
         const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
@@ -84,8 +95,7 @@ Item {
         if (!MediaInfo.hasMedia) {
             return ""
         }
-        const lengthIdentity = Math.max(0, Math.round(MediaInfo.lengthSeconds))
-        return MediaInfo.playerName + "|" + MediaInfo.title + "|" + MediaInfo.artist + "|" + MediaInfo.artUrl + "|" + lengthIdentity
+        return MediaInfo.playerName + "|" + MediaInfo.title + "|" + MediaInfo.artist + "|" + MediaInfo.artUrl
     }
 
     function mixColors(fromColor, toColor, amount) {
@@ -105,26 +115,44 @@ Item {
     }
 
     Timer {
+        id: visualizerPauseDebounceTimer
+        interval: Math.max(0, root.visualizerPauseDebounceMs)
+        repeat: false
+        onTriggered: {
+            if (root.shouldVisualizerKeepPlaying()) {
+                if (!root.visualizerPlayingLive) {
+                    visualizerPauseDebounceTimer.start()
+                }
+                return
+            }
+            root.visualizerPlaying = false
+        }
+    }
+
+    Timer {
         id: visualizerPhaseTimer
-        interval: root.visualizerPhaseTickMs
+        interval: Math.max(1, root.visualizerPhaseTickMs)
         repeat: true
-        running: root.visualizerPlaying
+        running: root.visualizerPhaseActive
+        onRunningChanged: {
+            if (!running) {
+                root.visualizerLastTickMs = 0
+            }
+        }
         onTriggered: {
             const nowMs = Date.now()
             if (root.visualizerLastTickMs <= 0) {
                 root.visualizerLastTickMs = nowMs
                 return
             }
+
             const elapsedMs = Math.max(0, nowMs - root.visualizerLastTickMs)
             root.visualizerLastTickMs = nowMs
-            const phaseStep = (Math.PI * 2 * elapsedMs) / Math.max(1, root.visualizerPhaseDurationMs)
-            root.visualizerPhase += phaseStep
-        }
-    }
-
-    onVisualizerPlayingChanged: {
-        if (!visualizerPlaying) {
-            visualizerLastTickMs = 0
+            const phaseStep = (root.visualizerPhaseLoopSpan * elapsedMs) / Math.max(1, root.visualizerPhaseLoopDurationMs)
+            const nextPhase = root.visualizerPhase + phaseStep
+            root.visualizerPhase = nextPhase >= root.visualizerPhaseLoopSpan
+                ? nextPhase % root.visualizerPhaseLoopSpan
+                : nextPhase
         }
     }
 
@@ -151,9 +179,19 @@ Item {
         target: MediaInfo
 
         function onMediaChanged() {
+            const nowMs = Date.now()
             const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
+            if ((backendPosition - root.lastBackendPositionSeconds) > root.visualizerPositionAdvanceThresholdSeconds) {
+                root.visualizerLastPositionAdvanceMs = nowMs
+            }
+            if (root.visualizerPlayingLive) {
+                root.visualizerLastPositionAdvanceMs = nowMs
+            }
+
+            root.syncVisualizerPlayingState()
+
             root.lastBackendPositionSeconds = backendPosition
-            root.lastBackendSyncMs = Date.now()
+            root.lastBackendSyncMs = nowMs
 
             if (!root.spotifyMedia) {
                 root.spinMediaIdentity = ""
@@ -176,6 +214,50 @@ Item {
             }
         }
     }
+
+    function shouldVisualizerKeepPlaying() {
+        if (root.visualizerPlayingLive) {
+            return true
+        }
+
+        if (!root.active || !root.visualizerEnabled || !MediaInfo.hasMedia) {
+            return false
+        }
+
+        if (root.visualizerLastPositionAdvanceMs <= 0) {
+            return false
+        }
+
+        return (Date.now() - root.visualizerLastPositionAdvanceMs) <= Math.max(0, root.visualizerPositionGraceMs)
+    }
+
+    function syncVisualizerPlayingState() {
+        if (root.visualizerPlayingLive) {
+            root.visualizerLastPositionAdvanceMs = Date.now()
+            visualizerPauseDebounceTimer.stop()
+            root.visualizerPlaying = true
+            return
+        }
+
+        if (!root.active || !root.visualizerEnabled || !MediaInfo.hasMedia || root.visualizerPauseDebounceMs <= 0) {
+            visualizerPauseDebounceTimer.stop()
+            root.visualizerPlaying = false
+            return
+        }
+
+        if (root.shouldVisualizerKeepPlaying()) {
+            root.visualizerPlaying = true
+        }
+
+        if (!visualizerPauseDebounceTimer.running) {
+            visualizerPauseDebounceTimer.start()
+        }
+    }
+
+    onVisualizerPlayingLiveChanged: syncVisualizerPlayingState()
+    onActiveChanged: syncVisualizerPlayingState()
+    onVisualizerEnabledChanged: syncVisualizerPlayingState()
+    Component.onCompleted: syncVisualizerPlayingState()
 
     Rectangle {
         id: panelBorder
@@ -222,10 +304,16 @@ Item {
                     Rectangle {
                         width: parent.width
                         height: {
-                            const waveA = Math.abs(Math.sin((parent.index * 0.32) + root.visualizerPhase))
-                            const waveB = Math.abs(Math.sin((parent.index * 0.11) - (root.visualizerPhase * 1.55)))
-                            const deterministicJitter = Math.abs(Math.sin((parent.index * 1.37) + (root.visualizerPhase * 2.55))) * 0.1
-                            const dynamicLevel = 0.14 + (waveA * 0.36) + (waveB * 0.24) + deterministicJitter
+                            const indexPhase = parent.index
+                            const phase = root.visualizerPhase
+                            const normalizedIndex = indexPhase / Math.max(1, root.visualizerBarCount - 1)
+                            const waveA = 0.5 + (0.5 * Math.sin((indexPhase * 0.41) + (phase * (1.05 + (normalizedIndex * 0.72)))))
+                            const waveB = 0.5 + (0.5 * Math.sin((indexPhase * 0.17) - (phase * (1.58 + (normalizedIndex * 0.48)))))
+                            const ripple = 0.5 + (0.5 * Math.sin((indexPhase * 1.23) + (phase * 2.47)))
+                            const travelPhase = ((phase * (0.22 + (normalizedIndex * 0.09))) + (indexPhase * 0.6)) / (Math.PI * 2)
+                            const travelFrac = travelPhase - Math.floor(travelPhase)
+                            const travel = 1.0 - Math.abs((travelFrac * 2.0) - 1.0)
+                            const dynamicLevel = 0.12 + (waveA * 0.33) + (waveB * 0.22) + (ripple * 0.2) + (travel * 0.11)
                             const mixedLevel = root.visualizerPausedFloor + ((dynamicLevel - root.visualizerPausedFloor) * root.visualizerEnergy)
                             const clamped = Math.max(root.visualizerPausedFloor, Math.min(0.96, mixedLevel))
                             return Math.max(2, parent.height * clamped)

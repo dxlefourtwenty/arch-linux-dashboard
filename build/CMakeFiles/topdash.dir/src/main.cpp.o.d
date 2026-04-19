@@ -450,7 +450,8 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/qt6/QtQml/qqmlcontext.h /usr/include/LayerShellQt/window.h \
  /usr/include/LayerShellQt/layershellqt_export.h \
  /home/dxle/builds/dashboard/src/systeminfo.h \
- /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
+ /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/QProcess \
+ /usr/include/qt6/QtCore/qprocess.h \
  /home/dxle/builds/dashboard/src/appconfig.h \
  /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/QString \
  /usr/include/qt6/QtCore/QVector /usr/include/qt6/QtCore/qvector.h \
@@ -476,7 +477,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/semaphore.h /usr/include/bits/semaphore.h \
  /usr/include/c++/15.2.1/bits/atomic_futex.h \
  /usr/include/qt6/QtCore/qrunnable.h /usr/include/qt6/QtCore/qexception.h \
- /usr/include/qt6/QtCore/qpromise.h \
+ /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/QtGlobal \
  /home/dxle/builds/dashboard/src/weatherconfig.h \
  /usr/include/qt6/QtCore/QVariantList \
  /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QVariant \

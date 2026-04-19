@@ -256,7 +256,7 @@
                         {
                             "codegenResult": 0,
                             "column": 38,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "fontMetricScale",
                             "line": 89,
                             "message": ""
@@ -624,7 +624,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "registerTabNavigation",
                             "line": 357,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"
@@ -1224,7 +1224,7 @@
                         {
                             "codegenResult": 2,
                             "column": 47,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "text",
                             "line": 684,
                             "message": "Cannot access value for name index"
@@ -1575,6 +1575,14 @@
                         },
                         {
                             "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "live",
+                            "line": 813,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
@@ -1627,6 +1635,14 @@
                             "durationMicroseconds": 0,
                             "functionName": "sourceItem",
                             "line": 826,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "live",
+                            "line": 827,
                             "message": ""
                         },
                         {
@@ -2867,6 +2883,14 @@
                             "durationMicroseconds": 0,
                             "functionName": "sourceItem",
                             "line": 1106,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "live",
+                            "line": 1107,
                             "message": ""
                         },
                         {

@@ -345,9 +345,10 @@ CMakeFiles/topdash.dir/src/systeminfo.cpp.o: \
  /usr/include/c++/15.2.1/bits/sstream.tcc \
  /usr/include/c++/15.2.1/bits/chrono_io.h /usr/include/c++/15.2.1/iomanip \
  /usr/include/c++/15.2.1/bits/quoted_string.h \
- /usr/include/qt6/QtCore/QProcess /usr/include/qt6/QtCore/qprocess.h \
- /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qspan.h \
- /usr/include/c++/15.2.1/cassert /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/QProcess \
+ /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
+ /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
+ /usr/include/qt6/QtCore/q20iterator.h \
  /usr/include/qt6/QtCore/qshareddata.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
  /usr/include/qt6/QtCore/qabstracteventdispatcher.h \

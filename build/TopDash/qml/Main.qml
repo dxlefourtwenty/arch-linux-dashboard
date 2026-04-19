@@ -810,7 +810,7 @@ Window {
                                            : win.activeTabIndex === 1 ? mediaPage
                                            : win.activeTabIndex === 2 ? performancePage
                                            : weatherPage
-                                live: true
+                                live: win.tabJumpProxyEnabled
                                 hideSource: false
                             }
                         }
@@ -820,11 +820,11 @@ Window {
                             x: -win.tabStepDistance()
                             width: pagesViewport.width
                             height: pagesViewport.height
-                            visible: win.tabSlideEnabled
+                            visible: win.tabSlideEnabled && (win.tabSwitchAnimating || tabConveyorAnimation.running)
                             ShaderEffectSource {
                                 anchors.fill: parent
                                 sourceItem: weatherPage
-                                live: true
+                                live: tabConveyorAnimation.running
                                 hideSource: false
                             }
                         }
@@ -1100,11 +1100,11 @@ Window {
                             x: win.tabStepDistance() * win.tabCount
                             width: pagesViewport.width
                             height: pagesViewport.height
-                            visible: win.tabSlideEnabled
+                            visible: win.tabSlideEnabled && (win.tabSwitchAnimating || tabConveyorAnimation.running)
                             ShaderEffectSource {
                                 anchors.fill: parent
                                 sourceItem: dashboardPage
-                                live: true
+                                live: tabConveyorAnimation.running
                                 hideSource: false
                             }
                         }

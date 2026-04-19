@@ -331,6 +331,7 @@
   /usr/include/qt6/QtCore/QProcess \
   /usr/include/qt6/QtCore/QStringList \
   /usr/include/qt6/QtCore/QTimer \
+  /usr/include/qt6/QtCore/QtGlobal \
   /usr/include/qt6/QtCore/q17memory.h \
   /usr/include/qt6/QtCore/q20bit.h \
   /usr/include/qt6/QtCore/q20functional.h \

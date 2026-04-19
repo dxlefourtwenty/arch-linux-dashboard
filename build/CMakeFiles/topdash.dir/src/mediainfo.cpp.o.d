@@ -387,8 +387,9 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/QProcess \
  /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
  /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
- /usr/include/qt6/QtCore/q20iterator.h /usr/include/qt6/QtCore/QDir \
- /usr/include/qt6/QtCore/qdir.h /usr/include/qt6/QtCore/qdirlisting.h \
+ /usr/include/qt6/QtCore/q20iterator.h /usr/include/qt6/QtCore/QtGlobal \
+ /usr/include/qt6/QtCore/QDir /usr/include/qt6/QtCore/qdir.h \
+ /usr/include/qt6/QtCore/qdirlisting.h \
  /usr/include/qt6/QtCore/qfiledevice.h /usr/include/c++/15.2.1/filesystem \
  /usr/include/c++/15.2.1/bits/fs_fwd.h \
  /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
@@ -397,8 +398,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
  /usr/include/qt6/QtCore/qlocale.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
- /usr/include/qt6/QtCore/QHash /usr/include/qt6/QtCore/QJsonArray \
- /usr/include/qt6/QtCore/qjsonarray.h \
+ /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/QHash \
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h \
  /usr/include/qt6/QtCore/qcborcommon.h \
