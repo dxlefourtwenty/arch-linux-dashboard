@@ -17,7 +17,7 @@ constexpr const char *kAnyPlayer = "%any";
 constexpr int kTimeoutMs = 900;
 constexpr char kFieldSeparator = '\x1f';
 const QString kMetadataFormat =
-    QString("{{playerName}}%1{{xesam:title}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
+    QString("{{playerName}}%1{{xesam:title}}%1{{mpris:trackid}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
         .arg(QChar(kFieldSeparator));
 
 struct PlayerEntry {
@@ -197,6 +197,18 @@ void MediaInfo::startPlayerEventsFollow()
 void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
 {
     Snapshot snapshot = rawSnapshot;
+    const bool activeBrowserVideoChanged = m_hasMedia
+        && snapshot.hasMedia
+        && snapshot.isVideo
+        && m_selectedPlayer == snapshot.selectedPlayer
+        && !snapshot.browserVideoToken.isEmpty()
+        && snapshot.browserVideoToken != m_browserVideoToken;
+    if (activeBrowserVideoChanged) {
+        snapshot.positionSeconds = 0.0;
+        snapshot.lengthSeconds = 0.0;
+        snapshot.trackId.clear();
+        snapshot.sourceUrl.clear();
+    }
     const bool likelyBrowserMetadataLag = m_hasMedia
         && snapshot.hasMedia
         && m_selectedPlayer == snapshot.selectedPlayer
@@ -206,7 +218,18 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         && qAbs(snapshot.lengthSeconds - m_lengthSeconds) < 0.001
         && snapshot.title == m_title
         && snapshot.sourceUrl == m_sourceUrl;
+    const bool videoTrackChanged = snapshot.hasMedia
+        && snapshot.isVideo
+        && !snapshot.trackId.isEmpty()
+        && snapshot.trackId != m_trackId;
+    const bool likelyTrackDurationLag = videoTrackChanged
+        && snapshot.positionSeconds < 5.0
+        && snapshot.lengthSeconds > 0.0
+        && qAbs(snapshot.lengthSeconds - m_lengthSeconds) < 0.001;
     if (likelyBrowserMetadataLag) {
+        snapshot.lengthSeconds = 0.0;
+    }
+    if (likelyTrackDurationLag) {
         snapshot.lengthSeconds = 0.0;
     }
 
@@ -214,10 +237,14 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         || m_selectedPlayer != snapshot.selectedPlayer
         || m_playerName != snapshot.playerName
         || m_title != snapshot.title
+        || m_trackId != snapshot.trackId
         || m_artist != snapshot.artist
         || m_artUrl != snapshot.artUrl
         || m_sourceUrl != snapshot.sourceUrl
-        || likelyBrowserMetadataLag;
+        || m_browserVideoToken != snapshot.browserVideoToken
+        || activeBrowserVideoChanged
+        || likelyBrowserMetadataLag
+        || likelyTrackDurationLag;
 
     const bool changed = m_availablePlayers != snapshot.availablePlayers
         || m_availablePlayerLabels != snapshot.availablePlayerLabels
@@ -226,12 +253,14 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         || m_hasMedia != snapshot.hasMedia
         || m_playerName != snapshot.playerName
         || m_title != snapshot.title
+        || m_trackId != snapshot.trackId
         || m_artist != snapshot.artist
         || m_status != snapshot.status
         || !qFuzzyCompare(m_positionSeconds + 1.0, snapshot.positionSeconds + 1.0)
         || !qFuzzyCompare(m_lengthSeconds + 1.0, snapshot.lengthSeconds + 1.0)
         || !qFuzzyCompare(m_volume + 1.0, snapshot.volume + 1.0)
         || m_artUrl != snapshot.artUrl
+        || m_browserVideoToken != snapshot.browserVideoToken
         || m_isVideo != snapshot.isVideo;
 
     m_availablePlayers = snapshot.availablePlayers;
@@ -241,6 +270,7 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
     m_hasMedia = snapshot.hasMedia;
     m_playerName = snapshot.playerName;
     m_title = snapshot.title;
+    m_trackId = snapshot.trackId;
     m_artist = snapshot.artist;
     m_status = snapshot.status;
     m_positionSeconds = snapshot.positionSeconds;
@@ -248,6 +278,7 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
     m_volume = snapshot.volume;
     m_artUrl = snapshot.artUrl;
     m_sourceUrl = snapshot.sourceUrl;
+    m_browserVideoToken = snapshot.browserVideoToken;
     m_isVideo = snapshot.isVideo;
 
     if (changed) {
@@ -317,7 +348,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         const QStringList fields = metadata.split(QChar(kFieldSeparator));
         const QString rawPlayerName = fields.value(0).trimmed();
         const QString title = compactValue(fields.value(1));
-        const QString sourceUrl = compactValue(fields.value(5)).toLower();
+        const QString sourceUrl = compactValue(fields.value(6)).toLower();
         const QString titleLower = title.toLower();
         const QString playerLower = rawPlayerName.toLower();
         const QString classNeedle = playerLower.contains("brave")
@@ -435,10 +466,11 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     const QStringList fields = metadata.split(QChar(kFieldSeparator));
     const QString rawPlayerName = fields.value(0).trimmed();
     const QString title = compactValue(fields.value(1));
-    const QString artist = compactValue(fields.value(2));
-    const double lengthSeconds = parseMicroseconds(fields.value(3));
-    const QString artUrl = compactValue(fields.value(4));
-    const QString sourceUrl = compactValue(fields.value(5)).toLower();
+    const QString trackId = compactValue(fields.value(2));
+    const QString artist = compactValue(fields.value(3));
+    const double lengthSeconds = parseMicroseconds(fields.value(4));
+    const QString artUrl = compactValue(fields.value(5));
+    const QString sourceUrl = compactValue(fields.value(6)).toLower();
     const QString titleLower = title.toLower();
     const QString lowerPlayerName = rawPlayerName.toLower();
     const bool looksLikeNetflix = titleLower.contains("netflix");
@@ -459,6 +491,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
 
     snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, sourceUrl);
     snapshot.title = title;
+    snapshot.trackId = trackId;
     snapshot.artist = applyNetflixBranding ? "Netflix" : artist;
     snapshot.status = statusOut;
     snapshot.positionSeconds = qMax(0.0, posOut.toDouble());
@@ -476,6 +509,13 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
         || sourceUrl.endsWith(".mp4")
         || sourceUrl.endsWith(".webm")
         || sourceUrl.endsWith(".mkv");
+    if (!classNeedle.isEmpty() && snapshot.isVideo) {
+        const QString activeBrowserToken = activeBrowserVideoToken();
+        const QString prefix = classNeedle + "|";
+        if (activeBrowserToken.startsWith(prefix)) {
+            snapshot.browserVideoToken = activeBrowserToken;
+        }
+    }
     snapshot.hasMedia = true;
 
     return snapshot;
@@ -575,6 +615,65 @@ QStringList MediaInfo::browserClassesWithYouTubeTitle()
     }
 
     return matches.values();
+}
+
+QString MediaInfo::activeBrowserVideoToken()
+{
+    QProcess proc;
+    proc.start(QString::fromUtf8(kHyprctlBin), {"-j", "activewindow"});
+    if (!proc.waitForStarted(kTimeoutMs)) {
+        return {};
+    }
+    if (!proc.waitForFinished(kTimeoutMs)) {
+        proc.kill();
+        proc.waitForFinished();
+        return {};
+    }
+    if (proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
+        return {};
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson(proc.readAllStandardOutput());
+    if (!doc.isObject()) {
+        return {};
+    }
+
+    const QJsonObject obj = doc.object();
+    const QString windowClass = obj.value("class").toString().toLower();
+    QString classKey;
+    if (windowClass.contains("brave")) {
+        classKey = "brave";
+    } else if (windowClass.contains("firefox")) {
+        classKey = "firefox";
+    } else if (windowClass.contains("chrom")) {
+        classKey = "chrom";
+    } else {
+        return {};
+    }
+
+    QString title = compactValue(obj.value("title").toString());
+    if (title.isEmpty()) {
+        return {};
+    }
+
+    auto stripSuffix = [&title](const QString &suffix) {
+        if (title.endsWith(suffix, Qt::CaseInsensitive)) {
+            title.chop(suffix.size());
+            title = title.trimmed();
+        }
+    };
+    stripSuffix(" - Brave");
+    stripSuffix(" - Chromium");
+    stripSuffix(" - Google Chrome");
+    stripSuffix(" - Mozilla Firefox");
+    stripSuffix(" - YouTube");
+    stripSuffix(" - Netflix");
+    stripSuffix(" - Twitch");
+    stripSuffix(" - Vimeo");
+    if (title.isEmpty()) {
+        return {};
+    }
+    return classKey + "|" + title.toLower();
 }
 
 double MediaInfo::parseMicroseconds(const QString &raw)

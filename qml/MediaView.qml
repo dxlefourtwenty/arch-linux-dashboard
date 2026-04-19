@@ -40,6 +40,19 @@ Item {
     property real lastBackendPositionSeconds: 0
     property double lastBackendSyncMs: Date.now()
     property int playbackTick: 0
+    property int visualizerBarCount: 32
+    property real visualizerOpacity: 0.1
+    property bool visualizerEnabled: true
+    property real visualizerPausedFloor: 0.08
+    property real visualizerPhase: 0
+    property int visualizerPhaseTickMs: 16
+    property int visualizerPhaseDurationMs: 4500
+    property double visualizerLastTickMs: 0
+    readonly property bool visualizerPlaying: root.active
+        && root.visualizerEnabled
+        && MediaInfo.hasMedia
+        && MediaInfo.status === "Playing"
+    property real visualizerEnergy: visualizerPlaying ? 1.0 : 0.0
     property real visualPlaybackPositionSeconds: {
         const _tick = playbackTick
         const backendPosition = Math.min(MediaInfo.positionSeconds, progressSlider.to)
@@ -75,6 +88,46 @@ Item {
         return MediaInfo.playerName + "|" + MediaInfo.title + "|" + MediaInfo.artist + "|" + MediaInfo.artUrl + "|" + lengthIdentity
     }
 
+    function mixColors(fromColor, toColor, amount) {
+        return Qt.rgba(
+            fromColor.r + (toColor.r - fromColor.r) * amount,
+            fromColor.g + (toColor.g - fromColor.g) * amount,
+            fromColor.b + (toColor.b - fromColor.b) * amount,
+            1
+        )
+    }
+
+    Behavior on visualizerEnergy {
+        NumberAnimation {
+            duration: 260
+            easing.type: Easing.OutCubic
+        }
+    }
+
+    Timer {
+        id: visualizerPhaseTimer
+        interval: root.visualizerPhaseTickMs
+        repeat: true
+        running: root.visualizerPlaying
+        onTriggered: {
+            const nowMs = Date.now()
+            if (root.visualizerLastTickMs <= 0) {
+                root.visualizerLastTickMs = nowMs
+                return
+            }
+            const elapsedMs = Math.max(0, nowMs - root.visualizerLastTickMs)
+            root.visualizerLastTickMs = nowMs
+            const phaseStep = (Math.PI * 2 * elapsedMs) / Math.max(1, root.visualizerPhaseDurationMs)
+            root.visualizerPhase += phaseStep
+        }
+    }
+
+    onVisualizerPlayingChanged: {
+        if (!visualizerPlaying) {
+            visualizerLastTickMs = 0
+        }
+    }
+
     Timer {
         id: seekVisualLockTimer
         interval: 1200
@@ -104,12 +157,12 @@ Item {
 
             if (!root.spotifyMedia) {
                 root.spinMediaIdentity = ""
-                artworkDisc.rotation = 0
+                artworkSpinLayer.rotation = 0
             } else {
                 const nextIdentity = root.currentMediaIdentity()
                 if (nextIdentity !== root.spinMediaIdentity) {
                     root.spinMediaIdentity = nextIdentity
-                    artworkDisc.rotation = 0
+                    artworkSpinLayer.rotation = 0
                 }
             }
 
@@ -125,14 +178,120 @@ Item {
     }
 
     Rectangle {
+        id: panelBorder
         anchors.fill: parent
         radius: root.sectionRadius
         color: "transparent"
         border.width: root.cBorderWidth
         border.color: root.innerBorderColor
+        z: 2
+    }
+
+    Item {
+        id: visualizerLayer
+        anchors.fill: parent
+        anchors.margins: root.cBorderWidth
+        clip: true
+        visible: root.visualizerEnabled && MediaInfo.hasMedia
+        opacity: root.visualizerOpacity
+        z: 0
+
+        Rectangle {
+            anchors.fill: parent
+            radius: Math.max(0, root.sectionRadius - root.cBorderWidth)
+            color: Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.2)
+        }
+
+        Row {
+            id: visualizerRow
+            anchors.fill: parent
+            anchors.leftMargin: root.sectionPadding * 0.5
+            anchors.rightMargin: root.sectionPadding * 0.5
+            anchors.topMargin: root.sectionPadding * 0.35
+            anchors.bottomMargin: root.sectionPadding * 0.35
+            spacing: 3
+
+            Repeater {
+                model: root.visualizerBarCount
+
+                Item {
+                    required property int index
+                    width: (visualizerRow.width - (visualizerRow.spacing * (root.visualizerBarCount - 1))) / root.visualizerBarCount
+                    height: visualizerRow.height
+
+                    Rectangle {
+                        width: parent.width
+                        height: {
+                            const waveA = Math.abs(Math.sin((parent.index * 0.32) + root.visualizerPhase))
+                            const waveB = Math.abs(Math.sin((parent.index * 0.11) - (root.visualizerPhase * 1.55)))
+                            const deterministicJitter = Math.abs(Math.sin((parent.index * 1.37) + (root.visualizerPhase * 2.55))) * 0.1
+                            const dynamicLevel = 0.14 + (waveA * 0.36) + (waveB * 0.24) + deterministicJitter
+                            const mixedLevel = root.visualizerPausedFloor + ((dynamicLevel - root.visualizerPausedFloor) * root.visualizerEnergy)
+                            const clamped = Math.max(root.visualizerPausedFloor, Math.min(0.96, mixedLevel))
+                            return Math.max(2, parent.height * clamped)
+                        }
+                        anchors.bottom: parent.bottom
+                        radius: 0
+                        color: {
+                            const mixed = root.mixColors(root.cAccent, root.cSecondary, parent.index / Math.max(1, root.visualizerBarCount - 1))
+                            return Qt.rgba(mixed.r, mixed.g, mixed.b, 0.95)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ToolButton {
+        id: visualizerToggleButton
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.topMargin: root.cBorderWidth + 6
+        anchors.rightMargin: root.cBorderWidth + 8
+        z: 3
+        hoverEnabled: true
+        onClicked: root.visualizerEnabled = !root.visualizerEnabled
+
+        contentItem: Item {
+            implicitWidth: 18
+            implicitHeight: 18
+
+            Text {
+                anchors.centerIn: parent
+                text: "≋"
+                color: root.cMuted
+                font.family: root.cFont
+                font.pixelSize: root.cFontSize * 0.9
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Text {
+                anchors.centerIn: parent
+                visible: !root.visualizerEnabled
+                text: "/"
+                color: root.cMuted
+                font.family: root.cFont
+                font.pixelSize: root.cFontSize * 1.25
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
+
+        background: Rectangle {
+            implicitWidth: 28
+            implicitHeight: 28
+            radius: 14
+            color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, visualizerToggleButton.hovered ? 0.14 : 0.08)
+            border.width: 1
+            border.color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, visualizerToggleButton.hovered ? 0.5 : 0.35)
+        }
     }
 
     ColumnLayout {
+        z: 1
         anchors.fill: parent
         anchors.margins: root.sectionPadding
         spacing: root.sectionGap
@@ -155,7 +314,6 @@ Item {
                 color: "transparent"
                 transformOrigin: Item.Center
                 scale: (artworkHover.hovered ? root.hoverScale : 1.0) * (root.spotifyMedia ? 1.0 : root.nonSpotifyArtworkScale)
-                rotation: 0
                 z: artworkHover.hovered ? 1 : 0
                 Behavior on scale {
                     NumberAnimation {
@@ -163,54 +321,67 @@ Item {
                         easing.type: Easing.OutCubic
                     }
                 }
-                RotationAnimator {
-                    target: artworkDisc
-                    from: artworkDisc.rotation
-                    to: artworkDisc.rotation + 360
-                    duration: Math.max(1000, root.artworkSpinDurationMs)
-                    loops: Animation.Infinite
-                    running: root.spinRunning
-                }
 
                 HoverHandler {
                     id: artworkHover
                 }
 
                 Item {
-                    id: artworkCircle
+                    id: artworkSpinLayer
                     anchors.fill: parent
                     anchors.margins: root.cBorderWidth
+                    transformOrigin: Item.Center
+                    rotation: 0
+                    layer.enabled: root.spotifyMedia && MediaInfo.hasMedia
+                    layer.smooth: true
 
-                    Image {
-                        id: artworkImage
-                        anchors.fill: parent
-                        source: MediaInfo.artUrl
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        cache: true
-                        visible: false
+                    RotationAnimator {
+                        target: artworkSpinLayer
+                        from: artworkSpinLayer.rotation
+                        to: artworkSpinLayer.rotation + 360
+                        duration: Math.max(1000, root.artworkSpinDurationMs)
+                        loops: Animation.Infinite
+                        running: root.spinRunning
                     }
 
-                    OpacityMask {
+                    Item {
+                        id: artworkCircle
                         anchors.fill: parent
-                        source: artworkImage
-                        visible: MediaInfo.hasMedia && MediaInfo.artUrl.length > 0
-                        maskSource: Rectangle {
-                            width: artworkCircle.width
-                            height: artworkCircle.height
-                            radius: root.circularArtwork ? width / 2 : root.nonSpotifyArtworkRadius
+
+                        Image {
+                            id: artworkImage
+                            anchors.fill: parent
+                            source: MediaInfo.artUrl
+                            sourceSize.width: Math.round(root.artworkSize * 2)
+                            sourceSize.height: Math.round(root.artworkSize * 2)
+                            fillMode: Image.PreserveAspectCrop
+                            asynchronous: true
+                            cache: true
+                            visible: false
+                        }
+
+                        OpacityMask {
+                            anchors.fill: parent
+                            source: artworkImage
+                            visible: MediaInfo.hasMedia && MediaInfo.artUrl.length > 0
+                            cached: true
+                            maskSource: Rectangle {
+                                width: artworkCircle.width
+                                height: artworkCircle.height
+                                radius: root.circularArtwork ? width / 2 : root.nonSpotifyArtworkRadius
+                            }
                         }
                     }
-                }
 
-                Text {
-                    anchors.centerIn: parent
-                    visible: !MediaInfo.hasMedia || MediaInfo.artUrl.length === 0
-                    text: MediaInfo.isVideo ? "▣▶" : "♪"
-                    color: root.cMuted
-                    font.family: root.cFont
-                    font.pixelSize: root.cFontSize * 1.35
-                    font.bold: true
+                    Text {
+                        anchors.centerIn: parent
+                        visible: !MediaInfo.hasMedia || MediaInfo.artUrl.length === 0
+                        text: MediaInfo.isVideo ? "▣▶" : "♪"
+                        color: root.cMuted
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 1.35
+                        font.bold: true
+                    }
                 }
 
                 Rectangle {

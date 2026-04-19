@@ -65,10 +65,12 @@ private:
         QString targetPlayer;
         QString playerName;
         QString title;
+        QString trackId;
         QString artist;
         QString status;
         QString artUrl;
         QString sourceUrl;
+        QString browserVideoToken;
         double positionSeconds = 0.0;
         double lengthSeconds = 0.0;
         double volume = 0.0;
@@ -88,6 +90,7 @@ private:
     static QString compactValue(const QString &value);
     static QString displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, const QString &sourceUrlLower);
     static QStringList browserClassesWithYouTubeTitle();
+    static QString activeBrowserVideoToken();
     static double parseMicroseconds(const QString &raw);
 
     QTimer m_pollTimer;
@@ -102,6 +105,7 @@ private:
     QString m_selectedPlayer;
     QString m_playerName;
     QString m_title;
+    QString m_trackId;
     QString m_artist;
     QString m_status;
     double m_positionSeconds = 0.0;
@@ -109,6 +113,7 @@ private:
     double m_volume = 0.0;
     QString m_artUrl;
     QString m_sourceUrl;
+    QString m_browserVideoToken;
     bool m_isVideo = false;
     bool m_hasMedia = false;
 };
