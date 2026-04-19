@@ -92,6 +92,23 @@
                     "type": "bool",
                     "user": false,
                     "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 21,
+                    "name": "volumeScale",
+                    "notify": "volumeScaleChanged",
+                    "override": false,
+                    "read": "volumeScale",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "AudioSpectrum",
@@ -99,36 +116,43 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 37,
+                    "lineNumber": 39,
                     "name": "levelsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 38,
+                    "lineNumber": 40,
                     "name": "runningChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 39,
+                    "lineNumber": 41,
                     "name": "barCountChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 3,
-                    "lineNumber": 40,
+                    "lineNumber": 42,
                     "name": "frameRateChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 4,
-                    "lineNumber": 41,
+                    "lineNumber": 43,
                     "name": "availableChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "lineNumber": 44,
+                    "name": "volumeScaleChanged",
                     "returnType": "void"
                 }
             ],
@@ -141,8 +165,8 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 5,
-                    "lineNumber": 32,
+                    "index": 6,
+                    "lineNumber": 34,
                     "name": "setRunning",
                     "returnType": "void"
                 },
@@ -154,8 +178,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 6,
-                    "lineNumber": 33,
+                    "index": 7,
+                    "lineNumber": 35,
                     "name": "setBarCount",
                     "returnType": "void"
                 },
@@ -167,8 +191,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 7,
-                    "lineNumber": 34,
+                    "index": 8,
+                    "lineNumber": 36,
                     "name": "setFrameRate",
                     "returnType": "void"
                 }

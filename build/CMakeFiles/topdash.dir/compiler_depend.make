@@ -6071,6 +6071,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/qt6/QtCore/QList \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QProcess \
+  /usr/include/qt6/QtCore/QRegularExpression \
   /usr/include/qt6/QtCore/QStandardPaths \
   /usr/include/qt6/QtCore/QTemporaryFile \
   /usr/include/qt6/QtCore/QTextStream \
@@ -6162,6 +6163,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/qt6/QtCore/qprocess.h \
   /usr/include/qt6/QtCore/qprocessordetection.h \
   /usr/include/qt6/QtCore/qrefcount.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/qscopedpointer.h \
   /usr/include/qt6/QtCore/qscopeguard.h \
   /usr/include/qt6/QtCore/qset.h \
@@ -10665,10 +10667,6 @@ topdash_autogen/mocs_compilation.cpp:
 
 /usr/include/qt6/QtCore/QtMath:
 
-topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp:
-
-/usr/include/qt6/QtCore/QRegularExpression:
-
 /usr/lib/libicui18n.so.78:
 
 /home/dxle/builds/dashboard/src/systeminfo.cpp:
@@ -11180,6 +11178,10 @@ CMakeFiles/topdash.dir/src/main.cpp.o:
 /usr/include/qt6/QtCore/qpromise.h:
 
 /usr/include/qt6/QtCore/QTemporaryFile:
+
+topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp:
+
+/usr/include/qt6/QtCore/QRegularExpression:
 
 /usr/include/qt6/QtCore/qsequentialanimationgroup.h:
 

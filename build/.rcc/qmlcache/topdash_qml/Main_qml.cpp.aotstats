@@ -664,7 +664,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "registerTabNavigation",
                             "line": 362,
                             "message": "Cannot generate efficient code for call to untyped JavaScript function"

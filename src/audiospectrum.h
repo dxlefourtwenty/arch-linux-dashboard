@@ -18,6 +18,7 @@ class AudioSpectrum : public QObject
     Q_PROPERTY(int barCount READ barCount WRITE setBarCount NOTIFY barCountChanged)
     Q_PROPERTY(int frameRate READ frameRate WRITE setFrameRate NOTIFY frameRateChanged)
     Q_PROPERTY(bool available READ available NOTIFY availableChanged)
+    Q_PROPERTY(double volumeScale READ volumeScale NOTIFY volumeScaleChanged)
 
 public:
     explicit AudioSpectrum(QObject *parent = nullptr);
@@ -27,6 +28,7 @@ public:
     int barCount() const { return m_barCount; }
     int frameRate() const { return m_frameRate; }
     bool available() const { return m_available; }
+    double volumeScale() const { return m_volumeScale; }
 
 public slots:
     void setRunning(bool running);
@@ -39,6 +41,7 @@ signals:
     void barCountChanged();
     void frameRateChanged();
     void availableChanged();
+    void volumeScaleChanged();
 
 private:
     void start();
@@ -50,10 +53,13 @@ private:
     void applyFrame(const char *frameData, int frameSize);
     QString resolveCavaPath() const;
     QString writeConfigFile();
+    void updateVolumeScale();
+    double detectVolumeScale() const;
 
     QVariantList m_levels;
     QProcess m_process;
     QTimer m_restartTimer;
+    QTimer m_volumePollTimer;
     std::unique_ptr<QTemporaryFile> m_configFile;
     QByteArray m_outputBuffer;
 
@@ -62,4 +68,5 @@ private:
     int m_barCount = 32;
     int m_frameRate = 60;
     bool m_available = false;
+    double m_volumeScale = 1.0;
 };

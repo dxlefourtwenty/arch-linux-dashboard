@@ -45,6 +45,7 @@ template <> constexpr inline auto AudioSpectrum::qt_create_metaobjectdata<qt_met
         "barCountChanged",
         "frameRateChanged",
         "availableChanged",
+        "volumeScaleChanged",
         "setRunning",
         "running",
         "setBarCount",
@@ -55,7 +56,8 @@ template <> constexpr inline auto AudioSpectrum::qt_create_metaobjectdata<qt_met
         "QVariantList",
         "barCount",
         "frameRate",
-        "available"
+        "available",
+        "volumeScale"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -69,30 +71,34 @@ template <> constexpr inline auto AudioSpectrum::qt_create_metaobjectdata<qt_met
         QtMocHelpers::SignalData<void()>(5, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'availableChanged'
         QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'volumeScaleChanged'
+        QtMocHelpers::SignalData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'setRunning'
-        QtMocHelpers::SlotData<void(bool)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Bool, 8 },
+        QtMocHelpers::SlotData<void(bool)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Bool, 9 },
         }}),
         // Slot 'setBarCount'
-        QtMocHelpers::SlotData<void(int)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 10 },
+        QtMocHelpers::SlotData<void(int)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 11 },
         }}),
         // Slot 'setFrameRate'
-        QtMocHelpers::SlotData<void(int)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 12 },
+        QtMocHelpers::SlotData<void(int)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 13 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
         // property 'levels'
-        QtMocHelpers::PropertyData<QVariantList>(13, 0x80000000 | 14, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
+        QtMocHelpers::PropertyData<QVariantList>(14, 0x80000000 | 15, QMC::DefaultPropertyFlags | QMC::EnumOrFlag, 0),
         // property 'running'
-        QtMocHelpers::PropertyData<bool>(8, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 1),
+        QtMocHelpers::PropertyData<bool>(9, QMetaType::Bool, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 1),
         // property 'barCount'
-        QtMocHelpers::PropertyData<int>(15, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 2),
+        QtMocHelpers::PropertyData<int>(16, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 2),
         // property 'frameRate'
-        QtMocHelpers::PropertyData<int>(16, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 3),
+        QtMocHelpers::PropertyData<int>(17, QMetaType::Int, QMC::DefaultPropertyFlags | QMC::Writable | QMC::StdCppSet, 3),
         // property 'available'
-        QtMocHelpers::PropertyData<bool>(17, QMetaType::Bool, QMC::DefaultPropertyFlags, 4),
+        QtMocHelpers::PropertyData<bool>(18, QMetaType::Bool, QMC::DefaultPropertyFlags, 4),
+        // property 'volumeScale'
+        QtMocHelpers::PropertyData<double>(19, QMetaType::Double, QMC::DefaultPropertyFlags, 5),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -119,9 +125,10 @@ void AudioSpectrum::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->barCountChanged(); break;
         case 3: _t->frameRateChanged(); break;
         case 4: _t->availableChanged(); break;
-        case 5: _t->setRunning((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
-        case 6: _t->setBarCount((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->setFrameRate((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->volumeScaleChanged(); break;
+        case 6: _t->setRunning((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 7: _t->setBarCount((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->setFrameRate((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -136,6 +143,8 @@ void AudioSpectrum::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             return;
         if (QtMocHelpers::indexOfMethod<void (AudioSpectrum::*)()>(_a, &AudioSpectrum::availableChanged, 4))
             return;
+        if (QtMocHelpers::indexOfMethod<void (AudioSpectrum::*)()>(_a, &AudioSpectrum::volumeScaleChanged, 5))
+            return;
     }
     if (_c == QMetaObject::ReadProperty) {
         void *_v = _a[0];
@@ -145,6 +154,7 @@ void AudioSpectrum::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: *reinterpret_cast<int*>(_v) = _t->barCount(); break;
         case 3: *reinterpret_cast<int*>(_v) = _t->frameRate(); break;
         case 4: *reinterpret_cast<bool*>(_v) = _t->available(); break;
+        case 5: *reinterpret_cast<double*>(_v) = _t->volumeScale(); break;
         default: break;
         }
     }
@@ -178,20 +188,20 @@ int AudioSpectrum::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 9;
     }
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
@@ -224,5 +234,11 @@ void AudioSpectrum::frameRateChanged()
 void AudioSpectrum::availableChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void AudioSpectrum::volumeScaleChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 QT_WARNING_POP

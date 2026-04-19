@@ -2,6 +2,7 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTextStream>
@@ -17,6 +18,76 @@ constexpr int kMaxFrameRate = 120;
 constexpr int kRestartDelayMs = 900;
 constexpr int kFrameByteRange = 255;
 constexpr double kLevelEpsilon = 0.003;
+constexpr int kVolumePollMs = 220;
+constexpr int kCommandTimeoutMs = 180;
+constexpr double kMaxVolumeScale = 1.4;
+constexpr const char *kWpctlBin = "/usr/bin/wpctl";
+constexpr const char *kPactlBin = "/usr/bin/pactl";
+
+double clampVolumeScale(double value)
+{
+    return qBound(0.0, value, kMaxVolumeScale);
+}
+
+QString runCommand(const QString &program, const QStringList &args)
+{
+    if (!QFileInfo::exists(program) || !QFileInfo(program).isExecutable()) {
+        return {};
+    }
+
+    QProcess proc;
+    proc.start(program, args);
+    if (!proc.waitForFinished(kCommandTimeoutMs)) {
+        proc.kill();
+        proc.waitForFinished(50);
+        return {};
+    }
+    if (proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
+        return {};
+    }
+    return QString::fromUtf8(proc.readAllStandardOutput());
+}
+
+bool parseWpctlVolume(const QString &output, double &volumeScale)
+{
+    static const QRegularExpression volumeRegex(QStringLiteral("Volume:\\s*([0-9]+(?:\\.[0-9]+)?)"));
+    const QRegularExpressionMatch match = volumeRegex.match(output);
+    if (!match.hasMatch()) {
+        return false;
+    }
+
+    bool ok = false;
+    const double volume = match.captured(1).toDouble(&ok);
+    if (!ok) {
+        return false;
+    }
+
+    if (output.contains("[MUTED]", Qt::CaseInsensitive)) {
+        volumeScale = 0.0;
+        return true;
+    }
+
+    volumeScale = clampVolumeScale(volume);
+    return true;
+}
+
+bool parsePactlVolume(const QString &output, double &volumeScale)
+{
+    static const QRegularExpression percentRegex(QStringLiteral("(\\d{1,3})%"));
+    const QRegularExpressionMatch match = percentRegex.match(output);
+    if (!match.hasMatch()) {
+        return false;
+    }
+
+    bool ok = false;
+    const int percent = match.captured(1).toInt(&ok);
+    if (!ok) {
+        return false;
+    }
+
+    volumeScale = clampVolumeScale(static_cast<double>(percent) / 100.0);
+    return true;
+}
 }
 
 AudioSpectrum::AudioSpectrum(QObject *parent)
@@ -29,6 +100,8 @@ AudioSpectrum::AudioSpectrum(QObject *parent)
     connect(&m_restartTimer, &QTimer::timeout, this, [this]() {
         start();
     });
+    m_volumePollTimer.setInterval(kVolumePollMs);
+    connect(&m_volumePollTimer, &QTimer::timeout, this, &AudioSpectrum::updateVolumeScale);
 
     connect(&m_process, &QProcess::readyReadStandardOutput, this, &AudioSpectrum::handleReadyRead);
     connect(&m_process, &QProcess::readyReadStandardError, this, [this]() {
@@ -62,6 +135,7 @@ void AudioSpectrum::setRunning(bool running)
     emit runningChanged();
 
     if (m_running) {
+        updateVolumeScale();
         start();
         return;
     }
@@ -122,6 +196,10 @@ void AudioSpectrum::start()
     }
 
     m_outputBuffer.clear();
+    updateVolumeScale();
+    if (!m_volumePollTimer.isActive()) {
+        m_volumePollTimer.start();
+    }
     m_process.setProgram(m_cavaPath);
     m_process.setArguments({"-p", configPath});
     m_process.start(QIODevice::ReadOnly);
@@ -130,6 +208,7 @@ void AudioSpectrum::start()
 void AudioSpectrum::stop()
 {
     m_restartTimer.stop();
+    m_volumePollTimer.stop();
     m_outputBuffer.clear();
 
     if (m_process.state() != QProcess::NotRunning) {
@@ -272,4 +351,37 @@ QString AudioSpectrum::writeConfigFile()
     file->close();
     m_configFile = std::move(file);
     return path;
+}
+
+void AudioSpectrum::updateVolumeScale()
+{
+    const double nextScale = detectVolumeScale();
+    if (std::abs(m_volumeScale - nextScale) < 0.005) {
+        return;
+    }
+
+    m_volumeScale = nextScale;
+    emit volumeScaleChanged();
+}
+
+double AudioSpectrum::detectVolumeScale() const
+{
+    double parsedScale = 0.0;
+
+    const QString wpctlOut = runCommand(QString::fromUtf8(kWpctlBin), {"get-volume", "@DEFAULT_AUDIO_SINK@"});
+    if (parseWpctlVolume(wpctlOut, parsedScale)) {
+        return parsedScale;
+    }
+
+    const QString pactlMuteOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-mute", "@DEFAULT_SINK@"});
+    if (pactlMuteOut.contains("yes", Qt::CaseInsensitive)) {
+        return 0.0;
+    }
+
+    const QString pactlVolumeOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-volume", "@DEFAULT_SINK@"});
+    if (parsePactlVolume(pactlVolumeOut, parsedScale)) {
+        return parsedScale;
+    }
+
+    return m_volumeScale;
 }

@@ -44,21 +44,21 @@ Item {
     property real visualizerOpacity: 0.1
     property bool visualizerEnabled: true
     property real visualizerPausedFloor: 0.08
-    property real visualizerBarTopGap: 2
+    property real visualizerVolumeBoost: 0.2
     property int visualizerPauseDebounceMs: 200
     property int visualizerPositionGraceMs: 900
     property real visualizerPositionAdvanceThresholdSeconds: 0.08
     readonly property var visualizerLevels: AudioSpectrum.levels
+    readonly property real visualizerVolumeScale: AudioSpectrum.volumeScale
+    readonly property real visualizerAppVolumeScale: MediaInfo.hasMedia
+        ? Math.max(0, Math.min(1, MediaInfo.volume))
+        : 1.0
     readonly property real visualizerMaxBarHeight: {
         const rowHeight = visualizerRow.height
         if (rowHeight <= 0) {
             return 2
         }
-        const rowTop = visualizerLayer.y + visualizerRow.y
-        const rowBottom = rowTop + rowHeight
-        const thumbTop = mediaInfoColumn.y + artworkDisc.y
-        const maxHeight = rowBottom - thumbTop - root.visualizerBarTopGap
-        return Math.max(2, Math.min(rowHeight, maxHeight))
+        return rowHeight
     }
     readonly property bool visualizerPlayingLive: root.active
         && root.visualizerEnabled
@@ -302,9 +302,15 @@ Item {
                         height: {
                             const levels = root.visualizerLevels
                             const audioLevel = levels && parent.index < levels.length ? Number(levels[parent.index]) : 0
-                            const dynamicLevel = Math.max(root.visualizerPausedFloor, Math.min(0.96, 0.06 + (audioLevel * 0.9)))
+                            const dynamicLevel = Math.max(root.visualizerPausedFloor, Math.min(1.0, 0.06 + (audioLevel * 0.94)))
                             const mixedLevel = root.visualizerPausedFloor + ((dynamicLevel - root.visualizerPausedFloor) * root.visualizerEnergy)
-                            return Math.max(2, Math.min(root.visualizerMaxBarHeight, parent.height * mixedLevel))
+                            const combinedVolumeScale = Math.max(0, root.visualizerVolumeScale) * root.visualizerAppVolumeScale
+                            const boostedVolumeScale = combinedVolumeScale > 0.001
+                                ? combinedVolumeScale + Math.max(0, root.visualizerVolumeBoost)
+                                : 0
+                            const scaledLevel = mixedLevel * boostedVolumeScale
+                            const minBarHeight = boostedVolumeScale > 0.001 ? 2 : 0
+                            return Math.max(minBarHeight, Math.min(root.visualizerMaxBarHeight, parent.height * scaledLevel))
                         }
                         anchors.bottom: parent.bottom
                         radius: 0
