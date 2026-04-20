@@ -78,6 +78,12 @@ private:
         bool isVideo = false;
         bool hasMedia = false;
     };
+    struct BrowserPlaybackTimes {
+        double positionSeconds = 0.0;
+        double lengthSeconds = 0.0;
+        bool hasPosition = false;
+        bool hasLength = false;
+    };
 
     void startRefreshTask();
     void startPlayerEventsFollow();
@@ -93,6 +99,9 @@ private:
     static QStringList browserClassesWithYouTubeTitle();
     static QString normalizeBrowserWindowTitle(const QString &rawTitle);
     static QString browserVideoTokenForClass(const QString &classNeedle);
+    static BrowserPlaybackTimes browserPlaybackTimesForClass(const QString &classNeedle);
+    static BrowserPlaybackTimes parseBrowserPlaybackTimesFromTitle(const QString &rawTitle);
+    static double parseTimecodeSeconds(const QString &rawTimecode);
     static QString tokenTitlePart(const QString &token);
     static QString activeBrowserVideoToken();
     static double parseMicroseconds(const QString &raw);

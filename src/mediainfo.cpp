@@ -31,6 +31,23 @@ struct PlayerEntry {
     QString displayName;
 };
 
+int mediaSiteRankFromTitle(const QString &titleLower)
+{
+    if (titleLower.contains("youtube") || titleLower.contains("youtu.be")) {
+        return 0;
+    }
+    if (titleLower.contains("netflix")) {
+        return 1;
+    }
+    if (titleLower.contains("twitch")) {
+        return 2;
+    }
+    if (titleLower.contains("vimeo")) {
+        return 3;
+    }
+    return 4;
+}
+
 QHash<QString, QString> parseStatusByPlayer(const QString &rawOutput)
 {
     QHash<QString, QString> statusByPlayer;
@@ -613,6 +630,17 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     snapshot.status = statusOut;
     snapshot.positionSeconds = qMax(0.0, posOut.toDouble());
     snapshot.lengthSeconds = lengthSeconds;
+    if (!classNeedle.isEmpty() && looksLikeYoutube) {
+        const BrowserPlaybackTimes browserTimes = browserPlaybackTimesForClass(classNeedle);
+        const bool mprisPositionLooksStale = snapshot.positionSeconds <= 0.05 && browserTimes.hasPosition && browserTimes.positionSeconds > 0.5;
+        const bool mprisLengthMissing = snapshot.lengthSeconds <= 0.0 && browserTimes.hasLength && browserTimes.lengthSeconds > 0.0;
+        if (mprisPositionLooksStale) {
+            snapshot.positionSeconds = browserTimes.positionSeconds;
+        }
+        if (mprisLengthMissing) {
+            snapshot.lengthSeconds = browserTimes.lengthSeconds;
+        }
+    }
     snapshot.volume = qBound(0.0, volumeOut.toDouble(), 1.0);
     snapshot.artUrl = applyNetflixBranding
         ? QUrl::fromLocalFile(QDir::homePath() + "/.local/share/icons/netflix.png").toString()
@@ -826,16 +854,7 @@ QString MediaInfo::browserVideoTokenForClass(const QString &classNeedle)
             continue;
         }
 
-        int siteRank = 4;
-        if (normalizedTitle.contains("youtube") || normalizedTitle.contains("youtu.be")) {
-            siteRank = 0;
-        } else if (normalizedTitle.contains("netflix")) {
-            siteRank = 1;
-        } else if (normalizedTitle.contains("twitch")) {
-            siteRank = 2;
-        } else if (normalizedTitle.contains("vimeo")) {
-            siteRank = 3;
-        }
+        const int siteRank = mediaSiteRankFromTitle(normalizedTitle);
 
         int focusRank = 1000000;
         const QJsonValue focusHistoryValue = obj.value("focusHistoryID");
@@ -856,6 +875,159 @@ QString MediaInfo::browserVideoTokenForClass(const QString &classNeedle)
     }
 
     return bestToken;
+}
+
+MediaInfo::BrowserPlaybackTimes MediaInfo::parseBrowserPlaybackTimesFromTitle(const QString &rawTitle)
+{
+    BrowserPlaybackTimes times;
+    const QString title = compactValue(rawTitle);
+    if (title.isEmpty()) {
+        return times;
+    }
+
+    static const QRegularExpression fullPattern(
+        R"(^\s*((?:\d{1,2}:)?\d{1,2}:\d{2})\s*/\s*((?:\d{1,2}:)?\d{1,2}:\d{2}))"
+    );
+    const QRegularExpressionMatch fullMatch = fullPattern.match(title);
+    if (fullMatch.hasMatch()) {
+        const double parsedPosition = parseTimecodeSeconds(fullMatch.captured(1));
+        const double parsedLength = parseTimecodeSeconds(fullMatch.captured(2));
+        if (parsedPosition >= 0.0) {
+            times.positionSeconds = parsedPosition;
+            times.hasPosition = true;
+        }
+        if (parsedLength > 0.0) {
+            times.lengthSeconds = parsedLength;
+            times.hasLength = true;
+        }
+        return times;
+    }
+
+    static const QRegularExpression shortPattern(
+        R"(^\s*((?:\d{1,2}:)?\d{1,2}:\d{2})\s*[\-|:]\s*)",
+        QRegularExpression::CaseInsensitiveOption
+    );
+    const QRegularExpressionMatch shortMatch = shortPattern.match(title);
+    if (shortMatch.hasMatch()) {
+        const double parsedPosition = parseTimecodeSeconds(shortMatch.captured(1));
+        if (parsedPosition >= 0.0) {
+            times.positionSeconds = parsedPosition;
+            times.hasPosition = true;
+        }
+    }
+    return times;
+}
+
+double MediaInfo::parseTimecodeSeconds(const QString &rawTimecode)
+{
+    const QStringList parts = rawTimecode.split(':');
+    if (parts.size() != 2 && parts.size() != 3) {
+        return -1.0;
+    }
+
+    bool ok = false;
+    int hours = 0;
+    int minutes = 0;
+    int seconds = 0;
+
+    if (parts.size() == 2) {
+        minutes = parts.at(0).toInt(&ok);
+        if (!ok) {
+            return -1.0;
+        }
+        seconds = parts.at(1).toInt(&ok);
+        if (!ok) {
+            return -1.0;
+        }
+    } else {
+        hours = parts.at(0).toInt(&ok);
+        if (!ok) {
+            return -1.0;
+        }
+        minutes = parts.at(1).toInt(&ok);
+        if (!ok) {
+            return -1.0;
+        }
+        seconds = parts.at(2).toInt(&ok);
+        if (!ok) {
+            return -1.0;
+        }
+    }
+
+    if (hours < 0 || minutes < 0 || seconds < 0 || minutes > 59 || seconds > 59) {
+        return -1.0;
+    }
+
+    return static_cast<double>(hours * 3600 + minutes * 60 + seconds);
+}
+
+MediaInfo::BrowserPlaybackTimes MediaInfo::browserPlaybackTimesForClass(const QString &classNeedle)
+{
+    BrowserPlaybackTimes bestTimes;
+    if (classNeedle.isEmpty()) {
+        return bestTimes;
+    }
+
+    QProcess proc;
+    proc.start(QString::fromUtf8(kHyprctlBin), {"-j", "clients"});
+    if (!proc.waitForStarted(kTimeoutMs)) {
+        return bestTimes;
+    }
+    if (!proc.waitForFinished(kTimeoutMs)) {
+        proc.kill();
+        proc.waitForFinished();
+        return bestTimes;
+    }
+    if (proc.exitStatus() != QProcess::NormalExit || proc.exitCode() != 0) {
+        return bestTimes;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson(proc.readAllStandardOutput());
+    if (!doc.isArray()) {
+        return bestTimes;
+    }
+
+    int bestSiteRank = 99;
+    int bestFocusRank = 1000000;
+    const QJsonArray clients = doc.array();
+    for (const QJsonValue &entry : clients) {
+        if (!entry.isObject()) {
+            continue;
+        }
+
+        const QJsonObject obj = entry.toObject();
+        const QString windowClass = obj.value("class").toString().toLower();
+        if (!windowClass.contains(classNeedle)) {
+            continue;
+        }
+
+        const QString rawTitle = obj.value("title").toString();
+        const QString titleLower = rawTitle.toLower();
+        const BrowserPlaybackTimes parsedTimes = parseBrowserPlaybackTimesFromTitle(rawTitle);
+        if (!parsedTimes.hasPosition && !parsedTimes.hasLength) {
+            continue;
+        }
+
+        const int siteRank = mediaSiteRankFromTitle(titleLower);
+        int focusRank = 1000000;
+        const QJsonValue focusHistoryValue = obj.value("focusHistoryID");
+        if (focusHistoryValue.isDouble()) {
+            const int parsed = focusHistoryValue.toInt();
+            if (parsed >= 0) {
+                focusRank = parsed;
+            }
+        } else if (obj.value("focused").toBool(false)) {
+            focusRank = 0;
+        }
+
+        if (siteRank < bestSiteRank || (siteRank == bestSiteRank && focusRank < bestFocusRank)) {
+            bestSiteRank = siteRank;
+            bestFocusRank = focusRank;
+            bestTimes = parsedTimes;
+        }
+    }
+
+    return bestTimes;
 }
 
 QString MediaInfo::tokenTitlePart(const QString &token)
