@@ -7839,6 +7839,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtCore/QMutex \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QProcess \
+  /usr/include/qt6/QtCore/QRegularExpression \
   /usr/include/qt6/QtCore/QSet \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QStringList \

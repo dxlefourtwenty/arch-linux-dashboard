@@ -121,6 +121,4 @@ private:
     bool m_isVideo = false;
     bool m_hasMedia = false;
     qint64 m_lastStableSnapshotMs = 0;
-    qint64 m_lastVideoSwitchNudgeMs = 0;
-    QString m_lastVideoSwitchNudgeIdentity;
 };

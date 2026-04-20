@@ -410,7 +410,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qjsonparseerror.h \
  /usr/include/qt6/QtCore/QJsonDocument \
  /usr/include/qt6/QtCore/QJsonObject \
- /usr/include/qt6/QtCore/qjsonobject.h /usr/include/qt6/QtCore/QSet \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/QRegularExpression /usr/include/qt6/QtCore/QSet \
  /usr/include/qt6/QtCore/QUrl /usr/include/qt6/QtConcurrent/QtConcurrent \
  /usr/include/qt6/QtConcurrent/QtConcurrentDepends \
  /usr/include/qt6/QtCore/QtCore /usr/include/qt6/QtCore/QtCoreDepends \

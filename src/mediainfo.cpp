@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QSet>
 #include <QUrl>
 #include <QtConcurrent>
@@ -17,8 +18,6 @@ constexpr const char *kHyprctlBin = "/usr/bin/hyprctl";
 constexpr const char *kAnyPlayer = "%any";
 constexpr int kTimeoutMs = 900;
 constexpr qint64 kTransientEmptySnapshotGraceMs = 2200;
-constexpr qint64 kVideoSwitchNudgeRetryMs = 2500;
-constexpr qint64 kVideoSwitchNudgeUndoDelayMs = 95;
 constexpr char kFieldSeparator = '\x1f';
 const QString kStatusFormat = QString("{{playerName}}%1{{status}}").arg(QChar(kFieldSeparator));
 const QString kMetadataFormat =
@@ -241,50 +240,6 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
 {
     Snapshot snapshot = rawSnapshot;
     const qint64 nowMs = QDateTime::currentMSecsSinceEpoch();
-    const bool selectedVideoContext = m_hasMedia
-        && rawSnapshot.hasMedia
-        && rawSnapshot.isVideo
-        && !rawSnapshot.selectedPlayer.isEmpty()
-        && m_selectedPlayer == rawSnapshot.selectedPlayer;
-    const bool likelyNewVideoByUrl = selectedVideoContext
-        && !rawSnapshot.sourceUrl.isEmpty()
-        && !m_sourceUrl.isEmpty()
-        && rawSnapshot.sourceUrl != m_sourceUrl;
-    const bool likelyNewVideoByTitle = selectedVideoContext
-        && !rawSnapshot.title.isEmpty()
-        && !m_title.isEmpty()
-        && rawSnapshot.title != m_title;
-    const bool likelyNewVideoByTrack = selectedVideoContext
-        && !rawSnapshot.trackId.isEmpty()
-        && !m_trackId.isEmpty()
-        && rawSnapshot.trackId != m_trackId;
-    const bool likelyNewVideoByToken = selectedVideoContext
-        && !rawSnapshot.browserVideoToken.isEmpty()
-        && rawSnapshot.browserVideoToken != m_browserVideoToken;
-    const QString rawSourceUrlLower = rawSnapshot.sourceUrl.toLower();
-    const bool rawLooksLikeYoutube = rawSnapshot.playerName == "YouTube"
-        || rawSourceUrlLower.contains("youtube.com")
-        || rawSourceUrlLower.contains("youtu.be");
-    const QString rawBrowserTokenTitle = tokenTitlePart(rawSnapshot.browserVideoToken);
-    const bool rawBrowserTokenTitleMismatch = selectedVideoContext
-        && rawLooksLikeYoutube
-        && !rawBrowserTokenTitle.isEmpty()
-        && !rawSnapshot.title.isEmpty()
-        && rawSnapshot.title.toLower() != rawBrowserTokenTitle;
-    const bool shouldNudgeOnVideoSwitch = !m_pollPaused
-        && rawLooksLikeYoutube
-        && (likelyNewVideoByUrl || likelyNewVideoByTitle || likelyNewVideoByTrack || likelyNewVideoByToken || rawBrowserTokenTitleMismatch);
-    const QString nudgeIdentity = rawSnapshot.selectedPlayer
-        + "|"
-        + rawSnapshot.trackId
-        + "|"
-        + rawSnapshot.sourceUrl
-        + "|"
-        + rawSnapshot.title
-        + "|"
-        + rawBrowserTokenTitle
-        + "|"
-        + rawSnapshot.browserVideoToken;
 
     if (snapshot.hasMedia) {
         m_lastStableSnapshotMs = nowMs;
@@ -312,12 +267,6 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         && m_selectedPlayer == snapshot.selectedPlayer
         && !snapshot.browserVideoToken.isEmpty()
         && snapshot.browserVideoToken != m_browserVideoToken;
-    if (activeBrowserVideoChanged) {
-        snapshot.positionSeconds = 0.0;
-        snapshot.lengthSeconds = 0.0;
-        snapshot.trackId.clear();
-        snapshot.sourceUrl.clear();
-    }
     const QString browserTokenTitle = tokenTitlePart(snapshot.browserVideoToken);
     const bool likelyBrowserTokenMetadataLag = m_hasMedia
         && snapshot.hasMedia
@@ -328,12 +277,6 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         && !snapshot.title.isEmpty()
         && snapshot.title.toLower() != browserTokenTitle
         && snapshot.positionSeconds > 2.0;
-    if (likelyBrowserTokenMetadataLag) {
-        snapshot.positionSeconds = 0.0;
-        snapshot.lengthSeconds = 0.0;
-        snapshot.trackId.clear();
-        snapshot.sourceUrl.clear();
-    }
     const bool likelyBrowserMetadataLag = m_hasMedia
         && snapshot.hasMedia
         && m_selectedPlayer == snapshot.selectedPlayer
@@ -351,31 +294,6 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         && snapshot.positionSeconds < 5.0
         && snapshot.lengthSeconds > 0.0
         && qAbs(snapshot.lengthSeconds - m_lengthSeconds) < 0.001;
-    if (likelyBrowserMetadataLag) {
-        snapshot.lengthSeconds = 0.0;
-    }
-    if (likelyTrackDurationLag) {
-        snapshot.lengthSeconds = 0.0;
-    }
-    if (shouldNudgeOnVideoSwitch) {
-        const bool firstNudgeForIdentity = nudgeIdentity != m_lastVideoSwitchNudgeIdentity;
-        const bool retryAfterDelay = !firstNudgeForIdentity
-            && (nowMs - m_lastVideoSwitchNudgeMs) >= kVideoSwitchNudgeRetryMs;
-        if (firstNudgeForIdentity || retryAfterDelay) {
-            m_lastVideoSwitchNudgeIdentity = nudgeIdentity;
-            m_lastVideoSwitchNudgeMs = nowMs;
-            const QString playerForNudge = rawSnapshot.selectedPlayer;
-            sendPlayerctl({"-p", playerForNudge, "position", "0.05+"});
-            QTimer::singleShot(kVideoSwitchNudgeUndoDelayMs, this, [this, playerForNudge]() {
-                sendPlayerctl({"-p", playerForNudge, "position", "0.05-"});
-                requestRefreshSoon();
-            });
-            QTimer::singleShot(45, this, &MediaInfo::refresh);
-            QTimer::singleShot(130, this, &MediaInfo::refresh);
-            QTimer::singleShot(320, this, &MediaInfo::refresh);
-        }
-    }
-
     const bool mediaIdentityChanged = m_hasMedia != snapshot.hasMedia
         || m_selectedPlayer != snapshot.selectedPlayer
         || m_playerName != snapshot.playerName
@@ -436,6 +354,20 @@ void MediaInfo::applySnapshot(const Snapshot &rawSnapshot)
         QTimer::singleShot(360, this, &MediaInfo::refresh);
         QTimer::singleShot(760, this, &MediaInfo::refresh);
         QTimer::singleShot(1300, this, &MediaInfo::refresh);
+    }
+
+    const bool shouldBurstRefreshMetadata = !m_pollPaused
+        && snapshot.hasMedia
+        && snapshot.isVideo
+        && (activeBrowserVideoChanged || likelyBrowserTokenMetadataLag || likelyBrowserMetadataLag || likelyTrackDurationLag);
+    if (shouldBurstRefreshMetadata) {
+        QTimer::singleShot(70, this, &MediaInfo::refresh);
+        QTimer::singleShot(150, this, &MediaInfo::refresh);
+        QTimer::singleShot(280, this, &MediaInfo::refresh);
+        QTimer::singleShot(520, this, &MediaInfo::refresh);
+        QTimer::singleShot(900, this, &MediaInfo::refresh);
+        QTimer::singleShot(1500, this, &MediaInfo::refresh);
+        QTimer::singleShot(2300, this, &MediaInfo::refresh);
     }
 }
 
@@ -829,6 +761,19 @@ QString MediaInfo::normalizeBrowserWindowTitle(const QString &rawTitle)
     stripSuffix(" - Netflix");
     stripSuffix(" - Twitch");
     stripSuffix(" - Vimeo");
+    if (title.isEmpty()) {
+        return {};
+    }
+
+    static const QRegularExpression leadingPlaybackTimes(
+        R"(^\s*(?:(?:\d{1,2}:)?\d{1,2}:\d{2}\s*/\s*(?:\d{1,2}:)?\d{1,2}:\d{2}|(?:\d{1,2}:)?\d{1,2}:\d{2}|LIVE)\s*[\-|:]\s*)",
+        QRegularExpression::CaseInsensitiveOption
+    );
+    title.remove(leadingPlaybackTimes);
+
+    static const QRegularExpression leadingDecorators(R"(^[\s\-\|:]+)");
+    title.remove(leadingDecorators);
+    title = title.trimmed();
     if (title.isEmpty()) {
         return {};
     }
