@@ -605,8 +605,9 @@ Item {
                 Button {
                     id: playPauseButton
                     text: MediaInfo.status === "Playing" ? "⏸" : "▶"
-                    enabled: MediaInfo.hasMedia
+                    enabled: MediaInfo.hasMedia && !seekTimestampPreview.topOverlapsPlayButton
                     hoverEnabled: true
+                    opacity: seekTimestampPreview.topOverlapsPlayButton ? 0.0 : 1.0
                     HoverHandler {
                         cursorShape: parent.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
@@ -614,6 +615,12 @@ Item {
                     scale: hovered ? 1.1 : 1.0
                     z: hovered ? 1 : 0
                     Behavior on scale {
+                        NumberAnimation {
+                            duration: root.hoverAnimMs
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+                    Behavior on opacity {
                         NumberAnimation {
                             duration: root.hoverAnimMs
                             easing.type: Easing.OutCubic
@@ -726,11 +733,20 @@ Item {
                 Layout.rightMargin: 75
                 Layout.topMargin: 15
                 Layout.minimumWidth: 240
+                implicitHeight: 12
                 hoverEnabled: true
                 from: 0
                 to: Math.max(1, MediaInfo.lengthSeconds)
                 enabled: MediaInfo.hasMedia && MediaInfo.lengthSeconds > 0
                 value: (pressed || root.seekVisualLock) ? value : root.visualPlaybackPositionSeconds
+                readonly property real hoverRatio: {
+                    if (!enabled || background.width <= 0) {
+                        return 0
+                    }
+                    const localX = progressHover.point.position.x - background.x
+                    return Math.max(0, Math.min(1, localX / background.width))
+                }
+                readonly property real hoverPreviewSeconds: hoverRatio * to
 
                 HoverHandler {
                     id: progressHover
@@ -750,6 +766,8 @@ Item {
                 background: Rectangle {
                     implicitWidth: 260
                     implicitHeight: 6
+                    height: 6
+                    y: (progressSlider.height - height) / 2
                     radius: 3 * (progressHover.hovered ? 2.0 : 1.0)
                     color: Qt.rgba(root.cMuted.r, root.cMuted.g, root.cMuted.b, 0.8)
                     Behavior on radius {
@@ -784,6 +802,53 @@ Item {
                     implicitHeight: 0
                     color: "transparent"
                 }
+
+                Rectangle {
+                    id: seekTimestampPreview
+                    readonly property int sidePadding: 10
+                    readonly property bool topOverlapsPlayButton: {
+                        if (!visible || !playPauseButton.visible) {
+                            return false
+                        }
+
+                        const previewPos = progressSlider.mapToItem(root, x, y)
+                        const buttonPos = playPauseButton.mapToItem(root, 0, 0)
+                        return previewPos.x < buttonPos.x + playPauseButton.width
+                            && previewPos.x + width > buttonPos.x
+                            && previewPos.y < buttonPos.y + playPauseButton.height
+                            && previewPos.y + height > buttonPos.y
+                    }
+
+                    visible: progressSlider.enabled && progressHover.hovered
+                    opacity: visible ? 1.0 : 0.0
+                    width: seekTimestampText.implicitWidth + sidePadding * 2
+                    height: Math.max(24, seekTimestampText.implicitHeight + 8)
+                    x: Math.max(0, Math.min(progressSlider.width - width,
+                                            progressSlider.background.x
+                                            + progressSlider.hoverRatio * progressSlider.background.width
+                                            - width / 2))
+                    y: progressSlider.background.y - height - 10
+                    radius: height / 2
+                    color: Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.5)
+                    border.width: root.cBorderWidth
+                    border.color: root.cFg
+
+                    Behavior on opacity {
+                        NumberAnimation {
+                            duration: root.hoverAnimMs
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+
+                    Text {
+                        id: seekTimestampText
+                        anchors.centerIn: parent
+                        text: root.formatTime(progressSlider.hoverPreviewSeconds)
+                        color: root.cFg
+                        font.family: root.cFont
+                        font.pixelSize: root.cFontSize * 0.78
+                    }
+                }
             }
 
             RowLayout {
@@ -817,7 +882,6 @@ Item {
                 ComboBox {
                     id: playerSelector
                     Layout.alignment: Qt.AlignHCenter
-                    Layout.topMargin: 0
                     Layout.preferredWidth: Math.round((root.buttonSize * 5 + 40) / 1.65)
                     model: MediaInfo.availablePlayerLabels
                     enabled: MediaInfo.availablePlayers.length > 0
