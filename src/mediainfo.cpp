@@ -19,7 +19,6 @@ constexpr const char *kAnyPlayer = "%any";
 constexpr int kTimeoutMs = 900;
 constexpr qint64 kTransientEmptySnapshotGraceMs = 2200;
 constexpr char kFieldSeparator = '\x1f';
-const QString kStatusFormat = QString("{{playerName}}%1{{status}}").arg(QChar(kFieldSeparator));
 const QString kMetadataFormat =
     QString("{{playerName}}%1{{xesam:title}}%1{{mpris:trackid}}%1{{xesam:artist}}%1{{mpris:length}}%1{{mpris:artUrl}}%1{{xesam:url}}")
         .arg(QChar(kFieldSeparator));
@@ -46,44 +45,6 @@ int mediaSiteRankFromTitle(const QString &titleLower)
         return 3;
     }
     return 4;
-}
-
-QHash<QString, QString> parseStatusByPlayer(const QString &rawOutput)
-{
-    QHash<QString, QString> statusByPlayer;
-    const QStringList lines = rawOutput.split('\n', Qt::SkipEmptyParts);
-    for (const QString &line : lines) {
-        const QStringList fields = line.split(QChar(kFieldSeparator));
-        if (fields.size() < 2) {
-            continue;
-        }
-
-        const QString player = fields.at(0).trimmed();
-        if (player.isEmpty()) {
-            continue;
-        }
-
-        statusByPlayer.insert(player, fields.at(1).trimmed());
-    }
-
-    return statusByPlayer;
-}
-
-QHash<QString, QString> parseMetadataByPlayer(const QString &rawOutput)
-{
-    QHash<QString, QString> metadataByPlayer;
-    const QStringList lines = rawOutput.split('\n', Qt::SkipEmptyParts);
-    for (const QString &line : lines) {
-        const QStringList fields = line.split(QChar(kFieldSeparator));
-        const QString player = fields.value(0).trimmed();
-        if (player.isEmpty()) {
-            continue;
-        }
-
-        metadataByPlayer.insert(player, line.trimmed());
-    }
-
-    return metadataByPlayer;
 }
 }
 
@@ -425,11 +386,6 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     QList<PlayerEntry> entries;
     entries.reserve(listedPlayers.size());
 
-    const QHash<QString, QString> statusesByPlayer =
-        parseStatusByPlayer(runPlayerctl({"--all-players", "status", "--format", kStatusFormat}));
-    const QHash<QString, QString> metadataByPlayer =
-        parseMetadataByPlayer(runPlayerctl({"--all-players", "metadata", "--format", kMetadataFormat}));
-
     QStringList youtubeBrowserClasses;
     bool youtubeBrowserClassesLoaded = false;
     auto ensureYouTubeBrowserClasses = [&youtubeBrowserClasses, &youtubeBrowserClassesLoaded]() {
@@ -440,22 +396,16 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     };
 
     for (const QString &player : listedPlayers) {
-        QString playerStatus = statusesByPlayer.value(player);
-        if (playerStatus.isEmpty()) {
-            playerStatus = runPlayerctl({"-p", player, "status"});
-        }
+        QString playerStatus = runPlayerctl({"-p", player, "status"});
         if (playerStatus.isEmpty()) {
             continue;
         }
 
-        QString metadata = metadataByPlayer.value(player);
-        if (metadata.isEmpty()) {
-            metadata = runPlayerctl({
-                "-p", player,
-                "metadata",
-                "--format", kMetadataFormat
-            });
-        }
+        QString metadata = runPlayerctl({
+            "-p", player,
+            "metadata",
+            "--format", kMetadataFormat
+        });
 
         const QStringList fields = metadata.split(QChar(kFieldSeparator));
         const QString rawPlayerName = fields.value(0).trimmed();

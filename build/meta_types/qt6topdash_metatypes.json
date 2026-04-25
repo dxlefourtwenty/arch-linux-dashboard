@@ -136,7 +136,7 @@
         "classes": [
             {
                 "className": "AudioSpectrum",
-                "lineNumber": 12,
+                "lineNumber": 13,
                 "object": true,
                 "properties": [
                     {
@@ -144,7 +144,7 @@
                         "designable": true,
                         "final": false,
                         "index": 0,
-                        "lineNumber": 16,
+                        "lineNumber": 17,
                         "name": "levels",
                         "notify": "levelsChanged",
                         "override": false,
@@ -161,7 +161,7 @@
                         "designable": true,
                         "final": false,
                         "index": 1,
-                        "lineNumber": 17,
+                        "lineNumber": 18,
                         "name": "running",
                         "notify": "runningChanged",
                         "override": false,
@@ -179,7 +179,7 @@
                         "designable": true,
                         "final": false,
                         "index": 2,
-                        "lineNumber": 18,
+                        "lineNumber": 19,
                         "name": "barCount",
                         "notify": "barCountChanged",
                         "override": false,
@@ -197,7 +197,7 @@
                         "designable": true,
                         "final": false,
                         "index": 3,
-                        "lineNumber": 19,
+                        "lineNumber": 20,
                         "name": "frameRate",
                         "notify": "frameRateChanged",
                         "override": false,
@@ -215,7 +215,7 @@
                         "designable": true,
                         "final": false,
                         "index": 4,
-                        "lineNumber": 20,
+                        "lineNumber": 21,
                         "name": "available",
                         "notify": "availableChanged",
                         "override": false,
@@ -232,7 +232,7 @@
                         "designable": true,
                         "final": false,
                         "index": 5,
-                        "lineNumber": 21,
+                        "lineNumber": 22,
                         "name": "volumeScale",
                         "notify": "volumeScaleChanged",
                         "override": false,
@@ -250,42 +250,42 @@
                     {
                         "access": "public",
                         "index": 0,
-                        "lineNumber": 39,
+                        "lineNumber": 40,
                         "name": "levelsChanged",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 1,
-                        "lineNumber": 40,
+                        "lineNumber": 41,
                         "name": "runningChanged",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 2,
-                        "lineNumber": 41,
+                        "lineNumber": 42,
                         "name": "barCountChanged",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 3,
-                        "lineNumber": 42,
+                        "lineNumber": 43,
                         "name": "frameRateChanged",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 4,
-                        "lineNumber": 43,
+                        "lineNumber": 44,
                         "name": "availableChanged",
                         "returnType": "void"
                     },
                     {
                         "access": "public",
                         "index": 5,
-                        "lineNumber": 44,
+                        "lineNumber": 45,
                         "name": "volumeScaleChanged",
                         "returnType": "void"
                     }
@@ -300,7 +300,7 @@
                             }
                         ],
                         "index": 6,
-                        "lineNumber": 34,
+                        "lineNumber": 35,
                         "name": "setRunning",
                         "returnType": "void"
                     },
@@ -313,7 +313,7 @@
                             }
                         ],
                         "index": 7,
-                        "lineNumber": 35,
+                        "lineNumber": 36,
                         "name": "setBarCount",
                         "returnType": "void"
                     },
@@ -326,7 +326,7 @@
                             }
                         ],
                         "index": 8,
-                        "lineNumber": 36,
+                        "lineNumber": 37,
                         "name": "setFrameRate",
                         "returnType": "void"
                     }

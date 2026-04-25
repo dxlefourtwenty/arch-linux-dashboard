@@ -6,6 +6,7 @@
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTextStream>
+#include <QtConcurrent>
 
 #include <cmath>
 
@@ -88,6 +89,28 @@ bool parsePactlVolume(const QString &output, double &volumeScale)
     volumeScale = clampVolumeScale(static_cast<double>(percent) / 100.0);
     return true;
 }
+
+double detectVolumeScale(double fallbackScale)
+{
+    double parsedScale = 0.0;
+
+    const QString wpctlOut = runCommand(QString::fromUtf8(kWpctlBin), {"get-volume", "@DEFAULT_AUDIO_SINK@"});
+    if (parseWpctlVolume(wpctlOut, parsedScale)) {
+        return parsedScale;
+    }
+
+    const QString pactlMuteOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-mute", "@DEFAULT_SINK@"});
+    if (pactlMuteOut.contains("yes", Qt::CaseInsensitive)) {
+        return 0.0;
+    }
+
+    const QString pactlVolumeOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-volume", "@DEFAULT_SINK@"});
+    if (parsePactlVolume(pactlVolumeOut, parsedScale)) {
+        return parsedScale;
+    }
+
+    return fallbackScale;
+}
 }
 
 AudioSpectrum::AudioSpectrum(QObject *parent)
@@ -102,6 +125,9 @@ AudioSpectrum::AudioSpectrum(QObject *parent)
     });
     m_volumePollTimer.setInterval(kVolumePollMs);
     connect(&m_volumePollTimer, &QTimer::timeout, this, &AudioSpectrum::updateVolumeScale);
+    connect(&m_volumePollWatcher, &QFutureWatcher<double>::finished, this, [this]() {
+        applyVolumeScale(m_volumePollWatcher.result());
+    });
 
     connect(&m_process, &QProcess::readyReadStandardOutput, this, &AudioSpectrum::handleReadyRead);
     connect(&m_process, &QProcess::readyReadStandardError, this, [this]() {
@@ -355,33 +381,22 @@ QString AudioSpectrum::writeConfigFile()
 
 void AudioSpectrum::updateVolumeScale()
 {
-    const double nextScale = detectVolumeScale();
-    if (std::abs(m_volumeScale - nextScale) < 0.005) {
+    if (m_volumePollWatcher.isRunning()) {
         return;
     }
 
-    m_volumeScale = nextScale;
-    emit volumeScaleChanged();
+    const double fallbackScale = m_volumeScale;
+    m_volumePollWatcher.setFuture(QtConcurrent::run([fallbackScale]() {
+        return ::detectVolumeScale(fallbackScale);
+    }));
 }
 
-double AudioSpectrum::detectVolumeScale() const
+void AudioSpectrum::applyVolumeScale(double volumeScale)
 {
-    double parsedScale = 0.0;
-
-    const QString wpctlOut = runCommand(QString::fromUtf8(kWpctlBin), {"get-volume", "@DEFAULT_AUDIO_SINK@"});
-    if (parseWpctlVolume(wpctlOut, parsedScale)) {
-        return parsedScale;
+    if (!m_running || std::abs(m_volumeScale - volumeScale) < 0.005) {
+        return;
     }
 
-    const QString pactlMuteOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-mute", "@DEFAULT_SINK@"});
-    if (pactlMuteOut.contains("yes", Qt::CaseInsensitive)) {
-        return 0.0;
-    }
-
-    const QString pactlVolumeOut = runCommand(QString::fromUtf8(kPactlBin), {"get-sink-volume", "@DEFAULT_SINK@"});
-    if (parsePactlVolume(pactlVolumeOut, parsedScale)) {
-        return parsedScale;
-    }
-
-    return m_volumeScale;
+    m_volumeScale = volumeScale;
+    emit volumeScaleChanged();
 }

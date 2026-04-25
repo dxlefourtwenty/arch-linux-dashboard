@@ -371,33 +371,14 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/q20algorithm.h \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_audiospectrum.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/audiospectrum.h \
- /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/QProcess \
- /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
- /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
- /usr/include/qt6/QtCore/q20iterator.h \
- /usr/include/qt6/QtCore/QTemporaryFile \
- /usr/include/qt6/QtCore/qtemporaryfile.h /usr/include/qt6/QtCore/qfile.h \
- /usr/include/qt6/QtCore/qfiledevice.h /usr/include/c++/15.2.1/filesystem \
- /usr/include/c++/15.2.1/bits/fs_fwd.h \
- /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
- /usr/include/c++/15.2.1/bits/fs_dir.h \
- /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/QTimer \
- /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
- /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
- /usr/include/qt6/QtCore/qeventloop.h \
- /usr/include/qt6/QtCore/qdeadlinetimer.h \
- /usr/include/qt6/QtCore/QVariantList \
- /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QList \
- /usr/include/qt6/QtCore/QVariant \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_configfiles.cpp \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/configfiles.h \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_mediainfo.cpp \
- /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/mediainfo.h \
+ /usr/include/qt6/QtCore/QByteArray \
  /usr/include/qt6/QtCore/QFutureWatcher \
  /usr/include/qt6/QtCore/qfuturewatcher.h \
  /usr/include/qt6/QtCore/qfuture.h \
  /usr/include/qt6/QtCore/qfutureinterface.h \
- /usr/include/qt6/QtCore/qmutex.h /usr/include/qt6/QtCore/qtsan_impl.h \
+ /usr/include/qt6/QtCore/qmutex.h \
+ /usr/include/qt6/QtCore/qdeadlinetimer.h \
+ /usr/include/qt6/QtCore/qtsan_impl.h \
  /usr/include/qt6/QtCore/qresultstore.h \
  /usr/include/qt6/QtCore/qfuture_impl.h \
  /usr/include/qt6/QtCore/qthreadpool.h /usr/include/qt6/QtCore/qthread.h \
@@ -413,7 +394,28 @@ CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o: \
  /usr/include/semaphore.h /usr/include/bits/semaphore.h \
  /usr/include/c++/15.2.1/bits/atomic_futex.h \
  /usr/include/qt6/QtCore/qrunnable.h /usr/include/qt6/QtCore/qexception.h \
- /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/QtGlobal \
+ /usr/include/qt6/QtCore/qpromise.h /usr/include/qt6/QtCore/QProcess \
+ /usr/include/qt6/QtCore/qprocess.h /usr/include/qt6/QtCore/qiodevice.h \
+ /usr/include/qt6/QtCore/qspan.h /usr/include/c++/15.2.1/cassert \
+ /usr/include/qt6/QtCore/q20iterator.h \
+ /usr/include/qt6/QtCore/QTemporaryFile \
+ /usr/include/qt6/QtCore/qtemporaryfile.h /usr/include/qt6/QtCore/qfile.h \
+ /usr/include/qt6/QtCore/qfiledevice.h /usr/include/c++/15.2.1/filesystem \
+ /usr/include/c++/15.2.1/bits/fs_fwd.h \
+ /usr/include/c++/15.2.1/bits/fs_path.h /usr/include/c++/15.2.1/codecvt \
+ /usr/include/c++/15.2.1/bits/fs_dir.h \
+ /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/QTimer \
+ /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
+ /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
+ /usr/include/qt6/QtCore/qeventloop.h \
+ /usr/include/qt6/QtCore/QVariantList \
+ /usr/include/qt6/QtCore/qvariantlist.h /usr/include/qt6/QtCore/QList \
+ /usr/include/qt6/QtCore/QVariant \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_configfiles.cpp \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/configfiles.h \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_mediainfo.cpp \
+ /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/mediainfo.h \
+ /usr/include/qt6/QtCore/QtGlobal \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/../../../src/systeminfo.h \
  /home/dxle/builds/dashboard/build/topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp \

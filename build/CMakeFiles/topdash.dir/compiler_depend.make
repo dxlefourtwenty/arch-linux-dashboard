@@ -5773,6 +5773,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/sched.h \
   /usr/include/bits/select.h \
+  /usr/include/bits/semaphore.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
@@ -5834,7 +5835,9 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/bits/allocated_ptr.h \
   /usr/include/c++/15.2.1/bits/allocator.h \
   /usr/include/c++/15.2.1/bits/atomic_base.h \
+  /usr/include/c++/15.2.1/bits/atomic_futex.h \
   /usr/include/c++/15.2.1/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/15.2.1/bits/atomic_timed_wait.h \
   /usr/include/c++/15.2.1/bits/atomic_wait.h \
   /usr/include/c++/15.2.1/bits/basic_ios.h \
   /usr/include/c++/15.2.1/bits/basic_ios.tcc \
@@ -5893,6 +5896,8 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/bits/predefined_ops.h \
   /usr/include/c++/15.2.1/bits/ptr_traits.h \
   /usr/include/c++/15.2.1/bits/quoted_string.h \
+  /usr/include/c++/15.2.1/bits/random.h \
+  /usr/include/c++/15.2.1/bits/random.tcc \
   /usr/include/c++/15.2.1/bits/range_access.h \
   /usr/include/c++/15.2.1/bits/ranges_algo.h \
   /usr/include/c++/15.2.1/bits/ranges_algobase.h \
@@ -5902,6 +5907,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/bits/ranges_util.h \
   /usr/include/c++/15.2.1/bits/refwrap.h \
   /usr/include/c++/15.2.1/bits/requires_hosted.h \
+  /usr/include/c++/15.2.1/bits/semaphore_base.h \
   /usr/include/c++/15.2.1/bits/shared_ptr.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_atomic.h \
   /usr/include/c++/15.2.1/bits/shared_ptr_base.h \
@@ -5910,6 +5916,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/bits/std_abs.h \
   /usr/include/c++/15.2.1/bits/std_function.h \
   /usr/include/c++/15.2.1/bits/std_mutex.h \
+  /usr/include/c++/15.2.1/bits/std_thread.h \
   /usr/include/c++/15.2.1/bits/stl_algo.h \
   /usr/include/c++/15.2.1/bits/stl_algobase.h \
   /usr/include/c++/15.2.1/bits/stl_bvector.h \
@@ -5937,9 +5944,11 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/bits/streambuf_iterator.h \
   /usr/include/c++/15.2.1/bits/string_view.tcc \
   /usr/include/c++/15.2.1/bits/stringfwd.h \
+  /usr/include/c++/15.2.1/bits/this_thread_sleep.h \
   /usr/include/c++/15.2.1/bits/unicode-data.h \
   /usr/include/c++/15.2.1/bits/unicode.h \
   /usr/include/c++/15.2.1/bits/uniform_int_dist.h \
+  /usr/include/c++/15.2.1/bits/unique_lock.h \
   /usr/include/c++/15.2.1/bits/unique_ptr.h \
   /usr/include/c++/15.2.1/bits/unordered_map.h \
   /usr/include/c++/15.2.1/bits/unordered_set.h \
@@ -5959,6 +5968,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/codecvt \
   /usr/include/c++/15.2.1/compare \
   /usr/include/c++/15.2.1/concepts \
+  /usr/include/c++/15.2.1/condition_variable \
   /usr/include/c++/15.2.1/cstddef \
   /usr/include/c++/15.2.1/cstdint \
   /usr/include/c++/15.2.1/cstdio \
@@ -5970,6 +5980,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/debug/assertions.h \
   /usr/include/c++/15.2.1/debug/debug.h \
   /usr/include/c++/15.2.1/exception \
+  /usr/include/c++/15.2.1/experimental/source_location \
   /usr/include/c++/15.2.1/ext/aligned_buffer.h \
   /usr/include/c++/15.2.1/ext/alloc_traits.h \
   /usr/include/c++/15.2.1/ext/atomicity.h \
@@ -5980,6 +5991,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/filesystem \
   /usr/include/c++/15.2.1/format \
   /usr/include/c++/15.2.1/functional \
+  /usr/include/c++/15.2.1/future \
   /usr/include/c++/15.2.1/initializer_list \
   /usr/include/c++/15.2.1/iomanip \
   /usr/include/c++/15.2.1/ios \
@@ -5991,6 +6003,8 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/locale \
   /usr/include/c++/15.2.1/map \
   /usr/include/c++/15.2.1/memory \
+  /usr/include/c++/15.2.1/memory_resource \
+  /usr/include/c++/15.2.1/mutex \
   /usr/include/c++/15.2.1/new \
   /usr/include/c++/15.2.1/numbers \
   /usr/include/c++/15.2.1/numeric \
@@ -6001,13 +6015,18 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/pstl/glue_memory_defs.h \
   /usr/include/c++/15.2.1/pstl/glue_numeric_defs.h \
   /usr/include/c++/15.2.1/pstl/pstl_config.h \
+  /usr/include/c++/15.2.1/random \
   /usr/include/c++/15.2.1/ranges \
   /usr/include/c++/15.2.1/ratio \
+  /usr/include/c++/15.2.1/semaphore \
   /usr/include/c++/15.2.1/set \
+  /usr/include/c++/15.2.1/shared_mutex \
+  /usr/include/c++/15.2.1/source_location \
   /usr/include/c++/15.2.1/span \
   /usr/include/c++/15.2.1/sstream \
   /usr/include/c++/15.2.1/stdexcept \
   /usr/include/c++/15.2.1/stdlib.h \
+  /usr/include/c++/15.2.1/stop_token \
   /usr/include/c++/15.2.1/streambuf \
   /usr/include/c++/15.2.1/string \
   /usr/include/c++/15.2.1/string_view \
@@ -6044,6 +6063,7 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/gthr.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h \
+  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/opt_random.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
   /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h \
   /usr/include/ctype.h \
@@ -6065,115 +6085,256 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtConcurrent/QtConcurrent \
+  /usr/include/qt6/QtConcurrent/QtConcurrentDepends \
+  /usr/include/qt6/QtConcurrent/qtaskbuilder.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrent_global.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentcompilertest.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentexports.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentfilter.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentfilterkernel.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentfunctionwrappers.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentiteratekernel.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentmap.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentmapkernel.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentmedian.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentreducekernel.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentrun.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentrunbase.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentstoredfunctioncall.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrenttask.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentthreadengine.h \
+  /usr/include/qt6/QtConcurrent/qtconcurrentversion.h \
   /usr/include/qt6/QtCore/QByteArray \
+  /usr/include/qt6/QtCore/QDeadlineTimer \
   /usr/include/qt6/QtCore/QDir \
   /usr/include/qt6/QtCore/QFileInfo \
+  /usr/include/qt6/QtCore/QFutureWatcher \
+  /usr/include/qt6/QtCore/QHash \
   /usr/include/qt6/QtCore/QList \
+  /usr/include/qt6/QtCore/QMap \
+  /usr/include/qt6/QtCore/QMutex \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QProcess \
   /usr/include/qt6/QtCore/QRegularExpression \
   /usr/include/qt6/QtCore/QStandardPaths \
+  /usr/include/qt6/QtCore/QString \
+  /usr/include/qt6/QtCore/QStringList \
   /usr/include/qt6/QtCore/QTemporaryFile \
   /usr/include/qt6/QtCore/QTextStream \
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/QVariant \
   /usr/include/qt6/QtCore/QVariantList \
+  /usr/include/qt6/QtCore/QtCore \
+  /usr/include/qt6/QtCore/QtCoreDepends \
   /usr/include/qt6/QtCore/q17memory.h \
+  /usr/include/qt6/QtCore/q20algorithm.h \
   /usr/include/qt6/QtCore/q20bit.h \
+  /usr/include/qt6/QtCore/q20chrono.h \
   /usr/include/qt6/QtCore/q20functional.h \
   /usr/include/qt6/QtCore/q20iterator.h \
+  /usr/include/qt6/QtCore/q20map.h \
   /usr/include/qt6/QtCore/q20memory.h \
   /usr/include/qt6/QtCore/q20type_traits.h \
   /usr/include/qt6/QtCore/q20utility.h \
+  /usr/include/qt6/QtCore/q20vector.h \
+  /usr/include/qt6/QtCore/q23functional.h \
   /usr/include/qt6/QtCore/q23type_traits.h \
   /usr/include/qt6/QtCore/q23utility.h \
+  /usr/include/qt6/QtCore/q26numeric.h \
+  /usr/include/qt6/QtCore/qabstractanimation.h \
   /usr/include/qt6/QtCore/qabstracteventdispatcher.h \
+  /usr/include/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/qt6/QtCore/qabstractnativeeventfilter.h \
+  /usr/include/qt6/QtCore/qabstractproxymodel.h \
   /usr/include/qt6/QtCore/qalgorithms.h \
   /usr/include/qt6/QtCore/qalloc.h \
+  /usr/include/qt6/QtCore/qanimationgroup.h \
   /usr/include/qt6/QtCore/qanystringview.h \
+  /usr/include/qt6/QtCore/qapplicationstatic.h \
   /usr/include/qt6/QtCore/qarraydata.h \
   /usr/include/qt6/QtCore/qarraydataops.h \
   /usr/include/qt6/QtCore/qarraydatapointer.h \
   /usr/include/qt6/QtCore/qassert.h \
+  /usr/include/qt6/QtCore/qassociativeiterable.h \
   /usr/include/qt6/QtCore/qatomic.h \
   /usr/include/qt6/QtCore/qatomic_cxx11.h \
+  /usr/include/qt6/QtCore/qatomicscopedvaluerollback.h \
   /usr/include/qt6/QtCore/qbasicatomic.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
   /usr/include/qt6/QtCore/qbindingstorage.h \
+  /usr/include/qt6/QtCore/qbitarray.h \
+  /usr/include/qt6/QtCore/qbuffer.h \
   /usr/include/qt6/QtCore/qbytearray.h \
   /usr/include/qt6/QtCore/qbytearrayalgorithms.h \
   /usr/include/qt6/QtCore/qbytearraylist.h \
+  /usr/include/qt6/QtCore/qbytearraymatcher.h \
   /usr/include/qt6/QtCore/qbytearrayview.h \
+  /usr/include/qt6/QtCore/qcache.h \
   /usr/include/qt6/QtCore/qcalendar.h \
+  /usr/include/qt6/QtCore/qcborarray.h \
+  /usr/include/qt6/QtCore/qcborcommon.h \
+  /usr/include/qt6/QtCore/qcbormap.h \
+  /usr/include/qt6/QtCore/qcborstream.h \
+  /usr/include/qt6/QtCore/qcborstreamreader.h \
+  /usr/include/qt6/QtCore/qcborstreamwriter.h \
+  /usr/include/qt6/QtCore/qcborvalue.h \
   /usr/include/qt6/QtCore/qchar.h \
+  /usr/include/qt6/QtCore/qcheckedint_impl.h \
+  /usr/include/qt6/QtCore/qchronotimer.h \
+  /usr/include/qt6/QtCore/qcollator.h \
+  /usr/include/qt6/QtCore/qcommandlineoption.h \
+  /usr/include/qt6/QtCore/qcommandlineparser.h \
   /usr/include/qt6/QtCore/qcompare.h \
   /usr/include/qt6/QtCore/qcompare_impl.h \
   /usr/include/qt6/QtCore/qcomparehelpers.h \
   /usr/include/qt6/QtCore/qcompilerdetection.h \
+  /usr/include/qt6/QtCore/qconcatenatetablesproxymodel.h \
   /usr/include/qt6/QtCore/qconfig.h \
   /usr/include/qt6/QtCore/qconstructormacros.h \
   /usr/include/qt6/QtCore/qcontainerfwd.h \
   /usr/include/qt6/QtCore/qcontainerinfo.h \
   /usr/include/qt6/QtCore/qcontainertools_impl.h \
   /usr/include/qt6/QtCore/qcontiguouscache.h \
+  /usr/include/qt6/QtCore/qcoreapplication.h \
+  /usr/include/qt6/QtCore/qcoreapplication_platform.h \
+  /usr/include/qt6/QtCore/qcoreevent.h \
+  /usr/include/qt6/QtCore/qcryptographichash.h \
   /usr/include/qt6/QtCore/qdarwinhelpers.h \
   /usr/include/qt6/QtCore/qdatastream.h \
   /usr/include/qt6/QtCore/qdatetime.h \
   /usr/include/qt6/QtCore/qdeadlinetimer.h \
   /usr/include/qt6/QtCore/qdebug.h \
   /usr/include/qt6/QtCore/qdir.h \
+  /usr/include/qt6/QtCore/qdiriterator.h \
   /usr/include/qt6/QtCore/qdirlisting.h \
+  /usr/include/qt6/QtCore/qeasingcurve.h \
+  /usr/include/qt6/QtCore/qelapsedtimer.h \
+  /usr/include/qt6/QtCore/qendian.h \
   /usr/include/qt6/QtCore/qeventloop.h \
+  /usr/include/qt6/QtCore/qexception.h \
   /usr/include/qt6/QtCore/qexceptionhandling.h \
+  /usr/include/qt6/QtCore/qfactoryinterface.h \
   /usr/include/qt6/QtCore/qfile.h \
   /usr/include/qt6/QtCore/qfiledevice.h \
   /usr/include/qt6/QtCore/qfileinfo.h \
+  /usr/include/qt6/QtCore/qfileselector.h \
+  /usr/include/qt6/QtCore/qfilesystemwatcher.h \
   /usr/include/qt6/QtCore/qflags.h \
   /usr/include/qt6/QtCore/qfloat16.h \
   /usr/include/qt6/QtCore/qforeach.h \
   /usr/include/qt6/QtCore/qfunctionaltools_impl.h \
   /usr/include/qt6/QtCore/qfunctionpointer.h \
+  /usr/include/qt6/QtCore/qfuture.h \
+  /usr/include/qt6/QtCore/qfuture_impl.h \
+  /usr/include/qt6/QtCore/qfutureinterface.h \
+  /usr/include/qt6/QtCore/qfuturesynchronizer.h \
+  /usr/include/qt6/QtCore/qfuturewatcher.h \
   /usr/include/qt6/QtCore/qgenericatomic.h \
   /usr/include/qt6/QtCore/qglobal.h \
   /usr/include/qt6/QtCore/qglobalstatic.h \
   /usr/include/qt6/QtCore/qhash.h \
   /usr/include/qt6/QtCore/qhashfunctions.h \
+  /usr/include/qt6/QtCore/qidentityproxymodel.h \
   /usr/include/qt6/QtCore/qiodevice.h \
   /usr/include/qt6/QtCore/qiodevicebase.h \
+  /usr/include/qt6/QtCore/qitemselectionmodel.h \
   /usr/include/qt6/QtCore/qiterable.h \
+  /usr/include/qt6/QtCore/qiterable_impl.h \
   /usr/include/qt6/QtCore/qiterator.h \
+  /usr/include/qt6/QtCore/qjsonarray.h \
+  /usr/include/qt6/QtCore/qjsondocument.h \
+  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/qjsonparseerror.h \
+  /usr/include/qt6/QtCore/qjsonvalue.h \
+  /usr/include/qt6/QtCore/qlatin1stringmatcher.h \
   /usr/include/qt6/QtCore/qlatin1stringview.h \
+  /usr/include/qt6/QtCore/qlibrary.h \
+  /usr/include/qt6/QtCore/qlibraryinfo.h \
+  /usr/include/qt6/QtCore/qline.h \
   /usr/include/qt6/QtCore/qlist.h \
   /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtCore/qlockfile.h \
   /usr/include/qt6/QtCore/qlogging.h \
+  /usr/include/qt6/QtCore/qloggingcategory.h \
   /usr/include/qt6/QtCore/qmalloc.h \
   /usr/include/qt6/QtCore/qmap.h \
+  /usr/include/qt6/QtCore/qmargins.h \
   /usr/include/qt6/QtCore/qmath.h \
+  /usr/include/qt6/QtCore/qmessageauthenticationcode.h \
+  /usr/include/qt6/QtCore/qmetaassociation.h \
   /usr/include/qt6/QtCore/qmetacontainer.h \
+  /usr/include/qt6/QtCore/qmetaobject.h \
+  /usr/include/qt6/QtCore/qmetasequence.h \
   /usr/include/qt6/QtCore/qmetatype.h \
+  /usr/include/qt6/QtCore/qmimedata.h \
+  /usr/include/qt6/QtCore/qmimedatabase.h \
+  /usr/include/qt6/QtCore/qmimetype.h \
   /usr/include/qt6/QtCore/qminmax.h \
+  /usr/include/qt6/QtCore/qmutex.h \
   /usr/include/qt6/QtCore/qnamespace.h \
+  /usr/include/qt6/QtCore/qnativeinterface.h \
   /usr/include/qt6/QtCore/qnumeric.h \
   /usr/include/qt6/QtCore/qobject.h \
   /usr/include/qt6/QtCore/qobject_impl.h \
+  /usr/include/qt6/QtCore/qobjectcleanuphandler.h \
   /usr/include/qt6/QtCore/qobjectdefs.h \
   /usr/include/qt6/QtCore/qobjectdefs_impl.h \
+  /usr/include/qt6/QtCore/qoperatingsystemversion.h \
   /usr/include/qt6/QtCore/qoverload.h \
   /usr/include/qt6/QtCore/qpair.h \
+  /usr/include/qt6/QtCore/qparallelanimationgroup.h \
+  /usr/include/qt6/QtCore/qpauseanimation.h \
+  /usr/include/qt6/QtCore/qpermissions.h \
+  /usr/include/qt6/QtCore/qplugin.h \
+  /usr/include/qt6/QtCore/qpluginloader.h \
+  /usr/include/qt6/QtCore/qpoint.h \
+  /usr/include/qt6/QtCore/qpointer.h \
   /usr/include/qt6/QtCore/qprocess.h \
   /usr/include/qt6/QtCore/qprocessordetection.h \
+  /usr/include/qt6/QtCore/qpromise.h \
+  /usr/include/qt6/QtCore/qproperty.h \
+  /usr/include/qt6/QtCore/qpropertyanimation.h \
+  /usr/include/qt6/QtCore/qpropertyprivate.h \
+  /usr/include/qt6/QtCore/qquasivirtual_impl.h \
+  /usr/include/qt6/QtCore/qqueue.h \
+  /usr/include/qt6/QtCore/qrandom.h \
+  /usr/include/qt6/QtCore/qrangemodel.h \
+  /usr/include/qt6/QtCore/qrangemodel_impl.h \
+  /usr/include/qt6/QtCore/qrangemodeladapter.h \
+  /usr/include/qt6/QtCore/qrangemodeladapter_impl.h \
+  /usr/include/qt6/QtCore/qreadwritelock.h \
+  /usr/include/qt6/QtCore/qrect.h \
   /usr/include/qt6/QtCore/qrefcount.h \
   /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtCore/qresource.h \
+  /usr/include/qt6/QtCore/qresultstore.h \
+  /usr/include/qt6/QtCore/qrunnable.h \
+  /usr/include/qt6/QtCore/qsavefile.h \
   /usr/include/qt6/QtCore/qscopedpointer.h \
+  /usr/include/qt6/QtCore/qscopedvaluerollback.h \
   /usr/include/qt6/QtCore/qscopeguard.h \
+  /usr/include/qt6/QtCore/qsemaphore.h \
+  /usr/include/qt6/QtCore/qsequentialanimationgroup.h \
+  /usr/include/qt6/QtCore/qsequentialiterable.h \
   /usr/include/qt6/QtCore/qset.h \
+  /usr/include/qt6/QtCore/qsettings.h \
   /usr/include/qt6/QtCore/qshareddata.h \
   /usr/include/qt6/QtCore/qshareddata_impl.h \
+  /usr/include/qt6/QtCore/qsharedmemory.h \
   /usr/include/qt6/QtCore/qsharedpointer.h \
   /usr/include/qt6/QtCore/qsharedpointer_impl.h \
+  /usr/include/qt6/QtCore/qsignalmapper.h \
+  /usr/include/qt6/QtCore/qsimd.h \
+  /usr/include/qt6/QtCore/qsize.h \
+  /usr/include/qt6/QtCore/qsocketnotifier.h \
+  /usr/include/qt6/QtCore/qsortfilterproxymodel.h \
   /usr/include/qt6/QtCore/qspan.h \
+  /usr/include/qt6/QtCore/qstack.h \
   /usr/include/qt6/QtCore/qstandardpaths.h \
+  /usr/include/qt6/QtCore/qstaticlatin1stringmatcher.h \
   /usr/include/qt6/QtCore/qstdlibdetection.h \
+  /usr/include/qt6/QtCore/qstorageinfo.h \
   /usr/include/qt6/QtCore/qstring.h \
   /usr/include/qt6/QtCore/qstringalgorithms.h \
   /usr/include/qt6/QtCore/qstringbuilder.h \
@@ -6181,12 +6342,15 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/qt6/QtCore/qstringconverter_base.h \
   /usr/include/qt6/QtCore/qstringfwd.h \
   /usr/include/qt6/QtCore/qstringlist.h \
+  /usr/include/qt6/QtCore/qstringlistmodel.h \
+  /usr/include/qt6/QtCore/qstringliteral.h \
   /usr/include/qt6/QtCore/qstringmatcher.h \
   /usr/include/qt6/QtCore/qstringtokenizer.h \
   /usr/include/qt6/QtCore/qstringview.h \
   /usr/include/qt6/QtCore/qswap.h \
   /usr/include/qt6/QtCore/qsysinfo.h \
   /usr/include/qt6/QtCore/qsystemdetection.h \
+  /usr/include/qt6/QtCore/qsystemsemaphore.h \
   /usr/include/qt6/QtCore/qtaggedpointer.h \
   /usr/include/qt6/QtCore/qtclasshelpermacros.h \
   /usr/include/qt6/QtCore/qtconfiginclude.h \
@@ -6194,32 +6358,59 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/qt6/QtCore/qtcore-config.h \
   /usr/include/qt6/QtCore/qtcoreexports.h \
   /usr/include/qt6/QtCore/qtcoreglobal.h \
+  /usr/include/qt6/QtCore/qtcoreversion.h \
   /usr/include/qt6/QtCore/qtdeprecationdefinitions.h \
   /usr/include/qt6/QtCore/qtdeprecationmarkers.h \
+  /usr/include/qt6/QtCore/qtemporarydir.h \
   /usr/include/qt6/QtCore/qtemporaryfile.h \
   /usr/include/qt6/QtCore/qtenvironmentvariables.h \
+  /usr/include/qt6/QtCore/qtextboundaryfinder.h \
   /usr/include/qt6/QtCore/qtextstream.h \
   /usr/include/qt6/QtCore/qtformat_impl.h \
+  /usr/include/qt6/QtCore/qthread.h \
+  /usr/include/qt6/QtCore/qthreadpool.h \
+  /usr/include/qt6/QtCore/qthreadstorage.h \
+  /usr/include/qt6/QtCore/qtimeline.h \
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qtimezone.h \
+  /usr/include/qt6/QtCore/qtipccommon.h \
   /usr/include/qt6/QtCore/qtmetamacros.h \
+  /usr/include/qt6/QtCore/qtmocconstants.h \
   /usr/include/qt6/QtCore/qtnoop.h \
   /usr/include/qt6/QtCore/qtpreprocessorsupport.h \
+  /usr/include/qt6/QtCore/qtranslator.h \
+  /usr/include/qt6/QtCore/qtransposeproxymodel.h \
   /usr/include/qt6/QtCore/qtresource.h \
+  /usr/include/qt6/QtCore/qtsan_impl.h \
+  /usr/include/qt6/QtCore/qtsymbolmacros.h \
   /usr/include/qt6/QtCore/qttranslation.h \
   /usr/include/qt6/QtCore/qttypetraits.h \
   /usr/include/qt6/QtCore/qtversion.h \
   /usr/include/qt6/QtCore/qtversionchecks.h \
   /usr/include/qt6/QtCore/qtypeinfo.h \
+  /usr/include/qt6/QtCore/qtyperevision.h \
   /usr/include/qt6/QtCore/qtypes.h \
+  /usr/include/qt6/QtCore/qurl.h \
+  /usr/include/qt6/QtCore/qurlquery.h \
   /usr/include/qt6/QtCore/qutf8stringview.h \
+  /usr/include/qt6/QtCore/quuid.h \
   /usr/include/qt6/QtCore/qvariant.h \
+  /usr/include/qt6/QtCore/qvariantanimation.h \
+  /usr/include/qt6/QtCore/qvarianthash.h \
   /usr/include/qt6/QtCore/qvariantlist.h \
+  /usr/include/qt6/QtCore/qvariantmap.h \
   /usr/include/qt6/QtCore/qvarlengtharray.h \
+  /usr/include/qt6/QtCore/qvector.h \
+  /usr/include/qt6/QtCore/qversionnumber.h \
   /usr/include/qt6/QtCore/qversiontagging.h \
+  /usr/include/qt6/QtCore/qwaitcondition.h \
+  /usr/include/qt6/QtCore/qwineventnotifier.h \
+  /usr/include/qt6/QtCore/qxmlstream.h \
+  /usr/include/qt6/QtCore/qxpfunctional.h \
   /usr/include/qt6/QtCore/qxptype_traits.h \
   /usr/include/qt6/QtCore/qyieldcpu.h \
   /usr/include/sched.h \
+  /usr/include/semaphore.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
@@ -6230,18 +6421,132 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o: /home/dxle/builds/dashboard/src/
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
   /usr/include/sys/syscall.h \
+  /usr/include/sys/time.h \
   /usr/include/sys/types.h \
   /usr/include/syscall.h \
   /usr/include/time.h \
   /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/adxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxavx512intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxbf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxcomplexintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxfp8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxint8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxmovrsintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtf32intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtileintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxtransposeintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512convertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512mediaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512minmaxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512satcvtintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2convertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2copyintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2mediaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2minmaxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2satcvtintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bitalgvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512cdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512dqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmavlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmivlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlbwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vldqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vnnivlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqvlintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxifmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxneconvertintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint16intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint8intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmi2intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/bmiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cetintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cldemoteintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clflushoptintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clwbintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clzerointrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cmpccxaddintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/enqcmdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/f16cintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fmaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/fxsrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/gfniintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/hresetintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/ia32intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/immintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/keylockerintrin.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lwpintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/lzcntintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movdirintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/movrsintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/mwaitxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pconfigintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pkuintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/pmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/popcntintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchiintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchwintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/raointintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rdseedintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rtmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/serializeintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sgxintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sha512intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/shaintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm3intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm4intrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/smmintrin.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tbmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/tsxldtrkintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/uintrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/usermsrintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vaesintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vpclmulqdqintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/waitpkgintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wbnoinvdintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/wmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/x86gprintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xmmintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavecintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsaveoptintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xsavesintrin.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xtestintrin.h
 
 CMakeFiles/topdash.dir/src/configfiles.cpp.o: /home/dxle/builds/dashboard/src/configfiles.cpp \
   /home/dxle/builds/dashboard/src/configfiles.h \
@@ -10672,6 +10977,86 @@ topdash_autogen/mocs_compilation.cpp:
 
 /home/dxle/builds/dashboard/src/systeminfo.cpp:
 
+/usr/include/qt6/QtCore/QSet:
+
+CMakeFiles/topdash.dir/src/mediainfo.cpp.o:
+
+/usr/include/sys/ucontext.h:
+
+/usr/include/qt6/QtQml/QQmlApplicationEngine:
+
+/usr/include/qt6/QtGui/qwindow.h:
+
+/usr/include/qt6/QtGui/qsurfaceformat.h:
+
+/usr/include/qt6/QtGui/qscreen.h:
+
+/usr/lib32/libcurl.so.4:
+
+/usr/include/qt6/QtGui/qrgba64.h:
+
+/usr/include/qt6/QtGui/qregion.h:
+
+/usr/include/qt6/QtGui/qpixelformat.h:
+
+/usr/include/qt6/QtGui/qpaintdevice.h:
+
+/usr/include/qt6/QtGui/qimage.h:
+
+/usr/include/qt6/QtGui/qicon.h:
+
+/usr/include/qt6/QtGui/qguiapplication.h:
+
+/usr/include/qt6/QtGui/qcolor.h:
+
+/usr/include/qt6/QtGui/QTransform:
+
+/usr/include/qt6/QtCore/QVariantMap:
+
+/usr/lib/libgssapi_krb5.so.2:
+
+/usr/include/qt6/QtCore/QSizeF:
+
+/usr/include/qt6/QtCore/QRect:
+
+/usr/include/qt6/QtCore/QFileSystemWatcher:
+
+CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o:
+
+/usr/include/qt6/QtCore/QEvent:
+
+/usr/include/c++/15.2.1/csignal:
+
+/usr/include/bits/types/stack_t.h:
+
+CMakeFiles/topdash.dir/src/main.cpp.o:
+
+/usr/include/bits/types/sig_atomic_t.h:
+
+/usr/include/bits/types/__sigval_t.h:
+
+/usr/include/bits/ss_flags.h:
+
+/usr/include/bits/sigstack.h:
+
+/usr/lib32/libexpat.so.1:
+
+/usr/lib/crti.o:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/include/bits/sigevent-consts.h:
+
+/usr/include/bits/sigcontext.h:
+
+/home/dxle/builds/dashboard/src/weatherconfig.h:
+
+/home/dxle/builds/dashboard/src/mediainfo.h:
+
+/usr/include/bits/types/siginfo_t.h:
+
+/usr/include/qt6/QtCore/QDebug:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/xtestintrin.h:
 
 /usr/lib/libQt6Concurrent.so.6.11.0:
@@ -10687,6 +11072,10 @@ topdash_autogen/mocs_compilation.cpp:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/waitpkgintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/vaesintrin.h:
+
+/usr/include/qt6/QtGui/qscreen_platform.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/usermsrintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/uintrintrin.h:
 
@@ -10736,11 +11125,21 @@ topdash_autogen/mocs_compilation.cpp:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/cmpccxaddintrin.h:
 
+/usr/include/bits/siginfo-consts-arch.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clwbintrin.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxvnniint16intrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avxintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqintrin.h:
+
+/usr/include/qt6/QtQml/qqmlmoduleregistration.h:
+
+/usr/include/qt6/QtCore/QMargins:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectvlintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectintrin.h:
 
@@ -10751,6 +11150,18 @@ topdash_autogen/mocs_compilation.cpp:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vbmi2intrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmavlintrin.h:
+
+/usr/include/qt6/QtGui/qguiapplication_platform.h:
+
+/usr/include/LayerShellQt/layershellqt_export.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm4intrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmaintrin.h:
+
+/home/dxle/builds/dashboard/src/configfiles.cpp:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16vlintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16intrin.h:
 
@@ -10790,6 +11201,8 @@ CMakeFiles/topdash.dir/src/configfiles.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/adxintrin.h:
 
+/usr/include/sys/time.h:
+
 /usr/include/qt6/QtCore/qxpfunctional.h:
 
 /usr/lib/libm.so.6:
@@ -10800,9 +11213,13 @@ CMakeFiles/topdash.dir/src/configfiles.cpp.o:
 
 /usr/include/qt6/QtCore/qwaitcondition.h:
 
+/usr/include/qt6/QtCore/qvariantmap.h:
+
 /usr/include/qt6/QtCore/qvarianthash.h:
 
 /usr/include/qt6/QtCore/qtmocconstants.h:
+
+/usr/include/qt6/QtCore/qtimer.h:
 
 /usr/include/qt6/QtCore/qtextboundaryfinder.h:
 
@@ -10818,6 +11235,8 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qsortfilterproxymodel.h:
 
+/usr/include/qt6/QtCore/qsize.h:
+
 /usr/include/qt6/QtCore/qsimd.h:
 
 /usr/lib32/libgomp.so.1:
@@ -10828,6 +11247,12 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qsettings.h:
 
+/usr/include/qt6/QtCore/qrunnable.h:
+
+/usr/include/bits/sigthread.h:
+
+/usr/include/qt6/QtCore/qresultstore.h:
+
 /usr/include/qt6/QtCore/qresource.h:
 
 /usr/include/qt6/QtCore/qrangemodeladapter_impl.h:
@@ -10836,13 +11261,21 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qrangemodel.h:
 
+/usr/include/qt6/QtCore/qpoint.h:
+
 /usr/include/qt6/QtCore/qpermissions.h:
 
 /usr/include/qt6/QtCore/qparallelanimationgroup.h:
 
 /usr/include/qt6/QtCore/qobjectcleanuphandler.h:
 
+/usr/include/qt6/QtCore/qmutex.h:
+
 /usr/include/qt6/QtCore/qmimetype.h:
+
+/usr/include/qt6/QtCore/qnativeinterface.h:
+
+/usr/include/qt6/QtCore/qmimedatabase.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/rdseedintrin.h:
 
@@ -10854,6 +11287,12 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qlockfile.h:
 
+/usr/lib32/libXdmcp.so.6:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512satcvtintrin.h:
+
+/usr/include/qt6/QtCore/qline.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/prfchiintrin.h:
 
 /usr/include/qt6/QtCore/qlibraryinfo.h:
@@ -10864,17 +11303,43 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qitemselectionmodel.h:
 
+/usr/include/qt6/QtCore/qfuturewatcher.h:
+
+/usr/include/qt6/QtCore/qfutureinterface.h:
+
+/usr/include/qt6/QtCore/qfuture.h:
+
+/usr/include/qt6/QtCore/qfilesystemwatcher.h:
+
 /usr/include/qt6/QtCore/qfileselector.h:
 
 /usr/include/qt6/QtCore/qfactoryinterface.h:
 
+/usr/include/qt6/QtCore/qexception.h:
+
+/usr/include/qt6/QtCore/qeventloop.h:
+
 /usr/include/qt6/QtCore/qdiriterator.h:
 
+/usr/include/qt6/QtCore/qdeadlinetimer.h:
+
 /usr/include/qt6/QtCore/qcryptographichash.h:
+
+/usr/include/qt6/QtGui/qbitmap.h:
+
+/usr/include/qt6/QtQml/QQmlComponent:
+
+/usr/include/qt6/QtCore/qcoreevent.h:
+
+/usr/include/qt6/QtCore/qcoreapplication_platform.h:
+
+/usr/include/qt6/QtCore/qcoreapplication.h:
 
 /usr/include/qt6/QtCore/qconcatenatetablesproxymodel.h:
 
 /usr/include/qt6/QtCore/qcollator.h:
+
+/usr/include/qt6/QtCore/qcheckedint_impl.h:
 
 /usr/include/qt6/QtCore/qcborstreamreader.h:
 
@@ -10885,6 +11350,12 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 /usr/include/qt6/QtCore/qcborstream.h:
 
 /usr/include/qt6/QtCore/qbuffer.h:
+
+/usr/lib/libngtcp2.so.16:
+
+/usr/include/qt6/QtGui/qrgb.h:
+
+/usr/include/qt6/QtCore/qbitarray.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vpopcntdqvlintrin.h:
 
@@ -10904,6 +11375,14 @@ CMakeFiles/topdash.dir/src/audiospectrum.cpp.o:
 
 /usr/include/qt6/QtCore/qabstractitemmodel.h:
 
+/usr/include/qt6/QtCore/QtGlobal:
+
+/usr/include/qt6/QtCore/qsystemsemaphore.h:
+
+/usr/include/qt6/QtCore/qrangemodel_impl.h:
+
+/usr/include/qt6/QtCore/qabstracteventdispatcher.h:
+
 /usr/lib/libm.so:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/amxmovrsintrin.h:
@@ -10919,254 +11398,6 @@ topdash_autogen/UVLADIE3JM/moc_audiospectrum.cpp:
 /usr/include/qt6/QtCore/QtCoreDepends:
 
 /usr/include/qt6/QtCore/QtCore:
-
-/usr/include/qt6/QtCore/QSet:
-
-/usr/include/qt6/QtCore/QHash:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentversion.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentthreadengine.h:
-
-/usr/lib/libxcb.so.1:
-
-/usr/include/qt6/QtConcurrent/qtconcurrenttask.h:
-
-/usr/lib32/libxcb.so.1:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentmapkernel.h:
-
-CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentmap.h:
-
-/usr/include/sys/statvfs.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentiteratekernel.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentfilter.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentexports.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrent_global.h:
-
-/usr/include/c++/15.2.1/source_location:
-
-/usr/include/c++/15.2.1/shared_mutex:
-
-/usr/include/qt6/QtCore/qquasivirtual_impl.h:
-
-/usr/include/c++/15.2.1/memory_resource:
-
-/usr/include/c++/15.2.1/experimental/source_location:
-
-CMakeFiles/topdash.dir/src/mediainfo.cpp.o:
-
-/usr/include/sys/ucontext.h:
-
-/usr/include/sys/time.h:
-
-/usr/include/qt6/QtQml/QQmlApplicationEngine:
-
-/usr/include/qt6/QtGui/qwindow.h:
-
-/usr/include/qt6/QtGui/qsurfaceformat.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/usermsrintrin.h:
-
-/usr/include/qt6/QtGui/qscreen_platform.h:
-
-/usr/include/qt6/QtGui/qscreen.h:
-
-/usr/lib32/libcurl.so.4:
-
-/usr/include/qt6/QtGui/qrgba64.h:
-
-/usr/lib/libngtcp2.so.16:
-
-/usr/include/qt6/QtCore/qbitarray.h:
-
-/usr/include/qt6/QtGui/qrgb.h:
-
-/usr/include/qt6/QtGui/qregion.h:
-
-/usr/include/qt6/QtGui/qpixelformat.h:
-
-/usr/include/qt6/QtGui/qpaintdevice.h:
-
-/usr/include/qt6/QtGui/qimage.h:
-
-/usr/include/qt6/QtGui/qicon.h:
-
-/usr/include/qt6/QtGui/qguiapplication.h:
-
-/usr/include/qt6/QtGui/qcolor.h:
-
-/usr/include/qt6/QtGui/QTransform:
-
-/usr/include/qt6/QtCore/qvariantmap.h:
-
-/usr/include/qt6/QtCore/qsize.h:
-
-/usr/include/qt6/QtCore/qrunnable.h:
-
-/usr/include/qt6/QtCore/qpoint.h:
-
-/usr/include/qt6/QtCore/qmimedatabase.h:
-
-/usr/include/qt6/QtCore/qnativeinterface.h:
-
-/usr/include/qt6/QtCore/qmutex.h:
-
-/usr/lib32/libXdmcp.so.6:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512satcvtintrin.h:
-
-/usr/include/qt6/QtCore/qline.h:
-
-/usr/include/qt6/QtCore/qfuturewatcher.h:
-
-/usr/include/qt6/QtCore/qfutureinterface.h:
-
-/usr/include/qt6/QtCore/qfuture.h:
-
-/usr/include/qt6/QtCore/qfilesystemwatcher.h:
-
-/usr/include/qt6/QtCore/qexception.h:
-
-/usr/include/qt6/QtCore/qcoreapplication_platform.h:
-
-/usr/include/qt6/QtCore/qcoreapplication.h:
-
-/usr/include/qt6/QtCore/qcheckedint_impl.h:
-
-/usr/include/qt6/QtCore/QVariantMap:
-
-/usr/lib/libgssapi_krb5.so.2:
-
-/usr/include/qt6/QtCore/QSizeF:
-
-/usr/include/qt6/QtCore/QRect:
-
-/usr/include/qt6/QtQml/qqmlmoduleregistration.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vp2intersectvlintrin.h:
-
-/usr/include/qt6/QtCore/QMargins:
-
-/usr/include/qt6/QtCore/QMap:
-
-/usr/include/qt6/QtCore/QFileSystemWatcher:
-
-CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o:
-
-/usr/include/qt6/QtCore/QEvent:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16intrin.h:
-
-/usr/include/c++/15.2.1/stop_token:
-
-/usr/include/c++/15.2.1/mutex:
-
-/usr/include/c++/15.2.1/future:
-
-/usr/include/c++/15.2.1/csignal:
-
-/usr/include/c++/15.2.1/condition_variable:
-
-/usr/include/c++/15.2.1/bits/semaphore_base.h:
-
-/usr/include/c++/15.2.1/bits/atomic_timed_wait.h:
-
-/usr/lib32/libbrotlicommon.so.1:
-
-/usr/include/c++/15.2.1/bits/atomic_futex.h:
-
-/usr/include/bits/types/stack_t.h:
-
-CMakeFiles/topdash.dir/src/main.cpp.o:
-
-/usr/include/bits/types/sig_atomic_t.h:
-
-/usr/include/bits/types/__sigval_t.h:
-
-/usr/include/bits/ss_flags.h:
-
-/usr/include/qt6/QtCore/qresultstore.h:
-
-/usr/include/bits/sigthread.h:
-
-/usr/include/bits/sigstack.h:
-
-/usr/include/c++/15.2.1/bits/this_thread_sleep.h:
-
-/usr/include/bits/signum-generic.h:
-
-/usr/lib32/libexpat.so.1:
-
-/usr/lib/crti.o:
-
-/usr/include/bits/signum-arch.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clwbintrin.h:
-
-/usr/include/bits/siginfo-consts-arch.h:
-
-/usr/include/bits/sigevent-consts.h:
-
-/usr/include/bits/sigcontext.h:
-
-/usr/include/qt6/QtCore/qcbormap.h:
-
-/usr/include/bits/semaphore.h:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentcompilertest.h:
-
-/usr/include/LayerShellQt/window.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/sm4intrin.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512ifmaintrin.h:
-
-/usr/include/qt6/QtGui/qguiapplication_platform.h:
-
-/usr/include/LayerShellQt/layershellqt_export.h:
-
-/home/dxle/builds/dashboard/src/weatherconfig.h:
-
-/home/dxle/builds/dashboard/src/mediainfo.h:
-
-/usr/include/qt6/QtGui/qbitmap.h:
-
-/usr/include/qt6/QtCore/qcoreevent.h:
-
-/usr/include/qt6/QtQml/QQmlComponent:
-
-/usr/include/qt6/QtConcurrent/qtconcurrentmedian.h:
-
-/usr/include/qt6/QtCore/QUrl:
-
-/usr/include/bits/types/siginfo_t.h:
-
-/usr/include/qt6/QtCore/QDebug:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512fp16vlintrin.h:
-
-/home/dxle/builds/dashboard/src/configfiles.cpp:
-
-/usr/include/qt6/QtCore/qtimer.h:
-
-/usr/include/qt6/QtCore/qeventloop.h:
-
-/usr/include/qt6/QtCore/qdeadlinetimer.h:
-
-/usr/include/qt6/QtCore/qsystemsemaphore.h:
-
-/usr/include/qt6/QtCore/qrangemodel_impl.h:
-
-/usr/include/qt6/QtCore/QtGlobal:
-
-/usr/include/qt6/QtCore/qabstracteventdispatcher.h:
 
 /usr/include/qt6/QtCore/QVariant:
 
@@ -11187,6 +11418,80 @@ topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp:
 /usr/include/qt6/QtCore/qsequentialanimationgroup.h:
 
 /usr/include/qt6/QtCore/QProcess:
+
+/usr/include/qt6/QtCore/QMap:
+
+/usr/include/qt6/QtCore/QHash:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentversion.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentthreadengine.h:
+
+/usr/lib/libxcb.so.1:
+
+/usr/include/qt6/QtConcurrent/qtconcurrenttask.h:
+
+/usr/include/qt6/QtCore/QUrl:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentmedian.h:
+
+/usr/lib32/libxcb.so.1:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentmapkernel.h:
+
+CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TasksView_qml.cpp.o:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentmap.h:
+
+/usr/include/sys/statvfs.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentiteratekernel.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentfilter.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentexports.h:
+
+/usr/include/LayerShellQt/window.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentcompilertest.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrent_global.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512bf16intrin.h:
+
+/usr/include/c++/15.2.1/stop_token:
+
+/usr/include/c++/15.2.1/source_location:
+
+/usr/include/c++/15.2.1/shared_mutex:
+
+/usr/include/c++/15.2.1/mutex:
+
+/usr/include/qt6/QtCore/qquasivirtual_impl.h:
+
+/usr/include/c++/15.2.1/memory_resource:
+
+/usr/include/c++/15.2.1/future:
+
+/usr/include/c++/15.2.1/experimental/source_location:
+
+/usr/include/c++/15.2.1/condition_variable:
+
+/usr/include/bits/signum-generic.h:
+
+/usr/include/c++/15.2.1/bits/this_thread_sleep.h:
+
+/usr/include/c++/15.2.1/bits/semaphore_base.h:
+
+/usr/include/c++/15.2.1/bits/atomic_timed_wait.h:
+
+/usr/lib32/libbrotlicommon.so.1:
+
+/usr/include/c++/15.2.1/bits/atomic_futex.h:
+
+/usr/include/qt6/QtCore/qcbormap.h:
+
+/usr/include/bits/semaphore.h:
 
 /home/dxle/builds/dashboard/src/audiospectrum.cpp:
 
@@ -11224,9 +11529,9 @@ topdash_autogen/UVLADIE3JM/moc_weatherconfig.cpp:
 
 /usr/include/qt6/QtCore/QJsonArray:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clzerointrin.h:
-
 /home/dxle/builds/dashboard/src/mediainfo.cpp:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/clzerointrin.h:
 
 /usr/include/qt6/QtCore/QFileInfo:
 
@@ -11368,9 +11673,9 @@ topdash_autogen/UVLADIE3JM/moc_configfiles.cpp:
 
 /usr/include/c++/15.2.1/bits/stl_list.h:
 
-/usr/include/qt6/QtCore/qpauseanimation.h:
-
 /home/dxle/builds/dashboard/src/systeminfo.h:
+
+/usr/include/qt6/QtCore/qpauseanimation.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
 
@@ -11546,9 +11851,9 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o:
 
 /usr/include/qt6/QtNetwork/qtnetworkglobal.h:
 
-/usr/include/qt6/QtCore/qfuture_impl.h:
-
 /usr/include/bits/types/struct_sigstack.h:
+
+/usr/include/qt6/QtCore/qfuture_impl.h:
 
 /usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
@@ -11620,9 +11925,9 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o:
 
 /usr/include/c++/15.2.1/bits/fs_fwd.h:
 
-/usr/include/qt6/QtCore/qqueue.h:
-
 /usr/include/qt6/QtGui/qpixmap.h:
+
+/usr/include/qt6/QtCore/qqueue.h:
 
 /usr/include/qt6/QtCore/qstringconverter_base.h:
 
@@ -11672,9 +11977,9 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/Main_qml.cpp.o:
 
 /usr/lib32/libresolv.so.2:
 
-/usr/include/qt6/QtCore/qoperatingsystemversion.h:
-
 /usr/include/qt6/QtCore/QSize:
+
+/usr/include/qt6/QtCore/qoperatingsystemversion.h:
 
 /usr/include/bits/getopt_core.h:
 
@@ -12202,9 +12507,9 @@ topdash_autogen/UVLADIE3JM/moc_systeminfo.cpp:
 
 /usr/include/c++/15.2.1/string_view:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512convertintrin.h:
-
 /usr/include/qt6/QtGui/qcursor.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx10_2-512convertintrin.h:
 
 /usr/include/c++/15.2.1/tr1/exp_integral.tcc:
 
@@ -12474,9 +12779,9 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qmlcache_loader.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/avx512vlbwintrin.h:
 
-/usr/include/qt6/QtCore/qloggingcategory.h:
-
 /usr/include/semaphore.h:
+
+/usr/include/qt6/QtCore/qloggingcategory.h:
 
 /usr/include/qt6/QtCore/qminmax.h:
 
@@ -12644,11 +12949,11 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/MediaView_qml.cpp.o:
 
 /usr/include/qt6/QtCore/qtyperevision.h:
 
-/usr/include/qt6/QtConcurrent/qtconcurrentfilterkernel.h:
-
 /usr/include/qt6/QtGui/QScreen:
 
 /usr/include/qt6/QtCore/qthread.h:
+
+/usr/include/qt6/QtConcurrent/qtconcurrentfilterkernel.h:
 
 /usr/include/qt6/QtCore/qtconfiginclude.h:
 

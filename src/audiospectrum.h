@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QByteArray>
+#include <QFutureWatcher>
 #include <QProcess>
 #include <QTemporaryFile>
 #include <QTimer>
@@ -54,10 +55,11 @@ private:
     QString resolveCavaPath() const;
     QString writeConfigFile();
     void updateVolumeScale();
-    double detectVolumeScale() const;
+    void applyVolumeScale(double volumeScale);
 
     QVariantList m_levels;
     QProcess m_process;
+    QFutureWatcher<double> m_volumePollWatcher;
     QTimer m_restartTimer;
     QTimer m_volumePollTimer;
     std::unique_ptr<QTemporaryFile> m_configFile;
