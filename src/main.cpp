@@ -10,6 +10,7 @@
 #include <QStringList>
 #include <QRegion>
 #include <algorithm>
+#include <atomic>
 #include <functional>
 #include <csignal>
 #include <QQmlContext>
@@ -22,6 +23,7 @@
 #include "weatherconfig.h"
 
 static QObject *g_root = nullptr;
+static std::atomic_bool g_reloadRequested = false;
 
 static QScreen *preferredScreen(QGuiApplication &app, const QString &outputName)
 {
@@ -47,6 +49,11 @@ static void onSigUsr1(int)
     );
 }
 
+static void onSigReload(int)
+{
+    g_reloadRequested.store(true, std::memory_order_relaxed);
+}
+
 static QStringList watchedFileVariants(const QString &path)
 {
     QStringList paths;
@@ -62,6 +69,23 @@ static QStringList watchedFileVariants(const QString &path)
 
     paths.removeDuplicates();
     return paths;
+}
+
+static void reloadDashboard(QObject *root, const std::function<void()> &updateInputMask)
+{
+    QMetaObject::invokeMethod(
+        root,
+        "reloadTheme",
+        Qt::QueuedConnection
+    );
+
+    if (updateInputMask) {
+        QMetaObject::invokeMethod(
+            root,
+            [updateInputMask]() { updateInputMask(); },
+            Qt::QueuedConnection
+        );
+    }
 }
 
 int main(int argc, char *argv[])
@@ -126,6 +150,7 @@ int main(int argc, char *argv[])
     }
 
     std::signal(SIGUSR1, onSigUsr1);
+    std::signal(SIGWINCH, onSigReload);
 
     QString themePath = QDir::homePath() + "/.config/dashboard/theme.qml";
     QString stylePath = QDir::homePath() + "/.config/dashboard/style.qml";
@@ -151,6 +176,21 @@ int main(int argc, char *argv[])
     QTimer *reloadTimer = new QTimer;
     reloadTimer->setSingleShot(true);
 
+    QTimer *signalReloadTimer = new QTimer;
+    signalReloadTimer->setInterval(50);
+    QObject::connect(
+        signalReloadTimer,
+        &QTimer::timeout,
+        [root, updateInputMask]() {
+            if (!g_reloadRequested.exchange(false, std::memory_order_relaxed)) {
+                return;
+            }
+
+            reloadDashboard(root, updateInputMask);
+        }
+    );
+    signalReloadTimer->start();
+
     QObject::connect(
         watcher,
         &QFileSystemWatcher::fileChanged,
@@ -172,19 +212,7 @@ int main(int argc, char *argv[])
         reloadTimer,
         &QTimer::timeout,
         [root, updateInputMask]() {
-            QMetaObject::invokeMethod(
-                root,
-                "reloadTheme",
-                Qt::QueuedConnection
-            );
-
-            if (updateInputMask) {
-                QMetaObject::invokeMethod(
-                    root,
-                    [updateInputMask]() { updateInputMask(); },
-                    Qt::QueuedConnection
-                );
-            }
+            reloadDashboard(root, updateInputMask);
         }
     );
 

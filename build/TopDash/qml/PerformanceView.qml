@@ -222,6 +222,14 @@ Rectangle {
         }
 
         onValueChanged: ring.requestPaint()
+        onAccentChanged: ring.requestPaint()
+        Connections {
+            target: root
+
+            function onCMutedChanged() {
+                ring.requestPaint()
+            }
+        }
         Component.onCompleted: ring.requestPaint()
     }
 

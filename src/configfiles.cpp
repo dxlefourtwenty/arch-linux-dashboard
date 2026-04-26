@@ -27,6 +27,10 @@ QObject *ConfigFiles::style() const
 
 void ConfigFiles::reload()
 {
+    if (m_engine) {
+        m_engine->clearComponentCache();
+    }
+
     const QString configDir = QDir::homePath() + "/.config/dashboard";
     QObject *nextTheme = loadObject(configDir + "/theme.qml", "theme");
     QObject *nextStyle = loadObject(configDir + "/style.qml", "style");
