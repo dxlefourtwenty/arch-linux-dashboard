@@ -2,6 +2,8 @@
 
 #include <QDir>
 #include <QDateTime>
+#include <QFile>
+#include <QFileInfo>
 #include <QHash>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -9,6 +11,7 @@
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSet>
+#include <QStandardPaths>
 #include <QUrl>
 #include <QtConcurrent>
 
@@ -45,6 +48,24 @@ int mediaSiteRankFromTitle(const QString &titleLower)
         return 3;
     }
     return 4;
+}
+
+bool looksLikeNetflixMedia(const QString &sourceUrlLower, const QString &titleLower)
+{
+    return sourceUrlLower.contains("netflix.com")
+        || titleLower.contains("netflix")
+        || titleLower.endsWith(" - netflix")
+        || titleLower.startsWith("netflix -");
+}
+
+bool directlyLooksLikeYoutubeMedia(const QString &sourceUrlLower, const QString &titleLower)
+{
+    return sourceUrlLower.contains("youtube.com")
+        || sourceUrlLower.contains("youtu.be")
+        || titleLower.contains("youtube")
+        || titleLower.endsWith(" - youtube")
+        || titleLower.startsWith("youtube -")
+        || titleLower.contains(" youtu.be");
 }
 }
 
@@ -419,23 +440,15 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
                 ? "firefox"
                 : ((playerLower.contains("chromium") || playerLower.contains("chrome")) ? "chrom" : ""));
 
-        const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
-            || sourceUrl.contains("youtu.be")
-            || titleLower.contains("youtube")
-            || titleLower.endsWith(" - youtube")
-            || titleLower.startsWith("youtube -")
-            || titleLower.contains(" youtu.be")
-            || ([&]() -> bool {
+        const bool looksLikeNetflix = looksLikeNetflixMedia(sourceUrl, titleLower);
+        const bool looksLikeYoutube = directlyLooksLikeYoutubeMedia(sourceUrl, titleLower)
+            || (!looksLikeNetflix && ([&]() -> bool {
                 if (classNeedle.isEmpty()) {
                     return false;
                 }
                 ensureYouTubeBrowserClasses();
                 return youtubeBrowserClasses.contains(classNeedle);
-            })();
-        const bool looksLikeNetflix = sourceUrl.contains("netflix.com")
-            || titleLower.contains("netflix")
-            || titleLower.endsWith(" - netflix")
-            || titleLower.startsWith("netflix -");
+            })());
 
         QString displayName = displayPlayerName(rawPlayerName, looksLikeYoutube, looksLikeNetflix, sourceUrl);
         if (displayName.isEmpty()) {
@@ -548,29 +561,21 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     const QString sourceUrl = compactValue(fields.value(6)).toLower();
     const QString titleLower = title.toLower();
     const QString lowerPlayerName = rawPlayerName.toLower();
-    const bool looksLikeNetflix = sourceUrl.contains("netflix.com")
-        || titleLower.contains("netflix")
-        || titleLower.endsWith(" - netflix")
-        || titleLower.startsWith("netflix -");
+    const bool looksLikeNetflix = looksLikeNetflixMedia(sourceUrl, titleLower);
     const QString classNeedle = lowerPlayerName.contains("brave")
         ? "brave"
         : (lowerPlayerName.contains("firefox")
             ? "firefox"
             : ((lowerPlayerName.contains("chromium") || lowerPlayerName.contains("chrome")) ? "chrom" : ""));
 
-    const bool looksLikeYoutube = sourceUrl.contains("youtube.com")
-        || sourceUrl.contains("youtu.be")
-        || titleLower.contains("youtube")
-        || titleLower.endsWith(" - youtube")
-        || titleLower.startsWith("youtube -")
-        || titleLower.contains(" youtu.be")
-        || ([&]() -> bool {
+    const bool looksLikeYoutube = directlyLooksLikeYoutubeMedia(sourceUrl, titleLower)
+        || (!looksLikeNetflix && ([&]() -> bool {
             if (classNeedle.isEmpty()) {
                 return false;
             }
             ensureYouTubeBrowserClasses();
             return youtubeBrowserClasses.contains(classNeedle);
-        })();
+        })());
     const bool applyNetflixBranding = looksLikeNetflix && !looksLikeYoutube;
 
     snapshot.playerName = displayPlayerName(rawPlayerName, looksLikeYoutube, looksLikeNetflix, sourceUrl);
@@ -593,7 +598,7 @@ MediaInfo::Snapshot MediaInfo::collectSnapshot(const QString &preferredSelected,
     }
     snapshot.volume = qBound(0.0, volumeOut.toDouble(), 1.0);
     snapshot.artUrl = applyNetflixBranding
-        ? QUrl::fromLocalFile(QDir::homePath() + "/.local/share/icons/netflix.png").toString()
+        ? netflixArtUrl()
         : artUrl;
     snapshot.sourceUrl = sourceUrl;
     snapshot.isVideo = lowerPlayerName.contains("vlc")
@@ -643,6 +648,31 @@ QString MediaInfo::compactValue(const QString &value)
     QString out = value;
     out.replace('\n', ' ');
     return out.trimmed();
+}
+
+QString MediaInfo::netflixArtUrl()
+{
+    QString path = QDir::homePath() + "/.local/share/icons/netflix.png";
+    QFile file(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)
+        + "/.config/dashboard/config.json");
+    if (file.open(QIODevice::ReadOnly)) {
+        const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+        if (doc.isObject()) {
+            const QString configuredPath = doc.object().value("netflixThumbnail").toString().trimmed();
+            if (!configuredPath.isEmpty()) {
+                path = configuredPath;
+            }
+        }
+    }
+
+    if (path.startsWith("file:")
+        || path.startsWith("qrc:")
+        || path.startsWith("http://")
+        || path.startsWith("https://")) {
+        return path;
+    }
+
+    return QUrl::fromLocalFile(QFileInfo(path).absoluteFilePath()).toString();
 }
 
 QString MediaInfo::displayPlayerName(const QString &rawPlayerName, bool looksLikeYoutube, bool looksLikeNetflix, const QString &sourceUrlLower)

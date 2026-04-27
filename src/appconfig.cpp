@@ -29,6 +29,11 @@ QString AppConfig::profileImage() const
     return m_profileImage;
 }
 
+QString AppConfig::monitor() const
+{
+    return m_outputName;
+}
+
 QString AppConfig::outputName() const
 {
     return m_outputName;
@@ -176,7 +181,7 @@ void AppConfig::load()
 
     m_username = obj["username"].toString("user");
     m_profileImage = obj["profileImage"].toString("");
-    m_outputName = obj["outputName"].toString("");
+    m_outputName = obj["monitor"].toString(obj["outputName"].toString(""));
     m_use24Hour = obj["use24Hour"].toBool(false);
 }
 
@@ -198,6 +203,7 @@ void AppConfig::save() const
 
     obj.insert("username", m_username);
     obj.insert("profileImage", m_profileImage);
+    obj.insert("monitor", m_outputName);
     obj.insert("outputName", m_outputName);
     obj.insert("use24Hour", m_use24Hour);
 

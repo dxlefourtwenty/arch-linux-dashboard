@@ -7,7 +7,7 @@
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 26,
+                    "lineNumber": 28,
                     "name": "reload",
                     "returnType": "void"
                 },
@@ -20,7 +20,7 @@
                         }
                     ],
                     "index": 2,
-                    "lineNumber": 27,
+                    "lineNumber": 29,
                     "name": "setUse24Hour",
                     "returnType": "void"
                 },
@@ -34,7 +34,7 @@
                     ],
                     "index": 3,
                     "isConst": true,
-                    "lineNumber": 28,
+                    "lineNumber": 30,
                     "name": "tasksForDate",
                     "returnType": "QStringList"
                 }
@@ -81,6 +81,23 @@
                     "final": false,
                     "index": 2,
                     "lineNumber": 15,
+                    "name": "monitor",
+                    "notify": "configChanged",
+                    "override": false,
+                    "read": "monitor",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 16,
                     "name": "outputName",
                     "notify": "configChanged",
                     "override": false,
@@ -96,8 +113,8 @@
                     "constant": false,
                     "designable": true,
                     "final": false,
-                    "index": 3,
-                    "lineNumber": 16,
+                    "index": 4,
+                    "lineNumber": 17,
                     "name": "use24Hour",
                     "notify": "configChanged",
                     "override": false,
@@ -115,7 +132,7 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 31,
+                    "lineNumber": 33,
                     "name": "configChanged",
                     "returnType": "void"
                 }

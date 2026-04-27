@@ -4,6 +4,7 @@ import QtQuick.Controls
 
 Item {
     id: root
+    signal toggleFormatRequested()
     clip: true
 
     property color cBg: "#111111"
@@ -40,6 +41,7 @@ Item {
     property string lastWeatherSnapshot: ""
     property bool requestInFlight: false
     property bool pendingRefresh: false
+    property bool use24Hour: false
     property var weatherCache: ({})
     property var locationOptions: []
     property int selectedLocationIndex: 0
@@ -71,10 +73,15 @@ Item {
         var minute = locationNow.getUTCMinutes()
         if (!isFinite(hour) || !isFinite(minute)) return "--:--"
 
+        var minuteText = minute < 10 ? "0" + minute : "" + minute
+        if (root.use24Hour) {
+            var hour24Text = hour < 10 ? "0" + hour : "" + hour
+            return hour24Text + ":" + minuteText
+        }
+
         var meridiem = hour >= 12 ? "PM" : "AM"
         var hour12 = hour % 12
         if (hour12 === 0) hour12 = 12
-        var minuteText = minute < 10 ? "0" + minute : "" + minute
         return hour12 + ":" + minuteText + " " + meridiem
     }
 
@@ -357,6 +364,12 @@ Item {
         }
     }
 
+    onUse24HourChanged: {
+        if (root.hasLocationTimeOffset) {
+            root.locationTimeText = root.formatClockTextForOffset(root.locationUtcOffsetSeconds)
+        }
+    }
+
     Connections {
         target: WeatherConfig
         function onConfigChanged() {
@@ -563,7 +576,25 @@ Item {
                 spacing: 12
 
                 Row {
+                    id: timeRow
                     spacing: 6
+                    scale: weatherTimeHover.hovered ? 1.06 : 1.0
+
+                    Behavior on scale {
+                        NumberAnimation {
+                            duration: root.hoverAnimMs
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+
+                    HoverHandler {
+                        id: weatherTimeHover
+                        cursorShape: Qt.PointingHandCursor
+                    }
+
+                    TapHandler {
+                        onTapped: root.toggleFormatRequested()
+                    }
 
                     Item {
                         width: timeIcon.implicitWidth + 1 + 2
@@ -573,9 +604,15 @@ Item {
                             id: timeIcon
                             anchors.verticalCenter: parent.verticalCenter
                             text: ""
-                            color: root.cAccent
+                            color: weatherTimeHover.hovered ? root.cSecondary : root.cAccent
                             font.family: root.cFont
                             font.pixelSize: Math.max(11, root.cFontSize - 2) * 1.8
+
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: root.hoverAnimMs
+                                }
+                            }
                         }
                     }
 
@@ -584,17 +621,29 @@ Item {
 
                         Text {
                             text: "Time"
-                            color: root.cFg
+                            color: weatherTimeHover.hovered ? root.cAccent : root.cFg
                             font.family: root.cFont
                             font.pixelSize: Math.max(10, root.cFontSize - 4) * 1.1
+
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: root.hoverAnimMs
+                                }
+                            }
                         }
 
                         Text {
                             text: root.locationTimeText
-                            color: root.cFg
+                            color: weatherTimeHover.hovered ? root.cAccent : root.cFg
                             font.family: root.cFont
                             font.pixelSize: Math.max(11, root.cFontSize - 2)
                             font.bold: true
+
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: root.hoverAnimMs
+                                }
+                            }
                         }
                     }
                 }

@@ -48,6 +48,7 @@ template <> constexpr inline auto AppConfig::qt_create_metaobjectdata<qt_meta_ta
         "dateKey",
         "username",
         "profileImage",
+        "monitor",
         "outputName",
         "use24Hour"
     };
@@ -71,10 +72,12 @@ template <> constexpr inline auto AppConfig::qt_create_metaobjectdata<qt_meta_ta
         QtMocHelpers::PropertyData<QString>(8, QMetaType::QString, QMC::DefaultPropertyFlags, 0),
         // property 'profileImage'
         QtMocHelpers::PropertyData<QString>(9, QMetaType::QString, QMC::DefaultPropertyFlags, 0),
-        // property 'outputName'
+        // property 'monitor'
         QtMocHelpers::PropertyData<QString>(10, QMetaType::QString, QMC::DefaultPropertyFlags, 0),
+        // property 'outputName'
+        QtMocHelpers::PropertyData<QString>(11, QMetaType::QString, QMC::DefaultPropertyFlags, 0),
         // property 'use24Hour'
-        QtMocHelpers::PropertyData<bool>(11, QMetaType::Bool, QMC::DefaultPropertyFlags, 0),
+        QtMocHelpers::PropertyData<bool>(12, QMetaType::Bool, QMC::DefaultPropertyFlags, 0),
     };
     QtMocHelpers::UintData qt_enums {
     };
@@ -113,8 +116,9 @@ void AppConfig::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: *reinterpret_cast<QString*>(_v) = _t->username(); break;
         case 1: *reinterpret_cast<QString*>(_v) = _t->profileImage(); break;
-        case 2: *reinterpret_cast<QString*>(_v) = _t->outputName(); break;
-        case 3: *reinterpret_cast<bool*>(_v) = _t->use24Hour(); break;
+        case 2: *reinterpret_cast<QString*>(_v) = _t->monitor(); break;
+        case 3: *reinterpret_cast<QString*>(_v) = _t->outputName(); break;
+        case 4: *reinterpret_cast<bool*>(_v) = _t->use24Hour(); break;
         default: break;
         }
     }
@@ -152,7 +156,7 @@ int AppConfig::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::BindableProperty
             || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

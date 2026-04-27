@@ -12,6 +12,7 @@ class AppConfig : public QObject
 
     Q_PROPERTY(QString username READ username NOTIFY configChanged)
     Q_PROPERTY(QString profileImage READ profileImage NOTIFY configChanged)
+    Q_PROPERTY(QString monitor READ monitor NOTIFY configChanged)
     Q_PROPERTY(QString outputName READ outputName NOTIFY configChanged)
     Q_PROPERTY(bool use24Hour READ use24Hour NOTIFY configChanged)
 
@@ -20,6 +21,7 @@ public:
 
     QString username() const;
     QString profileImage() const;
+    QString monitor() const;
     QString outputName() const;
     bool use24Hour() const;
 

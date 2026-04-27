@@ -7484,6 +7484,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/QRect \
   /usr/include/qt6/QtCore/QSize \
   /usr/include/qt6/QtCore/QSizeF \
+  /usr/include/qt6/QtCore/QStandardPaths \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QStringList \
   /usr/include/qt6/QtCore/QTemporaryFile \
@@ -7610,6 +7611,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/qsharedpointer_impl.h \
   /usr/include/qt6/QtCore/qsize.h \
   /usr/include/qt6/QtCore/qspan.h \
+  /usr/include/qt6/QtCore/qstandardpaths.h \
   /usr/include/qt6/QtCore/qstdlibdetection.h \
   /usr/include/qt6/QtCore/qstring.h \
   /usr/include/qt6/QtCore/qstringalgorithms.h \
@@ -8134,6 +8136,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtCore/QDateTime \
   /usr/include/qt6/QtCore/QDeadlineTimer \
   /usr/include/qt6/QtCore/QDir \
+  /usr/include/qt6/QtCore/QFile \
+  /usr/include/qt6/QtCore/QFileInfo \
   /usr/include/qt6/QtCore/QFutureWatcher \
   /usr/include/qt6/QtCore/QHash \
   /usr/include/qt6/QtCore/QJsonArray \
@@ -8146,6 +8150,7 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: /home/dxle/builds/dashboard/src/medi
   /usr/include/qt6/QtCore/QProcess \
   /usr/include/qt6/QtCore/QRegularExpression \
   /usr/include/qt6/QtCore/QSet \
+  /usr/include/qt6/QtCore/QStandardPaths \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QStringList \
   /usr/include/qt6/QtCore/QTimer \

@@ -9,6 +9,8 @@
 #include <QFile>
 #include <QStringList>
 #include <QRegion>
+#include <QStandardPaths>
+#include <QVariant>
 #include <algorithm>
 #include <atomic>
 #include <functional>
@@ -38,6 +40,59 @@ static QScreen *preferredScreen(QGuiApplication &app, const QString &outputName)
     return app.primaryScreen();
 }
 
+static int initialTabIndexFromEnvironment()
+{
+    const QString tab = qEnvironmentVariable("TOPDASH_INITIAL_TAB").trimmed().toLower();
+
+    if (tab == "media") return 1;
+    if (tab == "performance") return 2;
+    if (tab == "weather") return 3;
+
+    return 0;
+}
+
+static bool initialOpenFromEnvironment()
+{
+    const QString value = qEnvironmentVariable("TOPDASH_START_OPEN").trimmed().toLower();
+    return value == "1" || value == "true" || value == "yes";
+}
+
+static QString tabCommandPath()
+{
+    const QString runtimePath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    if (!runtimePath.isEmpty()) {
+        return runtimePath + "/topdash-tab";
+    }
+
+    return "/tmp/topdash-tab";
+}
+
+static int tabIndexFromFile(const QString &path)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return 0;
+    }
+
+    bool ok = false;
+    const int index = QString::fromUtf8(file.readAll()).trimmed().toInt(&ok);
+    if (!ok) {
+        return 0;
+    }
+
+    return std::clamp(index, 0, 3);
+}
+
+static void toggleDashboardTab(QObject *root)
+{
+    QMetaObject::invokeMethod(
+        root,
+        "toggleDashboardTab",
+        Qt::QueuedConnection,
+        Q_ARG(QVariant, tabIndexFromFile(tabCommandPath()))
+    );
+}
+
 static void onSigUsr1(int)
 {
     if (!g_root) return;
@@ -45,6 +100,21 @@ static void onSigUsr1(int)
     QMetaObject::invokeMethod(
         g_root,
         "toggle",
+        Qt::QueuedConnection
+    );
+}
+
+static void onSigUsr2(int)
+{
+    if (!g_root) return;
+
+    QMetaObject::invokeMethod(
+        g_root,
+        []() {
+            if (g_root) {
+                toggleDashboardTab(g_root);
+            }
+        },
         Qt::QueuedConnection
     );
 }
@@ -100,6 +170,7 @@ int main(int argc, char *argv[])
     AppConfig cfg;
     ConfigFiles configFiles(&engine);
     WeatherConfig weatherConfig;
+    const bool initialOpen = initialOpenFromEnvironment();
 
     engine.rootContext()->setContextProperty("SystemInfo", &sys);
     engine.rootContext()->setContextProperty("MediaInfo", &media);
@@ -107,6 +178,8 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("AppConfig", &cfg);
     engine.rootContext()->setContextProperty("ConfigFiles", &configFiles);
     engine.rootContext()->setContextProperty("WeatherConfig", &weatherConfig);
+    engine.rootContext()->setContextProperty("InitialTabIndex", initialTabIndexFromEnvironment());
+    engine.rootContext()->setContextProperty("InitialOpen", initialOpen);
     engine.loadFromModule("TopDash", "Main");
 
     if (engine.rootObjects().isEmpty())
@@ -149,7 +222,12 @@ int main(int argc, char *argv[])
         updateInputMask();
     }
 
+    if (initialOpen) {
+        QMetaObject::invokeMethod(root, "openDashboard", Qt::QueuedConnection);
+    }
+
     std::signal(SIGUSR1, onSigUsr1);
+    std::signal(SIGUSR2, onSigUsr2);
     std::signal(SIGWINCH, onSigReload);
 
     QString themePath = QDir::homePath() + "/.config/dashboard/theme.qml";

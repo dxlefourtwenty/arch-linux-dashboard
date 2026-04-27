@@ -9,6 +9,7 @@ Window {
     id: win
 
     property bool open: false
+    property bool initialOpen: typeof InitialOpen === "boolean" ? InitialOpen : false
     property int animMs: 180
 
     function toggle() {
@@ -17,11 +18,38 @@ Window {
             openWorkTimer.stop()
             hideTimer.restart()
         } else {
-            visible = true
-            hideTimer.stop()
-            open = true
-            openWorkTimer.restart()
+            openDashboard()
         }
+    }
+
+    function openDashboard() {
+        visible = true
+        hideTimer.stop()
+        open = true
+        openWorkTimer.restart()
+    }
+
+    function setDashboardTab(tabIndex, immediate) {
+        var boundedIndex = Math.max(0, Math.min(tabIndex, tabCount - 1))
+        if (immediate) {
+            tabSelectionImmediate = true
+        }
+        if (activeTabIndex !== boundedIndex) {
+            activeTabIndex = boundedIndex
+        } else {
+            syncTabTrack(immediate)
+        }
+        tabSelectionImmediate = false
+    }
+
+    function toggleDashboardTab(tabIndex) {
+        if (open) {
+            toggle()
+            return
+        }
+
+        setDashboardTab(tabIndex, true)
+        openDashboard()
     }
 
     property string themeBaseSource: StandardPaths.writableLocation(StandardPaths.HomeLocation)
@@ -126,6 +154,7 @@ Window {
     property int    forceRefreshOnOpenDelayMs: (style && style.forceRefreshOnOpenDelayMs !== undefined) ? style.forceRefreshOnOpenDelayMs : 180
     property int    mediaArtworkSpinDurationMs: (style && style.mediaArtworkSpinDurationMs !== undefined) ? style.mediaArtworkSpinDurationMs : 12000
     property int    tabCount: 4
+    property int    initialTabIndex: typeof InitialTabIndex === "number" ? InitialTabIndex : 0
     property int    activeTabIndex: 0
     property int    displayedTabIndex: 0
     property bool   tabSwitchAnimating: false
@@ -138,6 +167,7 @@ Window {
     property bool   tabTrackSnapImmediate: false
     property bool   tabJumpProxyEnabled: false
     property int    tabJumpProxyTrackIndex: 0
+    property bool   tabSelectionImmediate: false
 
     FontMetrics {
         id: referenceFontMetrics
@@ -380,7 +410,7 @@ Window {
         tabSlideResetTimer.restart()
     }
 
-    onActiveTabIndexChanged: syncTabTrack(false)
+    onActiveTabIndexChanged: syncTabTrack(tabSelectionImmediate)
     onTabSlideEnabledChanged: syncTabTrack(true)
     onTabSlideDistanceMultiplierChanged: syncTabTrack(true)
     onTabSlideDurationChanged: {
@@ -1113,8 +1143,10 @@ Window {
                                 cBorderWidth: win.cBorderWidth
                                 cFont: win.cFont
                                 cFontSize: win.cFontSize
+                                use24Hour: AppConfig.use24Hour
                                 active: win.activeTabIndex === 3
                                         && (!win.pauseTabPollingDuringTransitions || (win.open && !win.uiTransitionActive))
+                                onToggleFormatRequested: AppConfig.setUse24Hour(!AppConfig.use24Hour)
                             }
                         }
 
@@ -1138,6 +1170,7 @@ Window {
     }
 
     Component.onCompleted: {
+        activeTabIndex = initialTabIndex
         activeTabIndex = Math.max(0, Math.min(activeTabIndex, tabCount - 1))
         displayedTabIndex = activeTabIndex
         syncTabTrack(true)

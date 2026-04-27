@@ -398,7 +398,8 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qdatetime.h /usr/include/qt6/QtCore/qcalendar.h \
  /usr/include/qt6/QtCore/qlocale.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
- /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/QHash \
+ /usr/include/qt6/QtCore/QDateTime /usr/include/qt6/QtCore/QFile \
+ /usr/include/qt6/QtCore/QFileInfo /usr/include/qt6/QtCore/QHash \
  /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h \
@@ -412,7 +413,9 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/QJsonObject \
  /usr/include/qt6/QtCore/qjsonobject.h \
  /usr/include/qt6/QtCore/QRegularExpression /usr/include/qt6/QtCore/QSet \
- /usr/include/qt6/QtCore/QUrl /usr/include/qt6/QtConcurrent/QtConcurrent \
+ /usr/include/qt6/QtCore/QStandardPaths \
+ /usr/include/qt6/QtCore/qstandardpaths.h /usr/include/qt6/QtCore/QUrl \
+ /usr/include/qt6/QtConcurrent/QtConcurrent \
  /usr/include/qt6/QtConcurrent/QtConcurrentDepends \
  /usr/include/qt6/QtCore/QtCore /usr/include/qt6/QtCore/QtCoreDepends \
  /usr/include/qt6/QtCore/q20algorithm.h \
@@ -622,7 +625,6 @@ CMakeFiles/topdash.dir/src/mediainfo.cpp.o: \
  /usr/include/qt6/QtCore/qsocketnotifier.h \
  /usr/include/qt6/QtCore/qsortfilterproxymodel.h \
  /usr/include/qt6/QtCore/qstack.h \
- /usr/include/qt6/QtCore/qstandardpaths.h \
  /usr/include/qt6/QtCore/qstaticlatin1stringmatcher.h \
  /usr/include/qt6/QtCore/qstorageinfo.h \
  /usr/include/qt6/QtCore/qstringlistmodel.h \
