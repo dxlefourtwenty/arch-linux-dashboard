@@ -43,12 +43,17 @@ Window {
     }
 
     function toggleDashboardTab(tabIndex) {
+        var boundedIndex = Math.max(0, Math.min(tabIndex, tabCount - 1))
         if (open) {
-            toggle()
+            if (activeTabIndex === boundedIndex) {
+                toggle()
+            } else {
+                setDashboardTab(boundedIndex, false)
+            }
             return
         }
 
-        setDashboardTab(tabIndex, true)
+        setDashboardTab(boundedIndex, true)
         openDashboard()
     }
 
