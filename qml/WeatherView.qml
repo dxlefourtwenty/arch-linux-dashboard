@@ -42,7 +42,10 @@ Item {
     property bool requestInFlight: false
     property bool pendingRefresh: false
     property bool use24Hour: false
+    property bool showHourlyForecast: false
+    property int hourlyForecastHours: 7
     property var weatherCache: ({})
+    property var currentWeatherPayload: null
     property var locationOptions: []
     property int selectedLocationIndex: 0
     property real locationSelectorWidth: 120
@@ -71,6 +74,31 @@ Item {
         var locationNow = new Date(Date.now() + (Number(offsetSeconds) * 1000))
         var hour = locationNow.getUTCHours()
         var minute = locationNow.getUTCMinutes()
+        if (!isFinite(hour) || !isFinite(minute)) return "--:--"
+
+        var minuteText = minute < 10 ? "0" + minute : "" + minute
+        if (root.use24Hour) {
+            var hour24Text = hour < 10 ? "0" + hour : "" + hour
+            return hour24Text + ":" + minuteText
+        }
+
+        var meridiem = hour >= 12 ? "PM" : "AM"
+        var hour12 = hour % 12
+        if (hour12 === 0) hour12 = 12
+        return hour12 + ":" + minuteText + " " + meridiem
+    }
+
+    function formatForecastHour(isoString) {
+        if (!isoString) return "--:--"
+
+        var parts = String(isoString).split("T")
+        if (parts.length < 2) return "--:--"
+
+        var timeParts = parts[1].split(":")
+        if (timeParts.length < 2) return "--:--"
+
+        var hour = Number(timeParts[0])
+        var minute = Number(timeParts[1])
         if (!isFinite(hour) || !isFinite(minute)) return "--:--"
 
         var minuteText = minute < 10 ? "0" + minute : "" + minute
@@ -149,6 +177,7 @@ Item {
             return
         }
         lastWeatherSnapshot = nextSnapshot
+        currentWeatherPayload = data
         locationName = resolveLocationName(data.timezone)
 
         if (data.current) {
@@ -169,7 +198,7 @@ Item {
             sunsetText = formatLocalTime((data.daily.sunset || [])[0])
         }
 
-        populateDailyForecast(data)
+        populateForecast(data)
     }
 
     function selectLocationIndex(index) {
@@ -177,6 +206,14 @@ Item {
             return
         }
         WeatherConfig.selectIndex(index)
+    }
+
+    function populateForecast(payload) {
+        if (showHourlyForecast) {
+            populateHourlyForecast(payload)
+        } else {
+            populateDailyForecast(payload)
+        }
     }
 
     function populateDailyForecast(payload) {
@@ -208,6 +245,43 @@ Item {
                 dateText: dateLabel,
                 high: maxLabel,
                 low: minLabel,
+                glyph: weatherGlyphForCode(code),
+                glyphScale: glyphScaleForCode(code),
+                isRegularCloud: isRegularCloud,
+                cloudXOffset: isPartialCloud ? -6 : ((isRegularCloud || isRainCloud) ? -6 : 0)
+            })
+        }
+    }
+
+    function populateHourlyForecast(payload) {
+        dailyModel.clear()
+        if (!payload || !payload.hourly || !payload.hourly.time) return
+
+        var times = payload.hourly.time
+        var temps = payload.hourly.temperature_2m || []
+        var apparentTemps = payload.hourly.apparent_temperature || []
+        var weatherCodes = payload.hourly.weather_code || []
+        var count = Math.min(Math.max(1, hourlyForecastHours), times.length)
+
+        for (var i = 0; i < count; i++) {
+            var dateObj = new Date(times[i])
+            var dayName = i === 0 || isNaN(dateObj.getTime()) ? "Now" : Qt.formatDate(dateObj, "ddd")
+            var temp = i < temps.length ? toFahrenheit(temps[i]) : NaN
+            var apparent = i < apparentTemps.length ? toFahrenheit(apparentTemps[i]) : temp
+            var highValue = isFinite(temp) && isFinite(apparent) ? Math.max(temp, apparent) : temp
+            var lowValue = isFinite(temp) && isFinite(apparent) ? Math.min(temp, apparent) : apparent
+            var highLabel = isFinite(highValue) ? highValue + "°" : "--"
+            var lowLabel = isFinite(lowValue) ? lowValue + "°" : "--"
+            var code = i < weatherCodes.length ? Number(weatherCodes[i]) : -1
+            var isRegularCloud = (code === 3 || code === 45 || code === 48)
+            var isRainCloud = ((code >= 51 && code <= 67) || (code >= 80 && code <= 82))
+            var isPartialCloud = (code === 1 || code === 2)
+
+            dailyModel.append({
+                day: dayName,
+                dateText: formatForecastHour(times[i]),
+                high: highLabel,
+                low: lowLabel,
                 glyph: weatherGlyphForCode(code),
                 glyphScale: glyphScaleForCode(code),
                 isRegularCloud: isRegularCloud,
@@ -254,7 +328,11 @@ Item {
             dailyTime: payload.daily.time || [],
             dailyMax: payload.daily.temperature_2m_max || [],
             dailyMin: payload.daily.temperature_2m_min || [],
-            dailyCode: payload.daily.weather_code || []
+            dailyCode: payload.daily.weather_code || [],
+            hourlyTime: payload.hourly ? (payload.hourly.time || []) : [],
+            hourlyTemp: payload.hourly ? (payload.hourly.temperature_2m || []) : [],
+            hourlyApparent: payload.hourly ? (payload.hourly.apparent_temperature || []) : [],
+            hourlyCode: payload.hourly ? (payload.hourly.weather_code || []) : []
         })
     }
 
@@ -286,6 +364,8 @@ Item {
                 + "&longitude=" + longitude
                 + "&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code"
                 + "&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min,weather_code"
+                + "&hourly=temperature_2m,apparent_temperature,weather_code"
+                + "&forecast_hours=" + Math.max(1, hourlyForecastHours)
                 + "&wind_speed_unit=mph"
                 + "&timezone=auto"
         var xhr = new XMLHttpRequest()
@@ -367,6 +447,15 @@ Item {
     onUse24HourChanged: {
         if (root.hasLocationTimeOffset) {
             root.locationTimeText = root.formatClockTextForOffset(root.locationUtcOffsetSeconds)
+        }
+        if (root.showHourlyForecast && root.currentWeatherPayload) {
+            root.populateHourlyForecast(root.currentWeatherPayload)
+        }
+    }
+
+    onShowHourlyForecastChanged: {
+        if (root.currentWeatherPayload) {
+            root.populateForecast(root.currentWeatherPayload)
         }
     }
 
@@ -843,14 +932,33 @@ Item {
             }
         }
 
-        Text {
+        RowLayout {
             Layout.fillWidth: true
             Layout.topMargin: 22
-            text: "7-Day Forecast"
-            color: root.cFg
-            font.family: root.cFont
-            font.pixelSize: Math.max(12, root.cFontSize - 1) * 1.1
-            font.bold: true
+
+            Text {
+                Layout.fillWidth: true
+                text: root.showHourlyForecast ? "Hourly Forecast" : "7-Day Forecast"
+                color: forecastModeHover.hovered ? root.cAccent : root.cFg
+                font.family: root.cFont
+                font.pixelSize: Math.max(12, root.cFontSize - 1) * 1.1
+                font.bold: true
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: root.hoverAnimMs
+                    }
+                }
+
+                HoverHandler {
+                    id: forecastModeHover
+                    cursorShape: Qt.PointingHandCursor
+                }
+
+                TapHandler {
+                    onTapped: root.showHourlyForecast = !root.showHourlyForecast
+                }
+            }
         }
 
         RowLayout {
@@ -864,30 +972,10 @@ Item {
                 delegate: Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    property bool isHovered: false
                     radius: 10
-                    color: isHovered
-                           ? root.cMuted
-                           : Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.7)
+                    color: Qt.rgba(root.cBg.r, root.cBg.g, root.cBg.b, 0.7)
                     border.width: root.cBorderWidth
                     border.color: root.cMuted
-
-                    Behavior on color {
-                        ColorAnimation {
-                            duration: root.hoverAnimMs
-                            easing.type: Easing.OutCubic
-                        }
-                    }
-
-                    MouseArea {
-                        id: forecastCardHover
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        acceptedButtons: Qt.NoButton
-                        onEntered: parent.isHovered = true
-                        onExited: parent.isHovered = false
-                        onCanceled: parent.isHovered = false
-                    }
 
                     Column {
                         anchors.fill: parent
