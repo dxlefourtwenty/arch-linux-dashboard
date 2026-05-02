@@ -345,8 +345,9 @@ CMakeFiles/topdash.dir/src/configfiles.cpp.o: \
  /usr/include/c++/15.2.1/bits/sstream.tcc \
  /usr/include/c++/15.2.1/bits/chrono_io.h /usr/include/c++/15.2.1/iomanip \
  /usr/include/c++/15.2.1/bits/quoted_string.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/QDebug \
- /usr/include/qt6/QtCore/qdebug.h /usr/include/qt6/QtCore/qtextstream.h \
+ /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/QStringList \
+ /usr/include/qt6/QtCore/QDebug /usr/include/qt6/QtCore/qdebug.h \
+ /usr/include/qt6/QtCore/qtextstream.h \
  /usr/include/qt6/QtCore/qcontiguouscache.h \
  /usr/include/qt6/QtCore/qsharedpointer.h \
  /usr/include/qt6/QtCore/qshareddata.h \
@@ -373,7 +374,9 @@ CMakeFiles/topdash.dir/src/configfiles.cpp.o: \
  /usr/include/qt6/QtCore/q23utility.h \
  /usr/include/qt6/QtCore/q20utility.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/qtimezone.h \
- /usr/include/qt6/QtCore/QFile /usr/include/qt6/QtQml/QQmlComponent \
+ /usr/include/qt6/QtCore/QFile /usr/include/qt6/QtCore/QMetaProperty \
+ /usr/include/qt6/QtCore/qmetaobject.h \
+ /usr/include/qt6/QtQml/QQmlComponent \
  /usr/include/qt6/QtQml/qqmlcomponent.h /usr/include/qt6/QtQml/qqml.h \
  /usr/include/qt6/QtQml/qqmlprivate.h \
  /usr/include/qt6/QtQml/qjsprimitivevalue.h \
@@ -389,8 +392,8 @@ CMakeFiles/topdash.dir/src/configfiles.cpp.o: \
  /usr/include/qt6/QtQml/qqmlpropertyvaluesource.h \
  /usr/include/qt6/QtCore/qmetasequence.h \
  /usr/include/qt6/QtCore/qiterable_impl.h \
- /usr/include/qt6/QtCore/qmetaobject.h /usr/include/qt6/QtCore/qpointer.h \
- /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/qversionnumber.h \
+ /usr/include/qt6/QtCore/qpointer.h /usr/include/qt6/QtCore/qurl.h \
+ /usr/include/qt6/QtCore/qversionnumber.h \
  /usr/include/qt6/QtCore/qtyperevision.h \
  /usr/include/qt6/QtQml/qqmlregistration.h \
  /usr/include/qt6/QtQmlIntegration/qqmlintegration.h \

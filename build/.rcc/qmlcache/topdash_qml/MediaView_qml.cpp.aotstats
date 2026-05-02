@@ -152,7 +152,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 0,
+                            "durationMicroseconds": 1000,
                             "functionName": "currentMediaIdentity",
                             "line": 105,
                             "message": "Cannot access value for name MediaInfo"

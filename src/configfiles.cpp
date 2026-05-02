@@ -3,9 +3,11 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QMetaProperty>
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <QStringList>
 #include <QUrl>
 
 ConfigFiles::ConfigFiles(QQmlEngine *engine, QObject *parent)
@@ -27,29 +29,111 @@ QObject *ConfigFiles::style() const
 
 void ConfigFiles::reload()
 {
-    if (m_engine) {
-        m_engine->clearComponentCache();
-    }
-
     const QString configDir = QDir::homePath() + "/.config/dashboard";
     QObject *nextTheme = loadObject(configDir + "/theme.qml", "theme");
     QObject *nextStyle = loadObject(configDir + "/style.qml", "style");
 
     if (nextTheme) {
-        if (m_theme) {
-            m_theme->deleteLater();
+        if (updateInPlace(m_theme, nextTheme)) {
+            nextTheme->deleteLater();
+        } else {
+            if (m_theme) {
+                m_theme->deleteLater();
+            }
+            m_theme = nextTheme;
+            emit themeChanged();
         }
-        m_theme = nextTheme;
-        emit themeChanged();
     }
 
     if (nextStyle) {
-        if (m_style) {
-            m_style->deleteLater();
+        if (updateInPlace(m_style, nextStyle)) {
+            nextStyle->deleteLater();
+        } else {
+            if (m_style) {
+                m_style->deleteLater();
+            }
+            m_style = nextStyle;
+            emit styleChanged();
         }
-        m_style = nextStyle;
-        emit styleChanged();
     }
+}
+
+bool ConfigFiles::canUpdateInPlace(QObject *current, QObject *next)
+{
+    return current
+        && next
+        && hasSameConfigProperties(current, next);
+}
+
+bool ConfigFiles::updateInPlace(QObject *current, QObject *next)
+{
+    if (!canUpdateInPlace(current, next)) {
+        return false;
+    }
+
+    const QMetaObject *nextMeta = next->metaObject();
+    for (const QString &name : configPropertyNames(next)) {
+        const int nextIndex = nextMeta->indexOfProperty(name.toUtf8().constData());
+        if (nextIndex < 0) {
+            continue;
+        }
+
+        current->setProperty(
+            name.toUtf8().constData(),
+            nextMeta->property(nextIndex).read(next)
+        );
+    }
+
+    return true;
+}
+
+bool ConfigFiles::hasSameConfigProperties(QObject *current, QObject *next)
+{
+    QStringList currentNames = configPropertyNames(current);
+    QStringList nextNames = configPropertyNames(next);
+    currentNames.sort();
+    nextNames.sort();
+
+    if (currentNames != nextNames) {
+        return false;
+    }
+
+    const QMetaObject *currentMeta = current->metaObject();
+    const QMetaObject *nextMeta = next->metaObject();
+    for (const QString &name : nextNames) {
+        const int currentIndex = currentMeta->indexOfProperty(name.toUtf8().constData());
+        const int nextIndex = nextMeta->indexOfProperty(name.toUtf8().constData());
+        if (currentIndex < 0 || nextIndex < 0) {
+            return false;
+        }
+
+        const QMetaProperty currentProperty = currentMeta->property(currentIndex);
+        const QMetaProperty nextProperty = nextMeta->property(nextIndex);
+        if (!currentProperty.isWritable()
+            || currentProperty.metaType() != nextProperty.metaType()) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+QStringList ConfigFiles::configPropertyNames(QObject *object)
+{
+    QStringList names;
+    if (!object) {
+        return names;
+    }
+
+    const QMetaObject *meta = object->metaObject();
+    for (int i = meta->propertyOffset(); i < meta->propertyCount(); ++i) {
+        const QMetaProperty property = meta->property(i);
+        if (property.isWritable()) {
+            names << QString::fromUtf8(property.name());
+        }
+    }
+
+    return names;
 }
 
 QObject *ConfigFiles::loadObject(const QString &path, const char *label)

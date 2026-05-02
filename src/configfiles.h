@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QStringList>
 
 class QQmlEngine;
 
@@ -25,6 +26,10 @@ signals:
     void styleChanged();
 
 private:
+    static bool canUpdateInPlace(QObject *current, QObject *next);
+    static bool updateInPlace(QObject *current, QObject *next);
+    static bool hasSameConfigProperties(QObject *current, QObject *next);
+    static QStringList configPropertyNames(QObject *object);
     QObject *loadObject(const QString &path, const char *label);
     static QByteArray normalizedSource(const QString &path);
 

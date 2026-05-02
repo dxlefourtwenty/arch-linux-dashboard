@@ -1299,6 +1299,7 @@
  mdp:/usr/include/pthread.h
  mdp:/usr/include/qt6/QtCore/QObject
  mdp:/usr/include/qt6/QtCore/QString
+ mdp:/usr/include/qt6/QtCore/QStringList
  mdp:/usr/include/qt6/QtCore/q17memory.h
  mdp:/usr/include/qt6/QtCore/q20bit.h
  mdp:/usr/include/qt6/QtCore/q20functional.h

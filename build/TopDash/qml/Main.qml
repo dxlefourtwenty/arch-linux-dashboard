@@ -142,6 +142,7 @@ Window {
     }
     property int    barHeight:    (style && style.barHeight !== undefined)    ? style.barHeight   : 30
     property int    finalPosition: (style && style.finalPosition !== undefined) ? style.finalPosition : 0
+    property int    windowInsetReserve: (style && style.windowInsetReserve !== undefined) ? style.windowInsetReserve : 120
     property int    taskCharCutoff: (style && style.taskCharCutoff !== undefined) ? style.taskCharCutoff : 240
     property bool   tabSlideEnabled: (style && style.tabSlideEnabled !== undefined) ? style.tabSlideEnabled : true
     property int    tabSlideDuration: (style && style.tabSlideDuration !== undefined) ? style.tabSlideDuration : 220
@@ -158,6 +159,7 @@ Window {
     property bool   forceRefreshOnOpen: (style && style.forceRefreshOnOpen !== undefined) ? style.forceRefreshOnOpen : true
     property int    forceRefreshOnOpenDelayMs: (style && style.forceRefreshOnOpenDelayMs !== undefined) ? style.forceRefreshOnOpenDelayMs : 180
     property int    mediaArtworkSpinDurationMs: (style && style.mediaArtworkSpinDurationMs !== undefined) ? style.mediaArtworkSpinDurationMs : 12000
+    property bool   liveReloadActive: false
     property int    tabCount: 4
     property int    initialTabIndex: typeof InitialTabIndex === "number" ? InitialTabIndex : 0
     property int    activeTabIndex: 0
@@ -269,13 +271,18 @@ Window {
     property int dashboardContentH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
     property int panelH: dashboardContentH + tabsHeaderHeight + tabsHeaderBottomGap
     property int visibleFinalPosition: Math.max(0, finalPosition)
+    property int visibleTopInset: Math.max(0, barHeight) + visibleFinalPosition
+    property int reservedTopInset: Math.max(visibleTopInset, Math.max(0, windowInsetReserve))
     property bool inputMaskEnabled: (style && style.inputMaskEnabled !== undefined) ? style.inputMaskEnabled : true
-    property int inputMaskTop: (style && style.inputMaskTop !== undefined) ? style.inputMaskTop : visibleFinalPosition
+    property int inputMaskTop: (style && style.inputMaskTop !== undefined) ? style.inputMaskTop : visibleTopInset
     property int inputMaskHeight: (style && style.inputMaskHeight !== undefined) ? style.inputMaskHeight : panelH
     property bool uiTransitionActive: panelSlideAnimation.running || tabSwitchAnimating
 
     function reloadTheme() {
+        liveReloadActive = true
         ConfigFiles.reload()
+        syncTabTrack(true)
+        liveReloadEndTimer.restart()
     }
 
     function reloadTasks() {
@@ -424,9 +431,9 @@ Window {
         }
     }
 
-    height: panelH + visibleFinalPosition
-    minimumHeight: panelH + visibleFinalPosition
-    maximumHeight: panelH + visibleFinalPosition
+    height: panelH + reservedTopInset
+    minimumHeight: panelH + reservedTopInset
+    maximumHeight: panelH + reservedTopInset
     width: panelW
     minimumWidth: panelW
     maximumWidth: panelW
@@ -435,7 +442,7 @@ Window {
     color: "transparent"
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    LS.Window.margins.top: barHeight
+    LS.Window.margins.top: 0
     LS.Window.layer: LS.Window.LayerOverlay
     LS.Window.anchors: LS.Window.AnchorTop | LS.Window.AnchorLeft | LS.Window.AnchorRight
     LS.Window.exclusionZone: -1
@@ -475,6 +482,13 @@ Window {
             if (!win.open || !win.forceRefreshOnOpen) return
             MediaInfo.refresh()
         }
+    }
+
+    Timer {
+        id: liveReloadEndTimer
+        interval: 32
+        repeat: false
+        onTriggered: win.liveReloadActive = false
     }
 
     Timer {
@@ -539,8 +553,9 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
             clip: true
 
-            y: win.open ? win.visibleFinalPosition : (-height - 12)
-            Behavior on y { 
+            y: win.open ? win.visibleTopInset : (-height - 12)
+            Behavior on y {
+                enabled: !win.liveReloadActive
                 NumberAnimation { 
                   id: panelSlideAnimation
                   duration: win.animMs; 
@@ -801,6 +816,7 @@ Window {
                         visible: activeTabItem !== null
 
                         Behavior on x {
+                            enabled: !win.liveReloadActive
                             NumberAnimation {
                                 duration: Math.max(1, win.tabSlideDurationCurrent)
                                 easing.type: win.tabSlideEasing
@@ -840,7 +856,7 @@ Window {
                             x: win.tabTrackTargetX
 
                             Behavior on x {
-                                enabled: !win.tabTrackSnapImmediate && win.tabSlideEnabled
+                                enabled: !win.liveReloadActive && !win.tabTrackSnapImmediate && win.tabSlideEnabled
                                 NumberAnimation {
                                     id: tabConveyorAnimation
                                     duration: Math.max(1, win.tabSlideAnimationDuration)
