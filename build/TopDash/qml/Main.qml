@@ -546,33 +546,41 @@ Window {
             }
         }
 
-        Rectangle {
-            id: panel
-            width: win.panelW
-            height: win.panelH
-            anchors.horizontalCenter: parent.horizontalCenter
+        Item {
+            id: panelViewport
+            anchors.left: parent.left
+            anchors.right: parent.right
+            y: Math.max(0, win.barHeight)
+            height: Math.max(0, parent.height - y)
             clip: true
 
-            y: win.open ? win.visibleTopInset : (-height - 12)
-            Behavior on y {
-                enabled: !win.liveReloadActive
-                NumberAnimation { 
-                  id: panelSlideAnimation
-                  duration: win.animMs; 
-                  easing.type: Easing.OutCubic 
-                  onRunningChanged: {
-                      SystemInfo.setPollingPaused(running)
-                      MediaInfo.setPollingPaused(running)
-                  }
-                } 
-            }
-            layer.enabled: win.panelSlideLayerCaching && panelSlideAnimation.running
+            Rectangle {
+                id: panel
+                width: win.panelW
+                height: win.panelH
+                anchors.horizontalCenter: parent.horizontalCenter
+                clip: true
 
-            radius: 0
-            color: "transparent"
-            border.width: 0
+                y: win.open ? win.visibleFinalPosition : (-height - 12)
+                Behavior on y {
+                    enabled: !win.liveReloadActive
+                    NumberAnimation { 
+                      id: panelSlideAnimation
+                      duration: win.animMs; 
+                      easing.type: Easing.OutCubic 
+                      onRunningChanged: {
+                          SystemInfo.setPollingPaused(running)
+                          MediaInfo.setPollingPaused(running)
+                      }
+                    } 
+                }
+                layer.enabled: win.panelSlideLayerCaching && panelSlideAnimation.running
 
-            Canvas {
+                radius: 0
+                color: "transparent"
+                border.width: 0
+
+                Canvas {
                 id: panelBorder
                 anchors.fill: parent
                 visible: true
@@ -1187,6 +1195,7 @@ Window {
                     }
                 }
             }
+        }
         }
     }
 
