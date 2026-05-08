@@ -270,11 +270,12 @@ Window {
     property int panelW: Math.max(panelBaseWidth, panelMinWidthFromLayout)
     property int dashboardContentH: Math.max(panelBaseHeight, panelMinHeightFromLayout)
     property int panelH: dashboardContentH + tabsHeaderHeight + tabsHeaderBottomGap
+    property int layerTopMargin: Math.max(0, barHeight)
     property int visibleFinalPosition: Math.max(0, finalPosition)
     property int visibleTopInset: Math.max(0, barHeight) + visibleFinalPosition
-    property int reservedTopInset: Math.max(visibleTopInset, Math.max(0, windowInsetReserve))
+    property int reservedTopInset: Math.max(visibleFinalPosition, Math.max(0, windowInsetReserve - layerTopMargin))
     property bool inputMaskEnabled: (style && style.inputMaskEnabled !== undefined) ? style.inputMaskEnabled : true
-    property int inputMaskTop: (style && style.inputMaskTop !== undefined) ? style.inputMaskTop : visibleTopInset
+    property int inputMaskTop: (style && style.inputMaskTop !== undefined) ? style.inputMaskTop : visibleFinalPosition
     property int inputMaskHeight: (style && style.inputMaskHeight !== undefined) ? style.inputMaskHeight : panelH
     property bool uiTransitionActive: panelSlideAnimation.running || tabSwitchAnimating
 
@@ -442,7 +443,7 @@ Window {
     color: "transparent"
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    LS.Window.margins.top: 0
+    LS.Window.margins.top: win.layerTopMargin
     LS.Window.layer: LS.Window.LayerOverlay
     LS.Window.anchors: LS.Window.AnchorTop | LS.Window.AnchorLeft | LS.Window.AnchorRight
     LS.Window.exclusionZone: -1
@@ -550,8 +551,8 @@ Window {
             id: panelViewport
             anchors.left: parent.left
             anchors.right: parent.right
-            y: Math.max(0, win.barHeight)
-            height: Math.max(0, parent.height - y)
+            y: 0
+            height: parent.height
             clip: true
 
             Rectangle {
