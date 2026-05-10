@@ -7479,6 +7479,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/QFileSystemWatcher \
   /usr/include/qt6/QtCore/QFutureWatcher \
   /usr/include/qt6/QtCore/QList \
+  /usr/include/qt6/QtCore/QLockFile \
   /usr/include/qt6/QtCore/QMap \
   /usr/include/qt6/QtCore/QMargins \
   /usr/include/qt6/QtCore/QObject \
@@ -7575,6 +7576,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: /home/dxle/builds/dashboard/src/main.cpp 
   /usr/include/qt6/QtCore/qline.h \
   /usr/include/qt6/QtCore/qlist.h \
   /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtCore/qlockfile.h \
   /usr/include/qt6/QtCore/qlogging.h \
   /usr/include/qt6/QtCore/qmalloc.h \
   /usr/include/qt6/QtCore/qmap.h \
@@ -10842,6 +10844,8 @@ topdash: /usr/lib/Scrt1.o \
 
 CMakeFiles/topdash.dir/topdash_qmltyperegistrations.cpp.o:
 
+CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o:
+
 /usr/include/qt6/QtCore/qfile.h:
 
 /usr/include/c++/15.2.1/bits/fs_path.h:
@@ -12802,6 +12806,8 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/CalendarView_qml.cpp.o:
 
 /usr/include/qt6/QtCore/QFileSystemWatcher:
 
+/usr/include/qt6/QtCore/QLockFile:
+
 /usr/include/qt6/QtCore/QRect:
 
 /usr/include/qt6/QtCore/QSizeF:
@@ -13057,5 +13063,3 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o
 CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/TimeCard_qml.cpp.o:
 
 CMakeFiles/topdash.dir/src/systeminfo.cpp.o:
-
-CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o:

@@ -24,11 +24,18 @@ Item {
     property color  cBorder:      "#444444"
     property int    cBorderWidth: 2
     property int    cRadius:      0
+    property int    hoverAnimMs:  140
+    property int    dateHoverDelayMs: 400
 
     property date   today:       new Date()
     property int    viewYear:    today.getFullYear()
     property int    viewMonth:   today.getMonth()    // 0-11
     property int    selectedDay: today.getDate()
+    property bool   dateHoverActive: false
+    property real   dateHoverCenterX: 0
+    property real   dateHoverTopY: 0
+    property string dateHoverText: ""
+    property string dateHoverKey: ""
 
     property string selectedKey: viewYear + "-" + pad2(viewMonth + 1) + "-" + pad2(selectedDay)
     property string selectedDisplayDate: Qt.formatDate(
@@ -38,11 +45,38 @@ Item {
     function daysInMonth(y, m0)  { return new Date(y, m0 + 1, 0).getDate() }
     function firstWeekday(y, m0) { return new Date(y, m0, 1).getDay() }
     function pad2(n)             { return (n < 10 ? "0" : "") + n }
+    function formatNumericDate(d) {
+        return pad2(d.getMonth() + 1) + "/" + pad2(d.getDate()) + "/" + d.getFullYear()
+    }
+    function setDateHover(cell, d) {
+        const pos = cell.mapToItem(root, cell.width / 2, 0)
+        root.dateHoverCenterX = pos.x
+        root.dateHoverTopY = pos.y
+        root.dateHoverText = formatNumericDate(d)
+        root.dateHoverKey = root.dateHoverText
+        root.dateHoverActive = false
+        dateHoverTimer.restart()
+    }
+    function clearDateHover(key) {
+        if (key !== root.dateHoverKey) {
+            return
+        }
+        dateHoverTimer.stop()
+        root.dateHoverActive = false
+        root.dateHoverKey = ""
+    }
     function refreshToToday() {
         root.today = new Date()
         root.viewYear = root.today.getFullYear()
         root.viewMonth = root.today.getMonth()
         root.selectedDay = root.today.getDate()
+    }
+
+    Timer {
+        id: dateHoverTimer
+        interval: root.dateHoverDelayMs
+        repeat: false
+        onTriggered: root.dateHoverActive = root.dateHoverText.length > 0
     }
 
     // No implicitHeight override -- let the parent layout control our height
@@ -189,6 +223,7 @@ Item {
                         if (dayNum < 1) return prevMonthDayNum + dayNum
                         return dayNum - calGrid.dim
                     }
+                    property date cellDate: new Date(root.viewYear, root.viewMonth, dayNum)
 
                     Rectangle {
                         anchors.centerIn: parent
@@ -214,11 +249,46 @@ Item {
                         anchors.fill: parent
                         hoverEnabled: true
                         enabled: inMonth
+                        onEntered: root.setDateHover(parent, cellDate)
+                        onExited: root.clearDateHover(root.formatNumericDate(cellDate))
                         onClicked: root.selectedDay = dayNum
                     }
                 }
             }
         }
 
+    }
+
+    Rectangle {
+        id: dateHoverPreview
+        readonly property int sidePadding: 10
+
+        z: 100
+        visible: root.dateHoverActive
+        opacity: visible ? 1.0 : 0.0
+        width: dateHoverLabel.implicitWidth + sidePadding * 2
+        height: Math.max(24, dateHoverLabel.implicitHeight + 8)
+        x: Math.max(0, Math.min(root.width - width, root.dateHoverCenterX - width / 2))
+        y: Math.max(0, root.dateHoverTopY - height - 8)
+        radius: height / 2
+        color: root.cBg
+        border.width: root.cBorderWidth
+        border.color: root.cFg
+
+        Behavior on opacity {
+            NumberAnimation {
+                duration: root.hoverAnimMs
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        Text {
+            id: dateHoverLabel
+            anchors.centerIn: parent
+            text: root.dateHoverText
+            color: root.cFg
+            font.family: root.cFont
+            font.pixelSize: root.cFontSize * 0.78
+        }
     }
 }

@@ -434,6 +434,7 @@ CMakeFiles/topdash.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/fs_dir.h \
  /usr/include/c++/15.2.1/bits/fs_ops.h /usr/include/qt6/QtCore/qfile.h \
  /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/QFile \
+ /usr/include/qt6/QtCore/QLockFile /usr/include/qt6/QtCore/qlockfile.h \
  /usr/include/qt6/QtCore/QStringList /usr/include/qt6/QtGui/QRegion \
  /usr/include/qt6/QtCore/QStandardPaths \
  /usr/include/qt6/QtCore/qstandardpaths.h \

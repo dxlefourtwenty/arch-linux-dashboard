@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QDir>
 #include <QFile>
+#include <QLockFile>
 #include <QStringList>
 #include <QRegion>
 #include <QStandardPaths>
@@ -65,6 +66,16 @@ static QString tabCommandPath()
     }
 
     return "/tmp/topdash-tab";
+}
+
+static QString instanceLockPath()
+{
+    const QString runtimePath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    if (!runtimePath.isEmpty()) {
+        return runtimePath + "/topdash.lock";
+    }
+
+    return "/tmp/topdash.lock";
 }
 
 static int tabIndexFromFile(const QString &path)
@@ -163,6 +174,12 @@ int main(int argc, char *argv[])
     qputenv("QML_XHR_ALLOW_FILE_READ", "1");
 
     QGuiApplication app(argc, argv);
+    QLockFile instanceLock(instanceLockPath());
+    instanceLock.setStaleLockTime(0);
+    if (!instanceLock.tryLock()) {
+        return 0;
+    }
+
     QQmlApplicationEngine engine;
     SystemInfo sys;
     MediaInfo media;
