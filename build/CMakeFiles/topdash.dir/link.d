@@ -1,7 +1,7 @@
 topdash: \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o \
   CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o \
   CMakeFiles/topdash.dir/src/main.cpp.o \
   CMakeFiles/topdash.dir/src/systeminfo.cpp.o \
@@ -23,42 +23,46 @@ topdash: \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/PerformanceView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o \
   CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o \
-  /usr/lib/libQt6Concurrent.so.6.11.0 \
-  /usr/lib/libQt6Quick.so.6.11.0 \
-  /usr/lib/libLayerShellQtInterface.so.6.6.4 \
-  /usr/lib/libQt6OpenGL.so.6.11.0 \
-  /usr/lib/libQt6Qml.so.6.11.0 \
-  /usr/lib/libQt6Network.so.6.11.0 \
-  /usr/lib/libQt6Gui.so.6.11.0 \
+  /usr/lib/libQt6Concurrent.so.6.11.1 \
+  /usr/lib/libQt6Quick.so.6.11.1 \
+  /usr/lib/libLayerShellQtInterface.so.6.6.5 \
+  /usr/lib/libQt6OpenGL.so.6.11.1 \
+  /usr/lib/libQt6Qml.so.6.11.1 \
+  /usr/lib/libQt6Network.so.6.11.1 \
+  /usr/lib/libQt6Gui.so.6.11.1 \
   /usr/lib/libGLX.so \
   /usr/lib/libOpenGL.so \
-  /usr/lib/libQt6Core.so.6.11.0 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
+  /usr/lib/libQt6Core.so.6.11.1 \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so.1 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so \
   /usr/lib/libc.so.6 \
   /usr/lib/libc_nonshared.a \
   /usr/lib/ld-linux-x86-64.so.2 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so.1 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so.1 \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o \
   /usr/lib/libQt6QmlMeta.so.6 \
   /usr/lib/libQt6QmlModels.so.6 \
   /usr/lib/ld-linux-x86-64.so.2 \
@@ -113,6 +117,8 @@ topdash: \
   /usr/lib/libproxy/libpxbackend-1.0.so \
   /usr/lib32/libgobject-2.0.so.0 \
   /usr/lib/libgobject-2.0.so.0 \
+  /usr/lib32/libbrotlienc.so.1 \
+  /usr/lib/libbrotlienc.so.1 \
   /usr/lib32/libexpat.so.1 \
   /usr/lib/libexpat.so.1 \
   /usr/lib32/libxcb.so.1 \
@@ -161,11 +167,11 @@ topdash: \
   /usr/lib32/libblkid.so.1 \
   /usr/lib/libblkid.so.1
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/Scrt1.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o:
 
 CMakeFiles/topdash.dir/topdash_autogen/mocs_compilation.cpp.o:
 
@@ -209,55 +215,63 @@ CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.cpp.o:
 
 CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o:
 
-/usr/lib/libQt6Concurrent.so.6.11.0:
+/usr/lib/libQt6Concurrent.so.6.11.1:
 
-/usr/lib/libQt6Quick.so.6.11.0:
+/usr/lib/libQt6Quick.so.6.11.1:
 
-/usr/lib/libLayerShellQtInterface.so.6.6.4:
+/usr/lib/libLayerShellQtInterface.so.6.6.5:
 
-/usr/lib/libQt6OpenGL.so.6.11.0:
+/usr/lib/libQt6OpenGL.so.6.11.1:
 
-/usr/lib/libQt6Qml.so.6.11.0:
+/usr/lib/libQt6Qml.so.6.11.1:
 
-/usr/lib/libQt6Network.so.6.11.0:
+/usr/lib/libQt6Network.so.6.11.1:
 
-/usr/lib/libQt6Gui.so.6.11.0:
+/usr/lib/libQt6Gui.so.6.11.1:
 
 /usr/lib/libGLX.so:
 
 /usr/lib/libOpenGL.so:
 
-/usr/lib/libQt6Core.so.6.11.0:
+/usr/lib/libQt6Core.so.6.11.1:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so:
 
 /usr/lib/libm.so.6:
 
 /usr/lib/libmvec.so.1:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so.1:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so.1:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic_asneeded.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libatomic.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libc.so:
 
 /usr/lib/libc.so.6:
 
@@ -265,21 +279,21 @@ CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o:
 
 /usr/lib/ld-linux-x86-64.so.2:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libgcc_s.so.1:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libgcc_s.so.1:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtendS.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o:
+/usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crtn.o:
 
 /usr/lib/libQt6QmlMeta.so.6:
 
@@ -388,6 +402,10 @@ CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o:
 /usr/lib32/libgobject-2.0.so.0:
 
 /usr/lib/libgobject-2.0.so.0:
+
+/usr/lib32/libbrotlienc.so.1:
+
+/usr/lib/libbrotlienc.so.1:
 
 /usr/lib32/libexpat.so.1:
 

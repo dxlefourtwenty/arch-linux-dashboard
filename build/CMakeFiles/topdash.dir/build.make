@@ -593,16 +593,16 @@ topdash: CMakeFiles/topdash.dir/build/.rcc/qmlcache/topdash_qml/WeatherView_qml.
 topdash: CMakeFiles/topdash.dir/build/.qt/rcc/qrc_topdash_raw_qml_0.cpp.o
 topdash: CMakeFiles/topdash.dir/build.make
 topdash: CMakeFiles/topdash.dir/compiler_depend.ts
-topdash: /usr/lib/libQt6Concurrent.so.6.11.0
-topdash: /usr/lib/libQt6Quick.so.6.11.0
-topdash: /usr/lib/libLayerShellQtInterface.so.6.6.4
-topdash: /usr/lib/libQt6OpenGL.so.6.11.0
-topdash: /usr/lib/libQt6Qml.so.6.11.0
-topdash: /usr/lib/libQt6Network.so.6.11.0
-topdash: /usr/lib/libQt6Gui.so.6.11.0
+topdash: /usr/lib/libQt6Concurrent.so.6.11.1
+topdash: /usr/lib/libQt6Quick.so.6.11.1
+topdash: /usr/lib/libLayerShellQtInterface.so.6.6.5
+topdash: /usr/lib/libQt6OpenGL.so.6.11.1
+topdash: /usr/lib/libQt6Qml.so.6.11.1
+topdash: /usr/lib/libQt6Network.so.6.11.1
+topdash: /usr/lib/libQt6Gui.so.6.11.1
 topdash: /usr/lib/libGLX.so
 topdash: /usr/lib/libOpenGL.so
-topdash: /usr/lib/libQt6Core.so.6.11.0
+topdash: /usr/lib/libQt6Core.so.6.11.1
 topdash: CMakeFiles/topdash.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dxle/builds/dashboard/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX executable topdash"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/topdash.dir/link.txt --verbose=$(VERBOSE)

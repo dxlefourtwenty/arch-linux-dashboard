@@ -443,8 +443,9 @@ Window {
     color: "transparent"
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
+    LS.Window.scope: "dashboard"
     LS.Window.margins.top: win.layerTopMargin
-    LS.Window.layer: LS.Window.LayerOverlay
+    LS.Window.layer: LS.Window.LayerTop
     LS.Window.anchors: LS.Window.AnchorTop | LS.Window.AnchorLeft | LS.Window.AnchorRight
     LS.Window.exclusionZone: -1
     LS.Window.keyboardInteractivity: open

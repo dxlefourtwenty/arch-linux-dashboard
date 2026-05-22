@@ -207,6 +207,11 @@ int main(int argc, char *argv[])
     std::function<void()> updateInputMask;
 
     if (auto *window = qobject_cast<QWindow *>(root)) {
+        if (auto *layerShellWindow = LayerShellQt::Window::get(window)) {
+            layerShellWindow->setScope("dashboard");
+            layerShellWindow->setLayer(LayerShellQt::Window::LayerTop);
+        }
+
         if (QScreen *screen = preferredScreen(app, cfg.outputName())) {
             window->setScreen(screen);
             if (auto *layerShellWindow = LayerShellQt::Window::get(window)) {

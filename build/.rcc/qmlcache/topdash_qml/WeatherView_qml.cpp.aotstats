@@ -83,7 +83,7 @@
                             "durationMicroseconds": 0,
                             "functionName": "updateLocationSelectorWidth",
                             "line": 116,
-                            "message": "Cannot load property length from (component in /home/dxle/builds/dashboard/qml/WeatherView.qml)::locationOptions with type QVariant."
+                            "message": "Cannot load property length from WeatherView::locationOptions with type QVariant."
                         },
                         {
                             "codegenResult": 2,
